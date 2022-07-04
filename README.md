@@ -41,6 +41,11 @@ Vue、Axios、Vue Router、Ant Design of Vue、Webpack、Less、Vuex、ES6、Nod
 
   ![](http://76.nanshengbbs.top/bbs-管理系统功能结构图2.8.2.png)
 
+## 项目结构
+### 后端项目结构（SpringBoot）
+
+### 前端项目结构（Vue）
+
 ## 版本更新
 
 如果可以帮忙点一次`Star`和`Fork`
