@@ -138,7 +138,7 @@
 
 - **仪表盘**
 
-  ![](http://76.nanshengbbs.top/ns-manage-dashboard.png)
+  ![](http://76.nanshengbbs.top/ns-manage-dashboard1.png)
 
 - **角色管理**
 
