@@ -21,6 +21,9 @@
 - **前端：**
   Vue、Axios、Vue Router、Ant Design of Vue、Webpack、Less、Vuex、ES6、Node.js、mavonEditor、ECharts、...
 
+## 项目部署教程
+去部署：[安装部署教程](https://github.com/maliangnansheng/bbs-springboot/wiki/%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B)
+
 ## 在线演示
 
 `手机上也有不错的展示效果...`
@@ -73,37 +76,6 @@
 | :------: | :----------------------------------------------------------: |
 | `github` | 后端源码：<https://github.com/maliangnansheng/bbs-springboot><br>前端源码：<https://github.com/maliangnansheng/bbs-vue-ui> |
 |  `码云`  |                                                              |
-
-## 引用本项目流程
-
-`推荐使用IDEA`
-
-### 通用操作
-
-- 下载自己需要的版本
-
-- 将bbs_test.sql导入MySQL数据库：
-
-  - 创建数据库bbs_test
-
-    ```sql
-    create database bbs_test;
-    ```
-
-  - 进入bbs_test数据库
-
-    ```sql
-    use bbs_test;
-    ```
-
-  - 将bbs_test.sql导入bbs_test数据库
-
-    ```sql
-    source 你的路径\bbs_test.sql;
-    ```
-
-### 针对idea
-
 
 ## 静态展示
 
