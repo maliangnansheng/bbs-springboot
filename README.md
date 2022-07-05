@@ -1,3 +1,5 @@
+> 推荐：[我的另一个基于【ssm】的论坛项目](https://github.com/maliangnansheng/bbs-ssm)
+
 # Nan's BBS 南生论坛（SpringBoot+Vue）
 
 [![](https://img.shields.io/badge/Author-马亮南生-orange.svg)](http://blog.nanshengbbs.top/)
