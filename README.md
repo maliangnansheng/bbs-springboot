@@ -9,7 +9,7 @@
 
 ## 仓库说明
 
-> 本仓库`bbs-springboot`是【南生论坛3.0.0】前后端分离项目的后端项目，对应的前端项目仓库移步至：[bbs-vue-ui](https://github.com/maliangnansheng/bbs-vue-ui)
+> 本仓库`bbs-springboot`是【南生论坛3.0.0】前后端分离项目的**后端项目**，对应的**前端项目**仓库移步至：[bbs-vue-ui](https://github.com/maliangnansheng/bbs-vue-ui)
 
 ## 关于项目
 
