@@ -63,13 +63,9 @@
 
 如果可以帮忙点一次`Star`和`Fork`
 
-|  版本号  | 框架           | 下载地址                                                     | 详情说明                                                     |   时间    |
-| :------: | -------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | :-------: |
-| `v3.0.0` | SpringBoot+Vue |                                                              | [v3.0.0](http://bbs.nanshengbbs.top/detail/40)               | `2022.06` |
-| `v2.8.*` | SSM            | github：[bbs-ssmv2.8.2](https://github.com/maliangnansheng/bbs-ssm/releases/download/v2.8.2/bbs-ssmv2.8.2.zip)<br/>gitee：[bbs-ssmv2.8.2](https://gitee.com/maliangnansheng/bbs-ssm/attach_files/409400/download) | [v2.8.2](http://www.nanshengbbs.top/article.jsp?fid=20200604232448-f3a5d3d45d054d12ab3adb34103fb420)<br>[v2.8.1](http://www.nanshengbbs.top/article.jsp?fid=20200501225212-02c54864c9864f85a583630c6e687fde) | `2020.06` |
-|  `v2.6`  | SSM            | github：[bbs-ssmv2.6](https://github.com/maliangnansheng/bbs-ssm/releases/download/v2.6/bbs-ssmv2.6.zip)<br/>gitee：[bbs-ssmv2.6](https://gitee.com/maliangnansheng/bbs-ssm/attach_files/322557/download) | [v2.6](http://blog.nanshengbbs.top/2020/01/06/南生论坛页面静态展示v2-6/) | `2019.11` |
-|  `v2.0`  | SSM            | github：[bbs-ssmv2.0](https://github.com/maliangnansheng/bbs-ssm/releases/download/v2.0/bbs-ssmv2.0.zip)<br/>gitee：[bbs-ssmv2.0](https://gitee.com/maliangnansheng/bbs-ssm/attach_files/322579/download) | [v2.0](http://blog.nanshengbbs.top/2019/12/19/南生论坛页面静态展示/) | `2019.05` |
-|  `v1.0`  | SSM            | github：[bbs-ssmv1.0](https://github.com/maliangnansheng/bbs-ssm/releases/download/v1.0/bbs-ssmv1.0.zip)<br/>gitee：[bbs-ssmv1.0](https://gitee.com/maliangnansheng/bbs-ssm/attach_files/322556/download) | [v1.0](http://blog.nanshengbbs.top/2019/12/19/南生论坛页面静态展示/) | `2018.0`  |
+|  版本号  | 框架           | 下载地址                                                     | 详情说明                                       |   时间    |
+| :------: | -------------- | :----------------------------------------------------------- | :--------------------------------------------- | :-------: |
+| `v3.0.0` | SpringBoot+Vue | 后端源码(`github`)：[bbs-springboot](https://github.com/maliangnansheng/bbs-springboot)<br/>前端源码(`github`)：[bbs-vue-ui](https://github.com/maliangnansheng/bbs-vue-ui)<br/>后端源码(`码云`)：[bbs-springboot](https://gitee.com/maliangnansheng/bbs-springboot)<br/>前端源码(`码云`)：[bbs-vue-ui](https://gitee.com/maliangnansheng/bbs-vue-ui) | [v3.0.0](http://bbs.nanshengbbs.top/detail/40) | `2022.06` |
 
 ## 项目源码
 
