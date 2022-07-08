@@ -29,7 +29,11 @@
 
 ## 项目部署教程
 
-去部署：[安装部署教程](https://github.com/maliangnansheng/bbs-springboot/wiki/%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B)
+`本地部署：`
+
+[【后端】安装部署教程](https://github.com/maliangnansheng/bbs-springboot/wiki/%E3%80%90%E5%89%8D%E7%AB%AF%E3%80%91%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B)
+
+[【前端】安装部署教程](https://github.com/maliangnansheng/bbs-springboot/wiki/%E3%80%90%E5%89%8D%E7%AB%AF%E3%80%91%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B)
 
 ## 在线演示
 
