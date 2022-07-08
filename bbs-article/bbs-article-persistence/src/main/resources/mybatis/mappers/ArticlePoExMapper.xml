@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liang.bbs.article.persistence.mapper.ArticlePoExMapper">
+    <select id="selectUserReadCount" parameterType="java.util.List" resultType="com.liang.bbs.article.facade.dto.ArticleReadDTO">
+        select ful.user_id as userId, coalesce(sum(fa.pv), 0) as articleReadCount
+        from fs_user_level ful left join fs_article fa on ful.user_id = fa.create_user
+        where ful.user_id in
+            <foreach item="item" index="index" collection="userIds" open="(" separator="," close=" )">
+                #{item}
+            </foreach>
+        group by userId
+    </select>
+
+</mapper>

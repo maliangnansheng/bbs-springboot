@@ -1,0 +1,506 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.4.3</version>
+    </parent>
+
+    <groupId>com.liang</groupId>
+    <artifactId>ns-bbs</artifactId>
+    <packaging>pom</packaging>
+    <version>${revision}</version>
+
+    <modules>
+        <module>bbs-rest</module>
+        <module>bbs-common</module>
+        <module>bbs-user</module>
+        <module>bbs-article</module>
+    </modules>
+
+    <!-- 统一版本管理 -->
+    <properties>
+        <!-- 部门jar包版本依赖（如果不是“revision”， 会报“Properties in parent definition are prohibited”） -->
+        <revision>3.0.0-SNAPSHOT</revision>
+
+        <!-- 南生系列版本号 -->
+        <nansheng-common.version>1.0.0-SNAPSHOT</nansheng-common.version>
+        <nansheng-mybatis-generator.version>1.0.0-SNAPSHOT</nansheng-mybatis-generator.version>
+        <ns-manage.version>1.0.0-SNAPSHOT</ns-manage.version>
+
+        <!-- 三方jar包版本依赖 -->
+        <swagger2.version>3.0.0</swagger2.version>
+        <knife4j.version>3.0.2</knife4j.version>
+        <pagehelper-spring-boot-starter.version>1.3.0</pagehelper-spring-boot-starter.version>
+        <mysql-connector-java.version>8.0.19</mysql-connector-java.version>
+        <druid-spring-boot-starter.version>1.1.21</druid-spring-boot-starter.version>
+        <mybatis-generator-maven-plugin.version>1.3.7</mybatis-generator-maven-plugin.version>
+        <mybatis-generator-plugin.version>1.3.10</mybatis-generator-plugin.version>
+        <dubbo-spring-boot-starter.version>2.7.5</dubbo-spring-boot-starter.version>
+        <zookeeper.version>3.4.14</zookeeper.version>
+        <curator.version>4.2.0</curator.version>
+        <mybatis-spring-boot-starter.version>2.1.1</mybatis-spring-boot-starter.version>
+        <mybatis.version>3.5.4</mybatis.version>
+        <lombok.version>1.18.12</lombok.version>
+        <fastjson.version>1.2.71</fastjson.version>
+        <commons-lang3.version>3.12.0</commons-lang3.version>
+        <mapstruct.version>1.3.1.Final</mapstruct.version>
+        <google-guava.version>27.1-jre</google-guava.version>
+        <commons-pool2.version>2.8.0</commons-pool2.version>
+        <commons.collections4.version>4.4</commons.collections4.version>
+        <redisson.version>3.12.3</redisson.version>
+        <spring-boot-starter-data-redis.version>2.4.5</spring-boot-starter-data-redis.version>
+        <springloaded.version>1.2.6.RELEASE</springloaded.version>
+        <apache-httpclient.version>4.5.13</apache-httpclient.version>
+        <recketmq.version>2.0.3</recketmq.version>
+        <maven-assembly-plugin.version>3.3.0</maven-assembly-plugin.version>
+        <spring-boot-starter-data-mongodb.version>2.6.7</spring-boot-starter-data-mongodb.version>
+        <validation-api.version>2.0.1.Final</validation-api.version>
+        <java-jwt.version>3.15.0</java-jwt.version>
+        <shiro-spring.version>1.7.1</shiro-spring.version>
+        <transmittable-thread-local.version>2.11.4</transmittable-thread-local.version>
+        <hutool-all.version>5.6.3</hutool-all.version>
+        <thumbnailator.version>0.4.14</thumbnailator.version>
+        <qiniu-java-sdk.version>7.6.0</qiniu-java-sdk.version>
+        <spring-boot-starter-mail.version>2.5.0</spring-boot-starter-mail.version>
+        <aliyun-java-sdk-core.version>4.5.20</aliyun-java-sdk-core.version>
+        <aliyun-java-sdk-dysmsapi.version>2.1.0</aliyun-java-sdk-dysmsapi.version>
+        <alipay-sdk-java.version>3.4.27.ALL</alipay-sdk-java.version>
+        <maven-compiler-plugin.version>3.5.1</maven-compiler-plugin.version>
+        <maven-flatten.version>1.1.0</maven-flatten.version>
+        <maven-surefire-plugin.version>2.5</maven-surefire-plugin.version>
+        <rocketmq-spring-boot-starter.version>2.2.1</rocketmq-spring-boot-starter.version>
+
+        <!-- 指定时间格式 -->
+        <maven.build.timestamp.format>yyyyMMddHHmmss</maven.build.timestamp.format>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <!-- 变量占位符 -->
+        <resource.delimiter>${}</resource.delimiter>
+    </properties>
+
+    <!-- 依赖版本管理 -->
+    <dependencyManagement>
+        <dependencies>
+            <!-- 南生系列公共依赖 -->
+            <dependency>
+                <groupId>com.liang</groupId>
+                <artifactId>nansheng-common</artifactId>
+                <version>${nansheng-common.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.liang</groupId>
+                <artifactId>nansheng-mybatis-generator</artifactId>
+                <version>${nansheng-mybatis-generator.version}</version>
+            </dependency>
+
+            <!-- 南生运营依赖 -->
+            <dependency>
+                <groupId>com.liang</groupId>
+                <artifactId>manage-auth-facade</artifactId>
+                <version>${ns-manage.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.liang</groupId>
+                <artifactId>manage-concern-facade</artifactId>
+                <version>${ns-manage.version}</version>
+            </dependency>
+
+            <!-- 本工程各模块依赖 -->
+            <dependency>
+                <groupId>com.liang</groupId>
+                <artifactId>bbs-common</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.liang</groupId>
+                <artifactId>bbs-album-facade</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.liang</groupId>
+                <artifactId>bbs-album-persistence</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.liang</groupId>
+                <artifactId>bbs-article-facade</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.liang</groupId>
+                <artifactId>bbs-article-persistence</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.liang</groupId>
+                <artifactId>bbs-user-facade</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.liang</groupId>
+                <artifactId>bbs-user-persistence</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <!-- redis需要 -->
+            <dependency>
+                <groupId>org.redisson</groupId>
+                <artifactId>redisson</artifactId>
+                <version>${redisson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-data-redis</artifactId>
+                <version>${spring-boot-starter-data-redis.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpclient</artifactId>
+                <version>${apache-httpclient.version}</version>
+            </dependency>
+
+            <!-- pagehelper分页 -->
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper-spring-boot-starter</artifactId>
+                <version>${pagehelper-spring-boot-starter.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.mybatis.spring.boot</groupId>
+                        <artifactId>mybatis-spring-boot-starter</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <!-- 生成API接口文档 -->
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>${swagger2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-spring-ui</artifactId>
+                <version>${knife4j.version}</version>
+            </dependency>
+
+            <!-- mysql、druid、mybatis -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql-connector-java.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${druid-spring-boot-starter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mybatis.generator</groupId>
+                <artifactId>mybatis-generator-maven-plugin</artifactId>
+                <version>${mybatis-generator-maven-plugin.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis-spring-boot-starter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis</artifactId>
+                <version>${mybatis.version}</version>
+            </dependency>
+
+            <!-- dubbo需要 -->
+            <dependency>
+                <groupId>org.apache.dubbo</groupId>
+                <artifactId>dubbo-spring-boot-starter</artifactId>
+                <version>${dubbo-spring-boot-starter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.zookeeper</groupId>
+                <artifactId>zookeeper</artifactId>
+                <version>${zookeeper.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.curator</groupId>
+                <artifactId>curator-recipes</artifactId>
+                <version>${curator.version}</version>
+            </dependency>
+
+            <!-- 中间件rocketmq -->
+            <dependency>
+                <groupId>org.apache.rocketmq</groupId>
+                <artifactId>rocketmq-spring-boot-starter</artifactId>
+                <version>${recketmq.version}</version>
+            </dependency>
+
+            <!-- 介于关系数据库和非关系数据库之间的数据库mongodb -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-data-mongodb</artifactId>
+                <version>${spring-boot-starter-data-mongodb.version}</version>
+            </dependency>
+
+            <!-- 避免过多的创建连接对象、自动处理最大空闲数量，避免自己处理线程问题等等 -->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-pool2</artifactId>
+                <version>${commons-pool2.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commons-lang3.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct-jdk8</artifactId>
+                <version>${mapstruct.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${google-guava.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>${maven-assembly-plugin.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.validation</groupId>
+                <artifactId>validation-api</artifactId>
+                <version>${validation-api.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.auth0</groupId>
+                <artifactId>java-jwt</artifactId>
+                <version>${java-jwt.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-spring</artifactId>
+                <version>${shiro-spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool-all.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-collections4</artifactId>
+                <version>${commons.collections4.version}</version>
+            </dependency>
+
+            <!-- 解决 ThreadLocal 父子线程数据传递问题 -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>transmittable-thread-local</artifactId>
+                <version>${transmittable-thread-local.version}</version>
+            </dependency>
+
+            <!-- thumbnailator图片压缩 -->
+            <dependency>
+                <groupId>net.coobird</groupId>
+                <artifactId>thumbnailator</artifactId>
+                <version>${thumbnailator.version}</version>
+            </dependency>
+
+            <!-- 七牛云 -->
+            <dependency>
+                <groupId>com.qiniu</groupId>
+                <artifactId>qiniu-java-sdk</artifactId>
+                <version>${qiniu-java-sdk.version}</version>
+            </dependency>
+
+            <!-- 邮件 -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-mail</artifactId>
+                <version>${spring-boot-starter-mail.version}</version>
+            </dependency>
+
+            <!-- 短信-->
+            <dependency>
+                <groupId>com.aliyun</groupId>
+                <artifactId>aliyun-java-sdk-core</artifactId>
+                <version>${aliyun-java-sdk-core.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.aliyun</groupId>
+                <artifactId>aliyun-java-sdk-dysmsapi</artifactId>
+                <version>${aliyun-java-sdk-dysmsapi.version}</version>
+            </dependency>
+
+            <!-- 支付 -->
+            <dependency>
+                <groupId>com.alipay.sdk</groupId>
+                <artifactId>alipay-sdk-java</artifactId>
+                <version>${alipay-sdk-java.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.rocketmq</groupId>
+                <artifactId>rocketmq-spring-boot-starter</artifactId>
+                <version>${rocketmq-spring-boot-starter.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <!-- 插件依赖管理 -->
+    <build>
+        <plugins>
+            <!-- 子模块使用${revision}需要 -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>flatten-maven-plugin</artifactId>
+                <version>${maven-flatten.version}</version>
+                <configuration>
+                    <!-- 是否更新pom文件，记得设置为true，不然无法更新module里的pom版本号 -->
+                    <updatePomFile>true</updatePomFile>
+                    <flattenMode>resolveCiFriendliesOnly</flattenMode>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>flatten</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>flatten</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>flatten.clean</id>
+                        <phase>clean</phase>
+                        <goals>
+                            <goal>clean</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+
+        <!-- 插件依赖统一管理 -->
+        <pluginManagement>
+            <plugins>
+                <!-- mybatis逆向生成 -->
+                <plugin>
+                    <groupId>org.mybatis.generator</groupId>
+                    <artifactId>mybatis-generator-maven-plugin</artifactId>
+                    <version>${mybatis-generator-maven-plugin.version}</version>
+                    <dependencies>
+                        <dependency>
+                            <groupId>com.itfsw</groupId>
+                            <artifactId>mybatis-generator-plugin</artifactId>
+                            <version>${mybatis-generator-plugin.version}</version>
+                        </dependency>
+                        <!-- mybatis generator自定义生成注释 -->
+                        <dependency>
+                            <groupId>com.liang</groupId>
+                            <artifactId>nansheng-mybatis-generator</artifactId>
+                            <version>${nansheng-mybatis-generator.version}</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>mysql</groupId>
+                            <artifactId>mysql-connector-java</artifactId>
+                            <version>${mysql-connector-java.version}</version>
+                        </dependency>
+                    </dependencies>
+                </plugin>
+                <!-- 打成直接运行的Jar包 -->
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <dependencies>
+                        <!-- spring热部署 -->
+                        <dependency>
+                            <groupId>org.springframework</groupId>
+                            <artifactId>springloaded</artifactId>
+                            <version>${springloaded.version}</version>
+                        </dependency>
+                    </dependencies>
+                </plugin>
+
+                <!-- 执行测试用例的插件 -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>${maven-surefire-plugin.version}</version>
+                    <configuration>
+                        <skipTests>true</skipTests>
+                    </configuration>
+                </plugin>
+
+                <!-- 实现自定义打包 -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-assembly-plugin</artifactId>
+                    <configuration>
+                        <!-- maven.build.timestamp保存了maven编译时间戳 -->
+                        <finalName>${project.artifactId}-${maven.build.timestamp}</finalName>
+                        <appendAssemblyId>false</appendAssemblyId>
+                        <attach>false</attach>
+                        <descriptors>
+                            <!-- 配置描述文件路径 -->
+                            <descriptor>src/main/assembly/assembly.xml</descriptor>
+                        </descriptors>
+                    </configuration>
+                    <executions>
+                        <!-- 配置执行器 -->
+                        <execution>
+                            <id>make-assembly</id>
+                            <!-- 绑定到package生命周期阶段上 -->
+                            <phase>package</phase>
+                            <goals>
+                                <!-- 只运行一次 -->
+                                <goal>single</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+
+                <!-- 指定项目源码的 jdk版本，编译后的jdk版本，以及编码 -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>${maven-compiler-plugin.version}</version>
+                    <configuration>
+                        <source>1.8</source>
+                        <target>1.8</target>
+                        <encoding>UTF-8</encoding>
+                        <annotationProcessorPaths>
+                            <path>
+                                <groupId>org.projectlombok</groupId>
+                                <artifactId>lombok</artifactId>
+                                <version>${lombok.version}</version>
+                            </path>
+                            <path>
+                                <groupId>org.mapstruct</groupId>
+                                <artifactId>mapstruct-processor</artifactId>
+                                <version>${mapstruct.version}</version>
+                            </path>
+                        </annotationProcessorPaths>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+</project>

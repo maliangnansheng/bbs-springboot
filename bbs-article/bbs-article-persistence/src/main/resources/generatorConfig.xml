@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <!-- 数据库驱动包位置 -->
+    <context id="mysql" targetRuntime="MyBatis3">
+        <!-- 自动识别数据库关键字，默认false -->
+        <property name="autoDelimitKeywords" value="true"/>
+        <!--可以使用``包括字段名，避免字段名与sql保留字冲突报错 -->
+        <property name="beginningDelimiter" value="`"/>
+        <property name="endingDelimiter" value="`"/>
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
+
+        <!-- 逆向生成【批量】插入更新相关-start -->
+        <!--        <plugin type="com.itfsw.mybatis.generator.plugins.BatchInsertPlugin">-->
+        <!--            &lt;!&ndash; 开启后可以实现官方插件根据属性是否为空决定是否插入该字段功能！需开启allowMultiQueries=true多条sql提交操作，所以不建议使用！插件默认不开启 &ndash;&gt;-->
+        <!--            <property name="allowMultiQueries" value="false"/>-->
+        <!--        </plugin>-->
+        <!--        &lt;!&ndash; 批量更新-start &ndash;&gt;-->
+        <!--        <plugin type="com.itfsw.mybatis.generator.plugins.UpsertPlugin">-->
+        <!--            &lt;!&ndash; 支持upsertByExample，upsertByExampleSelective操作！需开启allowMultiQueries=true多条sql提交操作，所以不建议使用！插件默认不开启 &ndash;&gt;-->
+        <!--            <property name="allowMultiQueries" value="false"/>-->
+        <!--            &lt;!&ndash; 开启批量功能，支持batchUpsert,batchUpsertWithBLOBs,batchUpserSelective！这几个方法中无法支持IncrementsPlugin的方法！插件默认不开启 &ndash;&gt;-->
+        <!--            <property name="allowBatchUpsert" value="true"/>-->
+        <!--        </plugin>-->
+        <!--        &lt;!&ndash; 批量更新-end &ndash;&gt;-->
+        <!--        <plugin type="com.itfsw.mybatis.generator.plugins.ModelColumnPlugin"/>-->
+        <!-- 逆向生成【批量】插入更新相关-end -->
+
+        <!-- Lombok插件 -->
+        <plugin type="com.itfsw.mybatis.generator.plugins.LombokPlugin">
+            <!-- @Data 默认开启,同时插件会对子类自动附加@EqualsAndHashCode(callSuper = true)，@ToString(callSuper = true) -->
+            <property name="@Data" value="true"/>
+            <!-- @Builder 必须在 Lombok 版本 >= 1.18.2 的情况下开启，对存在继承关系的类自动替换成@SuperBuilder -->
+            <property name="@Builder" value="false"/>
+            <!-- @NoArgsConstructor 和 @AllArgsConstructor 使用规则和Lombok一致 -->
+            <property name="@AllArgsConstructor" value="true"/>
+            <property name="@NoArgsConstructor" value="true"/>
+            <!-- @Getter、@Setter、@Accessors 等使用规则参见官方文档 -->
+            <property name="@Accessors(chain = true)" value="false"/>
+            <!-- 临时解决IDEA工具对@SuperBuilder的不支持问题，开启后(默认未开启)插件在遇到@SuperBuilder注解时会调用ModelBuilderPlugin来生成相应的builder代码 -->
+            <property name="supportSuperBuilderForIdea" value="false"/>
+        </plugin>
+
+        <!-- 自定义注解-start -->
+        <commentGenerator type="com.liang.nansheng.mybatis.generator.QnloftCommentGenerator">
+            <!-- 定义是否生成原生注释，我们这里自定义了，所以选择false -->
+            <property name="suppressAllComments" value="false"/>
+            <!-- This property is used to specify whether MBG will include the generation timestamp in the generated comments -->
+            <property name="suppressDate" value="true"/>
+        </commentGenerator>
+        <!-- 自定义注解-end -->
+        <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/ns_bbs?characterEncoding=UTF-8&amp;useSSL=false&amp;serverTimezone=Asia/Shanghai"
+                        userId="root"
+                        password="777888">
+        </jdbcConnection>
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+        <!-- 生成模型的包名和位置 -->
+        <javaModelGenerator targetPackage="com.liang.bbs.article.persistence.entity"
+                            targetProject="./src/main/java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+        <!-- 生成的映射文件包名和位置 -->
+        <sqlMapGenerator targetPackage="mybatis/mappers" targetProject="./src/main/resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+        <!-- 生成DAO的包名和位置（mapper） -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.liang.bbs.article.persistence.mapper"
+                             targetProject="./src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+
+        <!-- table指定每个表的生成策略 -->
+        <!-- 文章 -->
+<!--        <table tableName="fs_article" enableSelectByPrimaryKey="true" enableUpdateByPrimaryKey="true"-->
+<!--               enableDeleteByPrimaryKey="true" domainObjectName="ArticlePo">-->
+<!--            <generatedKey column="id" sqlStatement="JDBC" identity="true"/>-->
+<!--            <columnOverride column="content" javaType="java.lang.String" jdbcType="VARCHAR"/>-->
+<!--            <columnOverride column="create_time" javaType="java.time.LocalDateTime"/>-->
+<!--            <columnOverride column="update_time" javaType="java.time.LocalDateTime"/>-->
+<!--        </table>-->
+
+        <!-- 评论 -->
+<!--        <table tableName="fs_comment" enableSelectByPrimaryKey="true" enableUpdateByPrimaryKey="true"-->
+<!--               enableDeleteByPrimaryKey="true" domainObjectName="CommentPo">-->
+<!--            <generatedKey column="id" sqlStatement="JDBC" identity="true"/>-->
+<!--            <columnOverride column="content" javaType="java.lang.String" jdbcType="VARCHAR"/>-->
+<!--            <columnOverride column="create_time" javaType="java.time.LocalDateTime"/>-->
+<!--            <columnOverride column="update_time" javaType="java.time.LocalDateTime"/>-->
+<!--        </table>-->
+
+<!--        &lt;!&ndash; 文章标签关系表 &ndash;&gt;-->
+<!--        <table tableName="fs_article_label" enableSelectByPrimaryKey="true" enableUpdateByPrimaryKey="true"-->
+<!--               enableDeleteByPrimaryKey="true" domainObjectName="ArticleLabelPo">-->
+<!--            <generatedKey column="id" sqlStatement="JDBC" identity="true"/>-->
+<!--            <columnOverride column="create_time" javaType="java.time.LocalDateTime"/>-->
+<!--            <columnOverride column="update_time" javaType="java.time.LocalDateTime"/>-->
+<!--        </table>-->
+
+        <!-- 标签 -->
+<!--        <table tableName="fs_label" enableSelectByPrimaryKey="true" enableUpdateByPrimaryKey="true"-->
+<!--               enableDeleteByPrimaryKey="true" domainObjectName="LabelPo">-->
+<!--            <generatedKey column="id" sqlStatement="JDBC" identity="true"/>-->
+<!--            <columnOverride column="create_time" javaType="java.time.LocalDateTime"/>-->
+<!--            <columnOverride column="update_time" javaType="java.time.LocalDateTime"/>-->
+<!--        </table>-->
+
+    </context>
+</generatorConfiguration>  
