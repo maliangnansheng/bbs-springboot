@@ -1,4 +1,4 @@
-> 推荐：[我的另一个基于【ssm】的论坛项目](https://github.com/maliangnansheng/bbs-ssm)
+> 需要学习SSM框架的童鞋去：[我的另一个基于【SSM】的论坛项目](https://github.com/maliangnansheng/bbs-ssm)
 
 # Nan's BBS 南生论坛（SpringBoot+Vue）
 
@@ -6,6 +6,10 @@
 [![](https://img.shields.io/badge/version-3.0.0-brightgreen.svg)](https://github.com/maliangnansheng/bbs-springboot)
 [![GitHub stars](https://img.shields.io/github/stars/maliangnansheng/bbs-springboot.svg?style=social&label=Stars)](https://github.com/maliangnansheng/bbs-springboot)
 [![GitHub forks](https://img.shields.io/github/forks/maliangnansheng/bbs-springboot.svg?style=social&label=Fork)](https://github.com/maliangnansheng/bbs-springboot)
+
+> 本项目完全开源
+>
+> 如果于你有用麻烦帮忙点一次`Star`和`Fork`
 
 ## 仓库说明
 
