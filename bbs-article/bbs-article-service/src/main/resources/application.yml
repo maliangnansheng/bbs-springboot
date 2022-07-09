@@ -91,7 +91,7 @@ sso:
       # SSO地址
       address: http://sso.localhost.com
 
-# 功能：解析ip地址（怎么获取自己谷歌/百度）
+# 功能：存储图片
 # 配置你自己七牛云对应的AccessKey和SecretKey（需要改成你自己的）
 qiniu:
   AccessKey: 111111111111111111111111111111
