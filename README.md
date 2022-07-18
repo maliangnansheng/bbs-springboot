@@ -101,9 +101,13 @@ or
 
   ![image](http://76.nanshengbbs.top/ns-bbs-article.png)
 
-- **标签**
+- **标签（`管理员视角`）**
 
   ![](http://76.nanshengbbs.top/ns-bbs-label.png)
+ 
+- **资源导航（`管理员视角`）**
+
+  ![](http://76.nanshengbbs.top/ns-bbs-resource.png)
 
 - **个人主页**
 
