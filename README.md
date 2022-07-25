@@ -11,12 +11,6 @@
 >
 > 如果觉得不错麻烦帮忙点一次`Star⭐️`
 
-## 联系作者
-> **商用**需要联系作者授权
-1. 在线联系作者：去 [南生闲聊](http://chat.nanshengbbs.top/)（`使用南生论坛注册的账号密码即可登录`） 聊天，问题反馈在“南生论坛”群聊或者加“马亮南生”私聊都行
-2. 加作者QQ：924818949
-3. 加作者微信：maliangnansheng
-
 ## 仓库说明
 
 > 本仓库`bbs-springboot`是【南生论坛3.0.0】前后端分离项目的**后端项目**。
@@ -35,6 +29,12 @@
   SpringBoot、Dubbo、RocketMQ、Redis、MyBatis、MySQL、MongoDB、Shiro、七牛云（图片/视频全部存于此）、...
 - **前端：**
   Vue、Axios、Vue Router、Ant Design of Vue、Webpack、Less、Vuex、ES6、Node.js、mavonEditor、ECharts、...
+
+## 联系作者
+> **商用**需要联系作者授权
+1. 在线联系作者：去 [南生闲聊](http://chat.nanshengbbs.top/)（`使用南生论坛注册的账号密码即可登录`） 聊天，问题反馈在“南生论坛”群聊或者加“马亮南生”私聊都行
+2. 加作者QQ：924818949
+3. 加作者微信：maliangnansheng
 
 ## 项目部署教程
 
