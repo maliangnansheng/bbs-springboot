@@ -69,9 +69,9 @@ public class WebConfig implements WebMvcConfigurer {
                 .excludePathPatterns(NOT_LOGIN_URLS);
 
         // 访问记录拦截器
-//        registry.addInterceptor(visitInterceptor)
-//                .addPathPatterns("/**")
-//                .excludePathPatterns(NOT_LOGIN_URLS);
+        registry.addInterceptor(visitInterceptor)
+                .addPathPatterns("/**")
+                .excludePathPatterns(NOT_LOGIN_URLS);
 
         // 消息通知拦截器
         registry.addInterceptor(notifyInterceptor)
