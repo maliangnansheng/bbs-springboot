@@ -117,16 +117,6 @@
             </dependency>
             <dependency>
                 <groupId>com.liang</groupId>
-                <artifactId>bbs-album-facade</artifactId>
-                <version>${revision}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.liang</groupId>
-                <artifactId>bbs-album-persistence</artifactId>
-                <version>${revision}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.liang</groupId>
                 <artifactId>bbs-article-facade</artifactId>
                 <version>${revision}</version>
             </dependency>
