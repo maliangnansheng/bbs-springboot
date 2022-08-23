@@ -93,6 +93,7 @@
 |  `码云`  | 后端源码：<https://gitee.com/maliangnansheng/bbs-springboot><br/>前端源码：<https://gitee.com/maliangnansheng/bbs-vue-ui> |
 
 ## 静态展示
+> 这里只浅展示部分效果，完整体验去：[http://bbs.nanshengbbs.top](http://bbs.nanshengbbs.top) - (测试账号：`椿/123456`；也可自己注册)
 
 ### 用户系统
 
