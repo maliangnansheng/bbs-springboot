@@ -97,9 +97,9 @@
 
 ### 用户系统
 
-- **首页**
+- **首页（`管理员视角`）**
 
-  ![image](http://76.nanshengbbs.top/ns-bbs-home.png)
+  ![image](http://76.nanshengbbs.top/ns-bbs-home-admin.png)
 
 - **文章详情**
 
