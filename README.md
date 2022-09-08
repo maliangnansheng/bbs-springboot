@@ -144,3 +144,7 @@
 - **反馈管理**
 
   ![](http://76.nanshengbbs.top/ns-manage-feedback.png)
+
+- **通知管理**
+
+  ![](http://76.nanshengbbs.top/ns-manage-notify.png)
