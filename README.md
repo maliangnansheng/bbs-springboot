@@ -37,6 +37,9 @@
 2. 加作者QQ：924818949
 3. 加作者微信：maliangnansheng
 
+## 使用指南
+[南生论坛使用指南](https://www.bilibili.com/video/BV1he4y1C7rk?share_source=copy_web&vd_source=1f88041e3a02d90ecf98d311908d3d8b)
+
 ## 项目部署教程
 
 `本地部署：`
