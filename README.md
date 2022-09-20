@@ -11,6 +11,9 @@
 >
 > 如果觉得不错麻烦帮忙点一次`Star⭐️`
 
+## [南生论坛项目宣传视频](https://www.bilibili.com/video/BV1ZY4y1N7W8/?vd_source=d0a5d07985a7fbbfb889c874632343c6)
+> 作者亲自制作 [点我观看](https://www.bilibili.com/video/BV1ZY4y1N7W8/?vd_source=d0a5d07985a7fbbfb889c874632343c6)
+
 ## 仓库说明
 
 > 本仓库`bbs-springboot`是【南生论坛3.0.0】前后端分离项目的**后端项目**。
