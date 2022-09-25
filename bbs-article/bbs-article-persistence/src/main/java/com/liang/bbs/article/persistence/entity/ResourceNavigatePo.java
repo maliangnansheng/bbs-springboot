@@ -1,56 +1,50 @@
 package com.liang.bbs.article.persistence.entity;
 
+import java.io.Serializable;
+import java.time.LocalDateTime;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.io.Serializable;
-import java.time.LocalDateTime;
-
 /**
- * 对应数据表为：fs_article
+ * 对应数据表为：fs_resource_navigate
  * 
- * @author W9009820
- * @date 2022/08/30 14:44
+ * @author maliang
+ * @date 2022/07/16 23:33
  */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ArticlePo implements Serializable {
+public class ResourceNavigatePo implements Serializable {
     /**
-     * 文章编号
+     * 资源导航编号
      */
     private Integer id;
 
     /**
-     * 题图
+     * 资源名字
      */
-    private String titleMap;
+    private String resourceName;
 
     /**
-     * 文章标题
+     * logo(图片)
      */
-    private String title;
+    private String logo;
 
     /**
-     * 文章内容
+     * 类别
      */
-    private String content;
+    private String category;
 
     /**
-     * 状态(-1待审核,0禁用,1启用)
+     * 描述
      */
-    private Integer state;
+    private String desc;
 
     /**
-     * 文章浏览量
+     * 链接
      */
-    private Integer pv;
-
-    /**
-     * 置顶（数字越大越置顶）
-     */
-    private Integer top;
+    private String link;
 
     /**
      * 逻辑删除(0正常,1删除)

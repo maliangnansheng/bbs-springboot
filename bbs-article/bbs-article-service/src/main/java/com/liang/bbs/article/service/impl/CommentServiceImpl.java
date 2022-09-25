@@ -7,6 +7,7 @@ import com.liang.bbs.article.facade.dto.CommentSearchDTO;
 import com.liang.bbs.article.facade.server.CommentService;
 import com.liang.bbs.article.persistence.entity.CommentPo;
 import com.liang.bbs.article.persistence.entity.CommentPoExample;
+import com.liang.bbs.article.persistence.mapper.CommentPoExMapper;
 import com.liang.bbs.article.persistence.mapper.CommentPoMapper;
 import com.liang.bbs.article.service.mapstruct.CommentMS;
 import com.liang.bbs.article.service.utils.CommentTreeUtils;
@@ -20,7 +21,6 @@ import com.liang.nansheng.common.enums.ResponseCode;
 import com.liang.nansheng.common.web.exception.BusinessException;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
-import org.apache.commons.lang3.StringUtils;
 import org.apache.dubbo.config.annotation.Reference;
 import org.apache.dubbo.config.annotation.Service;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,6 +41,9 @@ import java.util.stream.Collectors;
 public class CommentServiceImpl implements CommentService {
     @Autowired
     private CommentPoMapper commentPoMapper;
+
+    @Autowired
+    private CommentPoExMapper commentPoExMapper;
 
     @Autowired
     private CommentService commentService;
@@ -84,19 +87,9 @@ public class CommentServiceImpl implements CommentService {
      */
     @Override
     public PageInfo<CommentDTO> getLatestComment(CommentSearchDTO commentSearchDTO) {
-        CommentPoExample example = new CommentPoExample();
-        CommentPoExample.Criteria criteria = example.createCriteria().andIsDeletedEqualTo(false)
-                .andStateEqualTo(true);
-        if (StringUtils.isNotBlank(commentSearchDTO.getContent())) {
-            criteria.andContentLike("%" + commentSearchDTO.getContent() + "%");
-        }
-        if (commentSearchDTO.getCommentUser() != null) {
-            criteria.andCommentUserEqualTo(commentSearchDTO.getCommentUser());
-        }
-        example.setOrderByClause("`id` desc");
-
         PageHelper.startPage(commentSearchDTO.getCurrentPage(), commentSearchDTO.getPageSize());
-        PageInfo<CommentDTO> pageInfo = CommentMS.INSTANCE.toPage(new PageInfo<>(commentPoMapper.selectByExample(example)));
+        List<CommentPo> commentPos = commentPoExMapper.selectLatestComments(commentSearchDTO.getContent(), commentSearchDTO.getCommentUser());
+        PageInfo<CommentDTO> pageInfo = CommentMS.INSTANCE.toPage(new PageInfo<>(commentPos));
         if (CollectionUtils.isNotEmpty(pageInfo.getList())) {
             // 构建评论信息
             buildCommentInfo(pageInfo.getList(), null);
@@ -168,7 +161,7 @@ public class CommentServiceImpl implements CommentService {
         commentPo.setId(commentId);
         commentPo.setIsDeleted(true);
         commentPo.setUpdateTime(LocalDateTime.now());
-        if (commentPoMapper.updateByPrimaryKey(commentPo) <= 0) {
+        if (commentPoMapper.updateByPrimaryKeySelective(commentPo) <= 0) {
             throw BusinessException.build(ResponseCode.OPERATE_FAIL, "删除评论失败");
         }
         return true;

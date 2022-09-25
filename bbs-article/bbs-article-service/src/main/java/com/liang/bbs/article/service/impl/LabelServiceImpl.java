@@ -10,15 +10,14 @@ import com.liang.bbs.article.persistence.entity.LabelPo;
 import com.liang.bbs.article.persistence.entity.LabelPoExample;
 import com.liang.bbs.article.persistence.mapper.LabelPoMapper;
 import com.liang.bbs.article.service.mapstruct.LabelMS;
-import com.liang.bbs.article.service.utils.FileUploadUtils;
-import com.liang.bbs.article.service.utils.ImageUtils;
+import com.liang.manage.auth.facade.server.FileService;
 import com.liang.nansheng.common.auth.UserSsoDTO;
 import com.liang.nansheng.common.enums.ImageTypeEnum;
 import com.liang.nansheng.common.enums.ResponseCode;
-import com.liang.nansheng.common.utils.CommonUtils;
 import com.liang.nansheng.common.web.exception.BusinessException;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.dubbo.config.annotation.Reference;
 import org.apache.dubbo.config.annotation.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -40,11 +39,8 @@ public class LabelServiceImpl implements LabelService {
     @Autowired
     private ArticleLabelService articleLabelService;
 
-    @Autowired
-    private ImageUtils imageUtils;
-
-    @Autowired
-    private FileUploadUtils fileUploadUtils;
+    @Reference
+    private FileService fileService;
 
     /**
      * 获取标签
@@ -126,12 +122,8 @@ public class LabelServiceImpl implements LabelService {
     @Override
     public String uploadLabelLogo(byte[] bytes, String sourceFileName) {
         try {
-            // 文件没有超过限制
-            if (isFileNotTooBig(bytes)) {
-                return fileUploadUtils.fileUpload(imageUtils.pictureCut(bytes), sourceFileName, ImageTypeEnum.labelPicture.name());
-            } else {
-                throw BusinessException.build(ResponseCode.EXCEED_THE_MAX, "请上传不超过 " + CommonUtils.byteConversion(imageUtils.getFileLength()) + " 的标签Logo!");
-            }
+            // 文件上传（剪切）
+            return fileService.fileCutUpload(bytes, sourceFileName, ImageTypeEnum.labelPicture);
         } catch (Exception e) {
             log.error("标签Logo上传异常！", e);
             throw BusinessException.build(ResponseCode.OPERATE_FAIL, "标签Logo上传异常!");
@@ -151,7 +143,7 @@ public class LabelServiceImpl implements LabelService {
             throw BusinessException.build(ResponseCode.NOT_EXISTS, "参数不合规");
         }
         if (isNameExist(labelDTO.getId(), labelDTO.getLabelName())) {
-            throw BusinessException.build(ResponseCode.NAME_EXIST, "系统名重复");
+            throw BusinessException.build(ResponseCode.NAME_EXIST, "标签名重复");
         }
         labelDTO.setIsDeleted(null);
         labelDTO.setCreateUser(null);
@@ -203,24 +195,6 @@ public class LabelServiceImpl implements LabelService {
             return !labelPos.get(0).getId().equals(labelId);
         }
         return false;
-    }
-
-    /**
-     * 文件是否过大
-     *
-     * @param bytes
-     * @return
-     */
-    private Boolean isFileNotTooBig(byte[] bytes) {
-        // 当前文件大小
-        long currentFileSize = bytes.length;
-        // 上传源文件允许的最大值
-        long fileLength = imageUtils.getFileLength();
-        if (currentFileSize <= fileLength) {
-            return true;
-        } else {
-            return false;
-        }
     }
 
 }

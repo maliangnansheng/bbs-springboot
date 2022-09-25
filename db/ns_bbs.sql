@@ -3,15 +3,15 @@
 
  Source Server         : local
  Source Server Type    : MySQL
- Source Server Version : 80029
+ Source Server Version : 80019
  Source Host           : 127.0.0.1:3306
  Source Schema         : ns_bbs
 
  Target Server Type    : MySQL
- Target Server Version : 80029
+ Target Server Version : 80019
  File Encoding         : 65001
 
- Date: 09/07/2022 00:21:35
+ Date: 25/09/2022 19:24:14
 */
 
 SET NAMES utf8mb4;
@@ -22,39 +22,43 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP TABLE IF EXISTS `fs_album`;
 CREATE TABLE `fs_album`  (
-  `id` int(0) NOT NULL AUTO_INCREMENT COMMENT '相册编号',
-  `pre_id` int(0) NULL DEFAULT NULL COMMENT '前置相册id',
+  `id` int NOT NULL AUTO_INCREMENT COMMENT '相册编号',
+  `pre_id` int NULL DEFAULT NULL COMMENT '前置相册id',
   `name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '相册名称',
   `desc` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '说明',
   `photo` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '照片',
   `state` tinyint(1) NULL DEFAULT 1 COMMENT '状态(0禁用,1启用)',
   `is_deleted` tinyint(1) NULL DEFAULT NULL COMMENT '逻辑删除(0正常,1删除)',
-  `create_user` bigint(0) NULL DEFAULT NULL COMMENT '创建用户id',
-  `update_user` bigint(0) NULL DEFAULT NULL COMMENT '更新用户id',
-  `create_time` datetime(0) NULL DEFAULT NULL COMMENT '创建时间',
-  `update_time` datetime(0) NULL DEFAULT NULL COMMENT '更新时间',
+  `create_user` bigint NULL DEFAULT NULL COMMENT '创建用户id',
+  `update_user` bigint NULL DEFAULT NULL COMMENT '更新用户id',
+  `create_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
+  `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '相册' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '相册' ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of fs_album
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for fs_article
 -- ----------------------------
 DROP TABLE IF EXISTS `fs_article`;
 CREATE TABLE `fs_article`  (
-  `id` int(0) NOT NULL AUTO_INCREMENT COMMENT '文章编号',
+  `id` int NOT NULL AUTO_INCREMENT COMMENT '文章编号',
   `title_map` varchar(120) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '题图',
   `title` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '文章标题',
   `content` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL COMMENT '文章内容',
   `state` tinyint(1) NULL DEFAULT 1 COMMENT '状态(0禁用,1启用)',
-  `pv` int(0) NULL DEFAULT 0 COMMENT '文章浏览量',
-  `top` int(0) NULL DEFAULT NULL COMMENT '置顶（数字越大越置顶）',
+  `pv` int NULL DEFAULT 0 COMMENT '文章浏览量',
+  `top` int NULL DEFAULT NULL COMMENT '置顶（数字越大越置顶）',
   `is_deleted` tinyint(1) NULL DEFAULT NULL COMMENT '逻辑删除(0正常,1删除)',
-  `create_user` bigint(0) NULL DEFAULT NULL COMMENT '创建用户id',
-  `update_user` bigint(0) NULL DEFAULT NULL COMMENT '更新用户id',
-  `create_time` datetime(0) NULL DEFAULT NULL COMMENT '创建时间',
-  `update_time` datetime(0) NULL DEFAULT NULL COMMENT '更新时间',
+  `create_user` bigint NULL DEFAULT NULL COMMENT '创建用户id',
+  `update_user` bigint NULL DEFAULT NULL COMMENT '更新用户id',
+  `create_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
+  `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 42 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '文章' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 42 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '文章' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of fs_article
@@ -65,14 +69,14 @@ INSERT INTO `fs_article` VALUES (28, 'http://76.nanshengbbs.top/articleTitleMap-
 INSERT INTO `fs_article` VALUES (29, 'http://76.nanshengbbs.top/articleTitleMap-20220612233811028_eGlass.jpg', 'ImageGlass - 一款轻量而快速的Windows平台图片查看器', 'ImageGlass是一款轻量而快速的windows平台图片查看器，代码开源，支持大多数图片格式。\r\n官网地址：ImageGlass\r\nGitHub地址：d2phap/ImageGlass\r\n与许多其他功能繁多的图片浏览器相比，ImageGlass显得有些“简陋”；可也正因为这种“简陋”，ImageGlass才更适合看图，没有其他复杂的功能充斥界面。\r\nwin10自带的图片应用加载速度太慢，图片切', 1, 122, NULL, 0, 1640, 1640, '2019-06-01 11:47:16', '2022-06-12 23:38:11');
 INSERT INTO `fs_article` VALUES (30, 'http://76.nanshengbbs.top/articleTitleMap-20220612234641351_ardm.png', 'Redis免费客户端 Another Redis DeskTop Manager', '简介\r\nAnother Redis DeskTop Manager 是Redis桌面可视化工具\r\nAnother Redis DeskTop Manager是基于electron构建。目前可以运行在Windows、Linux、Mac平台。如果想学习electron的，也可以看看这个项目的源码。\r\n下载安装\r\n安装教程\r\nGitHub下载\r\n码云下载\r\n变更日志\r\n2020-06-18: SSL/T', 1, 146, NULL, 0, 1640, 1640, '2020-08-28 16:53:25', '2022-06-12 23:46:42');
 INSERT INTO `fs_article` VALUES (31, 'http://76.nanshengbbs.top/articleTitleMap-20220612234750668_hutool.jpg', 'Hutool - 一个Java工具包类库', '官网地址\r\nHutool官网\r\n参考文档\r\nAPI文档\r\n视频介绍\r\n码云地址\r\nGitHub地址\r\nHutool 是什么\r\nHutool是一个Java工具包类库，对文件、流、加密解密、转码、正则、线程、XML等JDK方法进行封装，组成各种Util工具类\r\n简介\r\nHutool是一个小而全的Java工具类库，通过静态方法封装，降低相关API的学习成本，提高工作效率，使Java拥有函数式语言般的优雅', 1, 137, NULL, 0, 1640, 1640, '2020-09-29 14:39:27', '2022-06-12 23:47:51');
-INSERT INTO `fs_article` VALUES (32, 'http://76.nanshengbbs.top/articleTitleMap-20220612234931325_ngDoc2.png', '神器 SpringDoc 横空出世！最适合 SpringBoot 的API文档工具来了！', '神器 SpringDoc 横空出世！最适合 SpringBoot 的API文档工具来了！\r\n之前在SpringBoot项目中一直使用的是SpringFox提供的Swagger库，上了下官网发现已经有接近两年没出新版本了！前几天升级了SpringBoot 2.6.x 版本，发现这个库的兼容性也越来越不好了，有的常用注解属性被废弃了居然都没提供替代！无意中发现了另一款Swagger库SpringDoc', 1, 77, NULL, 0, 1640, 1640, '2022-04-08 15:14:50', '2022-06-12 23:49:32');
+INSERT INTO `fs_article` VALUES (32, 'http://76.nanshengbbs.top/articleTitleMap-20220612234931325_ngDoc2.png', '神器 SpringDoc 横空出世！最适合 SpringBoot 的API文档工具来了！', '神器 SpringDoc 横空出世！最适合 SpringBoot 的API文档工具来了！\r\n之前在SpringBoot项目中一直使用的是SpringFox提供的Swagger库，上了下官网发现已经有接近两年没出新版本了！前几天升级了SpringBoot 2.6.x 版本，发现这个库的兼容性也越来越不好了，有的常用注解属性被废弃了居然都没提供替代！无意中发现了另一款Swagger库SpringDoc', 1, 78, NULL, 0, 1640, 1640, '2022-04-08 15:14:50', '2022-06-12 23:49:32');
 INSERT INTO `fs_article` VALUES (33, 'http://76.nanshengbbs.top/articleTitleMap-20220612235037352_红黑树.jpg', '什么是红黑树？', '面试\r\n二叉查找树（BST）具备什么特性呢？\r\n左子树上所有结点的值均小于或等于它的根结点的值。\r\n右子树上所有结点的值均大于或等于它的根结点的值。\r\n左、右子树也分别为二叉排序树。\r\n下图中这棵树，就是一颗典型的二叉查找树：\r\n查看根节点9：\r\n由于10 &gt; 9，因此查看右孩子13：\r\n由于10 &lt; 13，因此查看左孩子11：\r\n由于10 &lt; 11，因此查看左孩子10，发现10', 1, 467, NULL, 0, 1640, 1640, '2020-10-23 09:24:18', '2022-06-12 23:50:38');
 INSERT INTO `fs_article` VALUES (34, 'http://76.nanshengbbs.top/articleTitleMap-20220612235253028_spug.png', '开源运维平台：SPUG', '简介\r\n开源运维平台：面向中小型企业设计的轻量级无Agent的自动化运维平台，整合了主机管理、主机批量执行、主机在线终端、应用发布部署、在线任务计划、配置中心、监控、报警等一系列功能。\r\n特性\r\n批量执行: 主机命令在线批量执行\r\n在线终端: 主机支持浏览器在线终端登录\r\n任务计划: 灵活的在线任务计划\r\n发布部署: 支持自定义发布部署流程\r\n配置中心: 支持KV、文本、json等格式的配置\r\n监', 1, 233, NULL, 0, 1640, 1640, '2020-05-27 16:57:46', '2022-06-12 23:52:53');
 INSERT INTO `fs_article` VALUES (35, 'http://76.nanshengbbs.top/articleTitleMap-20220612235522273_rkdown.png', '南生论坛推出v2.6版本 - 支持Markdown写文章和预览', 'Disabled options\r\nTeX (Based on KaTeX);\r\nEmoji;\r\nTask lists;\r\nHTML tags decode;\r\nFlowchart and Sequence Diagram;\r\nEditor.md directory\r\neditor.md/\r\n lib/\r\n css/\r\n scss/\r\n tests/\r\n fonts/\r\n images/\r\n pl', 1, 326, NULL, 0, 1640, 1640, '2019-11-19 14:03:23', '2022-06-12 23:56:34');
 INSERT INTO `fs_article` VALUES (36, 'http://76.nanshengbbs.top/articleTitleMap-20220612235855269_新浪微博图床.png', '《新浪微博图床》本地Markdown编写更流畅, 新浪微博图床来帮忙', '用Markdown写文章，如果文章中使用了本地配图，那本地配图就要和文章一起打包，否则别人是看不到图片的\r\n如果把本地图片放到网络服务器，然后直接把图片的 url 粘贴到文章里面，就可以免除图片打包的步骤\r\n新浪微博的服务有两个为人称道的特色:\r\n一是遇到明星八卦新闻必然崩溃（明星以挤跨微博为荣！）\r\n二是图片服务器极少崩溃（微博是个好图床！）\r\n如何获取本地图片的url? 答: 将图片上传到新浪', 1, 81, NULL, 0, 1640, 1640, '2019-11-24 17:00:42', '2022-06-12 23:58:56');
 INSERT INTO `fs_article` VALUES (37, 'http://76.nanshengbbs.top/articleTitleMap-20220613000007511_cat.jpg', '南生论坛推出v2.8.1版本', 'v2.8.1版本是v3.0.1版本的中间产物（这个版本原则上不提供源码）\r\nv2.8.1在v2.6的基础上有以下更新：\r\n后台代码全部重构\r\n基本上处理代码冗余问题\r\n接口全部按REST风格重写\r\nSQL优化\r\n重写率90%\r\n前台代码优化\r\njs文件完全去html化\r\n管理系统页面重构\r\n用户系统部分界面优化\r\n评论者显示头像\r\n登录后head处以头像方式显示\r\n增加“他人中心”的数据显示\r\n重', 1, 504, NULL, 0, 1640, 1640, '2020-05-01 22:52:12', '2022-06-13 00:00:08');
 INSERT INTO `fs_article` VALUES (38, 'http://76.nanshengbbs.top/articleTitleMap-20220613000158304_76yun.png', '优化系统，提升访问效率', '发现问题\r\n网站访问效率低下，经过测试，发现主要由两个原因造成：\r\n本身云服务器的带宽不足（这个问题:tw-1f236:RMB可以解决）\r\n图片/视频文件过大，消耗大量的流量\r\n思考分析\r\n要解决以上问题可以从两个方面着手：\r\n图片/视频文件不走我们自己的服务器\r\n压缩图片/视频文件\r\n解决问题\r\n将图片/视频文件全部压缩到指定范围（自己找一个能忍受清晰度就行:fa-reddit:），避免文件过大', 1, 798, NULL, 0, 1640, 1640, '2020-06-04 23:24:48', '2022-06-13 00:01:59');
-INSERT INTO `fs_article` VALUES (39, '', 'sad', 'adasdadasd1\r\n', 1, 42, NULL, 0, 1812, 1812, '2022-06-21 14:46:24', '2022-06-23 10:51:15');
+INSERT INTO `fs_article` VALUES (39, '', 'sad', 'adasdadasd1\r\n', 0, 42, NULL, 0, 1812, 1812, '2022-06-21 14:46:24', '2022-09-25 19:23:40');
 INSERT INTO `fs_article` VALUES (40, 'http://76.nanshengbbs.top/articleTitleMap-20220621223826164_v3.0.0.png', '本系统【南生论坛v3.0.0】来了（SpringBoot + Vue）', '重要说明\r\n南生论坛v3.0.0是全新的一套系统！所有的数据表（用户、角色、权限等）都重新设计过，所以v2.8.2与v3.0.0的数据是不互通的。\r\n不过你之前在v2.8.2上注册（2022.6.11之后注册的不行）的用户信息在v3.0.0依然可以登录。\r\nv3.0.0以后所有的南生系列系统共用一套用户权限系统。\r\n目前使用同一套用户权限的有：南生论坛、南生运营、南生闲聊。\r\n如何进入旧版系统\r\n', 1, 68, 4, 0, 1640, 1640, '2022-06-21 22:32:04', '2022-06-23 10:27:48');
 INSERT INTO `fs_article` VALUES (41, 'http://76.nanshengbbs.top/articleTitleMap-20220623221450862_logo-1.png', 'PM2 一个守护进程管理器', 'PM2 是 node 进程管理工具，可以利用它来简化很多 node应用管理的繁琐任务，如性能监控、自动重启、负载均衡等，而且使用非常简单。\r\n官方\r\n官网\r\nGitHub\r\n文档\r\nPM2简介\r\nPM2原先是nodejs应用的进程管理工具，不过其良好的设计以及扩展性可以手动执行执行进程。\r\n安装\r\n最新的 PM2 版本可通过 NPM 或 Yarn 安装：\r\nnpm install pm2@late', 1, 40, 5, 0, 1640, 1640, '2022-06-23 18:32:53', '2022-06-23 22:14:51');
 
@@ -81,16 +85,16 @@ INSERT INTO `fs_article` VALUES (41, 'http://76.nanshengbbs.top/articleTitleMap-
 -- ----------------------------
 DROP TABLE IF EXISTS `fs_article_label`;
 CREATE TABLE `fs_article_label`  (
-  `id` int(0) NOT NULL AUTO_INCREMENT COMMENT '文章标签编号',
-  `article_id` int(0) NULL DEFAULT NULL COMMENT '文章id',
-  `label_id` int(0) NULL DEFAULT NULL COMMENT '标签id',
+  `id` int NOT NULL AUTO_INCREMENT COMMENT '文章标签编号',
+  `article_id` int NULL DEFAULT NULL COMMENT '文章id',
+  `label_id` int NULL DEFAULT NULL COMMENT '标签id',
   `is_deleted` tinyint(1) NULL DEFAULT NULL COMMENT '逻辑删除(0正常,1删除)',
-  `create_user` bigint(0) NULL DEFAULT NULL COMMENT '创建用户id',
-  `update_user` bigint(0) NULL DEFAULT NULL COMMENT '更新用户id',
-  `create_time` datetime(0) NULL DEFAULT NULL COMMENT '创建时间',
-  `update_time` datetime(0) NULL DEFAULT NULL COMMENT '更新时间',
+  `create_user` bigint NULL DEFAULT NULL COMMENT '创建用户id',
+  `update_user` bigint NULL DEFAULT NULL COMMENT '更新用户id',
+  `create_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
+  `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 38 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '文章标签' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 38 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '文章标签' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of fs_article_label
@@ -127,17 +131,17 @@ INSERT INTO `fs_article_label` VALUES (37, 41, 17, 0, 1640, 1640, '2022-06-23 18
 -- ----------------------------
 DROP TABLE IF EXISTS `fs_comment`;
 CREATE TABLE `fs_comment`  (
-  `id` int(0) NOT NULL AUTO_INCREMENT COMMENT '评论编号',
-  `pre_id` int(0) NULL DEFAULT NULL COMMENT '父评论id',
+  `id` int NOT NULL AUTO_INCREMENT COMMENT '评论编号',
+  `pre_id` int NULL DEFAULT NULL COMMENT '父评论id',
   `content` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL COMMENT '评论内容',
   `article_id` int(11) UNSIGNED ZEROFILL NULL DEFAULT NULL COMMENT '被评论帖子id',
   `state` tinyint(1) NULL DEFAULT 1 COMMENT '状态(0禁用,1启用)',
   `is_deleted` tinyint(1) NULL DEFAULT NULL COMMENT '逻辑删除(0正常,1删除)',
-  `comment_user` bigint(0) NULL DEFAULT NULL COMMENT '评论用户id',
-  `create_time` datetime(0) NULL DEFAULT NULL COMMENT '创建时间',
-  `update_time` datetime(0) NULL DEFAULT NULL COMMENT '更新时间',
+  `comment_user` bigint NULL DEFAULT NULL COMMENT '评论用户id',
+  `create_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
+  `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 25 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '评论' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 25 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '评论' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of fs_comment
@@ -154,14 +158,14 @@ INSERT INTO `fs_comment` VALUES (24, 0, 'good', 00000000040, 1, 0, 2206, '2022-0
 -- ----------------------------
 DROP TABLE IF EXISTS `fs_comment_like`;
 CREATE TABLE `fs_comment_like`  (
-  `id` int(0) NOT NULL AUTO_INCREMENT COMMENT '评论点赞编号',
-  `comment_id` int(0) NULL DEFAULT NULL COMMENT '评论id',
+  `id` int NOT NULL AUTO_INCREMENT COMMENT '评论点赞编号',
+  `comment_id` int NULL DEFAULT NULL COMMENT '评论id',
   `state` tinyint(1) NULL DEFAULT 1 COMMENT '状态(0取消,1点赞)',
-  `like_user` bigint(0) NULL DEFAULT NULL COMMENT '评论点赞用户id',
-  `create_time` datetime(0) NULL DEFAULT NULL COMMENT '创建时间',
-  `update_time` datetime(0) NULL DEFAULT NULL COMMENT '更新时间',
+  `like_user` bigint NULL DEFAULT NULL COMMENT '评论点赞用户id',
+  `create_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
+  `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '评论点赞' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '评论点赞' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of fs_comment_like
@@ -169,18 +173,42 @@ CREATE TABLE `fs_comment_like`  (
 INSERT INTO `fs_comment_like` VALUES (10, 19, 1, 1640, '2022-06-12 23:31:00', '2022-06-12 23:31:00');
 
 -- ----------------------------
+-- Table structure for fs_course
+-- ----------------------------
+DROP TABLE IF EXISTS `fs_course`;
+CREATE TABLE `fs_course`  (
+  `id` int NOT NULL AUTO_INCREMENT COMMENT '课程编号',
+  `title` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '课程标题',
+  `content` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '课程内容（视频）',
+  `desc` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '课程描述',
+  `cover` varchar(120) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '封面',
+  `level` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '级别（初级/中级/困难）',
+  `classify` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '专栏分类（动画/游戏...）',
+  `is_deleted` tinyint(1) NULL DEFAULT NULL COMMENT '逻辑删除(0正常,1删除)',
+  `create_user` bigint NULL DEFAULT NULL COMMENT '创建用户id',
+  `update_user` bigint NULL DEFAULT NULL COMMENT '更新用户id',
+  `create_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
+  `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '课程' ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of fs_course
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for fs_follow
 -- ----------------------------
 DROP TABLE IF EXISTS `fs_follow`;
 CREATE TABLE `fs_follow`  (
-  `id` int(0) NOT NULL AUTO_INCREMENT COMMENT '关注编号',
-  `from_user` bigint(0) NULL DEFAULT NULL COMMENT '发起关注的人',
+  `id` int NOT NULL AUTO_INCREMENT COMMENT '关注编号',
+  `from_user` bigint NULL DEFAULT NULL COMMENT '发起关注的人',
   `state` tinyint(1) NULL DEFAULT 1 COMMENT '状态(0取消,1关注)',
-  `to_user` bigint(0) NULL DEFAULT NULL COMMENT '被关注的人',
-  `create_time` datetime(0) NULL DEFAULT NULL COMMENT '创建时间',
-  `update_time` datetime(0) NULL DEFAULT NULL COMMENT '更新时间',
+  `to_user` bigint NULL DEFAULT NULL COMMENT '被关注的人',
+  `create_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
+  `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 33 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '关注' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 33 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '关注' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of fs_follow
@@ -208,16 +236,16 @@ INSERT INTO `fs_follow` VALUES (32, 1640, 1, 2199, '2022-06-22 00:11:16', '2022-
 -- ----------------------------
 DROP TABLE IF EXISTS `fs_label`;
 CREATE TABLE `fs_label`  (
-  `id` int(0) NOT NULL AUTO_INCREMENT COMMENT '标签编号',
+  `id` int NOT NULL AUTO_INCREMENT COMMENT '标签编号',
   `label_name` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '标签名字',
   `logo` varchar(120) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT 'logo(图片)',
   `is_deleted` tinyint(1) NULL DEFAULT NULL COMMENT '逻辑删除(0正常,1删除)',
-  `create_user` bigint(0) NULL DEFAULT NULL COMMENT '创建用户id',
-  `update_user` bigint(0) NULL DEFAULT NULL COMMENT '更新用户id',
-  `create_time` datetime(0) NULL DEFAULT NULL COMMENT '创建时间',
-  `update_time` datetime(0) NULL DEFAULT NULL COMMENT '更新时间',
+  `create_user` bigint NULL DEFAULT NULL COMMENT '创建用户id',
+  `update_user` bigint NULL DEFAULT NULL COMMENT '更新用户id',
+  `create_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
+  `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 21 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '标签' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 21 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '标签' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of fs_label
@@ -244,14 +272,14 @@ INSERT INTO `fs_label` VALUES (20, 'PM2', 'http://76.nanshengbbs.top/labelPictur
 -- ----------------------------
 DROP TABLE IF EXISTS `fs_like`;
 CREATE TABLE `fs_like`  (
-  `id` int(0) NOT NULL AUTO_INCREMENT COMMENT '点赞编号',
-  `article_id` int(0) NULL DEFAULT NULL COMMENT '文章id',
+  `id` int NOT NULL AUTO_INCREMENT COMMENT '点赞编号',
+  `article_id` int NULL DEFAULT NULL COMMENT '文章id',
   `state` tinyint(1) NULL DEFAULT 1 COMMENT '状态(0取消,1点赞)',
-  `like_user` bigint(0) NULL DEFAULT NULL COMMENT '点赞用户id',
-  `create_time` datetime(0) NULL DEFAULT NULL COMMENT '创建时间',
-  `update_time` datetime(0) NULL DEFAULT NULL COMMENT '更新时间',
+  `like_user` bigint NULL DEFAULT NULL COMMENT '点赞用户id',
+  `create_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
+  `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 40 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '点赞' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 40 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '点赞' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of fs_like
@@ -282,37 +310,74 @@ INSERT INTO `fs_like` VALUES (38, 33, 1, 1640, '2022-06-22 14:29:31', '2022-06-2
 INSERT INTO `fs_like` VALUES (39, 41, 1, 1640, '2022-06-23 20:41:57', '2022-06-23 20:41:57');
 
 -- ----------------------------
+-- Table structure for fs_resource_navigate
+-- ----------------------------
+DROP TABLE IF EXISTS `fs_resource_navigate`;
+CREATE TABLE `fs_resource_navigate`  (
+  `id` int NOT NULL AUTO_INCREMENT COMMENT '资源导航编号',
+  `resource_name` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '资源名字',
+  `logo` varchar(120) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT 'logo(图片)',
+  `category` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '类别',
+  `desc` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '描述',
+  `link` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '链接',
+  `is_deleted` tinyint(1) NULL DEFAULT NULL COMMENT '逻辑删除(0正常,1删除)',
+  `create_user` bigint NULL DEFAULT NULL COMMENT '创建用户id',
+  `update_user` bigint NULL DEFAULT NULL COMMENT '更新用户id',
+  `create_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
+  `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 95 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '资源导航' ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of fs_resource_navigate
+-- ----------------------------
+INSERT INTO `fs_resource_navigate` VALUES (4, 'everypixel', 'http://76.nanshengbbs.top/resourceNavigatePicture-20220717133906890_ux03zz.jpg', '图片', '免费图片聚合搜索，用这一个就够了', 'https://www.everypixel.com/free', 0, 1640, 1640, '2022-07-17 13:39:08', '2022-07-17 13:39:08');
+INSERT INTO `fs_resource_navigate` VALUES (16, 'Kaboom Pics', 'http://76.nanshengbbs.top/resourceNavigatePicture-20220717134927958_yl0i7o.png', '图片', '清新好看的摄影照片', 'https://kaboompics.com/', 0, 1640, 1640, '2022-07-17 13:49:19', '2022-07-17 13:49:29');
+INSERT INTO `fs_resource_navigate` VALUES (17, 'colorhub', 'http://76.nanshengbbs.top/resourceNavigatePicture-20220717134957966_7m0l5n.jpg', '图片', '高清无版权图片，个人和商业用途免费', 'https://colorhub.me/', 0, 1640, 1640, '2022-07-17 13:49:59', '2022-07-17 13:49:59');
+INSERT INTO `fs_resource_navigate` VALUES (18, 'mixkit', 'http://76.nanshengbbs.top/resourceNavigatePicture-20220717140000829_bc0sqt.jpg', '视频', '很棒的免费视频素材', 'https://mixkit.co/', 0, 1640, 1640, '2022-07-17 14:00:02', '2022-07-17 14:00:02');
+INSERT INTO `fs_resource_navigate` VALUES (19, 'coverr', 'http://76.nanshengbbs.top/resourceNavigatePicture-20220717140032092_eg0em5.png', '视频', '优秀的免费视频素材', 'https://coverr.co/', 0, 1640, 1640, '2022-07-17 14:00:33', '2022-07-17 14:00:33');
+INSERT INTO `fs_resource_navigate` VALUES (20, 'Mazwai', 'http://76.nanshengbbs.top/resourceNavigatePicture-20220717140101021_bd0n71.jpg', '视频', '免费视频素材库', 'https://mazwai.com/#/grid', 0, 1640, 1640, '2022-07-17 14:01:02', '2022-07-17 14:01:02');
+INSERT INTO `fs_resource_navigate` VALUES (21, 'Vidlery', 'http://76.nanshengbbs.top/resourceNavigatePicture-20220717140231878_5s0eyu.png', '视频', '免费的卡通背景视频', 'http://p3nlhclust404.shr.prod.phx3.secureserver.net/SharedContent/redirect_0.html', 0, 1640, 1640, '2022-07-17 14:02:33', '2022-07-17 14:02:33');
+INSERT INTO `fs_resource_navigate` VALUES (22, 'FreeSound', 'http://76.nanshengbbs.top/resourceNavigatePicture-20220717140319890_2o04lw.png', '音频', '非常多的免费音乐', 'https://freesound.org/', 0, 1640, 1640, '2022-07-17 14:03:21', '2022-07-17 14:03:21');
+INSERT INTO `fs_resource_navigate` VALUES (23, 'cchound', 'http://76.nanshengbbs.top/resourceNavigatePicture-20220717140353800_cg08g8.png', '音频', '免费音乐聚合网站', 'https://cchound.com/', 0, 1640, 1640, '2022-07-17 14:03:55', '2022-07-17 14:03:55');
+INSERT INTO `fs_resource_navigate` VALUES (28, 'unDraw', 'http://76.nanshengbbs.top/resourceNavigatePicture-20220717140653328_4e0ma1.jpg', '插画', '最棒最全的插画库', 'https://undraw.co/illustrations', 0, 1640, 1640, '2022-07-17 14:06:55', '2022-07-17 14:06:55');
+
+-- ----------------------------
 -- Table structure for fs_slideshow
 -- ----------------------------
 DROP TABLE IF EXISTS `fs_slideshow`;
 CREATE TABLE `fs_slideshow`  (
-  `id` int(0) NOT NULL AUTO_INCREMENT COMMENT '轮播图编号',
+  `id` int NOT NULL AUTO_INCREMENT COMMENT '轮播图编号',
   `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '名称',
   `image` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '轮播图',
   `jump_address` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '跳转地址',
   `desc` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '描述',
   `state` tinyint(1) NULL DEFAULT 1 COMMENT '状态(0禁用,1启用)',
   `is_deleted` tinyint(1) NULL DEFAULT NULL COMMENT '逻辑删除(0正常,1删除)',
-  `create_user` bigint(0) NULL DEFAULT NULL COMMENT '创建用户id',
-  `update_user` bigint(0) NULL DEFAULT NULL COMMENT '更新用户id',
-  `create_time` datetime(0) NULL DEFAULT NULL COMMENT '创建时间',
-  `update_time` datetime(0) NULL DEFAULT NULL COMMENT '更新时间',
+  `create_user` bigint NULL DEFAULT NULL COMMENT '创建用户id',
+  `update_user` bigint NULL DEFAULT NULL COMMENT '更新用户id',
+  `create_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
+  `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '轮播图' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '轮播图' ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of fs_slideshow
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for fs_user_level
 -- ----------------------------
 DROP TABLE IF EXISTS `fs_user_level`;
 CREATE TABLE `fs_user_level`  (
-  `id` int(0) NOT NULL AUTO_INCREMENT COMMENT '用户等级编号',
-  `user_id` bigint(0) NULL DEFAULT NULL COMMENT '用户id',
+  `id` int NOT NULL AUTO_INCREMENT COMMENT '用户等级编号',
+  `user_id` bigint NULL DEFAULT NULL COMMENT '用户id',
   `level` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT 'Lv1' COMMENT '等级（Lv6）',
-  `points` int(0) NULL DEFAULT 0 COMMENT '积分',
-  `create_time` datetime(0) NULL DEFAULT NULL COMMENT '创建时间',
-  `update_time` datetime(0) NULL DEFAULT NULL COMMENT '更新时间',
+  `points` int NULL DEFAULT 0 COMMENT '积分',
+  `create_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
+  `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 591 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '用户等级' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 591 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '用户等级' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of fs_user_level

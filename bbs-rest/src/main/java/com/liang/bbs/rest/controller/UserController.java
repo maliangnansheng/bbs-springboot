@@ -4,6 +4,7 @@ import com.github.pagehelper.PageInfo;
 import com.liang.bbs.rest.config.login.NoNeedLogin;
 import com.liang.bbs.rest.config.swagger.ApiVersion;
 import com.liang.bbs.rest.config.swagger.ApiVersionConstant;
+import com.liang.bbs.rest.utils.FileLengthUtils;
 import com.liang.bbs.user.facade.dto.*;
 import com.liang.bbs.user.facade.server.FollowService;
 import com.liang.bbs.user.facade.server.LikeCommentService;
@@ -16,11 +17,15 @@ import com.liang.manage.auth.facade.server.UserService;
 import com.liang.nansheng.common.auth.UserContextUtils;
 import com.liang.nansheng.common.auth.UserRightsDTO;
 import com.liang.nansheng.common.auth.UserSsoDTO;
+import com.liang.nansheng.common.enums.ResponseCode;
+import com.liang.nansheng.common.utils.CommonUtils;
 import com.liang.nansheng.common.web.basic.ResponseResult;
+import com.liang.nansheng.common.web.exception.BusinessException;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.dubbo.config.annotation.Reference;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -49,6 +54,9 @@ public class UserController {
 
     @Reference
     private UserService userService;
+
+    @Autowired
+    private FileLengthUtils fileLengthUtils;
 
     @GetMapping("getCurrentUserRights")
     @ApiOperation(value = "获取当前用户权限")
@@ -121,8 +129,13 @@ public class UserController {
     @ApiOperation(value = "上传用户头像（更新）")
     @ApiVersion(group = ApiVersionConstant.V_300)
     public ResponseResult<Boolean> uploadUserPicture(@RequestParam("picture") MultipartFile picture) throws IOException {
-        UserSsoDTO currentUser = UserContextUtils.currentUser();
-        return ResponseResult.success(userService.uploadUserPicture(picture.getBytes(), picture.getOriginalFilename(), currentUser));
+        if (fileLengthUtils.isFileNotTooBig(picture.getBytes())) {
+            UserSsoDTO currentUser = UserContextUtils.currentUser();
+            return ResponseResult.success(userService.uploadUserPicture(picture.getBytes(), picture.getOriginalFilename(), currentUser));
+        } else {
+            throw BusinessException.build(ResponseCode.EXCEED_THE_MAX, "请上传不超过 " +
+                    CommonUtils.byteConversion(fileLengthUtils.getFileMaxLength()) + " 的图片!");
+        }
     }
 
     @PostMapping("updateUserBasicInfo")
@@ -133,19 +146,33 @@ public class UserController {
         return ResponseResult.success(userService.updateUserBasicInfo(userDTO, currentUser));
     }
 
+    @NoNeedLogin
     @GetMapping("sendEmailVerifyCode")
     @ApiOperation(value = "发送邮件验证码")
     @ApiVersion(group = ApiVersionConstant.V_300)
     public ResponseResult<Boolean> sendEmailVerifyCode(@RequestParam String email) {
-        UserSsoDTO currentUser = UserContextUtils.currentUser();
+        UserSsoDTO currentUser = new UserSsoDTO();
+        if (UserContextUtils.currentUser() == null) {
+            // 兼容手机重置密码
+            currentUser.setUserId(userService.getByEmail(email).getId());
+        } else {
+            currentUser = UserContextUtils.currentUser();
+        }
         return ResponseResult.success(userService.sendEmailVerifyCode(email, currentUser));
     }
 
+    @NoNeedLogin
     @GetMapping("sendSmsVerifyCode")
     @ApiOperation(value = "发送短信验证码")
     @ApiVersion(group = ApiVersionConstant.V_300)
     public ResponseResult<Boolean> sendSmsVerifyCode(@RequestParam String phone) {
-        UserSsoDTO currentUser = UserContextUtils.currentUser();
+        UserSsoDTO currentUser = new UserSsoDTO();
+        if (UserContextUtils.currentUser() == null) {
+            // 兼容邮箱重置密码
+            currentUser.setUserId(userService.getByPhone(phone).getId());
+        } else {
+            currentUser = UserContextUtils.currentUser();
+        }
         return ResponseResult.success(userService.sendSmsVerifyCode(phone, currentUser));
     }
 
@@ -210,6 +237,38 @@ public class UserController {
     public ResponseResult<Boolean> isValidUser(@RequestParam String username) {
         UserSsoDTO currentUser = UserContextUtils.currentUser();
         return ResponseResult.success(userService.isValidUser(username, currentUser));
+    }
+
+    @NoNeedLogin
+    @PostMapping("isPhoneExist/{phone}")
+    @ApiOperation(value = "判断手机是否已经绑定")
+    @ApiVersion(group = ApiVersionConstant.V_300)
+    public ResponseResult<Boolean> isPhoneExist(@PathVariable String phone) {
+        return ResponseResult.success(userService.isPhoneExist(phone));
+    }
+
+    @NoNeedLogin
+    @PostMapping("isEmailExist/{email}")
+    @ApiOperation(value = "判断email是否已经绑定")
+    @ApiVersion(group = ApiVersionConstant.V_300)
+    public ResponseResult<Boolean> isEmailExist(@PathVariable String email) {
+        return ResponseResult.success(userService.isEmailExist(email));
+    }
+
+    @NoNeedLogin
+    @PostMapping("phoneResetPassword")
+    @ApiOperation(value = "手机重置密码")
+    @ApiVersion(group = ApiVersionConstant.V_300)
+    public ResponseResult<Boolean> phoneResetPassword(@RequestBody UserEmailDTO userEmailDTO) {
+        return ResponseResult.success(userService.phoneResetPassword(userEmailDTO));
+    }
+
+    @NoNeedLogin
+    @PostMapping("emailResetPassword")
+    @ApiOperation(value = "邮箱重置密码")
+    @ApiVersion(group = ApiVersionConstant.V_300)
+    public ResponseResult<Boolean> emailResetPassword(@RequestBody UserEmailDTO userEmailDTO) {
+        return ResponseResult.success(userService.emailResetPassword(userEmailDTO));
     }
 
     /**

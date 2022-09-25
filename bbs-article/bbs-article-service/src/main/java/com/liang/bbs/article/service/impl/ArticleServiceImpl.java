@@ -12,8 +12,7 @@ import com.liang.bbs.article.persistence.entity.ArticlePoExample;
 import com.liang.bbs.article.persistence.mapper.ArticlePoExMapper;
 import com.liang.bbs.article.persistence.mapper.ArticlePoMapper;
 import com.liang.bbs.article.service.mapstruct.ArticleMS;
-import com.liang.bbs.article.service.utils.FileUploadUtils;
-import com.liang.bbs.article.service.utils.ImageUtils;
+import com.liang.bbs.common.enums.ArticleStateEnum;
 import com.liang.bbs.user.facade.dto.FollowDTO;
 import com.liang.bbs.user.facade.dto.LikeDTO;
 import com.liang.bbs.user.facade.dto.LikeSearchDTO;
@@ -22,6 +21,7 @@ import com.liang.bbs.user.facade.server.FollowService;
 import com.liang.bbs.user.facade.server.LikeService;
 import com.liang.bbs.user.facade.server.UserLevelService;
 import com.liang.manage.auth.facade.dto.user.UserDTO;
+import com.liang.manage.auth.facade.server.FileService;
 import com.liang.manage.auth.facade.server.UserService;
 import com.liang.manage.concern.facade.server.VisitService;
 import com.liang.nansheng.common.auth.UserSsoDTO;
@@ -84,11 +84,8 @@ public class ArticleServiceImpl implements ArticleService {
     @Reference
     private UserLevelService userLevelService;
 
-    @Autowired
-    private ImageUtils imageUtils;
-
-    @Autowired
-    private FileUploadUtils fileUploadUtils;
+    @Reference
+    private FileService fileService;
 
     @Autowired
     private MongoTemplate mongoTemplate;
@@ -100,10 +97,11 @@ public class ArticleServiceImpl implements ArticleService {
      *
      * @param articleSearchDTO
      * @param currentUser
+     * @param articleStateEnum
      * @return
      */
     @Override
-    public PageInfo<ArticleDTO> getList(ArticleSearchDTO articleSearchDTO, UserSsoDTO currentUser) {
+    public PageInfo<ArticleDTO> getList(ArticleSearchDTO articleSearchDTO, UserSsoDTO currentUser, ArticleStateEnum articleStateEnum) {
         List<Integer> articleIds = new ArrayList<>();
         if (CollectionUtils.isNotEmpty(articleSearchDTO.getLabelIds())) {
             // 根据标签id集合获取文章标签信息
@@ -118,16 +116,15 @@ public class ArticleServiceImpl implements ArticleService {
 
         ArticlePoExample example = new ArticlePoExample();
         ArticlePoExample.Criteria criteria = example.createCriteria()
-                .andIsDeletedEqualTo(false)
-                .andStateEqualTo(true);
+                .andIsDeletedEqualTo(false);
+        if (articleStateEnum != null) {
+            criteria.andStateEqualTo(articleStateEnum.getCode());
+        }
         if (articleSearchDTO.getId() != null) {
             criteria.andIdEqualTo(articleSearchDTO.getId());
         }
         if (StringUtils.isNotBlank(articleSearchDTO.getTitle())) {
             criteria.andTitleLike("%" + articleSearchDTO.getTitle() + "%");
-        }
-        if (articleSearchDTO.getState() != null) {
-            criteria.andStateEqualTo(articleSearchDTO.getState());
         }
         if (CollectionUtils.isNotEmpty(articleIds)) {
             criteria.andIdIn(articleIds);
@@ -151,6 +148,59 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     /**
+     * 获取待审核的文章
+     *
+     * @param articleSearchDTO
+     * @param currentUser
+     * @return
+     */
+    @Override
+    public PageInfo<ArticleDTO> getPendingReviewArticles(ArticleSearchDTO articleSearchDTO, UserSsoDTO currentUser) {
+        return this.getList(articleSearchDTO, currentUser, ArticleStateEnum.pendingReview);
+    }
+
+    /**
+     * 获取禁用的文章
+     *
+     * @param articleSearchDTO
+     * @param currentUser
+     * @return
+     */
+    @Override
+    public PageInfo<ArticleDTO> getDisabledArticles(ArticleSearchDTO articleSearchDTO, UserSsoDTO currentUser) {
+        return this.getList(articleSearchDTO, currentUser, ArticleStateEnum.disabled);
+    }
+
+    /**
+     * 修改文章审批状态
+     *
+     * @param articleDTO
+     * @param currentUser
+     * @return
+     */
+    @Override
+    public Boolean updateState(ArticleDTO articleDTO, UserSsoDTO currentUser) {
+        ArticlePo articlePo = new ArticlePo();
+        articlePo.setId(articleDTO.getId());
+        articlePo.setUpdateTime(LocalDateTime.now());
+        if (ArticleStateEnum.pendingReview.getCode().equals(articleDTO.getState())) {
+            articlePo.setState(ArticleStateEnum.pendingReview.getCode());
+        }
+        if (ArticleStateEnum.disabled.getCode().equals(articleDTO.getState())) {
+            articlePo.setState(ArticleStateEnum.disabled.getCode());
+        }
+        if (ArticleStateEnum.enable.getCode().equals(articleDTO.getState())) {
+            articlePo.setState(ArticleStateEnum.enable.getCode());
+        }
+
+        if (articlePoMapper.updateByPrimaryKeySelective(articlePo) <= 0) {
+            throw BusinessException.build(ResponseCode.OPERATE_FAIL, "修改文章审批状态失败");
+        }
+
+        return true;
+    }
+
+    /**
      * 获取点赞过的文章
      *
      * @param likeSearchDTO
@@ -164,7 +214,7 @@ public class ArticleServiceImpl implements ArticleService {
         BeanUtils.copyProperties(likeDTOPageInfo, pageInfo);
         if (CollectionUtils.isNotEmpty(likeDTOPageInfo.getList())) {
             List<Integer> articleIds = likeDTOPageInfo.getList().stream().distinct().map(LikeDTO::getArticleId).collect(Collectors.toList());
-            List<ArticleDTO> articleDTOS = getBaseByIds(articleIds);
+            List<ArticleDTO> articleDTOS = getBaseByIds(articleIds, ArticleStateEnum.enable);
 
             // 构建文章信息
             buildArticleInfo(articleDTOS, currentUser);
@@ -178,13 +228,13 @@ public class ArticleServiceImpl implements ArticleService {
      * 通过文章id集合获取文章信息
      *
      * @param ids
-     * @param isPv 是否增加文章浏览数量
+     * @param isPv        是否增加文章浏览数量
      * @param currentUser
      * @return
      */
     @Override
     public List<ArticleDTO> getByIds(List<Integer> ids, Boolean isPv, UserSsoDTO currentUser) {
-        List<ArticleDTO> articleDTOS = getBaseByIds(ids);
+        List<ArticleDTO> articleDTOS = getBaseByIds(ids, null);
         if (CollectionUtils.isEmpty(articleDTOS)) {
             return articleDTOS;
         }
@@ -218,11 +268,14 @@ public class ArticleServiceImpl implements ArticleService {
      * @return
      */
     @Override
-    public List<ArticleDTO> getBaseByIds(List<Integer> ids) {
+    public List<ArticleDTO> getBaseByIds(List<Integer> ids, ArticleStateEnum articleStateEnum) {
         ArticlePoExample example = new ArticlePoExample();
-        example.createCriteria().andIsDeletedEqualTo(false)
-                .andStateEqualTo(true)
+        ArticlePoExample.Criteria criteria = example.createCriteria();
+        criteria.andIsDeletedEqualTo(false)
                 .andIdIn(ids);
+        if (articleStateEnum != null) {
+            criteria.andStateEqualTo(articleStateEnum.getCode());
+        }
 
         return ArticleMS.INSTANCE.toDTO(articlePoMapper.selectByExample(example));
     }
@@ -247,8 +300,8 @@ public class ArticleServiceImpl implements ArticleService {
         LocalDateTime now = LocalDateTime.now();
         articleDTO.setCreateTime(now);
         articleDTO.setUpdateTime(now);
-        // 通过审核的文章才会启用（即：默认禁用）
-        articleDTO.setState(true);
+        // 通过审核的文章才会启用（即：默认待审核）
+        articleDTO.setState(ArticleStateEnum.pendingReview.getCode());
         ArticlePo articlePo = ArticleMS.INSTANCE.toPo(articleDTO);
         if (articlePoMapper.insertSelective(articlePo) <= 0) {
             throw BusinessException.build(ResponseCode.OPERATE_FAIL, "撰写文章失败");
@@ -303,13 +356,10 @@ public class ArticleServiceImpl implements ArticleService {
     @Override
     public Boolean create(byte[] bytes, String sourceFileName, ArticleDTO articleDTO, List<Integer> labelIds, UserSsoDTO currentUser) {
         try {
-            // 文件没有超过限制
-            if (isFileNotTooBig(bytes)) {
-                articleDTO.setTitleMap(fileUploadUtils.fileUpload(imageUtils.pictureScale(bytes), sourceFileName, ImageTypeEnum.articleTitleMap.name()));
-                create(articleDTO, labelIds, currentUser);
-            } else {
-                throw BusinessException.build(ResponseCode.EXCEED_THE_MAX, "请上传不超过 " + CommonUtils.byteConversion(imageUtils.getFileLength()) + " 的题图!");
-            }
+            // 文件上传（按比例压缩）
+            String picture = fileService.fileScaleUpload(bytes, sourceFileName, ImageTypeEnum.articleTitleMap);
+            articleDTO.setTitleMap(picture);
+            create(articleDTO, labelIds, currentUser);
         } catch (Exception e) {
             log.error("撰写文章异常！", e);
             throw BusinessException.build(ResponseCode.OPERATE_FAIL, "撰写文章异常!");
@@ -330,13 +380,10 @@ public class ArticleServiceImpl implements ArticleService {
     @Override
     public Boolean update(byte[] bytes, String sourceFileName, ArticleDTO articleDTO, List<Integer> labelIds, UserSsoDTO currentUser) {
         try {
-            // 文件没有超过限制
-            if (isFileNotTooBig(bytes)) {
-                articleDTO.setTitleMap(fileUploadUtils.fileUpload(imageUtils.pictureScale(bytes), sourceFileName, ImageTypeEnum.articleTitleMap.name()));
-                update(articleDTO, labelIds, currentUser);
-            } else {
-                throw BusinessException.build(ResponseCode.EXCEED_THE_MAX, "请上传不超过 " + CommonUtils.byteConversion(imageUtils.getFileLength()) + " 的题图!");
-            }
+            // 文件上传（按比例压缩）
+            String picture = fileService.fileScaleUpload(bytes, sourceFileName, ImageTypeEnum.articleTitleMap);
+            articleDTO.setTitleMap(picture);
+            update(articleDTO, labelIds, currentUser);
         } catch (Exception e) {
             log.error("撰写文章异常！", e);
             throw BusinessException.build(ResponseCode.OPERATE_FAIL, "更新文章异常!");
@@ -354,12 +401,8 @@ public class ArticleServiceImpl implements ArticleService {
      */
     @Override
     public String uploadPicture(byte[] bytes, String sourceFileName) {
-        // 文件超过限制
-        if (!isFileNotTooBig(bytes)) {
-            throw BusinessException.build(ResponseCode.EXCEED_THE_MAX, "请上传不超过 " + CommonUtils.byteConversion(imageUtils.getFileLength()) + " 的题图!");
-        }
-
-        return fileUploadUtils.fileUpload(imageUtils.pictureScale(bytes), sourceFileName, ImageTypeEnum.articlePicture.name());
+        // 文件上传（按比例压缩）
+        return fileService.fileScaleUpload(bytes, sourceFileName, ImageTypeEnum.articlePicture);
     }
 
     /**
@@ -385,7 +428,7 @@ public class ArticleServiceImpl implements ArticleService {
     public Long getTotal() {
         ArticlePoExample example = new ArticlePoExample();
         example.createCriteria().andIsDeletedEqualTo(false)
-                .andStateEqualTo(true);
+                .andStateEqualTo(ArticleStateEnum.enable.getCode());
         return articlePoMapper.countByExample(example);
     }
 
@@ -459,7 +502,7 @@ public class ArticleServiceImpl implements ArticleService {
     public List<ArticleDTO> getByUserId(Long userId) {
         ArticlePoExample example = new ArticlePoExample();
         example.createCriteria().andIsDeletedEqualTo(false)
-                .andStateEqualTo(true)
+                .andStateEqualTo(ArticleStateEnum.enable.getCode())
                 .andCreateUserEqualTo(userId);
 
         return ArticleMS.INSTANCE.toDTO(articlePoMapper.selectByExample(example));
@@ -529,25 +572,6 @@ public class ArticleServiceImpl implements ArticleService {
             }
             articleDTO.setArticleCountDTO(this.getCountById(articleDTO.getId(), currentUser));
         });
-    }
-
-
-    /**
-     * 文件是否过大
-     *
-     * @param bytes
-     * @return
-     */
-    private Boolean isFileNotTooBig(byte[] bytes) {
-        // 当前文件大小
-        long currentFileSize = bytes.length;
-        // 上传源文件允许的最大值
-        long fileLength = imageUtils.getFileLength();
-        if (currentFileSize <= fileLength) {
-            return true;
-        } else {
-            return false;
-        }
     }
 
     /**

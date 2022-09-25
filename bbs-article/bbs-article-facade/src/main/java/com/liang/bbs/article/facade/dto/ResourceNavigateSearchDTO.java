@@ -3,33 +3,17 @@ package com.liang.bbs.article.facade.dto;
 import lombok.Data;
 
 import java.io.Serializable;
-import java.util.List;
 
 /**
  * @author 马亮
  * @date 2022/4/6 15:06
  */
 @Data
-public class ArticleSearchDTO implements Serializable {
+public class ResourceNavigateSearchDTO implements Serializable {
     /**
-     * 文章编号
+     * 类别
      */
-    private Integer id;
-
-    /**
-     * 文章标题
-     */
-    private String title;
-
-    /**
-     * 标签编号
-     */
-    private List<Integer> labelIds;
-
-    /**
-     * 创建用户id
-     */
-    private Long createUser;
+    private String category;
 
     /**
      * 当前页

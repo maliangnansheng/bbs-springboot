@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liang.bbs.article.persistence.mapper.CommentPoExMapper">
+    <resultMap id="BaseResultMap" type="com.liang.bbs.article.persistence.entity.CommentPo">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="pre_id" jdbcType="INTEGER" property="preId"/>
+        <result column="content" jdbcType="VARCHAR" property="content"/>
+        <result column="article_id" jdbcType="INTEGER" property="articleId"/>
+        <result column="state" jdbcType="BIT" property="state"/>
+        <result column="is_deleted" jdbcType="BIT" property="isDeleted"/>
+        <result column="comment_user" jdbcType="BIGINT" property="commentUser"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        fs_comment.id, fs_comment.pre_id, fs_comment.content, fs_comment.article_id, fs_comment.`state`, fs_comment.is_deleted,
+        fs_comment.comment_user, fs_comment.create_time, fs_comment.update_time
+    </sql>
+
+    <select id="selectLatestComments" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from fs_comment left join fs_article on fs_comment.article_id = fs_article.id
+        where fs_comment.is_deleted = 0
+        and fs_comment.state = 1
+<!--        <if test="content != null">-->
+<!--            and fs_comment.content like '%' + #{content} + '%'-->
+<!--        </if>-->
+<!--        <if test="commentUser != null">-->
+<!--            and fs_comment.comment_user = #{commentUser}-->
+<!--        </if>-->
+        and fs_article.state = 1
+        order by fs_comment.id desc
+    </select>
+
+</mapper>

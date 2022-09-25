@@ -4,6 +4,7 @@ import com.liang.bbs.article.facade.dto.ArticleLabelDTO;
 import com.liang.bbs.article.facade.server.ArticleLabelService;
 import com.liang.bbs.article.persistence.entity.ArticleLabelPo;
 import com.liang.bbs.article.persistence.entity.ArticleLabelPoExample;
+import com.liang.bbs.article.persistence.mapper.ArticleLabelPoExMapper;
 import com.liang.bbs.article.persistence.mapper.ArticleLabelPoMapper;
 import com.liang.bbs.article.service.mapstruct.ArticleLabelMS;
 import com.liang.nansheng.common.auth.UserSsoDTO;
@@ -28,6 +29,9 @@ import java.util.stream.Collectors;
 public class ArticleLableServiceImpl implements ArticleLabelService {
     @Autowired
     private ArticleLabelPoMapper articleLabelPoMapper;
+
+    @Autowired
+    private ArticleLabelPoExMapper articleLabelPoExMapper;
 
     /**
      * 新增文件标签关系信息
@@ -134,10 +138,7 @@ public class ArticleLableServiceImpl implements ArticleLabelService {
      */
     @Override
     public Long getCountByLabelId(Integer labelId) {
-        ArticleLabelPoExample example = new ArticleLabelPoExample();
-        example.createCriteria().andIsDeletedEqualTo(false)
-                .andLabelIdEqualTo(labelId);
-        return articleLabelPoMapper.countByExample(example);
+        return articleLabelPoExMapper.countByLabelId(labelId);
     }
 
 }

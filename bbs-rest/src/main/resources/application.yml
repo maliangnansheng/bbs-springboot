@@ -57,3 +57,8 @@ crossOrigin:
 # swagger打开
 swagger:
   show: true
+
+file:
+  source:
+    # 设定上传源文件允许的最大值（1024*1024*5=5M）
+    length: 5242880

@@ -80,6 +80,7 @@
 <!--        <table tableName="fs_article" enableSelectByPrimaryKey="true" enableUpdateByPrimaryKey="true"-->
 <!--               enableDeleteByPrimaryKey="true" domainObjectName="ArticlePo">-->
 <!--            <generatedKey column="id" sqlStatement="JDBC" identity="true"/>-->
+<!--            <columnOverride column="state" javaType="java.lang.Integer"/>-->
 <!--            <columnOverride column="content" javaType="java.lang.String" jdbcType="VARCHAR"/>-->
 <!--            <columnOverride column="create_time" javaType="java.time.LocalDateTime"/>-->
 <!--            <columnOverride column="update_time" javaType="java.time.LocalDateTime"/>-->
@@ -105,6 +106,14 @@
         <!-- 标签 -->
 <!--        <table tableName="fs_label" enableSelectByPrimaryKey="true" enableUpdateByPrimaryKey="true"-->
 <!--               enableDeleteByPrimaryKey="true" domainObjectName="LabelPo">-->
+<!--            <generatedKey column="id" sqlStatement="JDBC" identity="true"/>-->
+<!--            <columnOverride column="create_time" javaType="java.time.LocalDateTime"/>-->
+<!--            <columnOverride column="update_time" javaType="java.time.LocalDateTime"/>-->
+<!--        </table>-->
+
+        <!-- 资源导航 -->
+<!--        <table tableName="fs_resource_navigate" enableSelectByPrimaryKey="true" enableUpdateByPrimaryKey="true"-->
+<!--               enableDeleteByPrimaryKey="true" domainObjectName="ResourceNavigatePo">-->
 <!--            <generatedKey column="id" sqlStatement="JDBC" identity="true"/>-->
 <!--            <columnOverride column="create_time" javaType="java.time.LocalDateTime"/>-->
 <!--            <columnOverride column="update_time" javaType="java.time.LocalDateTime"/>-->

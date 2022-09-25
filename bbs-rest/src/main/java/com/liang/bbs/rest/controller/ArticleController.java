@@ -6,18 +6,24 @@ import com.liang.bbs.article.facade.dto.ArticleDTO;
 import com.liang.bbs.article.facade.dto.ArticleSearchDTO;
 import com.liang.bbs.article.facade.dto.TotalDTO;
 import com.liang.bbs.article.facade.server.ArticleService;
+import com.liang.bbs.common.enums.ArticleStateEnum;
 import com.liang.bbs.rest.config.login.NoNeedLogin;
 import com.liang.bbs.rest.config.swagger.ApiVersion;
 import com.liang.bbs.rest.config.swagger.ApiVersionConstant;
+import com.liang.bbs.rest.utils.FileLengthUtils;
 import com.liang.bbs.user.facade.dto.LikeSearchDTO;
 import com.liang.nansheng.common.auth.UserContextUtils;
 import com.liang.nansheng.common.auth.UserSsoDTO;
+import com.liang.nansheng.common.enums.ResponseCode;
+import com.liang.nansheng.common.utils.CommonUtils;
 import com.liang.nansheng.common.web.basic.ResponseResult;
+import com.liang.nansheng.common.web.exception.BusinessException;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.dubbo.config.annotation.Reference;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -37,13 +43,52 @@ public class ArticleController {
     @Reference
     private ArticleService articleService;
 
+    @Autowired
+    private FileLengthUtils fileLengthUtils;
+
     @NoNeedLogin
     @GetMapping("getList")
     @ApiOperation(value = "获取文章")
     @ApiVersion(group = ApiVersionConstant.V_300)
     public ResponseResult<PageInfo<ArticleDTO>> getList(ArticleSearchDTO articleSearchDTO) {
         UserSsoDTO currentUser = UserContextUtils.currentUser();
-        return ResponseResult.success(articleService.getList(articleSearchDTO, currentUser));
+        return ResponseResult.success(articleService.getList(articleSearchDTO, currentUser, ArticleStateEnum.enable));
+    }
+
+    @NoNeedLogin
+    @GetMapping("getPersonalArticles")
+    @ApiOperation(value = "获取个人发布的文章（null=所有）")
+    @ApiVersion(group = ApiVersionConstant.V_300)
+    public ResponseResult<PageInfo<ArticleDTO>> getPersonalArticles(ArticleSearchDTO articleSearchDTO, @RequestParam(required = false) ArticleStateEnum articleStateEnum) {
+        UserSsoDTO currentUser = UserContextUtils.currentUser();
+        if (currentUser != null && currentUser.getUserId().equals(articleSearchDTO.getCreateUser())) {
+            articleStateEnum= null;
+        }
+        return ResponseResult.success(articleService.getList(articleSearchDTO, currentUser, articleStateEnum));
+    }
+
+    @GetMapping("getPendingReviewArticles")
+    @ApiOperation(value = "获取待审核的文章")
+    @ApiVersion(group = ApiVersionConstant.V_300)
+    public ResponseResult<PageInfo<ArticleDTO>> getPendingReviewArticles(ArticleSearchDTO articleSearchDTO) {
+        UserSsoDTO currentUser = UserContextUtils.currentUser();
+        return ResponseResult.success(articleService.getPendingReviewArticles(articleSearchDTO, currentUser));
+    }
+
+    @GetMapping("getDisabledArticles")
+    @ApiOperation(value = "获取禁用的文章")
+    @ApiVersion(group = ApiVersionConstant.V_300)
+    public ResponseResult<PageInfo<ArticleDTO>> getDisabledArticles(ArticleSearchDTO articleSearchDTO) {
+        UserSsoDTO currentUser = UserContextUtils.currentUser();
+        return ResponseResult.success(articleService.getDisabledArticles(articleSearchDTO, currentUser));
+    }
+
+    @PostMapping("/updateState")
+    @ApiOperation(value = "修改文章审批状态")
+    @ApiVersion(group = ApiVersionConstant.V_300)
+    public ResponseResult<Boolean> updateState(@RequestBody ArticleDTO articleDTO) {
+        UserSsoDTO currentUser = UserContextUtils.currentUser();
+        return ResponseResult.success(articleService.updateState(articleDTO, currentUser));
     }
 
     @NoNeedLogin
@@ -86,7 +131,13 @@ public class ArticleController {
         if (picture == null) {
             return ResponseResult.success(articleService.create(articleDTO, labelIds, currentUser));
         }
-        return ResponseResult.success(articleService.create(picture.getBytes(), picture.getOriginalFilename(), articleDTO, labelIds, currentUser));
+
+        if (fileLengthUtils.isFileNotTooBig(picture.getBytes())) {
+            return ResponseResult.success(articleService.create(picture.getBytes(), picture.getOriginalFilename(), articleDTO, labelIds, currentUser));
+        } else {
+            throw BusinessException.build(ResponseCode.EXCEED_THE_MAX, "请上传不超过 " +
+                    CommonUtils.byteConversion(fileLengthUtils.getFileMaxLength()) + " 的图片!");
+        }
     }
 
     @PostMapping("/update")
@@ -99,7 +150,13 @@ public class ArticleController {
         if (picture == null) {
             return ResponseResult.success(articleService.update(articleDTO, labelIds, currentUser));
         }
-        return ResponseResult.success(articleService.update(picture.getBytes(), picture.getOriginalFilename(), articleDTO, labelIds, currentUser));
+
+        if (fileLengthUtils.isFileNotTooBig(picture.getBytes())) {
+            return ResponseResult.success(articleService.update(picture.getBytes(), picture.getOriginalFilename(), articleDTO, labelIds, currentUser));
+        } else {
+            throw BusinessException.build(ResponseCode.EXCEED_THE_MAX, "请上传不超过 " +
+                    CommonUtils.byteConversion(fileLengthUtils.getFileMaxLength()) + " 的图片!");
+        }
     }
 
     /**
@@ -112,7 +169,12 @@ public class ArticleController {
     @ApiOperation(value = "上传图片（一张）")
     @ApiVersion(group = ApiVersionConstant.V_300)
     public ResponseResult<String> uploadPicture(@RequestParam(value = "picture") MultipartFile picture) throws IOException {
-        return ResponseResult.success(articleService.uploadPicture(picture.getBytes(), picture.getOriginalFilename()));
+        if (fileLengthUtils.isFileNotTooBig(picture.getBytes())) {
+            return ResponseResult.success(articleService.uploadPicture(picture.getBytes(), picture.getOriginalFilename()));
+        } else {
+            throw BusinessException.build(ResponseCode.EXCEED_THE_MAX, "请上传不超过 " +
+                    CommonUtils.byteConversion(fileLengthUtils.getFileMaxLength()) + " 的图片!");
+        }
     }
 
     @NoNeedLogin

@@ -48,14 +48,19 @@ public class ArticleDTO implements Serializable {
     private List<LabelDTO> labelDTOS;
 
     /**
-     * 状态(0禁用,1启用)
+     * 状态(-1待审核,0禁用,1启用)
      */
-    private Boolean state;
+    private Integer state;
 
     /**
      * 文章浏览量
      */
     private Integer pv;
+
+    /**
+     * 置顶（数字越大越置顶）
+     */
+    private Integer top;
 
     /**
      * 逻辑删除(0正常,1删除)

@@ -26,14 +26,18 @@ public class VisitInterceptor implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        VisitDTO visitDTO = new VisitDTO();
-        // 访问来自哪个系统
-        visitDTO.setProjectId(ProjectEnum.NS_BBS.getCode());
-        // ip
-        visitDTO.setIp(IpUtil.getIP(request));
-        // 操作系统
-        visitDTO.setOs(IpUtil.getOS(request));
-        visitService.create(visitDTO);
+        try {
+            VisitDTO visitDTO = new VisitDTO();
+            // 访问来自哪个系统
+            visitDTO.setProjectId(ProjectEnum.NS_BBS.getCode());
+            // ip
+            visitDTO.setIp(IpUtil.getIP(request));
+            // 操作系统
+            visitDTO.setOs(IpUtil.getOS(request));
+            visitService.create(visitDTO);
+        } catch (Exception e) {
+            log.error("VisitInterceptor异常：", e);
+        }
 
         return true;
     }

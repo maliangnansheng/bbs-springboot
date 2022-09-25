@@ -2,6 +2,7 @@ package com.liang.bbs.article.facade.server;
 
 import com.github.pagehelper.PageInfo;
 import com.liang.bbs.article.facade.dto.*;
+import com.liang.bbs.common.enums.ArticleStateEnum;
 import com.liang.bbs.user.facade.dto.LikeSearchDTO;
 import com.liang.nansheng.common.auth.UserSsoDTO;
 
@@ -17,9 +18,37 @@ public interface ArticleService {
      *
      * @param articleSearchDTO
      * @param currentUser
+     * @param articleStateEnum
      * @return
      */
-    PageInfo<ArticleDTO> getList(ArticleSearchDTO articleSearchDTO, UserSsoDTO currentUser);
+    PageInfo<ArticleDTO> getList(ArticleSearchDTO articleSearchDTO, UserSsoDTO currentUser, ArticleStateEnum articleStateEnum);
+
+    /**
+     * 获取待审核的文章
+     *
+     * @param articleSearchDTO
+     * @param currentUser
+     * @return
+     */
+    PageInfo<ArticleDTO> getPendingReviewArticles(ArticleSearchDTO articleSearchDTO, UserSsoDTO currentUser);
+
+    /**
+     * 获取禁用的文章
+     *
+     * @param articleSearchDTO
+     * @param currentUser
+     * @return
+     */
+    PageInfo<ArticleDTO> getDisabledArticles(ArticleSearchDTO articleSearchDTO, UserSsoDTO currentUser);
+
+    /**
+     * 修改文章审批状态
+     *
+     * @param articleDTO
+     * @param currentUser
+     * @return
+     */
+    Boolean updateState(ArticleDTO articleDTO, UserSsoDTO currentUser);
 
     /**
      * 获取点赞过的文章
@@ -46,7 +75,7 @@ public interface ArticleService {
      * @param ids
      * @return
      */
-    List<ArticleDTO> getBaseByIds(List<Integer> ids);
+    List<ArticleDTO> getBaseByIds(List<Integer> ids, ArticleStateEnum articleStateEnum);
 
     /**
      * 撰写文章（无配图）

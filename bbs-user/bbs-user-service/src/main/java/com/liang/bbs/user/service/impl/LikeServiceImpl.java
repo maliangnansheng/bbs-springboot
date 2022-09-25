@@ -9,6 +9,7 @@ import com.liang.bbs.user.facade.dto.LikeSearchDTO;
 import com.liang.bbs.user.facade.server.LikeService;
 import com.liang.bbs.user.persistence.entity.LikePo;
 import com.liang.bbs.user.persistence.entity.LikePoExample;
+import com.liang.bbs.user.persistence.mapper.LikePoExMapper;
 import com.liang.bbs.user.persistence.mapper.LikePoMapper;
 import com.liang.bbs.user.service.mapstruct.LikeMS;
 import com.liang.nansheng.common.auth.UserSsoDTO;
@@ -36,6 +37,9 @@ public class LikeServiceImpl implements LikeService {
     @Autowired
     private LikePoMapper likePoMapper;
 
+    @Autowired
+    private LikePoExMapper likePoExMapper;
+
     @Reference
     private ArticleService articleService;
 
@@ -50,13 +54,9 @@ public class LikeServiceImpl implements LikeService {
         if (likeSearchDTO.getLikeUser() == null) {
             throw BusinessException.build(ResponseCode.NOT_EXISTS, "参数不合规");
         }
-        LikePoExample example = new LikePoExample();
-        LikePoExample.Criteria criteria = example.createCriteria().andStateEqualTo(true);
-        criteria.andLikeUserEqualTo(likeSearchDTO.getLikeUser());
-        example.setOrderByClause("`id` desc");
 
         PageHelper.startPage(likeSearchDTO.getCurrentPage(), likeSearchDTO.getPageSize());
-        List<LikePo> likePos = likePoMapper.selectByExample(example);
+        List<LikePo> likePos = likePoExMapper.selectArticleByUserId(likeSearchDTO.getLikeUser());
 
         return LikeMS.INSTANCE.toPage(new PageInfo<>(likePos));
     }

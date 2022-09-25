@@ -38,6 +38,15 @@ spring:
       filters: wall,state
       # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
       connection-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+      # 自己配置监控统计拦截的filter
+      filter:
+        # 开启druiddatasource的状态监控
+        stat:
+          enabled: true
+          db-type: mysql
+          # 开启慢sql监控，超过2s 就认为是慢sql，记录到日志中
+          log-slow-sql: true
+          slow-sql-millis: 2000
   redis:
     host: 120.48.100.28
     port: 6379
@@ -90,13 +99,3 @@ sso:
     login:
       # SSO地址
       address: http://sso.localhost.com
-
-# 功能：存储图片
-# 配置你自己七牛云对应的AccessKey和SecretKey（需要改成你自己的）
-qiniu:
-  AccessKey: 111111111111111111111111111111
-  SecretKey: 111111111111111111111111111111
-  # 要上传的对象存储空间（配置你的实际存储空间名）
-  bucket: mlns-test
-  # 七牛云对象存储空间对应的域名（上面存储空间对应的域名）
-  domain: http://test.nanshengbbs.top
