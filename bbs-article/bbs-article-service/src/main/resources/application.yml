@@ -83,17 +83,6 @@ dubbo:
 mybatis:
   mapper-locations: classpath*:mybatis/mappers/*.xml
 
-# 自定义
-file:
-  source:
-    # 设定上传源文件允许的最大值（1024*1024*5=5M）
-    length: 5242880
-  compress:
-    # 设定压缩后的图片大小不得大于(1024*200=200K)
-    length: 204800
-    # 允许上传、需要压缩的图片格式
-    suffix: png,jpg,jpeg
-
 sso:
   user:
     login:
