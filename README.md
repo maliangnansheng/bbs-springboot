@@ -32,7 +32,7 @@
   Vue、Axios、Vue Router、Ant Design of Vue、Webpack、Less、Vuex、ES6、Node.js、mavonEditor、ECharts、...
 
 ## 联系作者
-> **商用** or **毕设** 需要联系作者授权**南生运营**(学习使用不需要授权)
+> **商用** 需要联系作者授权**南生运营**(学习使用不需要授权)
 1. 在线联系作者：去 [南生闲聊](http://chat.nanshengbbs.top/)（`使用南生论坛注册的账号密码即可登录`） 聊天，问题反馈在“南生论坛”群聊或者加“马亮南生”私聊都行
 2. 加作者QQ：924818949
 3. 加作者微信：maliangnansheng
