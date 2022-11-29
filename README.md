@@ -42,6 +42,8 @@
 
 [如何获取南生论坛设计文档？](http://bbs.nanshengbbs.top/detail/76)
 
+[南生论坛设计文档开源下载地址](http://76.nanshengbbs.top/doc/%E5%8D%97%E7%94%9F%E8%AE%BA%E5%9D%9B%E7%9A%84%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0.doc)
+
 ## 项目部署教程
 
 `本地部署：`
