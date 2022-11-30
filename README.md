@@ -11,9 +11,6 @@
 >
 > 如果觉得不错麻烦帮忙点一次`Star⭐️`
 
-## [南生论坛项目宣传视频](https://www.bilibili.com/video/BV1ZY4y1N7W8/?vd_source=d0a5d07985a7fbbfb889c874632343c6)
-> 作者亲自制作 [点我观看](https://www.bilibili.com/video/BV1ZY4y1N7W8/?vd_source=d0a5d07985a7fbbfb889c874632343c6)
-
 ## 仓库说明
 
 > 本仓库`bbs-springboot`是【南生论坛3.0.0】前后端分离项目的**后端项目**。
@@ -35,7 +32,7 @@
   Vue、Axios、Vue Router、Ant Design of Vue、Webpack、Less、Vuex、ES6、Node.js、mavonEditor、ECharts、...
 
 ## 联系作者
-> **商用** or **毕设** 需要联系作者授权**南生运营**
+> **商用** 需要联系作者授权**南生运营**(学习使用不需要授权)
 1. 在线联系作者：去 [南生闲聊](http://chat.nanshengbbs.top/)（`使用南生论坛注册的账号密码即可登录`） 聊天，问题反馈在“南生论坛”群聊或者加“马亮南生”私聊都行
 2. 加作者QQ：924818949
 3. 加作者微信：maliangnansheng
@@ -44,6 +41,8 @@
 [南生论坛使用指南](https://www.bilibili.com/video/BV1he4y1C7rk?share_source=copy_web&vd_source=1f88041e3a02d90ecf98d311908d3d8b)
 
 [如何获取南生论坛设计文档？](http://bbs.nanshengbbs.top/detail/76)
+
+[南生论坛设计文档开源下载地址](http://76.nanshengbbs.top/doc/%E5%8D%97%E7%94%9F%E8%AE%BA%E5%9D%9B%E7%9A%84%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0.doc)
 
 ## 项目部署教程
 
