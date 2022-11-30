@@ -130,6 +130,15 @@ public class UserLevelServiceImpl implements UserLevelService {
         return true;
     }
 
+    @Override
+    public Boolean syncAll() {
+        // 所有的用户id
+        List<Long> userIds = userService.getAllList().stream().map(UserListDTO::getId).collect(Collectors.toList());
+        // 创建用户等级信息
+        userIds.forEach(this::create);
+        return true;
+    }
+
     /**
      * 获取热门作者列表
      *

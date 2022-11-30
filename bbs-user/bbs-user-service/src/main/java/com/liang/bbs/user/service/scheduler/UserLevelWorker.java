@@ -49,4 +49,32 @@ public class UserLevelWorker {
         }
     }
 
+    /**
+     * 每天5分钟执行
+     */
+    @Scheduled(cron = "0 0/5 * * * ?")
+    public void threadTask2() {
+        executeNull();
+    }
+
+    private void executeNull() {
+        RLock lock = redissonClient.getFairLock("user_level_null_worker");
+
+        try {
+            boolean b = lock.tryLock();
+            if (b) {
+                log.info("开始同步所有用户的等级信息--------------------------------->");
+                // 同步所有用户的等级信息
+                userLevelService.syncAll();
+            }
+        } catch (Exception e) {
+            log.error("UserLevelWorker > executeNull failed!", e);
+        } finally {
+            // 由当前线程持有 and 锁住状态
+            if (lock.isHeldByCurrentThread() && lock.isLocked()) {
+                lock.unlock();
+            }
+        }
+    }
+
 }

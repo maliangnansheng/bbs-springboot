@@ -38,6 +38,13 @@ public interface UserLevelService {
     Boolean updateAll();
 
     /**
+     * 同步所有用户等级信息
+     *
+     * @return
+     */
+    Boolean syncAll();
+
+    /**
      * 获取热门作者列表
      *
      * @param userSearchDTO
