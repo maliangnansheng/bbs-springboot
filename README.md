@@ -77,11 +77,11 @@
 
 ### 后端项目结构（SpringBoot）
 
-![](http://76.nanshengbbs.top/ns-bbs-springboot.png)
+![](http://76.nanshengbbs.top/%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/idea002.png)
 
 ### 前端项目结构（Vue）
 
-![](http://76.nanshengbbs.top/ns-bbs-vue.png)
+![](http://76.nanshengbbs.top/%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/idea012.png)
 
 ## 版本更新
 
