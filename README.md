@@ -42,7 +42,7 @@
 
 [如何获取南生论坛设计文档？](http://bbs.nanshengbbs.top/detail/76)
 
-[如何获取南生论坛设计文档？](http://bbs.nanshengbbs.top/detail/76)
+[南生论坛日常迭代](http://bbs.nanshengbbs.top/detail/122)
 
 ## 项目部署教程
 
@@ -50,7 +50,7 @@
 
 [【后端】安装部署教程](http://bbs.nanshengbbs.top/detail/44)
 
-[南生论坛日常迭代](http://bbs.nanshengbbs.top/detail/122)
+[【前端】安装部署教程](http://bbs.nanshengbbs.top/detail/45)
 
 ## 官方地址
 
