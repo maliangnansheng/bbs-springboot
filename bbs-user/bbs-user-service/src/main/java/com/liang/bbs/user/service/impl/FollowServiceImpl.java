@@ -2,6 +2,7 @@ package com.liang.bbs.user.service.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.liang.bbs.article.facade.dto.ArticleReadDTO;
 import com.liang.bbs.article.facade.server.ArticleService;
 import com.liang.bbs.user.facade.dto.FollowCountDTO;
 import com.liang.bbs.user.facade.dto.FollowDTO;
@@ -53,6 +54,21 @@ public class FollowServiceImpl implements FollowService {
     private LikeService likeService;
 
     /**
+     * 获取所有的关注
+     *
+     * @param startTime
+     * @param endTime
+     * @return
+     */
+    @Override
+    public List<FollowDTO> getPaasAll(LocalDateTime startTime, LocalDateTime endTime) {
+        FollowPoExample example = new FollowPoExample();
+        example.createCriteria().andStateEqualTo(true)
+                .andCreateTimeBetween(startTime, endTime);
+        return FollowMS.INSTANCE.toDTO(followPoMapper.selectByExample(example));
+    }
+
+    /**
      * 获取关注的用户信息
      *
      * @param followSearchDTO
@@ -99,8 +115,8 @@ public class FollowServiceImpl implements FollowService {
             followDTO.setIntro(userDTO.getIntro());
             followDTO.setLevel(userlevelService.getByUserId(userDTO.getId()).get(0).getLevel());
             followDTO.setLikeCount(likeService.getUserLikeCount(userDTO.getId()));
-            followDTO.setReadCount(articleService.getUserReadCount(Collections.singletonList(userDTO.getId()))
-                    .get(0).getArticleReadCount());
+            List<ArticleReadDTO> articleReadDTOS = articleService.getUserReadCount(Collections.singletonList(userDTO.getId()));
+            followDTO.setReadCount(CollectionUtils.isEmpty(articleReadDTOS) ? 0L : articleReadDTOS.get(0).getArticleReadCount());
             // 通过fromUser和toUser获取关注信息
             if (currentUser != null) {
                 FollowDTO followed = getByFromToUser(currentUser.getUserId(), userDTO.getId(), false);

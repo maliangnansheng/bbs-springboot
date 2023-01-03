@@ -35,6 +35,10 @@ public class CommentTreeUtils {
                 root.add(dto);
             } else {
                 CommentDTO parent = commentDTOMap.get(preId);
+                // 跳过子级无父级的评论
+                if (parent == null) {
+                    continue;
+                }
                 List<CommentDTO> children = CollectionUtils.isEmpty(parent.getChild()) ? new ArrayList<>() : parent.getChild();
                 // 设置评论深度
                 dto.setDepth(parent.getDepth() + 1);

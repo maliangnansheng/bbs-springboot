@@ -4,7 +4,9 @@
     <select id="selectUserReadCount" parameterType="java.util.List" resultType="com.liang.bbs.article.facade.dto.ArticleReadDTO">
         select ful.user_id as userId, coalesce(sum(fa.pv), 0) as articleReadCount
         from fs_user_level ful left join fs_article fa on ful.user_id = fa.create_user
-        where ful.user_id in
+        where fa.is_deleted = 0
+          and fa.state = 1
+          and ful.user_id in
             <foreach item="item" index="index" collection="userIds" open="(" separator="," close=" )">
                 #{item}
             </foreach>

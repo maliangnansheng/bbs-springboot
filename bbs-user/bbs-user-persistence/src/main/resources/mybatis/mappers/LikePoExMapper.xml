@@ -24,4 +24,13 @@
     order by fs_like.id desc
   </select>
 
+  <select id="selectAllArticle" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from fs_like left join fs_article on fs_like.article_id = fs_article.id
+    where fs_like.state = 1
+    and fs_article.state = 1
+    and fs_like.create_time between #{startTime} and #{endTime}
+  </select>
+
 </mapper>

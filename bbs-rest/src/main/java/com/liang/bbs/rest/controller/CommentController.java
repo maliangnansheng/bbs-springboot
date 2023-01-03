@@ -34,9 +34,9 @@ public class CommentController {
     @GetMapping("getCommentByArticleId")
     @ApiOperation(value = "获取文章的评论信息")
     @ApiVersion(group = ApiVersionConstant.V_300)
-    public ResponseResult<List<CommentDTO>> getCommentByArticleId(@RequestParam Integer articleId) {
+    public ResponseResult<List<CommentDTO>> getCommentByArticleId(CommentSearchDTO commentSearchDTO) {
         UserSsoDTO currentUser = UserContextUtils.currentUser();
-        return ResponseResult.success(commentService.getCommentByArticleId(articleId, currentUser));
+        return ResponseResult.success(commentService.getCommentByArticleId(commentSearchDTO, currentUser));
     }
 
     @NoNeedLogin

@@ -3,11 +3,23 @@ package com.liang.bbs.user.facade.server;
 import com.liang.bbs.user.facade.dto.LikeCommentDTO;
 import com.liang.nansheng.common.auth.UserSsoDTO;
 
+import java.time.LocalDateTime;
+import java.util.List;
+
 /**
  * @author 马亮
  * @date 2022/4/6 14:33
  */
 public interface LikeCommentService {
+
+    /**
+     * 获取所有通过审核文章的评论的点赞信息
+     *
+     * @param startTime
+     * @param endTime
+     * @return
+     */
+    List<LikeCommentDTO> getPaasAll(LocalDateTime startTime, LocalDateTime endTime);
 
     /**
      * 获取评论的点赞数量

@@ -30,14 +30,14 @@ public class UserLevelWorker {
     }
 
     private void execute() {
-        RLock lock = redissonClient.getFairLock("user_level_worker");
+        RLock lock = redissonClient.getFairLock("user_level_points_worker");
 
         try {
             boolean b = lock.tryLock();
             if (b) {
                 log.info("开始更新所有用户的等级信息--------------------------------->");
                 // 更新所有用户的等级信息
-                userLevelService.updateAll();
+                userLevelService.updatePointsAll();
             }
         } catch (Exception e) {
             log.error("UserLevelWorker failed!", e);

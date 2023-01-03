@@ -11,6 +11,7 @@ import com.liang.bbs.article.persistence.mapper.CommentPoExMapper;
 import com.liang.bbs.article.persistence.mapper.CommentPoMapper;
 import com.liang.bbs.article.service.mapstruct.CommentMS;
 import com.liang.bbs.article.service.utils.CommentTreeUtils;
+import com.liang.bbs.common.enums.SortRuleEnum;
 import com.liang.bbs.user.facade.dto.UserLevelDTO;
 import com.liang.bbs.user.facade.server.LikeCommentService;
 import com.liang.bbs.user.facade.server.UserLevelService;
@@ -27,6 +28,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -60,23 +63,53 @@ public class CommentServiceImpl implements CommentService {
     /**
      * 获取文章的评论信息
      *
-     * @param articleId
+     * @param commentSearchDTO
      * @param currentUser
      * @return
      */
     @Override
-    public List<CommentDTO> getCommentByArticleId(Integer articleId, UserSsoDTO currentUser) {
+    public List<CommentDTO> getCommentByArticleId(CommentSearchDTO commentSearchDTO, UserSsoDTO currentUser) {
         CommentPoExample example = new CommentPoExample();
         example.createCriteria().andIsDeletedEqualTo(false)
                 .andStateEqualTo(true)
-                .andArticleIdEqualTo(articleId);
+                .andArticleIdEqualTo(commentSearchDTO.getArticleId());
         List<CommentDTO> commentDTOS = CommentMS.INSTANCE.toDTO(commentPoMapper.selectByExample(example));
         if (CollectionUtils.isNotEmpty(commentDTOS)) {
             // 构建评论信息
             buildCommentInfo(commentDTOS, currentUser);
         }
 
-        return CommentTreeUtils.toTree(commentDTOS);
+        commentDTOS = CommentTreeUtils.toTree(commentDTOS);
+        // 最热评论（先按点赞数降序，再按回复数降序）
+        if (SortRuleEnum.hottest.equals(commentSearchDTO.getSortRule())) {
+            commentDTOS = commentDTOS.stream()
+                    .sorted(Comparator.comparing(CommentDTO::getLikeCount, Comparator.nullsLast(Comparator.reverseOrder()))
+                            .thenComparing(CommentDTO::getRepliesCount, Comparator.nullsLast(Comparator.reverseOrder())))
+                    .collect(Collectors.toList());
+        } else if (SortRuleEnum.newest.equals(commentSearchDTO.getSortRule())) {
+            commentDTOS = commentDTOS.stream()
+                    .sorted(Comparator.comparing(CommentDTO::getCreateTime, Comparator.nullsLast(Comparator.reverseOrder())))
+                    .collect(Collectors.toList());
+        }
+
+        return commentDTOS;
+    }
+
+    /**
+     * 获取所有通过审核文章的评论信息
+     *
+     * @param startTime
+     * @param endTime
+     * @return
+     */
+    @Override
+    public List<CommentDTO> getAllArticleComment(LocalDateTime startTime, LocalDateTime endTime) {
+        return CommentMS.INSTANCE.toDTO(commentPoExMapper.getAllArticleComment(startTime, endTime));
+    }
+
+    @Override
+    public List<CommentDTO> getAllCommentReply(LocalDateTime startTime, LocalDateTime endTime) {
+        return CommentMS.INSTANCE.toDTO(commentPoExMapper.getAllCommentReply(startTime, endTime));
     }
 
     /**
@@ -157,14 +190,57 @@ public class CommentServiceImpl implements CommentService {
      */
     @Override
     public Boolean delete(Integer commentId) {
+        List<Integer> commentIds = new ArrayList<>();
+        List<CommentDTO> children = new ArrayList<>();
+        // 通过父级ID获取子级评论信息
+        this.getAllChildrenByPreId(children, commentId);
+        if (CollectionUtils.isNotEmpty(children)) {
+            commentIds.addAll(children.stream().map(CommentDTO::getId).collect(Collectors.toList()));
+        }
+        commentIds.add(commentId);
+        CommentPoExample example = new CommentPoExample();
+        example.createCriteria().andIdIn(commentIds);
+
         CommentPo commentPo = new CommentPo();
-        commentPo.setId(commentId);
         commentPo.setIsDeleted(true);
         commentPo.setUpdateTime(LocalDateTime.now());
-        if (commentPoMapper.updateByPrimaryKeySelective(commentPo) <= 0) {
+        if (commentPoMapper.updateByExampleSelective(commentPo, example) <= 0) {
             throw BusinessException.build(ResponseCode.OPERATE_FAIL, "删除评论失败");
         }
         return true;
+    }
+
+    /**
+     * 通过父级ID获取子级评论信息
+     *
+     * @param result 存放结果
+     * @param preId
+     * @return
+     */
+    @Override
+    public void getAllChildrenByPreId(List<CommentDTO> result, Integer preId) {
+        CommentPoExample example = new CommentPoExample();
+        example.createCriteria().andIsDeletedEqualTo(false)
+                .andStateEqualTo(true)
+                .andPreIdEqualTo(preId);
+        List<CommentDTO> commentDTOS = CommentMS.INSTANCE.toDTO(commentPoMapper.selectByExample(example));
+        if (CollectionUtils.isNotEmpty(commentDTOS)) {
+            result.addAll(commentDTOS);
+            commentDTOS.forEach(commentDTO -> {
+                this.getAllChildrenByPreId(result, commentDTO.getId());
+            });
+        }
+    }
+
+    @Override
+    public Integer getArticleIdByCommentId(Integer commentId) {
+        CommentPo commentPo = commentPoMapper.selectByPrimaryKey(commentId);
+        return commentPo == null ? null : commentPo.getArticleId();
+    }
+
+    @Override
+    public CommentDTO getById(Integer commentId) {
+        return CommentMS.INSTANCE.toDTO(commentPoMapper.selectByPrimaryKey(commentId));
     }
 
     /**

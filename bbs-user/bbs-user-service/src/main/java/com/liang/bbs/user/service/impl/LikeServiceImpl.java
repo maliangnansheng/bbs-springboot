@@ -44,6 +44,18 @@ public class LikeServiceImpl implements LikeService {
     private ArticleService articleService;
 
     /**
+     * 获取所有点赞的通过审核的文章信息
+     *
+     * @param startTime
+     * @param endTime
+     * @return
+     */
+    @Override
+    public List<LikeDTO> getPaasAll(LocalDateTime startTime, LocalDateTime endTime) {
+        return LikeMS.INSTANCE.toDTO(likePoExMapper.selectAllArticle(startTime, endTime));
+    }
+
+    /**
      * 通过用户id获取点赞的文章信息
      *
      * @param likeSearchDTO

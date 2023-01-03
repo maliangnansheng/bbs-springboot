@@ -11,7 +11,7 @@
  Target Server Version : 80019
  File Encoding         : 65001
 
- Date: 25/09/2022 19:24:14
+ Date: 03/01/2023 22:41:59
 */
 
 SET NAMES utf8mb4;
@@ -195,6 +195,76 @@ CREATE TABLE `fs_course`  (
 -- ----------------------------
 -- Records of fs_course
 -- ----------------------------
+
+-- ----------------------------
+-- Table structure for fs_dynamic
+-- ----------------------------
+DROP TABLE IF EXISTS `fs_dynamic`;
+CREATE TABLE `fs_dynamic`  (
+  `id` int NOT NULL AUTO_INCREMENT COMMENT '用户动态编号',
+  `type` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '类型（写文章、评论、点赞、关注等）',
+  `user_id` bigint NULL DEFAULT NULL COMMENT '发起人',
+  `object_id` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '操作的对象ID（文章id、用户id等）',
+  `comment_id` int NULL DEFAULT NULL COMMENT '评论id',
+  `create_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
+  `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 15137 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '动态' ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of fs_dynamic
+-- ----------------------------
+INSERT INTO `fs_dynamic` VALUES (15086, 'writeArticle', 1640, '26', NULL, '2022-06-12 23:01:28', '2022-06-12 23:01:28');
+INSERT INTO `fs_dynamic` VALUES (15087, 'writeArticle', 1640, '27', NULL, '2022-06-12 23:14:44', '2022-06-12 23:14:44');
+INSERT INTO `fs_dynamic` VALUES (15088, 'writeArticle', 1640, '28', NULL, '2022-06-12 23:25:31', '2022-06-12 23:25:31');
+INSERT INTO `fs_dynamic` VALUES (15089, 'writeArticle', 1640, '29', NULL, '2019-06-01 11:47:16', '2019-06-01 11:47:16');
+INSERT INTO `fs_dynamic` VALUES (15090, 'writeArticle', 1640, '30', NULL, '2020-08-28 16:53:25', '2020-08-28 16:53:25');
+INSERT INTO `fs_dynamic` VALUES (15091, 'writeArticle', 1640, '31', NULL, '2020-09-29 14:39:27', '2020-09-29 14:39:27');
+INSERT INTO `fs_dynamic` VALUES (15092, 'writeArticle', 1640, '32', NULL, '2022-04-08 15:14:50', '2022-04-08 15:14:50');
+INSERT INTO `fs_dynamic` VALUES (15093, 'writeArticle', 1640, '33', NULL, '2020-10-23 09:24:18', '2020-10-23 09:24:18');
+INSERT INTO `fs_dynamic` VALUES (15094, 'writeArticle', 1640, '34', NULL, '2020-05-27 16:57:46', '2020-05-27 16:57:46');
+INSERT INTO `fs_dynamic` VALUES (15095, 'writeArticle', 1640, '35', NULL, '2019-11-19 14:03:23', '2019-11-19 14:03:23');
+INSERT INTO `fs_dynamic` VALUES (15096, 'writeArticle', 1640, '36', NULL, '2019-11-24 17:00:42', '2019-11-24 17:00:42');
+INSERT INTO `fs_dynamic` VALUES (15097, 'writeArticle', 1640, '37', NULL, '2020-05-01 22:52:12', '2020-05-01 22:52:12');
+INSERT INTO `fs_dynamic` VALUES (15098, 'writeArticle', 1640, '38', NULL, '2020-06-04 23:24:48', '2020-06-04 23:24:48');
+INSERT INTO `fs_dynamic` VALUES (15099, 'writeArticle', 1640, '40', NULL, '2022-06-21 22:32:04', '2022-06-21 22:32:04');
+INSERT INTO `fs_dynamic` VALUES (15100, 'writeArticle', 1640, '41', NULL, '2022-06-23 18:32:53', '2022-06-23 18:32:53');
+INSERT INTO `fs_dynamic` VALUES (15101, 'likeArticle', 1640, '26', NULL, '2022-06-12 23:04:21', '2022-06-12 23:04:21');
+INSERT INTO `fs_dynamic` VALUES (15102, 'likeArticle', 1640, '28', NULL, '2022-06-12 23:29:44', '2022-06-12 23:29:44');
+INSERT INTO `fs_dynamic` VALUES (15103, 'likeArticle', 1640, '27', NULL, '2022-06-12 23:29:45', '2022-06-12 23:29:45');
+INSERT INTO `fs_dynamic` VALUES (15104, 'likeArticle', 1640, '38', NULL, '2022-06-13 17:57:15', '2022-06-13 17:57:15');
+INSERT INTO `fs_dynamic` VALUES (15105, 'likeArticle', 1640, '29', NULL, '2022-06-14 14:41:46', '2022-06-14 14:41:46');
+INSERT INTO `fs_dynamic` VALUES (15106, 'likeArticle', 1640, '37', NULL, '2022-06-14 14:41:51', '2022-06-14 14:41:51');
+INSERT INTO `fs_dynamic` VALUES (15107, 'likeArticle', 1812, '40', NULL, '2022-06-21 23:01:09', '2022-06-21 23:01:09');
+INSERT INTO `fs_dynamic` VALUES (15108, 'likeArticle', 1812, '40', NULL, '2022-06-21 23:01:06', '2022-06-21 23:01:06');
+INSERT INTO `fs_dynamic` VALUES (15109, 'likeArticle', 2158, '40', NULL, '2022-06-21 23:57:49', '2022-06-21 23:57:49');
+INSERT INTO `fs_dynamic` VALUES (15110, 'likeArticle', 2158, '28', NULL, '2022-06-21 23:57:50', '2022-06-21 23:57:50');
+INSERT INTO `fs_dynamic` VALUES (15111, 'likeArticle', 2158, '27', NULL, '2022-06-21 23:57:51', '2022-06-21 23:57:51');
+INSERT INTO `fs_dynamic` VALUES (15112, 'likeArticle', 2158, '26', NULL, '2022-06-21 23:57:52', '2022-06-21 23:57:52');
+INSERT INTO `fs_dynamic` VALUES (15113, 'likeArticle', 2158, '32', NULL, '2022-06-21 23:57:55', '2022-06-21 23:57:55');
+INSERT INTO `fs_dynamic` VALUES (15114, 'likeArticle', 2158, '33', NULL, '2022-06-21 23:57:56', '2022-06-21 23:57:56');
+INSERT INTO `fs_dynamic` VALUES (15115, 'likeArticle', 2158, '31', NULL, '2022-06-21 23:57:58', '2022-06-21 23:57:58');
+INSERT INTO `fs_dynamic` VALUES (15116, 'likeArticle', 2158, '30', NULL, '2022-06-21 23:57:58', '2022-06-21 23:57:58');
+INSERT INTO `fs_dynamic` VALUES (15117, 'likeArticle', 2158, '34', NULL, '2022-06-21 23:58:04', '2022-06-21 23:58:04');
+INSERT INTO `fs_dynamic` VALUES (15118, 'likeArticle', 2158, '29', NULL, '2022-06-21 23:58:07', '2022-06-21 23:58:07');
+INSERT INTO `fs_dynamic` VALUES (15119, 'likeArticle', 2158, '35', NULL, '2022-06-21 23:58:26', '2022-06-21 23:58:26');
+INSERT INTO `fs_dynamic` VALUES (15120, 'likeArticle', 1640, '33', NULL, '2022-06-22 14:29:31', '2022-06-22 14:29:31');
+INSERT INTO `fs_dynamic` VALUES (15121, 'likeArticle', 1640, '41', NULL, '2022-06-23 20:41:57', '2022-06-23 20:41:57');
+INSERT INTO `fs_dynamic` VALUES (15122, 'likeComment', 1640, '26', 19, '2022-06-12 23:31:00', '2022-06-12 23:31:00');
+INSERT INTO `fs_dynamic` VALUES (15123, 'commentArticle', 1640, '26', 19, '2022-06-12 23:30:57', '2022-06-12 23:30:57');
+INSERT INTO `fs_dynamic` VALUES (15124, 'commentArticle', 1640, '27', 20, '2022-06-17 11:51:49', '2022-06-17 11:51:49');
+INSERT INTO `fs_dynamic` VALUES (15125, 'commentArticle', 1640, '28', 21, '2022-06-17 11:54:19', '2022-06-17 11:54:19');
+INSERT INTO `fs_dynamic` VALUES (15126, 'commentArticle', 1812, '40', 22, '2022-06-21 23:01:01', '2022-06-21 23:01:01');
+INSERT INTO `fs_dynamic` VALUES (15127, 'commentArticle', 1640, '40', 23, '2022-06-21 23:35:36', '2022-06-21 23:35:36');
+INSERT INTO `fs_dynamic` VALUES (15128, 'commentArticle', 2206, '40', 24, '2022-06-22 11:25:32', '2022-06-22 11:25:32');
+INSERT INTO `fs_dynamic` VALUES (15129, 'followUser', 1812, '1640', NULL, '2022-06-21 15:49:36', '2022-06-21 15:49:36');
+INSERT INTO `fs_dynamic` VALUES (15130, 'followUser', 2158, '1640', NULL, '2022-06-22 00:07:09', '2022-06-22 00:07:09');
+INSERT INTO `fs_dynamic` VALUES (15131, 'followUser', 2158, '1812', NULL, '2022-06-22 00:07:13', '2022-06-22 00:07:13');
+INSERT INTO `fs_dynamic` VALUES (15132, 'followUser', 2158, '2199', NULL, '2022-06-22 00:07:15', '2022-06-22 00:07:15');
+INSERT INTO `fs_dynamic` VALUES (15133, 'followUser', 2199, '2158', NULL, '2022-06-22 00:09:11', '2022-06-22 00:09:11');
+INSERT INTO `fs_dynamic` VALUES (15134, 'followUser', 2199, '1640', NULL, '2022-06-22 00:09:23', '2022-06-22 00:09:23');
+INSERT INTO `fs_dynamic` VALUES (15135, 'followUser', 1640, '1812', NULL, '2022-06-22 00:11:08', '2022-06-22 00:11:08');
+INSERT INTO `fs_dynamic` VALUES (15136, 'followUser', 1640, '2199', NULL, '2022-06-22 00:11:16', '2022-06-22 00:11:16');
 
 -- ----------------------------
 -- Table structure for fs_follow

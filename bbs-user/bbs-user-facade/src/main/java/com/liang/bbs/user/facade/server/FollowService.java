@@ -6,11 +6,23 @@ import com.liang.bbs.user.facade.dto.FollowDTO;
 import com.liang.bbs.user.facade.dto.FollowSearchDTO;
 import com.liang.nansheng.common.auth.UserSsoDTO;
 
+import java.time.LocalDateTime;
+import java.util.List;
+
 /**
  * @author 马亮
  * @date 2022/4/6 14:33
  */
 public interface FollowService {
+
+    /**
+     * 获取所有的关注
+     *
+     * @param startTime
+     * @param endTime
+     * @return
+     */
+    List<FollowDTO> getPaasAll(LocalDateTime startTime, LocalDateTime endTime);
 
     /**
      * 获取关注的用户信息

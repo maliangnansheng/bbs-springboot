@@ -35,7 +35,7 @@ public interface UserLevelService {
      *
      * @return
      */
-    Boolean updateAll();
+    Boolean updatePointsAll();
 
     /**
      * 同步所有用户等级信息

@@ -100,9 +100,17 @@
 <!--            <columnOverride column="update_time" javaType="java.time.LocalDateTime"/>-->
 <!--        </table>-->
 
-<!--        &lt;!&ndash; 用户等级 &ndash;&gt;-->
+        <!-- 用户等级 -->
 <!--        <table tableName="fs_user_level" enableSelectByPrimaryKey="true" enableUpdateByPrimaryKey="true"-->
 <!--               enableDeleteByPrimaryKey="true" domainObjectName="UserLevelPo">-->
+<!--            <generatedKey column="id" sqlStatement="JDBC" identity="true"/>-->
+<!--            <columnOverride column="create_time" javaType="java.time.LocalDateTime"/>-->
+<!--            <columnOverride column="update_time" javaType="java.time.LocalDateTime"/>-->
+<!--        </table>-->
+
+        <!-- 用户动态 -->
+<!--        <table tableName="fs_dynamic" enableSelectByPrimaryKey="true" enableUpdateByPrimaryKey="true"-->
+<!--               enableDeleteByPrimaryKey="true" domainObjectName="DynamicPo">-->
 <!--            <generatedKey column="id" sqlStatement="JDBC" identity="true"/>-->
 <!--            <columnOverride column="create_time" javaType="java.time.LocalDateTime"/>-->
 <!--            <columnOverride column="update_time" javaType="java.time.LocalDateTime"/>-->

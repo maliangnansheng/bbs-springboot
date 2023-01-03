@@ -4,6 +4,7 @@ import com.liang.bbs.user.facade.dto.LikeCommentDTO;
 import com.liang.bbs.user.facade.server.LikeCommentService;
 import com.liang.bbs.user.persistence.entity.LikeCommentPo;
 import com.liang.bbs.user.persistence.entity.LikeCommentPoExample;
+import com.liang.bbs.user.persistence.mapper.LikeCommentPoExMapper;
 import com.liang.bbs.user.persistence.mapper.LikeCommentPoMapper;
 import com.liang.bbs.user.service.mapstruct.LikeCommentMS;
 import com.liang.nansheng.common.auth.UserSsoDTO;
@@ -28,6 +29,14 @@ import java.util.List;
 public class LikeCommentServiceImpl implements LikeCommentService {
     @Autowired
     private LikeCommentPoMapper likeCommentPoMapper;
+
+    @Autowired
+    private LikeCommentPoExMapper likeCommentPoExMapper;
+
+    @Override
+    public List<LikeCommentDTO> getPaasAll(LocalDateTime startTime, LocalDateTime endTime) {
+        return LikeCommentMS.INSTANCE.toDTO(likeCommentPoExMapper.selectAllCommentLike(startTime, endTime));
+    }
 
     /**
      * 获取评论的点赞数量

@@ -93,6 +93,22 @@ public class ArticleServiceImpl implements ArticleService {
     private static final Integer contentMax = 200;
 
     /**
+     * 获取所有审核通过的文章
+     *
+     * @param startTime
+     * @param endTime
+     * @return
+     */
+    @Override
+    public List<ArticleDTO> getPassAll(LocalDateTime startTime, LocalDateTime endTime) {
+        ArticlePoExample example = new ArticlePoExample();
+        example.createCriteria().andIsDeletedEqualTo(false)
+                .andCreateTimeBetween(startTime, endTime)
+                .andStateEqualTo(ArticleStateEnum.enable.getCode());
+        return ArticleMS.INSTANCE.toDTO(articlePoMapper.selectByExample(example));
+    }
+
+    /**
      * 获取文章
      *
      * @param articleSearchDTO
@@ -271,8 +287,7 @@ public class ArticleServiceImpl implements ArticleService {
     public List<ArticleDTO> getBaseByIds(List<Integer> ids, ArticleStateEnum articleStateEnum) {
         ArticlePoExample example = new ArticlePoExample();
         ArticlePoExample.Criteria criteria = example.createCriteria();
-        criteria.andIsDeletedEqualTo(false)
-                .andIdIn(ids);
+        criteria.andIdIn(ids);
         if (articleStateEnum != null) {
             criteria.andStateEqualTo(articleStateEnum.getCode());
         }
@@ -327,10 +342,18 @@ public class ArticleServiceImpl implements ArticleService {
         if (StringUtils.isBlank(articleDTO.getTitle()) || StringUtils.isBlank(articleDTO.getHtml())) {
             throw BusinessException.build(ResponseCode.NOT_EXISTS, "参数不合规");
         }
+        ArticlePo oldArticlePo = articlePoMapper.selectByPrimaryKey(articleDTO.getId());
+        // 只能更新自己的文章
+        if (!currentUser.getUserId().equals(oldArticlePo.getCreateUser())) {
+            throw BusinessException.build(ResponseCode.OPERATE_FAIL, "无法更新，只能更新自己撰写的文章！");
+        }
+
         String content = CommonUtils.html2Text(articleDTO.getHtml());
         articleDTO.setContent(content.length() < contentMax ? content : content.substring(0, contentMax));
         LocalDateTime now = LocalDateTime.now();
         articleDTO.setUpdateTime(now);
+        articleDTO.setUpdateUser(currentUser.getUserId());
+        articleDTO.setState(ArticleStateEnum.pendingReview.getCode());
         ArticlePo articlePo = ArticleMS.INSTANCE.toPo(articleDTO);
         if (articlePoMapper.updateByPrimaryKeySelective(articlePo) <= 0) {
             throw BusinessException.build(ResponseCode.OPERATE_FAIL, "更新文章失败");
@@ -506,6 +529,60 @@ public class ArticleServiceImpl implements ArticleService {
                 .andCreateUserEqualTo(userId);
 
         return ArticleMS.INSTANCE.toDTO(articlePoMapper.selectByExample(example));
+    }
+
+    @Override
+    public Boolean articleTop(Integer id, Boolean top, UserSsoDTO currentUser) {
+        ArticlePo articlePo = articlePoMapper.selectByPrimaryKey(id);
+        articlePo.setUpdateTime(LocalDateTime.now());
+        articlePo.setUpdateUser(currentUser.getUserId());
+        // 置顶
+        if (top) {
+            Integer maxTop = this.getMaxTop();
+            if (maxTop != null) {
+                articlePo.setTop(maxTop + 1);
+                if (articlePoMapper.updateByPrimaryKey(articlePo) <= 0) {
+                    throw BusinessException.build(ResponseCode.OPERATE_FAIL, "文章置顶失败");
+                }
+            }
+        } else {
+            // 取消置顶
+            articlePo.setTop(null);
+            if (articlePoMapper.updateByPrimaryKey(articlePo) <= 0) {
+                throw BusinessException.build(ResponseCode.OPERATE_FAIL, "文章取消置顶失败");
+            }
+        }
+
+        return true;
+    }
+
+    @Override
+    public Integer getMaxTop() {
+        ArticlePoExample example = new ArticlePoExample();
+        example.setOrderByClause("top desc limit 1");
+        List<ArticlePo> articlePos = articlePoMapper.selectByExample(example);
+        if (CollectionUtils.isNotEmpty(articlePos)) {
+            return articlePos.get(0).getTop();
+        }
+
+        return null;
+    }
+
+    @Override
+    public Boolean delete(Integer id, UserSsoDTO currentUser) {
+        ArticlePo articlePo = articlePoMapper.selectByPrimaryKey(id);
+        // 只能删除自己的文章
+        if (!currentUser.getUserId().equals(articlePo.getCreateUser())) {
+            throw BusinessException.build(ResponseCode.OPERATE_FAIL, "无法删除，只能删除自己撰写的文章！");
+        }
+        articlePo.setIsDeleted(true);
+        articlePo.setUpdateTime(LocalDateTime.now());
+        articlePo.setUpdateUser(currentUser.getUserId());
+        if (articlePoMapper.updateByPrimaryKeySelective(articlePo) <= 0) {
+            throw BusinessException.build(ResponseCode.OPERATE_FAIL, "文章删除失败");
+        }
+
+        return true;
     }
 
     /**

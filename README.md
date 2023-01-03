@@ -42,7 +42,7 @@
 
 [如何获取南生论坛设计文档？](http://bbs.nanshengbbs.top/detail/76)
 
-[南生论坛设计文档开源下载地址](http://76.nanshengbbs.top/doc/%E5%8D%97%E7%94%9F%E8%AE%BA%E5%9D%9B%E7%9A%84%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0.doc)
+[南生论坛日常迭代](http://bbs.nanshengbbs.top/detail/122)
 
 ## 项目部署教程
 
@@ -66,22 +66,22 @@
 
 - 用户系统-功能结构图
 
-  ![](http://76.nanshengbbs.top/%E5%8D%97%E7%94%9F%E8%AE%BA%E5%9D%9B%E5%8A%9F%E8%83%BD%E7%BB%93%E6%9E%84%E5%9B%BE.png)
+  ![](http://76.nanshengbbs.top/%E5%8D%97%E7%94%9F%E8%AE%BA%E5%9D%9B%E5%8A%9F%E8%83%BD%E7%BB%93%E6%9E%84%E5%9B%BE002.png)
 
 
 - 管理系统-功能结构图
 
-  ![](http://76.nanshengbbs.top/%E5%8D%97%E7%94%9F%E8%BF%90%E8%90%A5%E5%8A%9F%E8%83%BD%E7%BB%93%E6%9E%84%E5%9B%BE2.png)
+  ![](http://76.nanshengbbs.top/%E5%8D%97%E7%94%9F%E8%BF%90%E8%90%A5%E5%8A%9F%E8%83%BD%E7%BB%93%E6%9E%84%E5%9B%BE002.png)
 
 ## 项目结构
 
 ### 后端项目结构（SpringBoot）
 
-![](http://76.nanshengbbs.top/ns-bbs-springboot.png)
+![](http://76.nanshengbbs.top/%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/idea002.png)
 
 ### 前端项目结构（Vue）
 
-![](http://76.nanshengbbs.top/ns-bbs-vue.png)
+![](http://76.nanshengbbs.top/%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/idea012.png)
 
 ## 版本更新
 

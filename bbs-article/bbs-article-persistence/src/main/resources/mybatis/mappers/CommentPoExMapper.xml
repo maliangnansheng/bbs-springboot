@@ -34,4 +34,26 @@
         order by fs_comment.id desc
     </select>
 
+    <select id="getAllArticleComment" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from fs_comment left join fs_article on fs_comment.article_id = fs_article.id
+        where fs_comment.is_deleted = 0
+        and fs_comment.state = 1
+        and fs_article.state = 1
+        and fs_comment.create_time between #{startTime} and #{endTime}
+        and fs_comment.pre_id = 0
+    </select>
+
+    <select id="getAllCommentReply" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from fs_comment left join fs_article on fs_comment.article_id = fs_article.id
+        where fs_comment.is_deleted = 0
+        and fs_comment.state = 1
+        and fs_article.state = 1
+        and fs_comment.create_time between #{startTime} and #{endTime}
+        and fs_comment.pre_id != 0
+    </select>
+
 </mapper>

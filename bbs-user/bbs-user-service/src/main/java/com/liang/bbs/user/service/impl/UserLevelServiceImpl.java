@@ -1,6 +1,5 @@
 package com.liang.bbs.user.service.impl;
 
-import com.alibaba.fastjson.JSON;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.liang.bbs.article.facade.dto.ArticleReadDTO;
@@ -115,7 +114,7 @@ public class UserLevelServiceImpl implements UserLevelService {
      * @return
      */
     @Override
-    public Boolean updateAll() {
+    public Boolean updatePointsAll() {
         // 所有的用户id
         List<Long> userIds = userService.getAllList().stream().map(UserListDTO::getId).collect(Collectors.toList());
         // 用户的文章阅读数量
@@ -123,7 +122,7 @@ public class UserLevelServiceImpl implements UserLevelService {
                 .collect(Collectors.toMap(ArticleReadDTO::getUserId, ArticleReadDTO::getArticleReadCount, (v1, v2) -> v1));
         userIds.forEach(userId -> {
             // 南生值 = 文章的阅读数 / 10 + 获得的点赞数
-            long points = userIdToArticleReadCount.get(userId) / 10 + likeService.getUserLikeCount(userId);
+            long points = (userIdToArticleReadCount.getOrDefault(userId, 0L)) / 10 + likeService.getUserLikeCount(userId);
             this.update(userId, (int) points);
         });
 
@@ -152,7 +151,7 @@ public class UserLevelServiceImpl implements UserLevelService {
         // 通过用户id获取用户等级信息
         List<UserLevelDTO> userLevelDTOS = getByUserId(null);
         if (CollectionUtils.isEmpty(userLevelDTOS)) {
-            return new PageInfo<>();
+            return new PageInfo<>(new ArrayList<>());
         }
         // 通过用户id集合去获取用户信息（这样可以大大减少数据库的操作次数）
         List<Long> userIds = userLevelDTOS.stream().map(UserLevelDTO::getUserId).collect(Collectors.toList());
@@ -166,7 +165,7 @@ public class UserLevelServiceImpl implements UserLevelService {
             UserForumDTO userForumDTO = new UserForumDTO();
             BeanUtils.copyProperties(userIdToUsersMap.get(userLevelDTO.getUserId()).get(0), userForumDTO);
             userForumDTO.setLikeCount(likeService.getUserLikeCount(userForumDTO.getId()));
-            userForumDTO.setReadCount(userIdToArticleReadCount.get(userForumDTO.getId()));
+            userForumDTO.setReadCount(userIdToArticleReadCount.getOrDefault(userForumDTO.getId(), 0L));
             userForumDTO.setLevel(userLevelDTO.getLevel());
             // 通过fromUser和toUser获取关注信息
             if (currentUser != null) {
@@ -230,8 +229,8 @@ public class UserLevelServiceImpl implements UserLevelService {
         UserDTO userDTO = userService.getByIds(Collections.singletonList(userId)).get(0);
         BeanUtils.copyProperties(userDTO, userForumDTO);
         userForumDTO.setLikeCount(likeService.getUserLikeCount(userDTO.getId()));
-        userForumDTO.setReadCount(articleService.getUserReadCount(Collections.singletonList(userDTO.getId()))
-                .get(0).getArticleReadCount());
+        List<ArticleReadDTO> articleReadDTOS = articleService.getUserReadCount(Collections.singletonList(userDTO.getId()));
+        userForumDTO.setReadCount(CollectionUtils.isEmpty(articleReadDTOS) ? 0L : articleReadDTOS.get(0).getArticleReadCount());
         userForumDTO.setLevel(userLevelDTOS.get(0).getLevel());
         userForumDTO.setPoints(userLevelDTOS.get(0).getPoints());
         // 通过fromUser和toUser获取关注信息

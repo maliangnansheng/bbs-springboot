@@ -116,7 +116,7 @@ public class ArticleController {
         UserSsoDTO currentUser = UserContextUtils.currentUser();
         List<ArticleDTO> articleDTOS = articleService.getByIds(Collections.singletonList(id), isPv, currentUser);
         if (CollectionUtils.isEmpty(articleDTOS)) {
-            return ResponseResult.success(new ArticleDTO());
+            return ResponseResult.build(ResponseCode.NOT_EXISTS, null);
         }
         return ResponseResult.success(articleDTOS.get(0));
     }
@@ -184,6 +184,22 @@ public class ArticleController {
     public ResponseResult<ArticleCountDTO> getCountById(@RequestParam Integer id) {
         UserSsoDTO currentUser = UserContextUtils.currentUser();
         return ResponseResult.success(articleService.getCountById(id, currentUser));
+    }
+
+    @GetMapping("articleTop")
+    @ApiOperation(value = "文章置顶/取消置顶")
+    @ApiVersion(group = ApiVersionConstant.V_300)
+    public ResponseResult<Boolean> articleTop(@RequestParam Integer id, @RequestParam Boolean top) {
+        UserSsoDTO currentUser = UserContextUtils.currentUser();
+        return ResponseResult.success(articleService.articleTop(id, top, currentUser));
+    }
+
+    @PostMapping("delete/{id}")
+    @ApiOperation(value = "文章删除")
+    @ApiVersion(group = ApiVersionConstant.V_300)
+    public ResponseResult<Boolean> delete(@PathVariable Integer id) {
+        UserSsoDTO currentUser = UserContextUtils.currentUser();
+        return ResponseResult.success(articleService.delete(id, currentUser));
     }
 
 }

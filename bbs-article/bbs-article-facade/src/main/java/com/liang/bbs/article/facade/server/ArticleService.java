@@ -6,6 +6,7 @@ import com.liang.bbs.common.enums.ArticleStateEnum;
 import com.liang.bbs.user.facade.dto.LikeSearchDTO;
 import com.liang.nansheng.common.auth.UserSsoDTO;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -13,6 +14,16 @@ import java.util.List;
  * @date 2022/4/6 14:33
  */
 public interface ArticleService {
+
+    /**
+     * 获取所有审核通过的文章
+     *
+     * @param startTime
+     * @param endTime
+     * @return
+     */
+    List<ArticleDTO> getPassAll(LocalDateTime startTime, LocalDateTime endTime);
+
     /**
      * 获取文章
      *
@@ -168,4 +179,29 @@ public interface ArticleService {
      */
     List<ArticleDTO> getByUserId(Long userId);
 
+    /**
+     * 文章置顶/取消置顶
+     *
+     * @param id
+     * @param top 是否置顶（true：置顶，false：取消置顶）
+     * @param currentUser
+     * @return
+     */
+    Boolean articleTop(Integer id, Boolean top, UserSsoDTO currentUser);
+
+    /**
+     * 获取文章置顶的最大数值
+     *
+     * @return
+     */
+    Integer getMaxTop();
+
+    /**
+     * delete
+     *
+     * @param id
+     * @param currentUser
+     * @return
+     */
+    Boolean delete(Integer id, UserSsoDTO currentUser);
 }

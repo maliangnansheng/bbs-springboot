@@ -5,6 +5,7 @@ import com.liang.bbs.user.facade.dto.LikeDTO;
 import com.liang.bbs.user.facade.dto.LikeSearchDTO;
 import com.liang.nansheng.common.auth.UserSsoDTO;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -12,6 +13,15 @@ import java.util.List;
  * @date 2022/4/6 14:33
  */
 public interface LikeService {
+
+    /**
+     * 获取所有点赞的通过审核的文章信息
+     *
+     * @param startTime
+     * @param endTime
+     * @return
+     */
+    List<LikeDTO> getPaasAll(LocalDateTime startTime, LocalDateTime endTime);
 
     /**
      * 通过用户id获取点赞的文章信息
