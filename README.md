@@ -37,8 +37,10 @@
 2. 加作者QQ：924818949
 3. 加作者微信：maliangnansheng
 
-## 使用指南or设计文档
+## 使用指南or代码讲解or设计文档
 [南生论坛使用指南](https://www.bilibili.com/video/BV1he4y1C7rk?share_source=copy_web&vd_source=1f88041e3a02d90ecf98d311908d3d8b)
+
+[南生论坛代码讲解](https://www.bilibili.com/video/BV1pK411C7T4/?vd_source=d0a5d07985a7fbbfb889c874632343c6)
 
 [如何获取南生论坛设计文档？](http://bbs.nanshengbbs.top/detail/76)
 
