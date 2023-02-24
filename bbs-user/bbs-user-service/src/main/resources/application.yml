@@ -52,7 +52,7 @@ spring:
     port: 6379
     password: 12345678
     # 单位 毫秒
-    timeout: 3000
+    timeout: 60000
     lettuce:
       pool:
         max-active: 10

@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
+import java.util.UUID;
+
 /**
  * @author 马亮
  * @date 2022/5/24 10:57
@@ -30,7 +32,7 @@ public class UserDynamicWorker {
     }
 
     private void execute() {
-        RLock lock = redissonClient.getFairLock("user_dynamic_worker");
+        RLock lock = redissonClient.getFairLock("user_dynamic_worker" + UUID.randomUUID());
 
         try {
             boolean b = lock.tryLock();

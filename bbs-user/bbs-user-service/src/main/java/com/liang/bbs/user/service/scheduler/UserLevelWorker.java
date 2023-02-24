@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
+import java.util.UUID;
+
 /**
  * @author 马亮
  * @date 2022/5/24 10:57
@@ -30,7 +32,7 @@ public class UserLevelWorker {
     }
 
     private void execute() {
-        RLock lock = redissonClient.getFairLock("user_level_points_worker");
+        RLock lock = redissonClient.getFairLock("user_level_points_worker" + UUID.randomUUID());
 
         try {
             boolean b = lock.tryLock();
@@ -58,7 +60,7 @@ public class UserLevelWorker {
     }
 
     private void executeNull() {
-        RLock lock = redissonClient.getFairLock("user_level_null_worker");
+        RLock lock = redissonClient.getFairLock("user_level_null_worker" + UUID.randomUUID());
 
         try {
             boolean b = lock.tryLock();

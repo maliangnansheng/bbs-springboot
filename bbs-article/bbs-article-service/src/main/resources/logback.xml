@@ -82,6 +82,9 @@
 
     <logger name="org.springframework.web.servlet" level="INFO"/>
 
+    <!-- 排除不需要打印的日志（dubbo远程异常） -->
+    <logger name="org.apache.dubbo.remoting" level="OFF"/>
+
     <!-- 日志输出级别 ERROR,WARN,INFO,DEBUG -->
     <root level="INFO">
         <appender-ref ref="STDOUT"/>
