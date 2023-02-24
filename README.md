@@ -24,6 +24,7 @@
 - 大厂微服务架构设计；代码简洁、高效无冗余；注释详细易阅读
 - 该项目适合`初学/进阶`SpringBoot+Vue的童鞋学习。主要涉及技术包括`SpringBoot、Dubbo、RocketMQ、Redis、MyBatis、MySQL、MongoDB、Shiro、七牛云（图片/视频全部存于此）、Vue、Axios、Vue Router、Ant Design of Vue、Webpack、Less、Vuex、ES6、Node.js、mavonEditor、ECharts、…`  
 
+
 ## 技术栈
 
 - **后端：**
