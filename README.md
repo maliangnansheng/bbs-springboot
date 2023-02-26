@@ -110,7 +110,7 @@
 
 - **首页（`管理员视角`）**
 
-  ![image](http://76.nanshengbbs.top/ns-bbs-home-admin3.png)
+  ![image](http://76.nanshengbbs.top/ns-bbs-home-admin4.png)
 
 - **文章详情**
 
@@ -118,15 +118,15 @@
 
 - **标签（`管理员视角`）**
 
-  ![](http://76.nanshengbbs.top/ns-bbs-label.png)
+  ![](http://76.nanshengbbs.top/ns-bbs-label2.png)
  
 - **资源导航（`管理员视角`）**
 
-  ![](http://76.nanshengbbs.top/ns-bbs-resource.png)
+  ![](http://76.nanshengbbs.top/ns-bbs-resource2.png)
 
 - **个人主页**
 
-  ![image](http://76.nanshengbbs.top/ns-bbs-homepage.png)
+  ![image](http://76.nanshengbbs.top/ns-bbs-homepage2.png)
 
 - **个人资料**
 
