@@ -37,7 +37,6 @@ public class UserDynamicWorker {
         try {
             boolean b = lock.tryLock();
             if (b) {
-                log.info("开始更新所有用户的动态信息--------------------------------->");
                 // 更新所有用户的动态信息
                 dynamicService.updateAll();
             }

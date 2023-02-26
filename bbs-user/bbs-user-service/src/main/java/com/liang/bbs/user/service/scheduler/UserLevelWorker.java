@@ -37,7 +37,6 @@ public class UserLevelWorker {
         try {
             boolean b = lock.tryLock();
             if (b) {
-                log.info("开始更新所有用户的等级信息--------------------------------->");
                 // 更新所有用户的等级信息
                 userLevelService.updatePointsAll();
             }
@@ -65,7 +64,6 @@ public class UserLevelWorker {
         try {
             boolean b = lock.tryLock();
             if (b) {
-                log.info("开始同步所有用户的等级信息--------------------------------->");
                 // 同步所有用户的等级信息
                 userLevelService.syncAll();
             }
