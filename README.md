@@ -110,7 +110,7 @@
 
 - **首页（`管理员视角`）**
 
-  ![image](http://76.nanshengbbs.top/ns-bbs-home-admin4.png)
+  ![image](http://76.nanshengbbs.top/ns-bbs-home-admin5.png)
 
 - **文章详情**
 
