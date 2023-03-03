@@ -30,7 +30,7 @@
 ## 技术栈
 
 - **后端：**
-  SpringBoot、Dubbo、RocketMQ、Redis、MyBatis、MySQL、MongoDB、Shiro、七牛云（图片/视频全部存于此）、...
+  SpringBoot、Dubbo、Zookeeper、RocketMQ、Redis、MyBatis、MySQL、MongoDB、Shiro、七牛云（图片/视频全部存于此）、...
 - **前端：**
   Vue、Axios、Vue Router、Ant Design of Vue、Webpack、Less、Vuex、ES6、Node.js、mavonEditor、ECharts、...
 
@@ -40,14 +40,8 @@
 2. 加作者QQ：924818949
 3. 加作者微信：maliangnansheng
 
-## 使用指南or代码讲解or设计文档
-[南生论坛使用指南](https://www.bilibili.com/video/BV1he4y1C7rk?share_source=copy_web&vd_source=1f88041e3a02d90ecf98d311908d3d8b)
-
-[南生论坛代码讲解](https://www.bilibili.com/video/BV1pK411C7T4/?vd_source=d0a5d07985a7fbbfb889c874632343c6)
-
-[如何获取南生论坛设计文档？](http://bbs.nanshengbbs.top/detail/76)
-
-[南生论坛日常迭代](http://bbs.nanshengbbs.top/detail/122)
+## 使用指南and代码讲解and设计文档
+[01 南生论坛使用指南](https://www.bilibili.com/video/BV1he4y1C7rk?share_source=copy_web&vd_source=1f88041e3a02d90ecf98d311908d3d8b)、 [02 南生论坛代码讲解](https://www.bilibili.com/video/BV1pK411C7T4/?vd_source=d0a5d07985a7fbbfb889c874632343c6)、 [03 如何获取南生论坛设计文档？](http://bbs.nanshengbbs.top/detail/76)、 [04南生论坛日常迭代](http://bbs.nanshengbbs.top/detail/122)
 
 ## 项目部署教程
 
@@ -60,12 +54,13 @@
 ## 官方地址
 
 `手机上也有不错的展示效果...`
+> **普通账号**：`椿/123456`；也可自己注册
+>
+> **管理员账号**：`测试管理员/123456`-你们可以使用我看到管理员的界面，但是没有实际的操作权限。普通用户拥有的权限我也有！
 
-用户系统：[http://bbs.nanshengbbs.top](http://bbs.nanshengbbs.top) - (测试账号：`椿/123456`；也可自己注册)
+用户系统：[http://bbs.nanshengbbs.top](http://bbs.nanshengbbs.top)
 
-管理系统：[http://manage.nanshengbbs.top](http://manage.nanshengbbs.top)    **↓↓↓**
-
-> 为了避免大家删除数据，暂时不给管理员权限的账号，望理解！
+管理系统：[http://manage.nanshengbbs.top](http://manage.nanshengbbs.top) 
 
 ## 功能结构
 
