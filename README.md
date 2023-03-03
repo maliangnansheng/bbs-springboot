@@ -2,7 +2,7 @@
 
 # Nan's BBS 南生论坛（SpringBoot+Vue）
 
-[![](https://img.shields.io/badge/Author-马亮南生-orange.svg)](http://blog.nanshengbbs.top/)
+[![](https://img.shields.io/badge/Author-马亮南生-orange.svg)](http://bbs.nanshengbbs.top/user/1640)
 [![](https://img.shields.io/badge/version-3.0.0-brightgreen.svg)](https://github.com/maliangnansheng/bbs-springboot)
 [![GitHub stars](https://img.shields.io/github/stars/maliangnansheng/bbs-springboot.svg?style=social&label=Stars)](https://github.com/maliangnansheng/bbs-springboot)
 [![GitHub forks](https://img.shields.io/github/forks/maliangnansheng/bbs-springboot.svg?style=social&label=Fork)](https://github.com/maliangnansheng/bbs-springboot)
