@@ -27,9 +27,7 @@
         <revision>3.0.0-SNAPSHOT</revision>
 
         <!-- 南生系列版本号 -->
-        <nansheng-common.version>1.0.0-SNAPSHOT</nansheng-common.version>
-        <nansheng-mybatis-generator.version>1.0.0-SNAPSHOT</nansheng-mybatis-generator.version>
-        <ns-manage.version>1.0.0-SNAPSHOT</ns-manage.version>
+        <nansheng-common.version>2.2.2</nansheng-common.version>
 
         <!-- 三方jar包版本依赖 -->
         <swagger2.version>3.0.0</swagger2.version>
@@ -55,7 +53,6 @@
         <spring-boot-starter-data-redis.version>2.4.5</spring-boot-starter-data-redis.version>
         <springloaded.version>1.2.6.RELEASE</springloaded.version>
         <apache-httpclient.version>4.5.13</apache-httpclient.version>
-        <recketmq.version>2.0.3</recketmq.version>
         <maven-assembly-plugin.version>3.3.0</maven-assembly-plugin.version>
         <spring-boot-starter-data-mongodb.version>2.6.7</spring-boot-starter-data-mongodb.version>
         <validation-api.version>2.0.1.Final</validation-api.version>
@@ -87,26 +84,9 @@
         <dependencies>
             <!-- 南生系列公共依赖 -->
             <dependency>
-                <groupId>com.liang</groupId>
+                <groupId>io.github.maliangnansheng</groupId>
                 <artifactId>nansheng-common</artifactId>
                 <version>${nansheng-common.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.liang</groupId>
-                <artifactId>nansheng-mybatis-generator</artifactId>
-                <version>${nansheng-mybatis-generator.version}</version>
-            </dependency>
-
-            <!-- 南生运营依赖 -->
-            <dependency>
-                <groupId>com.liang</groupId>
-                <artifactId>manage-auth-facade</artifactId>
-                <version>${ns-manage.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.liang</groupId>
-                <artifactId>manage-concern-facade</artifactId>
-                <version>${ns-manage.version}</version>
             </dependency>
 
             <!-- 本工程各模块依赖 -->
@@ -226,7 +206,7 @@
             <dependency>
                 <groupId>org.apache.rocketmq</groupId>
                 <artifactId>rocketmq-spring-boot-starter</artifactId>
-                <version>${recketmq.version}</version>
+                <version>${rocketmq-spring-boot-starter.version}</version>
             </dependency>
 
             <!-- 介于关系数据库和非关系数据库之间的数据库mongodb -->
@@ -346,12 +326,6 @@
                 <artifactId>alipay-sdk-java</artifactId>
                 <version>${alipay-sdk-java.version}</version>
             </dependency>
-
-            <dependency>
-                <groupId>org.apache.rocketmq</groupId>
-                <artifactId>rocketmq-spring-boot-starter</artifactId>
-                <version>${rocketmq-spring-boot-starter.version}</version>
-            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -400,12 +374,6 @@
                             <groupId>com.itfsw</groupId>
                             <artifactId>mybatis-generator-plugin</artifactId>
                             <version>${mybatis-generator-plugin.version}</version>
-                        </dependency>
-                        <!-- mybatis generator自定义生成注释 -->
-                        <dependency>
-                            <groupId>com.liang</groupId>
-                            <artifactId>nansheng-mybatis-generator</artifactId>
-                            <version>${nansheng-mybatis-generator.version}</version>
                         </dependency>
                         <dependency>
                             <groupId>mysql</groupId>

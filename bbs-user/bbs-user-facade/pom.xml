@@ -16,14 +16,8 @@
     <dependencies>
         <!-- 南生系列公共依赖 -->
         <dependency>
-            <groupId>com.liang</groupId>
+            <groupId>io.github.maliangnansheng</groupId>
             <artifactId>nansheng-common</artifactId>
-        </dependency>
-
-        <!-- 南生运营依赖 -->
-        <dependency>
-            <groupId>com.liang</groupId>
-            <artifactId>manage-auth-facade</artifactId>
         </dependency>
 
         <!-- 本工程各模块依赖 -->

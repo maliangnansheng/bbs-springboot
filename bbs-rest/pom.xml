@@ -13,18 +13,6 @@
     <version>${revision}</version>
 
     <dependencies>
-        <!-- 南生运营依赖 -->
-        <dependency>
-            <groupId>com.liang</groupId>
-            <artifactId>manage-auth-facade</artifactId>
-        </dependency>
-
-        <!-- 南生运营依赖 -->
-        <dependency>
-            <groupId>com.liang</groupId>
-            <artifactId>manage-concern-facade</artifactId>
-        </dependency>
-
         <!-- 本工程各模块依赖 -->
         <dependency>
             <groupId>com.liang</groupId>

@@ -16,7 +16,7 @@
     <dependencies>
         <!-- 南生系列公共依赖 -->
         <dependency>
-            <groupId>com.liang</groupId>
+            <groupId>io.github.maliangnansheng</groupId>
             <artifactId>nansheng-common</artifactId>
         </dependency>
 
