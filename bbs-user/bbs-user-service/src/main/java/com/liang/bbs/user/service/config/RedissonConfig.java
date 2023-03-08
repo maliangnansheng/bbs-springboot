@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
 /**
  * Springboot 整合Redisson 实现分布式锁
  *
- * @author 马亮
+ * @author maliangnansheng
  * @date 2022/4/20 10:09
  */
 @Configuration

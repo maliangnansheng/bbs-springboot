@@ -7,7 +7,7 @@ import lombok.EqualsAndHashCode;
 import java.io.Serializable;
 
 /**
- * @author 马亮
+ * @author maliangnansheng
  * @date 2022/5/5 18:43
  */
 @EqualsAndHashCode(callSuper = true)

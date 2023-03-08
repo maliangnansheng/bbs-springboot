@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 /**
  * 用于树转集合，集合转树场景
  *
- * @author 马亮南生
+ * @author maliangnansheng
  * @date 2022-05-22 12:34
  */
 @Slf4j

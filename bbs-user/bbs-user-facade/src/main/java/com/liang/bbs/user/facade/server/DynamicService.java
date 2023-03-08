@@ -6,7 +6,7 @@ import com.liang.bbs.user.facade.dto.DynamicDTO;
 import java.time.LocalDateTime;
 
 /**
- * @author 马亮
+ * @author maliangnansheng
  * @date 2022/4/6 14:33
  */
 public interface DynamicService {

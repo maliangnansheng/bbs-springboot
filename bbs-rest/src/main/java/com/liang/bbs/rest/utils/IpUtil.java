@@ -8,7 +8,7 @@ import java.util.StringTokenizer;
 /**
  * ip解析
  *
- * @author 马亮南生
+ * @author maliangnansheng
  * @date 2021-04-20 21:49
  */
 @Slf4j

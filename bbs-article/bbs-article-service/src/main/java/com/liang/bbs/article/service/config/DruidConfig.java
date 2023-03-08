@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 /**
  * 当数据库连接池使用druid时，我们进行一些简单的配置就能查看到sql监控，web监控，url监控等等
  *
- * @author 马亮南生
+ * @author maliangnansheng
  * @date 2021-04-21 20:32
  */
 @Configuration

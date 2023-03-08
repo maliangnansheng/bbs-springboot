@@ -1,7 +1,7 @@
 package com.liang.bbs.rest.config.swagger;
 
 /**
- * @author 马亮南生
+ * @author maliangnansheng
  * @date 2021-04-20 22:42
  */
 public interface ApiVersionConstant {

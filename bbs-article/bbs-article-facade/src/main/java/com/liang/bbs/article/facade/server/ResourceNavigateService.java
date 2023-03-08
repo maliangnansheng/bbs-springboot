@@ -8,7 +8,7 @@ import com.liang.nansheng.common.auth.UserSsoDTO;
 import java.util.List;
 
 /**
- * @author 马亮
+ * @author maliangnansheng
  * @date 2022/4/6 14:33
  */
 public interface ResourceNavigateService {

@@ -24,7 +24,7 @@ import java.util.Objects;
 /**
  * 验证用户的有效性，无效则重定向到登录页面进行登录
  *
- * @author 马亮南生
+ * @author maliangnansheng
  * @date 2021-04-25 22:10
  */
 @Slf4j

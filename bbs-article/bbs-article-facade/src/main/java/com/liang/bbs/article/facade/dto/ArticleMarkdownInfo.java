@@ -7,7 +7,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.time.LocalDateTime;
 
 /**
- * @author 马亮南生
+ * @author maliangnansheng
  * @date 2022-05-16 20:54
  */
 @Data

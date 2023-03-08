@@ -3,7 +3,6 @@ package com.liang.bbs.rest.controller;
 import com.liang.bbs.rest.config.login.NoNeedLogin;
 import com.liang.bbs.rest.config.swagger.ApiVersion;
 import com.liang.bbs.rest.config.swagger.ApiVersionConstant;
-import com.liang.bbs.user.facade.server.UserLevelService;
 import com.liang.manage.auth.facade.dto.user.UserDTO;
 import com.liang.manage.auth.facade.dto.user.UserLoginDTO;
 import com.liang.manage.auth.facade.dto.user.UserTokenDTO;
@@ -28,7 +27,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 /**
- * @author 马亮
+ * @author maliangnansheng
  * @date 2021/4/25 15:16
  */
 @Slf4j

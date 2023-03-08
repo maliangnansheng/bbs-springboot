@@ -1,10 +1,11 @@
 package com.liang.bbs.article.persistence.entity;
 
-import java.io.Serializable;
-import java.time.LocalDateTime;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.io.Serializable;
+import java.time.LocalDateTime;
 
 /**
  * 对应数据表为：fs_label

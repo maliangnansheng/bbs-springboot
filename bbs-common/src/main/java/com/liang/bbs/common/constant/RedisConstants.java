@@ -1,7 +1,7 @@
 package com.liang.bbs.common.constant;
 
 /**
- * @author 马亮
+ * @author maliangnansheng
  * @date 2021/4/21 18:55
  */
 public interface RedisConstants {

@@ -18,7 +18,7 @@ import org.springframework.web.client.RestTemplate;
 /**
  * spring用RestTemplate，代替之前的HttpClient
  *
- * @author 马亮南生
+ * @author maliangnansheng
  * @date 2021-04-21 20:32
  */
 @Configuration

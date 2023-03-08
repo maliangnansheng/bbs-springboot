@@ -5,7 +5,7 @@ import com.github.pagehelper.PageInfo;
 import java.util.List;
 
 /**
- * @author 马亮南生
+ * @author maliangnansheng
  * @date 2021-04-20 22:25
  */
 public interface CommonMS<P, D> {

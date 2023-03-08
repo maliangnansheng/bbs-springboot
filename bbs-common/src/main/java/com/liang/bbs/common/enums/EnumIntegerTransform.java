@@ -3,7 +3,7 @@ package com.liang.bbs.common.enums;
 /**
  * 枚举整数转换
  *
- * @author 马亮
+ * @author maliangnansheng
  * @date 2021/4/21 17:40
  */
 public class EnumIntegerTransform {

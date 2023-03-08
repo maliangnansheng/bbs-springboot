@@ -1,7 +1,7 @@
 package com.liang.bbs.common.enums;
 
 /**
- * @author 马亮
+ * @author maliangnansheng
  * @date 2022/6/13 18:04
  */
 public enum UserLevelEnum {

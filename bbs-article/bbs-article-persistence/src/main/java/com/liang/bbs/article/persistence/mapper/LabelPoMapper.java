@@ -2,8 +2,9 @@ package com.liang.bbs.article.persistence.mapper;
 
 import com.liang.bbs.article.persistence.entity.LabelPo;
 import com.liang.bbs.article.persistence.entity.LabelPoExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface LabelPoMapper {
     /**

@@ -3,7 +3,7 @@ package com.liang.bbs.common.enums;
 import lombok.Getter;
 
 /**
- * @author 马亮
+ * @author maliangnansheng
  * @date 2022/6/13 18:04
  */
 @Getter

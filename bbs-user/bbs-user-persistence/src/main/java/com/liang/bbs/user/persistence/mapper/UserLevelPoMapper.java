@@ -2,8 +2,9 @@ package com.liang.bbs.user.persistence.mapper;
 
 import com.liang.bbs.user.persistence.entity.UserLevelPo;
 import com.liang.bbs.user.persistence.entity.UserLevelPoExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface UserLevelPoMapper {
     /**

@@ -2,8 +2,9 @@ package com.liang.bbs.article.persistence.mapper;
 
 import com.liang.bbs.article.persistence.entity.ResourceNavigatePo;
 import com.liang.bbs.article.persistence.entity.ResourceNavigatePoExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface ResourceNavigatePoMapper {
     /**

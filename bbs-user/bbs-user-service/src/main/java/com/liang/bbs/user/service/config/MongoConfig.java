@@ -3,7 +3,7 @@ package com.liang.bbs.user.service.config;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * @author 马亮
+ * @author maliangnansheng
  * @date 2022/4/12 18:34
  */
 @Configuration

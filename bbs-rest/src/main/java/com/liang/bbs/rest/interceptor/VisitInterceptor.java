@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * 用户头像拦截器
  *
- * @author 马亮南生
+ * @author maliangnansheng
  * @date 2021-04-20 22:04
  */
 @Slf4j

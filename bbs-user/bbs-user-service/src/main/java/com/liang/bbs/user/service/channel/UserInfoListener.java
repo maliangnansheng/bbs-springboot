@@ -2,7 +2,6 @@ package com.liang.bbs.user.service.channel;
 
 import com.alibaba.fastjson.JSON;
 import com.liang.bbs.user.facade.server.UserLevelService;
-import com.liang.manage.auth.facade.dto.user.UserDTO;
 import com.liang.manage.auth.facade.dto.user.UserTokenDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.dubbo.config.annotation.Reference;
@@ -11,7 +10,7 @@ import org.apache.rocketmq.spring.core.RocketMQListener;
 import org.springframework.stereotype.Component;
 
 /**
- * @author 马亮
+ * @author maliangnansheng
  * @date 2022/6/9 18:48
  */
 @Component
