@@ -11,7 +11,7 @@
  Target Server Version : 80029
  File Encoding         : 65001
 
- Date: 14/01/2023 18:44:24
+ Date: 09/03/2023 21:13:53
 */
 
 SET NAMES utf8mb4;
@@ -429,11 +429,16 @@ CREATE TABLE `fs_slideshow`  (
   `create_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
   `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '轮播图' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '轮播图' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of fs_slideshow
 -- ----------------------------
+INSERT INTO `fs_slideshow` VALUES (1, '测试001', 'http://76.nanshengbbs.top/slider-20200706000714_1.png', NULL, NULL, 1, 0, 1640, 1640, '2023-02-01 15:54:28', '2023-02-01 15:54:30');
+INSERT INTO `fs_slideshow` VALUES (2, '测试002', 'http://76.nanshengbbs.top/slider-20200706001316_2.png', NULL, NULL, 1, 0, 1640, 1640, '2023-02-01 16:01:06', '2023-02-01 16:01:09');
+INSERT INTO `fs_slideshow` VALUES (3, '测试003', 'http://76.nanshengbbs.top/slider-20200706001324_3.png', NULL, NULL, 1, 0, 1640, 1640, '2023-02-01 16:01:06', '2023-02-01 16:01:09');
+INSERT INTO `fs_slideshow` VALUES (4, '测试004', 'http://76.nanshengbbs.top/slider-20200706001342_5.png', NULL, NULL, 1, 0, 1640, 1640, '2023-02-01 16:01:06', '2023-02-01 16:01:09');
+INSERT INTO `fs_slideshow` VALUES (5, '微服务全景图', 'http://76.nanshengbbs.top/slider-SpringCloudAlibaba.png', NULL, NULL, 1, 0, 1640, 1640, '2023-02-06 15:26:49', '2023-02-06 15:26:49');
 
 -- ----------------------------
 -- Table structure for fs_user_level

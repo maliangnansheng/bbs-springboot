@@ -163,6 +163,19 @@ public class ArticleServiceImpl implements ArticleService {
         return pageInfo;
     }
 
+    @Override
+    public Long getUserArticleCount(Long createUser, ArticleStateEnum articleStateEnum) {
+        ArticlePoExample example = new ArticlePoExample();
+        ArticlePoExample.Criteria criteria = example.createCriteria()
+                .andIsDeletedEqualTo(false)
+                .andCreateUserEqualTo(createUser);
+        if (articleStateEnum != null) {
+            criteria.andStateEqualTo(articleStateEnum.getCode());
+        }
+
+        return articlePoMapper.countByExample(example);
+    }
+
     /**
      * 获取待审核的文章
      *
@@ -291,6 +304,9 @@ public class ArticleServiceImpl implements ArticleService {
         if (articleStateEnum != null) {
             criteria.andStateEqualTo(articleStateEnum.getCode());
         }
+        // 按in的参数顺序排序
+        String stringIds = ids.stream().map(String::valueOf).collect(Collectors.joining(","));
+        example.setOrderByClause("field(id, " + stringIds + ")");
 
         return ArticleMS.INSTANCE.toDTO(articlePoMapper.selectByExample(example));
     }
@@ -583,6 +599,29 @@ public class ArticleServiceImpl implements ArticleService {
         }
 
         return true;
+    }
+
+    @Override
+    public ArticleCheckCountDTO getArticleCheckCount(String title) {
+        ArticleCheckCountDTO articleCheckCountDTO = new ArticleCheckCountDTO();
+        List<Map<String, Object>> list = articlePoExMapper.selectArticleCheckCount(title);
+        if (CollectionUtils.isNotEmpty(list)) {
+            list.forEach(stringLongMap -> {
+                Integer state = Integer.valueOf(stringLongMap.get("state").toString());
+                Long num = Long.valueOf(stringLongMap.get("num").toString());
+                if (ArticleStateEnum.enable.getCode().equals(state)) {
+                    articleCheckCountDTO.setEnableCount(num);
+                }
+                if (ArticleStateEnum.disabled.getCode().equals(state)) {
+                    articleCheckCountDTO.setDisabledCount(num);
+                }
+                if (ArticleStateEnum.pendingReview.getCode().equals(state)) {
+                    articleCheckCountDTO.setPendingReviewCount(num);
+                }
+            });
+        }
+
+        return articleCheckCountDTO;
     }
 
     /**

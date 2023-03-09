@@ -5,10 +5,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.redisson.api.RLock;
 import org.redisson.api.RedissonClient;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
-
-import java.util.UUID;
 
 /**
  * @author maliangnansheng
@@ -26,17 +25,19 @@ public class UserLevelWorker {
     /**
      * 每天凌晨1点执行
      */
+    @Async("asyncTaskExecutor")
     @Scheduled(cron = "0 0 1 * * ?")
     public void threadTask() {
         execute();
     }
 
     private void execute() {
-        RLock lock = redissonClient.getFairLock("user_level_points_worker" + UUID.randomUUID());
+        RLock lock = redissonClient.getFairLock("user_level_points_worker");
 
         try {
             boolean b = lock.tryLock();
             if (b) {
+                log.info("开始更新所有用户的等级信息--------------------------------->");
                 // 更新所有用户的等级信息
                 userLevelService.updatePointsAll();
             }
@@ -53,17 +54,19 @@ public class UserLevelWorker {
     /**
      * 每天5分钟执行
      */
+    @Async("asyncTaskExecutor")
     @Scheduled(cron = "0 0/5 * * * ?")
     public void threadTask2() {
         executeNull();
     }
 
     private void executeNull() {
-        RLock lock = redissonClient.getFairLock("user_level_null_worker" + UUID.randomUUID());
+        RLock lock = redissonClient.getFairLock("user_level_null_worker");
 
         try {
             boolean b = lock.tryLock();
             if (b) {
+                log.info("开始同步所有用户的等级信息--------------------------------->");
                 // 同步所有用户的等级信息
                 userLevelService.syncAll();
             }

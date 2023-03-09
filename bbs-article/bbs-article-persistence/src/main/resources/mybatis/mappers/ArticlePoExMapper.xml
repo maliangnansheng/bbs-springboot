@@ -1,16 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.liang.bbs.article.persistence.mapper.ArticlePoExMapper">
-    <select id="selectUserReadCount" parameterType="java.util.List" resultType="com.liang.bbs.article.facade.dto.ArticleReadDTO">
+    <select id="selectUserReadCount" parameterType="java.util.List"
+            resultType="com.liang.bbs.article.facade.dto.ArticleReadDTO">
         select ful.user_id as userId, coalesce(sum(fa.pv), 0) as articleReadCount
         from fs_user_level ful left join fs_article fa on ful.user_id = fa.create_user
         where fa.is_deleted = 0
-          and fa.state = 1
-          and ful.user_id in
-            <foreach item="item" index="index" collection="userIds" open="(" separator="," close=" )">
-                #{item}
-            </foreach>
+        and fa.state = 1
+        and ful.user_id in
+        <foreach item="item" index="index" collection="userIds" open="(" separator="," close=" )">
+            #{item}
+        </foreach>
         group by userId
+    </select>
+
+    <select id="selectArticleCheckCount" parameterType="java.lang.String" resultType="java.util.Map">
+        select count(1) num, ifnull(state, 0) state
+        from fs_article
+        where is_deleted = 0
+        <if test="title != null">
+          and title like concat(concat("%", #{title}), "%")
+        </if>
+        group by state
     </select>
 
 </mapper>

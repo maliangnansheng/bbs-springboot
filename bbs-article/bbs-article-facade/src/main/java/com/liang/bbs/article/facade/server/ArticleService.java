@@ -35,6 +35,15 @@ public interface ArticleService {
     PageInfo<ArticleDTO> getList(ArticleSearchDTO articleSearchDTO, UserSsoDTO currentUser, ArticleStateEnum articleStateEnum);
 
     /**
+     * 获取用户文章数量
+     *
+     * @param createUser
+     * @param articleStateEnum
+     * @return
+     */
+    Long getUserArticleCount(Long createUser, ArticleStateEnum articleStateEnum);
+
+    /**
      * 获取待审核的文章
      *
      * @param articleSearchDTO
@@ -204,4 +213,12 @@ public interface ArticleService {
      * @return
      */
     Boolean delete(Integer id, UserSsoDTO currentUser);
+
+    /**
+     * 文章审核数据量
+     *
+     * @param title
+     * @return
+     */
+    ArticleCheckCountDTO getArticleCheckCount(String title);
 }

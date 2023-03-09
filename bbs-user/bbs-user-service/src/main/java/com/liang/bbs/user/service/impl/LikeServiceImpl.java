@@ -4,6 +4,7 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.liang.bbs.article.facade.dto.ArticleDTO;
 import com.liang.bbs.article.facade.server.ArticleService;
+import com.liang.bbs.common.enums.ArticleStateEnum;
 import com.liang.bbs.user.facade.dto.LikeDTO;
 import com.liang.bbs.user.facade.dto.LikeSearchDTO;
 import com.liang.bbs.user.facade.server.LikeService;
@@ -200,6 +201,22 @@ public class LikeServiceImpl implements LikeService {
         if (CollectionUtils.isNotEmpty(articleDTOS)) {
             List<Integer> articleIds = articleDTOS.stream().map(ArticleDTO::getId).collect(Collectors.toList());
             return this.getLikeCountArticle(articleIds);
+        }
+
+        return 0L;
+    }
+
+    @Override
+    public Long getUserTheLikeCount(Long userId) {
+        LikePoExample example = new LikePoExample();
+        example.createCriteria().andStateEqualTo(true)
+                .andLikeUserEqualTo(userId);
+        List<LikePo> likePos = likePoMapper.selectByExample(example);
+
+        if (CollectionUtils.isNotEmpty(likePos)) {
+            List<Integer> articleIds = likePos.stream().map(LikePo::getArticleId).collect(Collectors.toList());
+            List<ArticleDTO> articleDTOS = articleService.getBaseByIds(articleIds, ArticleStateEnum.enable);
+            return CollectionUtils.isNotEmpty(articleDTOS) ? articleDTOS.size() : 0L;
         }
 
         return 0L;

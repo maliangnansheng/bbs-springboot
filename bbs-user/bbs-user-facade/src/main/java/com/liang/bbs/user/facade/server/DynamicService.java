@@ -30,6 +30,14 @@ public interface DynamicService {
     Boolean create(DynamicDTO dynamicDTO);
 
     /**
+     * 验证是否已经存在
+     *
+     * @param dynamicDTO
+     * @return
+     */
+    Boolean verifyExist(DynamicDTO dynamicDTO);
+
+    /**
      * 删除用户动态信息
      *
      * @param startTime

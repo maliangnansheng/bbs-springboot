@@ -119,5 +119,13 @@
 <!--            <columnOverride column="update_time" javaType="java.time.LocalDateTime"/>-->
 <!--        </table>-->
 
+        <!-- 轮播图 -->
+<!--        <table tableName="fs_slideshow" enableSelectByPrimaryKey="true" enableUpdateByPrimaryKey="true"-->
+<!--               enableDeleteByPrimaryKey="true" domainObjectName="SlideshowPo">-->
+<!--            <generatedKey column="id" sqlStatement="JDBC" identity="true"/>-->
+<!--            <columnOverride column="create_time" javaType="java.time.LocalDateTime"/>-->
+<!--            <columnOverride column="update_time" javaType="java.time.LocalDateTime"/>-->
+<!--        </table>-->
+
     </context>
 </generatorConfiguration>  

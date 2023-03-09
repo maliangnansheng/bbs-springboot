@@ -1,6 +1,8 @@
 package com.liang.bbs.rest.controller;
 
 import com.github.pagehelper.PageInfo;
+import com.liang.bbs.article.facade.server.ArticleService;
+import com.liang.bbs.common.enums.ArticleStateEnum;
 import com.liang.bbs.rest.config.login.NoNeedLogin;
 import com.liang.bbs.rest.config.swagger.ApiVersion;
 import com.liang.bbs.rest.config.swagger.ApiVersionConstant;
@@ -54,6 +56,9 @@ public class UserController {
 
     @Reference
     private UserService userService;
+
+    @Reference
+    private ArticleService articleService;
 
     @Autowired
     private FileLengthUtils fileLengthUtils;
@@ -143,6 +148,13 @@ public class UserController {
     @ApiVersion(group = ApiVersionConstant.V_300)
     public ResponseResult<Boolean> updateUserBasicInfo(@RequestBody UserDTO userDTO) {
         UserSsoDTO currentUser = UserContextUtils.currentUser();
+        // 临时方案
+        if (currentUser != null) {
+            if (currentUser.getUserId() == 1812 || currentUser.getUserId() == 2463) {
+                throw BusinessException.build(ResponseCode.OPERATE_FAIL,
+                        "我是作者大大提供的【测试账号】，不允许修改个人信息！想修改个人信息，去注册自己的账号吧。\uD83D\uDE01 \uD83D\uDE01 \uD83D\uDE01");
+            }
+        }
         return ResponseResult.success(userService.updateUserBasicInfo(userDTO, currentUser));
     }
 
@@ -213,6 +225,14 @@ public class UserController {
     @ApiVersion(group = ApiVersionConstant.V_300)
     public ResponseResult<Boolean> updatePassword(@RequestBody UserPasswordDTO passwordDTO) {
         UserSsoDTO currentUser = UserContextUtils.currentUser();
+        // 临时方案
+        if (currentUser != null) {
+            if (currentUser.getUserId() == 1812 || currentUser.getUserId() == 2463) {
+                throw BusinessException.build(ResponseCode.OPERATE_FAIL,
+                        "我是作者大大提供的【测试账号】，不允许修改密码！想修改密码，去注册自己的账号吧。\uD83D\uDE01 \uD83D\uDE01 \uD83D\uDE01");
+            }
+        }
+
         return ResponseResult.success(userService.updatePassword(passwordDTO, currentUser));
     }
 
@@ -269,6 +289,28 @@ public class UserController {
     @ApiVersion(group = ApiVersionConstant.V_300)
     public ResponseResult<Boolean> emailResetPassword(@RequestBody UserEmailDTO userEmailDTO) {
         return ResponseResult.success(userService.emailResetPassword(userEmailDTO));
+    }
+
+    @NoNeedLogin
+    @GetMapping("getUserOperateCount")
+    @ApiOperation(value = "获取用户操作数量（文章、关注、点赞等）")
+    @ApiVersion(group = ApiVersionConstant.V_300)
+    public ResponseResult<UserOperateCountDTO> getUserOperateCount(@RequestParam Long userId,
+                                                                   @RequestParam(required = false) ArticleStateEnum articleStateEnum) {
+        UserOperateCountDTO userOperateCountDTO = new UserOperateCountDTO();
+
+        // 获取用户文章数量
+        userOperateCountDTO.setArticleCount(articleService.getUserArticleCount(userId, articleStateEnum));
+
+        // 获取关注/粉丝数量
+        FollowCountDTO followCount = followService.getFollowCount(userId);
+        userOperateCountDTO.setFanCount(followCount.getFanCount());
+        userOperateCountDTO.setFollowCount(followCount.getFollowCount());
+
+        // 通过用户id获取点赞的文章数量
+        userOperateCountDTO.setLikeCount(likeService.getUserTheLikeCount(userId));
+
+        return ResponseResult.success(userOperateCountDTO);
     }
 
     /**

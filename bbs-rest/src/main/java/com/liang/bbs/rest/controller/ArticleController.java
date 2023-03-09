@@ -1,10 +1,7 @@
 package com.liang.bbs.rest.controller;
 
 import com.github.pagehelper.PageInfo;
-import com.liang.bbs.article.facade.dto.ArticleCountDTO;
-import com.liang.bbs.article.facade.dto.ArticleDTO;
-import com.liang.bbs.article.facade.dto.ArticleSearchDTO;
-import com.liang.bbs.article.facade.dto.TotalDTO;
+import com.liang.bbs.article.facade.dto.*;
 import com.liang.bbs.article.facade.server.ArticleService;
 import com.liang.bbs.common.enums.ArticleStateEnum;
 import com.liang.bbs.rest.config.login.NoNeedLogin;
@@ -12,9 +9,11 @@ import com.liang.bbs.rest.config.swagger.ApiVersion;
 import com.liang.bbs.rest.config.swagger.ApiVersionConstant;
 import com.liang.bbs.rest.utils.FileLengthUtils;
 import com.liang.bbs.user.facade.dto.LikeSearchDTO;
+import com.liang.nansheng.common.auth.RoleSsoDTO;
 import com.liang.nansheng.common.auth.UserContextUtils;
 import com.liang.nansheng.common.auth.UserSsoDTO;
 import com.liang.nansheng.common.enums.ResponseCode;
+import com.liang.nansheng.common.enums.RoleGradeEnum;
 import com.liang.nansheng.common.utils.CommonUtils;
 import com.liang.nansheng.common.web.basic.ResponseResult;
 import com.liang.nansheng.common.web.exception.BusinessException;
@@ -30,6 +29,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author maliangnansheng
@@ -115,7 +115,22 @@ public class ArticleController {
     public ResponseResult<ArticleDTO> getById(@RequestParam Integer id, @RequestParam(required = false) Boolean isPv) {
         UserSsoDTO currentUser = UserContextUtils.currentUser();
         List<ArticleDTO> articleDTOS = articleService.getByIds(Collections.singletonList(id), isPv, currentUser);
-        if (CollectionUtils.isEmpty(articleDTOS)) {
+        if (CollectionUtils.isNotEmpty(articleDTOS)) {
+            ArticleDTO articleDTO = articleDTOS.get(0);
+            // 登录-过滤非通过审核的文章（没通过审核的文章不允许别人查看-除了超管和本人）
+            if (currentUser != null && !ArticleStateEnum.enable.getCode().equals(articleDTO.getState())) {
+                // 当前用户所有的角色等级
+                List<String> grades = currentUser.getRoles().stream().map(RoleSsoDTO::getGrade).distinct().collect(Collectors.toList());
+                // 不是超级管理员角色and不是本人
+                if (!grades.contains(RoleGradeEnum.NS_SUPER_ADMIN_ROLE.name()) && !articleDTO.getCreateUser().equals(currentUser.getUserId())) {
+                    return ResponseResult.build(ResponseCode.NOT_EXISTS, null);
+                }
+            }
+            // 未登录-过滤非通过审核的文章（all）
+            if (currentUser == null && !ArticleStateEnum.enable.getCode().equals(articleDTO.getState())) {
+                return ResponseResult.build(ResponseCode.NOT_EXISTS, null);
+            }
+        } else {
             return ResponseResult.build(ResponseCode.NOT_EXISTS, null);
         }
         return ResponseResult.success(articleDTOS.get(0));
@@ -200,6 +215,13 @@ public class ArticleController {
     public ResponseResult<Boolean> delete(@PathVariable Integer id) {
         UserSsoDTO currentUser = UserContextUtils.currentUser();
         return ResponseResult.success(articleService.delete(id, currentUser));
+    }
+
+    @GetMapping("getArticleCheckCount")
+    @ApiOperation(value = "文章审核数据量")
+    @ApiVersion(group = ApiVersionConstant.V_300)
+    public ResponseResult<ArticleCheckCountDTO> getArticleCheckCount(@RequestParam(required = false) String title) {
+        return ResponseResult.success(articleService.getArticleCheckCount(title));
     }
 
 }

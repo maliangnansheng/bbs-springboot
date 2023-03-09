@@ -90,4 +90,12 @@ public interface LikeService {
      */
     Long getUserLikeCount(Long userId);
 
+    /**
+     * 用户获点赞的数量
+     *
+     * @param userId
+     * @return
+     */
+    Long getUserTheLikeCount(Long userId);
+
 }

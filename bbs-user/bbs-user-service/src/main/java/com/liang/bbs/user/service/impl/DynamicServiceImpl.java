@@ -125,6 +125,21 @@ public class DynamicServiceImpl implements DynamicService {
         return true;
     }
 
+    @Override
+    public Boolean verifyExist(DynamicDTO dynamicDTO) {
+        DynamicPoExample example = new DynamicPoExample();
+        DynamicPoExample.Criteria criteria = example.createCriteria();
+        criteria.andTypeEqualTo(dynamicDTO.getType())
+                .andUserIdEqualTo(dynamicDTO.getUserId())
+                .andObjectIdEqualTo(dynamicDTO.getObjectId());
+        if (dynamicDTO.getCommentId() != null) {
+            criteria.andCommentIdEqualTo(dynamicDTO.getCommentId());
+        }
+        List<DynamicPo> dynamicPos = dynamicPoMapper.selectByExample(example);
+
+        return CollectionUtils.isNotEmpty(dynamicPos);
+    }
+
     /**
      * 删除用户动态信息
      *
@@ -151,7 +166,7 @@ public class DynamicServiceImpl implements DynamicService {
     public void updateAll() {
 //        DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 //        LocalDateTime startTime = LocalDateTime.parse("2000-01-01 00:00:00", df);
-        LocalDateTime startTime = CommonUtils.getCurrentStartTime();
+        LocalDateTime startTime = CommonUtils.getYesterdayStartTime();
         LocalDateTime endTime = CommonUtils.getCurrentEndTime();
         List<DynamicDTO> dynamicDTOS = new ArrayList<>();
         // 写文章
@@ -242,9 +257,12 @@ public class DynamicServiceImpl implements DynamicService {
         }
 
         log.info("dynamicDTOS size: {}", dynamicDTOS.size());
-        this.delete(startTime, endTime);
         if (CollectionUtils.isNotEmpty(dynamicDTOS)) {
-            dynamicDTOS.forEach(this::create);
+            dynamicDTOS.forEach(dynamicDTO -> {
+                if (!this.verifyExist(dynamicDTO)) {
+                    this.create(dynamicDTO);
+                }
+            });
         }
     }
 }
