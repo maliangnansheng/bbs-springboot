@@ -40,6 +40,9 @@
 2. 加作者QQ：924818949
 3. 加作者微信：maliangnansheng
 
+## APP
+![](http://76.nanshengbbs.top/app/nanshengbbs_image2.png)
+
 ## 使用指南and代码讲解and设计文档
 [01 南生论坛使用指南](https://www.bilibili.com/video/BV1he4y1C7rk?share_source=copy_web&vd_source=1f88041e3a02d90ecf98d311908d3d8b)、 [02 南生论坛代码讲解](https://www.bilibili.com/video/BV1pK411C7T4/?vd_source=d0a5d07985a7fbbfb889c874632343c6)、 [03 如何获取南生论坛设计文档？](http://bbs.nanshengbbs.top/detail/76)、 [04南生论坛日常迭代](http://bbs.nanshengbbs.top/detail/122)
 
