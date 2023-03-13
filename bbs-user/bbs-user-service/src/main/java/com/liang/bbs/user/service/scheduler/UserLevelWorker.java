@@ -9,6 +9,8 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
+import java.util.UUID;
+
 /**
  * @author maliangnansheng
  * @date 2022/5/24 10:57
@@ -32,12 +34,11 @@ public class UserLevelWorker {
     }
 
     private void execute() {
-        RLock lock = redissonClient.getFairLock("user_level_points_worker");
+        RLock lock = redissonClient.getFairLock("user_level_points_worker" + UUID.randomUUID());
 
         try {
             boolean b = lock.tryLock();
             if (b) {
-                log.info("开始更新所有用户的等级信息--------------------------------->");
                 // 更新所有用户的等级信息
                 userLevelService.updatePointsAll();
             }
@@ -61,12 +62,11 @@ public class UserLevelWorker {
     }
 
     private void executeNull() {
-        RLock lock = redissonClient.getFairLock("user_level_null_worker");
+        RLock lock = redissonClient.getFairLock("user_level_null_worker" + UUID.randomUUID());
 
         try {
             boolean b = lock.tryLock();
             if (b) {
-                log.info("开始同步所有用户的等级信息--------------------------------->");
                 // 同步所有用户的等级信息
                 userLevelService.syncAll();
             }
