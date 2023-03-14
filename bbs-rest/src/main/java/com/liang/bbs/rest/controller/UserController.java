@@ -148,13 +148,6 @@ public class UserController {
     @ApiVersion(group = ApiVersionConstant.V_300)
     public ResponseResult<Boolean> updateUserBasicInfo(@RequestBody UserDTO userDTO) {
         UserSsoDTO currentUser = UserContextUtils.currentUser();
-        // 临时方案
-        if (currentUser != null) {
-            if (currentUser.getUserId() == 1812 || currentUser.getUserId() == 2463) {
-                throw BusinessException.build(ResponseCode.OPERATE_FAIL,
-                        "我是作者大大提供的【测试账号】，不允许修改个人信息！想修改个人信息，去注册自己的账号吧。\uD83D\uDE01 \uD83D\uDE01 \uD83D\uDE01");
-            }
-        }
         return ResponseResult.success(userService.updateUserBasicInfo(userDTO, currentUser));
     }
 
@@ -225,14 +218,6 @@ public class UserController {
     @ApiVersion(group = ApiVersionConstant.V_300)
     public ResponseResult<Boolean> updatePassword(@RequestBody UserPasswordDTO passwordDTO) {
         UserSsoDTO currentUser = UserContextUtils.currentUser();
-        // 临时方案
-        if (currentUser != null) {
-            if (currentUser.getUserId() == 1812 || currentUser.getUserId() == 2463) {
-                throw BusinessException.build(ResponseCode.OPERATE_FAIL,
-                        "我是作者大大提供的【测试账号】，不允许修改密码！想修改密码，去注册自己的账号吧。\uD83D\uDE01 \uD83D\uDE01 \uD83D\uDE01");
-            }
-        }
-
         return ResponseResult.success(userService.updatePassword(passwordDTO, currentUser));
     }
 
