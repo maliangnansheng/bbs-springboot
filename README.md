@@ -86,14 +86,6 @@
 
 ![](http://76.nanshengbbs.top/%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/idea012.png)
 
-## 版本更新
-
-如果可以帮忙点一次`Star`和`Fork`
-
-|  版本号  | 框架           | 下载地址                                                     | 详情说明                                       |   时间    |
-| :------: | -------------- | :----------------------------------------------------------- | :--------------------------------------------- | :-------: |
-| `v3.0.0` | SpringBoot+Vue | 后端源码(`github`)：[bbs-springboot](https://github.com/maliangnansheng/bbs-springboot)<br/>前端源码(`github`)：[bbs-vue-ui](https://github.com/maliangnansheng/bbs-vue-ui)<br/>后端源码(`码云`)：[bbs-springboot](https://gitee.com/maliangnansheng/bbs-springboot)<br/>前端源码(`码云`)：[bbs-vue-ui](https://gitee.com/maliangnansheng/bbs-vue-ui) | [v3.0.0](http://bbs.nanshengbbs.top/detail/40) | `2022.06` |
-
 ## 项目源码
 
 如果可以帮忙点一次`Star`和`Fork`
