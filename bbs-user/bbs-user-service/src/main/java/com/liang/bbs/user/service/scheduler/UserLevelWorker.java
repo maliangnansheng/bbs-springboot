@@ -53,10 +53,10 @@ public class UserLevelWorker {
     }
 
     /**
-     * 每天5分钟执行
+     * 每1分钟执行
      */
     @Async("asyncTaskExecutor")
-    @Scheduled(cron = "0 0/5 * * * ?")
+    @Scheduled(cron = "0 * * * * ?")
     public void threadTask2() {
         executeNull();
     }
