@@ -11,7 +11,7 @@
 >
 > 如果觉得不错麻烦帮忙点一次`Star⭐️`
 > 
-> [**未经授权**](http://bbs.nanshengbbs.top/detail/171#_62)的情况下严禁公司使用或者商用，违者必究！(个人学习使用不限制)
+> [**未经授权**](http://bbs.nanshengbbs.top/detail/171#_62)的情况下严禁公司使用或者商用(个人学习使用不限制)
 > 
 > [加载太慢or图片加载不出来 **点我**](http://bbs.nanshengbbs.top/detail/172)
 
