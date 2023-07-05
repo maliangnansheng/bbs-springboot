@@ -48,7 +48,7 @@ spring:
           log-slow-sql: true
           slow-sql-millis: 2000
   redis:
-    host: 120.48.100.28
+    host: 124.221.124.200
     port: 6379
     password: 12345678
     # 单位 毫秒
@@ -63,7 +63,7 @@ dubbo:
   application:
     name: ns-bbs-user
   registry:
-    address: zookeeper://120.48.100.28:2181
+    address: zookeeper://124.221.124.200:2181
     timeout: 60000
   protocol:
     name: dubbo
@@ -82,7 +82,7 @@ mybatis:
 
 # 一般情况下 默认的配置就行（可以自动识别），只对topic区分就行
 rocketmq:
-  name-server: 120.48.100.28:9876
+  name-server: 124.221.124.200:9876
   producer:
     group: bbs-user-service
   consumer:
