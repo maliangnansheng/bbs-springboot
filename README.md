@@ -71,12 +71,12 @@
 
 - 用户系统-功能结构图
 
-  ![](http://76.nanshengbbs.top/%E5%8D%97%E7%94%9F%E8%AE%BA%E5%9D%9B%E5%8A%9F%E8%83%BD%E7%BB%93%E6%9E%84%E5%9B%BE002.png)
+  ![](http://76.nanshengbbs.top/ns-image/ns-bbs-user.png)
 
 
 - 管理系统-功能结构图
 
-  ![](http://76.nanshengbbs.top/%E5%8D%97%E7%94%9F%E8%BF%90%E8%90%A5%E5%8A%9F%E8%83%BD%E7%BB%93%E6%9E%84%E5%9B%BE002.png)
+  ![](http://76.nanshengbbs.top/ns-image/ns-bbs-admin.png)
 
 ## 项目结构
 
