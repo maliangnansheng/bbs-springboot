@@ -108,31 +108,31 @@
 
 - **首页（`管理员视角`）**
 
-  ![image](https://76.nanshengbbs.top/ns-bbs-home-admin5.png)
+  ![image](https://76.nanshengbbs.top/github/ns-bbs-home-admin.png)
 
 - **文章详情**
 
-  ![image](https://76.nanshengbbs.top/ns-bbs-article.png)
+  ![image](https://76.nanshengbbs.top/github/ns-bbs-article.png)
 
 - **标签（`管理员视角`）**
 
   ![](https://76.nanshengbbs.top/ns-bbs-label2.png)
  
-- **资源导航（`管理员视角`）**
+- **积分系统**
 
-  ![](https://76.nanshengbbs.top/ns-bbs-resource2.png)
+  ![](https://76.nanshengbbs.top/articlePicture-20230904204055129_essage.png)
 
 - **个人主页**
 
-  ![image](https://76.nanshengbbs.top/ns-bbs-homepage2.png)
+  ![image](https://76.nanshengbbs.top/github/ns-bbs-homepage.png)
 
 - **个人资料**
 
   ![](https://76.nanshengbbs.top/ns-bbs-personalinfo.png)
 
-- **闲聊**
+- **私信**
 
-  ![image](https://76.nanshengbbs.top/ns-chat.png)
+  ![image](https://76.nanshengbbs.top/topicPicture-20230825234154505_chat.png)
 
 
 ### 管理系统
