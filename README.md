@@ -114,11 +114,11 @@
 
   ![image](https://76.nanshengbbs.top/github/ns-bbs-article.png)
 
-  - **积分系统**
+- **积分系统**
 
   ![](https://76.nanshengbbs.top/articlePicture-20230904204055129_essage.png)
 
-  - **私信**
+- **私信**
 
   ![image](https://76.nanshengbbs.top/topicPicture-20230825234154505_chat.png)
 
