@@ -22,7 +22,7 @@
 > 对应的**前端项目**仓库移步至：[bbs-vue-ui](https://github.com/maliangnansheng/bbs-vue-ui)
 
 ## 项目架构
-![](https://76.nanshengbbs.top/ns-jiagou.png)
+![](https://76.nanshengbbs.top/github/ns-jiagou.png)
 
 
 ## 关于项目
