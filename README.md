@@ -50,7 +50,9 @@
 
 ## 使用指南and代码讲解and设计文档
 
-[01 文档地址](https://doc.nanshengbbs.top)、[02 南生论坛使用指南](https://www.bilibili.com/video/BV1he4y1C7rk?share_source=copy_web&vd_source=1f88041e3a02d90ecf98d311908d3d8b)、 [03 南生论坛代码讲解](https://www.bilibili.com/video/BV1pK411C7T4/?vd_source=d0a5d07985a7fbbfb889c874632343c6)、 [04 如何获取南生论坛设计文档？](https://bbs.nanshengbbs.top/detail/76)、 [05 南生论坛日常迭代（开源计划）](https://bbs.nanshengbbs.top/detail/122)
+[01 文档地址](https://doc.nanshengbbs.top)、[02 南生论坛使用指南](https://www.bilibili.com/video/BV1he4y1C7rk?share_source=copy_web&vd_source=1f88041e3a02d90ecf98d311908d3d8b)、 [03 南生论坛代码讲解](https://www.bilibili.com/video/BV1pK411C7T4/?vd_source=d0a5d07985a7fbbfb889c874632343c6)
+
+[04 如何获取南生论坛设计文档？](https://bbs.nanshengbbs.top/detail/76)、 [05 南生论坛日常迭代（开源计划）](https://bbs.nanshengbbs.top/detail/122)
 
 ## 项目部署教程
 
