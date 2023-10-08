@@ -24,11 +24,8 @@ public class UserDynamicWorker {
     @Autowired
     private RedissonClient redissonClient;
 
-    /**
-     * 每10分钟执行
-     */
     @Async("asyncTaskExecutor")
-    @Scheduled(cron = "0 0/5 * * * ?")
+    @Scheduled(cron = "0 0/1 * * * ?")
     public void threadTask() {
         execute();
     }

@@ -24,11 +24,8 @@ public class UserLevelWorker {
     @Autowired
     private RedissonClient redissonClient;
 
-    /**
-     * 每天凌晨1点执行
-     */
     @Async("asyncTaskExecutor")
-    @Scheduled(cron = "0 0 1 * * ?")
+    @Scheduled(cron = "0 0/1 * * * ?")
     public void threadTask() {
         execute();
     }
