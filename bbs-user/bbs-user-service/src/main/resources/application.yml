@@ -89,7 +89,7 @@ rocketmq:
     group: manage-auth-service
   # 自定义
   user:
-    topic: topic-queue-user-dev
+    topic: topic-queue-user
 
 # 自定义
 sso:
