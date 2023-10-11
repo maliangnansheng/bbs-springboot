@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 /**
- * @author maliang
+ * @author maliangnansheng
  */
 @SpringBootApplication
 @EnableDubbo

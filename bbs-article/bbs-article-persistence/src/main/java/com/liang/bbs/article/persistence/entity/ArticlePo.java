@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 /**
  * 对应数据表为：fs_article
  * 
- * @author W9009820
+ * @author maliangnansheng
  * @date 2022/08/30 14:44
  */
 @Data

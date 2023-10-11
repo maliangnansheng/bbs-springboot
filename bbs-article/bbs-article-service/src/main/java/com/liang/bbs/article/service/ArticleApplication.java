@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /**
- * @author maliang
+ * @author maliangnansheng
  */
 @SpringBootApplication
 @EnableDubbo

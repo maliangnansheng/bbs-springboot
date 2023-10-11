@@ -9,8 +9,8 @@ import java.time.LocalDateTime;
 
 /**
  * 对应数据表为：fs_label
- * 
- * @author maliang
+ *
+ * @author maliangnansheng
  * @date 2022/05/29 21:12
  */
 @Data

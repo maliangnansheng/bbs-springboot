@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 /**
  * 对应数据表为：fs_slideshow
  * 
- * @author W9009820
+ * @author maliangnansheng
  * @date 2023/02/01 15:32
  */
 @Data

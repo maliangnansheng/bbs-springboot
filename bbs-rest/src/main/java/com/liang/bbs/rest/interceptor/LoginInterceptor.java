@@ -1,11 +1,11 @@
 package com.liang.bbs.rest.interceptor;
 
 import com.liang.bbs.rest.config.login.NoNeedLogin;
+import com.liang.bbs.rest.utils.HttpRequestUtils;
 import com.liang.manage.auth.facade.server.UserService;
 import com.liang.nansheng.common.auth.UserContextUtils;
 import com.liang.nansheng.common.auth.UserSsoDTO;
 import com.liang.nansheng.common.constant.AuthSystemConstants;
-import com.liang.nansheng.common.utils.HttpRequestUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.dubbo.config.annotation.Reference;
