@@ -63,12 +63,12 @@ CREATE TABLE `fs_article`  (
 -- ----------------------------
 -- Records of fs_article
 -- ----------------------------
-INSERT INTO `fs_article` VALUES (26, 'http://76.nanshengbbs.top/articleTitleMap/articleTitleMap-20220612230127855_v1.png', '南生论坛v1.0 ~ v2.0', '注：以下截图是v1.0和v2.0的界面样子\r\n功能说明\r\n南生论坛v1.0\r\n登录【用户系统】可以：发帖、修改帖子、删除帖子、评论、删除评论、修改个人信息、关注、收藏\r\n登录【管理系统】可以：管理用户、管理帖子、管理板块、访问记录\r\n南生论坛v2.0\r\n在v1.0的基础上：整体异步实现、新增统计饼图、优化人机交互、实现分页、实现相册功能、实现月周日访问记录（方便管理员了解该论坛的访问情况）\r\n适用', 1, 13, NULL, 0, 1640, 1640, '2022-06-12 23:01:28', '2022-06-12 23:04:17');
-INSERT INTO `fs_article` VALUES (27, 'http://76.nanshengbbs.top/articleTitleMap/articleTitleMap-20220621234043897_v2.6.png', '南生论坛v2.6', '注：以下截图是v2.6的界面样子\r\n功能说明\r\n南生论坛v2.6\r\n在v2.0的基础上：支持Markdown、新增分享功能、新增文章详情页面、首页文章显示简约化\r\n适用人员\r\n南生论坛v2.6\r\n该版本适用于初学ssm框架、对jQuery和ajax有一定熟悉度、并且想以Markdown形式写文章的童鞋使用，主要可以通过该项目了解整个项目的设计思路（让心怀大志、无从下手的你找到突破口）\r\n优势\r\n南', 1, 15, NULL, 0, 1640, 1640, '2022-06-12 23:14:44', '2022-06-21 23:40:44');
-INSERT INTO `fs_article` VALUES (28, 'http://76.nanshengbbs.top/articleTitleMap/articleTitleMap-20220621234309237_v2.8.2.png', '南生论坛v2.8.2', '注：以下截图是v2.8.2的界面样子\r\n功能说明\r\n南生论坛v2.8.2\r\n在v2.6的基础上： 对前后端代码和数据库表进行了全面重构，新增了闲聊，图片/视频文件压缩并上七牛云，优化系统，提升访问效率，新增轮播图管理、项目管理，运用了Redis缓存技术\r\n适用人员\r\n南生论坛v2.8.2\r\n该版本适用于对ssm框架有一定熟悉度、对代码规范度要求比较高、对图片/视频文件上云有兴趣的童鞋使用，主要可以', 1, 50, NULL, 0, 1640, 1640, '2022-06-12 23:25:31', '2022-06-21 23:43:10');
-INSERT INTO `fs_article` VALUES (38, 'http://76.nanshengbbs.top/articleTitleMap/articleTitleMap-20220613000158304_76yun.png', '优化系统，提升访问效率', '发现问题\r\n网站访问效率低下，经过测试，发现主要由两个原因造成：\r\n本身云服务器的带宽不足（这个问题:tw-1f236:RMB可以解决）\r\n图片/视频文件过大，消耗大量的流量\r\n思考分析\r\n要解决以上问题可以从两个方面着手：\r\n图片/视频文件不走我们自己的服务器\r\n压缩图片/视频文件\r\n解决问题\r\n将图片/视频文件全部压缩到指定范围（自己找一个能忍受清晰度就行:fa-reddit:），避免文件过大', 1, 802, NULL, 0, 1640, 1640, '2020-06-04 23:24:48', '2023-09-25 22:10:00');
-INSERT INTO `fs_article` VALUES (40, 'http://76.nanshengbbs.top/articleTitleMap/articleTitleMap-20220621223826164_v3.0.0.png', '本系统【南生论坛v3.0.0】来了（SpringBoot + Vue）', '重要说明\r\n南生论坛v3.0.0是全新的一套系统！所有的数据表（用户、角色、权限等）都重新设计过，所以v2.8.2与v3.0.0的数据是不互通的。\r\n不过你之前在v2.8.2上注册（2022.6.11之后注册的不行）的用户信息在v3.0.0依然可以登录。\r\nv3.0.0以后所有的南生系列系统共用一套用户权限系统。\r\n目前使用同一套用户权限的有：南生论坛、南生运营、南生闲聊。\r\n如何进入旧版系统\r\n', 1, 70, NULL, 0, 1640, 1640, '2022-06-21 22:32:04', '2022-06-23 10:27:48');
-INSERT INTO `fs_article` VALUES (41, 'http://76.nanshengbbs.top/articleTitleMap/articleTitleMap-20220623221450862_logo-1.png', 'PM2 一个守护进程管理器', 'PM2 是 node 进程管理工具，可以利用它来简化很多 node应用管理的繁琐任务，如性能监控、自动重启、负载均衡等，而且使用非常简单。\r\n官方\r\n官网\r\nGitHub\r\n文档\r\nPM2简介\r\nPM2原先是nodejs应用的进程管理工具，不过其良好的设计以及扩展性可以手动执行执行进程。\r\n安装\r\n最新的 PM2 版本可通过 NPM 或 Yarn 安装：\r\nnpm install pm2@late', 1, 50, 1, 0, 1640, 1640, '2022-06-23 18:32:53', '2022-06-23 22:14:51');
+INSERT INTO `fs_article` VALUES (26, 'http://aid.nanshengbbs.top/default/articleTitleMap-20220612230127855_v1.png', '南生论坛v1.0 ~ v2.0', '注：以下截图是v1.0和v2.0的界面样子\r\n功能说明\r\n南生论坛v1.0\r\n登录【用户系统】可以：发帖、修改帖子、删除帖子、评论、删除评论、修改个人信息、关注、收藏\r\n登录【管理系统】可以：管理用户、管理帖子、管理板块、访问记录\r\n南生论坛v2.0\r\n在v1.0的基础上：整体异步实现、新增统计饼图、优化人机交互、实现分页、实现相册功能、实现月周日访问记录（方便管理员了解该论坛的访问情况）\r\n适用', 1, 13, NULL, 0, 1640, 1640, '2022-06-12 23:01:28', '2022-06-12 23:04:17');
+INSERT INTO `fs_article` VALUES (27, 'http://aid.nanshengbbs.top/default/articleTitleMap-20220621234043897_v2.6.png', '南生论坛v2.6', '注：以下截图是v2.6的界面样子\r\n功能说明\r\n南生论坛v2.6\r\n在v2.0的基础上：支持Markdown、新增分享功能、新增文章详情页面、首页文章显示简约化\r\n适用人员\r\n南生论坛v2.6\r\n该版本适用于初学ssm框架、对jQuery和ajax有一定熟悉度、并且想以Markdown形式写文章的童鞋使用，主要可以通过该项目了解整个项目的设计思路（让心怀大志、无从下手的你找到突破口）\r\n优势\r\n南', 1, 15, NULL, 0, 1640, 1640, '2022-06-12 23:14:44', '2022-06-21 23:40:44');
+INSERT INTO `fs_article` VALUES (28, 'http://aid.nanshengbbs.top/default/articleTitleMap-20220621234309237_v2.8.2.png', '南生论坛v2.8.2', '注：以下截图是v2.8.2的界面样子\r\n功能说明\r\n南生论坛v2.8.2\r\n在v2.6的基础上： 对前后端代码和数据库表进行了全面重构，新增了闲聊，图片/视频文件压缩并上七牛云，优化系统，提升访问效率，新增轮播图管理、项目管理，运用了Redis缓存技术\r\n适用人员\r\n南生论坛v2.8.2\r\n该版本适用于对ssm框架有一定熟悉度、对代码规范度要求比较高、对图片/视频文件上云有兴趣的童鞋使用，主要可以', 1, 50, NULL, 0, 1640, 1640, '2022-06-12 23:25:31', '2022-06-21 23:43:10');
+INSERT INTO `fs_article` VALUES (38, 'http://aid.nanshengbbs.top/default/articleTitleMap-20220613000158304_76yun.png', '优化系统，提升访问效率', '发现问题\r\n网站访问效率低下，经过测试，发现主要由两个原因造成：\r\n本身云服务器的带宽不足（这个问题:tw-1f236:RMB可以解决）\r\n图片/视频文件过大，消耗大量的流量\r\n思考分析\r\n要解决以上问题可以从两个方面着手：\r\n图片/视频文件不走我们自己的服务器\r\n压缩图片/视频文件\r\n解决问题\r\n将图片/视频文件全部压缩到指定范围（自己找一个能忍受清晰度就行:fa-reddit:），避免文件过大', 1, 802, NULL, 0, 1640, 1640, '2020-06-04 23:24:48', '2023-09-25 22:10:00');
+INSERT INTO `fs_article` VALUES (40, 'http://aid.nanshengbbs.top/default/articleTitleMap-20220621223826164_v3.0.0.png', '本系统【南生论坛v3.0.0】来了（SpringBoot + Vue）', '重要说明\r\n南生论坛v3.0.0是全新的一套系统！所有的数据表（用户、角色、权限等）都重新设计过，所以v2.8.2与v3.0.0的数据是不互通的。\r\n不过你之前在v2.8.2上注册（2022.6.11之后注册的不行）的用户信息在v3.0.0依然可以登录。\r\nv3.0.0以后所有的南生系列系统共用一套用户权限系统。\r\n目前使用同一套用户权限的有：南生论坛、南生运营、南生闲聊。\r\n如何进入旧版系统\r\n', 1, 70, NULL, 0, 1640, 1640, '2022-06-21 22:32:04', '2022-06-23 10:27:48');
+INSERT INTO `fs_article` VALUES (41, 'http://aid.nanshengbbs.top/default/articleTitleMap-20220623221450862_logo-1.png', 'PM2 一个守护进程管理器', 'PM2 是 node 进程管理工具，可以利用它来简化很多 node应用管理的繁琐任务，如性能监控、自动重启、负载均衡等，而且使用非常简单。\r\n官方\r\n官网\r\nGitHub\r\n文档\r\nPM2简介\r\nPM2原先是nodejs应用的进程管理工具，不过其良好的设计以及扩展性可以手动执行执行进程。\r\n安装\r\n最新的 PM2 版本可通过 NPM 或 Yarn 安装：\r\nnpm install pm2@late', 1, 50, 1, 0, 1640, 1640, '2022-06-23 18:32:53', '2022-06-23 22:14:51');
 
 -- ----------------------------
 -- Table structure for fs_article_label
@@ -235,22 +235,22 @@ CREATE TABLE `fs_label`  (
 -- ----------------------------
 -- Records of fs_label
 -- ----------------------------
-INSERT INTO `fs_label` VALUES (4, 'Vue.js', 'http://76.nanshengbbs.top/labelPicture/labelPicture-20220612145638935_Vue.png', 0, 1640, 1640, '2022-06-11 12:03:36', '2022-06-12 14:56:41');
-INSERT INTO `fs_label` VALUES (5, 'Kubernetes', 'http://76.nanshengbbs.top/labelPicture/labelPicture-20220612145701133_rnetes.png', 0, 1640, 1640, '2022-06-11 12:10:38', '2022-06-12 14:57:02');
-INSERT INTO `fs_label` VALUES (6, 'Docker', 'http://76.nanshengbbs.top/labelPicture/labelPicture-20220612145707795_Docker.png', 0, 1640, 1640, '2022-06-11 12:11:03', '2022-06-12 14:57:09');
-INSERT INTO `fs_label` VALUES (8, 'Spring Boot', 'http://76.nanshengbbs.top/labelPicture/labelPicture-20220612145715490_g-boot.png', 0, 1640, 1640, '2022-06-11 12:14:00', '2022-06-12 14:57:17');
-INSERT INTO `fs_label` VALUES (9, '运维', 'http://76.nanshengbbs.top/labelPicture/labelPicture-20220612145722862_19运维管理.png', 0, 1640, 1640, '2022-06-11 12:15:11', '2022-06-12 14:57:24');
-INSERT INTO `fs_label` VALUES (10, '操作系统', 'http://76.nanshengbbs.top/labelPicture/labelPicture-20220612145729342_操作系统.png', 0, 1640, 1640, '2022-06-11 12:16:24', '2022-06-12 14:57:30');
-INSERT INTO `fs_label` VALUES (11, '公告', 'http://76.nanshengbbs.top/labelPicture/labelPicture-20220612145735299_eboard.png', 0, 1640, 1640, '2022-06-11 12:36:46', '2022-06-12 14:57:36');
-INSERT INTO `fs_label` VALUES (12, '南生论坛迭代', 'http://76.nanshengbbs.top/labelPicture/labelPicture-20220612224902616_-lanse.png', 0, 1640, 1640, '2022-06-12 22:49:06', '2022-06-12 22:49:55');
-INSERT INTO `fs_label` VALUES (13, '推荐', 'http://76.nanshengbbs.top/labelPicture/labelPicture-20220612233448611_推荐.png', 0, 1640, 1640, '2022-06-12 23:34:53', '2022-06-12 23:34:53');
-INSERT INTO `fs_label` VALUES (14, 'Markdown', 'http://76.nanshengbbs.top/labelPicture/labelPicture-20220612235625452_rkdown.png', 0, 1640, 1640, '2022-06-12 23:56:27', '2022-06-12 23:56:27');
-INSERT INTO `fs_label` VALUES (15, '插件', 'http://76.nanshengbbs.top/labelPicture/labelPicture-20220612235758085_插件.png', 0, 1640, 1640, '2022-06-12 23:57:59', '2022-06-12 23:57:59');
-INSERT INTO `fs_label` VALUES (16, '优化', 'http://76.nanshengbbs.top/labelPicture/labelPicture-20220613000113819_智能优化.png', 0, 1640, 1640, '2022-06-13 00:01:15', '2022-06-13 00:01:15');
-INSERT INTO `fs_label` VALUES (17, 'Node.js', 'http://76.nanshengbbs.top/labelPicture/labelPicture-20220623173925045_ode.js.png', 0, 1640, 1640, '2022-06-23 17:39:27', '2022-06-23 17:39:27');
-INSERT INTO `fs_label` VALUES (18, 'GitHub', 'http://76.nanshengbbs.top/labelPicture/labelPicture-20220623174020053_GitHub.png', 0, 1640, 1640, '2022-06-23 17:40:21', '2022-06-23 17:40:21');
-INSERT INTO `fs_label` VALUES (19, 'Java', 'http://76.nanshengbbs.top/labelPicture/labelPicture-20220623174117612_java.png', 0, 1640, 1640, '2022-06-23 17:41:19', '2022-06-23 17:41:19');
-INSERT INTO `fs_label` VALUES (20, 'PM2', 'http://76.nanshengbbs.top/labelPicture/labelPicture-20220623174732007_pm2.png', 0, 1640, 1640, '2022-06-23 17:46:23', '2022-06-23 17:47:33');
+INSERT INTO `fs_label` VALUES (4, 'Vue.js', 'http://aid.nanshengbbs.top/default/labelPicture-20220612145638935_Vue.png', 0, 1640, 1640, '2022-06-11 12:03:36', '2022-06-12 14:56:41');
+INSERT INTO `fs_label` VALUES (5, 'Kubernetes', 'http://aid.nanshengbbs.top/default/labelPicture-20220612145701133_rnetes.png', 0, 1640, 1640, '2022-06-11 12:10:38', '2022-06-12 14:57:02');
+INSERT INTO `fs_label` VALUES (6, 'Docker', 'http://aid.nanshengbbs.top/default/labelPicture-20220612145707795_Docker.png', 0, 1640, 1640, '2022-06-11 12:11:03', '2022-06-12 14:57:09');
+INSERT INTO `fs_label` VALUES (8, 'Spring Boot', 'http://aid.nanshengbbs.top/default/labelPicture-20220612145715490_g-boot.png', 0, 1640, 1640, '2022-06-11 12:14:00', '2022-06-12 14:57:17');
+INSERT INTO `fs_label` VALUES (9, '运维', 'http://aid.nanshengbbs.top/default/labelPicture-20220612145722862_19运维管理.png', 0, 1640, 1640, '2022-06-11 12:15:11', '2022-06-12 14:57:24');
+INSERT INTO `fs_label` VALUES (10, '操作系统', 'http://aid.nanshengbbs.top/default/labelPicture-20220612145729342_操作系统.png', 0, 1640, 1640, '2022-06-11 12:16:24', '2022-06-12 14:57:30');
+INSERT INTO `fs_label` VALUES (11, '公告', 'http://aid.nanshengbbs.top/default/labelPicture-20220612145735299_eboard.png', 0, 1640, 1640, '2022-06-11 12:36:46', '2022-06-12 14:57:36');
+INSERT INTO `fs_label` VALUES (12, '南生论坛迭代', 'http://aid.nanshengbbs.top/default/labelPicture-20220612224902616_-lanse.png', 0, 1640, 1640, '2022-06-12 22:49:06', '2022-06-12 22:49:55');
+INSERT INTO `fs_label` VALUES (13, '推荐', 'http://aid.nanshengbbs.top/default/labelPicture-20220612233448611_推荐.png', 0, 1640, 1640, '2022-06-12 23:34:53', '2022-06-12 23:34:53');
+INSERT INTO `fs_label` VALUES (14, 'Markdown', 'http://aid.nanshengbbs.top/default/labelPicture-20220612235625452_rkdown.png', 0, 1640, 1640, '2022-06-12 23:56:27', '2022-06-12 23:56:27');
+INSERT INTO `fs_label` VALUES (15, '插件', 'http://aid.nanshengbbs.top/default/labelPicture-20220612235758085_插件.png', 0, 1640, 1640, '2022-06-12 23:57:59', '2022-06-12 23:57:59');
+INSERT INTO `fs_label` VALUES (16, '优化', 'http://aid.nanshengbbs.top/default/labelPicture-20220613000113819_智能优化.png', 0, 1640, 1640, '2022-06-13 00:01:15', '2022-06-13 00:01:15');
+INSERT INTO `fs_label` VALUES (17, 'Node.js', 'http://aid.nanshengbbs.top/default/labelPicture-20220623173925045_ode.js.png', 0, 1640, 1640, '2022-06-23 17:39:27', '2022-06-23 17:39:27');
+INSERT INTO `fs_label` VALUES (18, 'GitHub', 'http://aid.nanshengbbs.top/default/labelPicture-20220623174020053_GitHub.png', 0, 1640, 1640, '2022-06-23 17:40:21', '2022-06-23 17:40:21');
+INSERT INTO `fs_label` VALUES (19, 'Java', 'http://aid.nanshengbbs.top/default/labelPicture-20220623174117612_java.png', 0, 1640, 1640, '2022-06-23 17:41:19', '2022-06-23 17:41:19');
+INSERT INTO `fs_label` VALUES (20, 'PM2', 'http://aid.nanshengbbs.top/default/labelPicture-20220623174732007_pm2.png', 0, 1640, 1640, '2022-06-23 17:46:23', '2022-06-23 17:47:33');
 
 -- ----------------------------
 -- Table structure for fs_like
@@ -292,16 +292,16 @@ CREATE TABLE `fs_resource_navigate`  (
 -- ----------------------------
 -- Records of fs_resource_navigate
 -- ----------------------------
-INSERT INTO `fs_resource_navigate` VALUES (4, 'everypixel', 'http://76.nanshengbbs.top/resourceNavigatePicture/resourceNavigatePicture-20220717133906890_ux03zz.jpg', '图片', '免费图片聚合搜索，用这一个就够了', 'https://www.everypixel.com/free', 0, 1640, 1640, '2022-07-17 13:39:08', '2022-07-17 13:39:08');
-INSERT INTO `fs_resource_navigate` VALUES (16, 'Kaboom Pics', 'http://76.nanshengbbs.top/resourceNavigatePicture/resourceNavigatePicture-20220717134927958_yl0i7o.png', '图片', '清新好看的摄影照片', 'https://kaboompics.com/', 0, 1640, 1640, '2022-07-17 13:49:19', '2022-07-17 13:49:29');
-INSERT INTO `fs_resource_navigate` VALUES (17, 'colorhub', 'http://76.nanshengbbs.top/resourceNavigatePicture/resourceNavigatePicture-20220717134957966_7m0l5n.jpg', '图片', '高清无版权图片，个人和商业用途免费', 'https://colorhub.me/', 0, 1640, 1640, '2022-07-17 13:49:59', '2022-07-17 13:49:59');
-INSERT INTO `fs_resource_navigate` VALUES (18, 'mixkit', 'http://76.nanshengbbs.top/resourceNavigatePicture/resourceNavigatePicture-20220717140000829_bc0sqt.jpg', '视频', '很棒的免费视频素材', 'https://mixkit.co/', 0, 1640, 1640, '2022-07-17 14:00:02', '2022-07-17 14:00:02');
-INSERT INTO `fs_resource_navigate` VALUES (19, 'coverr', 'http://76.nanshengbbs.top/resourceNavigatePicture/resourceNavigatePicture-20220717140032092_eg0em5.png', '视频', '优秀的免费视频素材', 'https://coverr.co/', 0, 1640, 1640, '2022-07-17 14:00:33', '2022-07-17 14:00:33');
-INSERT INTO `fs_resource_navigate` VALUES (20, 'Mazwai', 'http://76.nanshengbbs.top/resourceNavigatePicture/resourceNavigatePicture-20220717140101021_bd0n71.jpg', '视频', '免费视频素材库', 'https://mazwai.com/#/grid', 0, 1640, 1640, '2022-07-17 14:01:02', '2022-07-17 14:01:02');
-INSERT INTO `fs_resource_navigate` VALUES (21, 'Vidlery', 'http://76.nanshengbbs.top/resourceNavigatePicture/resourceNavigatePicture-20220717140231878_5s0eyu.png', '视频', '免费的卡通背景视频', 'http://p3nlhclust404.shr.prod.phx3.secureserver.net/SharedContent/redirect_0.html', 0, 1640, 1640, '2022-07-17 14:02:33', '2022-07-17 14:02:33');
-INSERT INTO `fs_resource_navigate` VALUES (22, 'FreeSound', 'http://76.nanshengbbs.top/resourceNavigatePicture/resourceNavigatePicture-20220717140319890_2o04lw.png', '音频', '非常多的免费音乐', 'https://freesound.org/', 0, 1640, 1640, '2022-07-17 14:03:21', '2022-07-17 14:03:21');
-INSERT INTO `fs_resource_navigate` VALUES (23, 'cchound', 'http://76.nanshengbbs.top/resourceNavigatePicture/resourceNavigatePicture-20220717140353800_cg08g8.png', '音频', '免费音乐聚合网站', 'https://cchound.com/', 0, 1640, 1640, '2022-07-17 14:03:55', '2022-07-17 14:03:55');
-INSERT INTO `fs_resource_navigate` VALUES (28, 'unDraw', 'http://76.nanshengbbs.top/resourceNavigatePicture/resourceNavigatePicture-20220717140653328_4e0ma1.jpg', '插画', '最棒最全的插画库', 'https://undraw.co/illustrations', 0, 1640, 1640, '2022-07-17 14:06:55', '2022-07-17 14:06:55');
+INSERT INTO `fs_resource_navigate` VALUES (4, 'everypixel', 'http://aid.nanshengbbs.top/default/resourceNavigatePicture-20220717133906890_ux03zz.jpg', '图片', '免费图片聚合搜索，用这一个就够了', 'https://www.everypixel.com/free', 0, 1640, 1640, '2022-07-17 13:39:08', '2022-07-17 13:39:08');
+INSERT INTO `fs_resource_navigate` VALUES (16, 'Kaboom Pics', 'http://aid.nanshengbbs.top/default/resourceNavigatePicture-20220717134927958_yl0i7o.png', '图片', '清新好看的摄影照片', 'https://kaboompics.com/', 0, 1640, 1640, '2022-07-17 13:49:19', '2022-07-17 13:49:29');
+INSERT INTO `fs_resource_navigate` VALUES (17, 'colorhub', 'http://aid.nanshengbbs.top/default/resourceNavigatePicture-20220717134957966_7m0l5n.jpg', '图片', '高清无版权图片，个人和商业用途免费', 'https://colorhub.me/', 0, 1640, 1640, '2022-07-17 13:49:59', '2022-07-17 13:49:59');
+INSERT INTO `fs_resource_navigate` VALUES (18, 'mixkit', 'http://aid.nanshengbbs.top/default/resourceNavigatePicture-20220717140000829_bc0sqt.jpg', '视频', '很棒的免费视频素材', 'https://mixkit.co/', 0, 1640, 1640, '2022-07-17 14:00:02', '2022-07-17 14:00:02');
+INSERT INTO `fs_resource_navigate` VALUES (19, 'coverr', 'http://aid.nanshengbbs.top/default/resourceNavigatePicture-20220717140032092_eg0em5.png', '视频', '优秀的免费视频素材', 'https://coverr.co/', 0, 1640, 1640, '2022-07-17 14:00:33', '2022-07-17 14:00:33');
+INSERT INTO `fs_resource_navigate` VALUES (20, 'Mazwai', 'http://aid.nanshengbbs.top/default/resourceNavigatePicture-20220717140101021_bd0n71.jpg', '视频', '免费视频素材库', 'https://mazwai.com/#/grid', 0, 1640, 1640, '2022-07-17 14:01:02', '2022-07-17 14:01:02');
+INSERT INTO `fs_resource_navigate` VALUES (21, 'Vidlery', 'http://aid.nanshengbbs.top/default/resourceNavigatePicture-20220717140231878_5s0eyu.png', '视频', '免费的卡通背景视频', 'http://p3nlhclust404.shr.prod.phx3.secureserver.net/SharedContent/redirect_0.html', 0, 1640, 1640, '2022-07-17 14:02:33', '2022-07-17 14:02:33');
+INSERT INTO `fs_resource_navigate` VALUES (22, 'FreeSound', 'http://aid.nanshengbbs.top/default/resourceNavigatePicture-20220717140319890_2o04lw.png', '音频', '非常多的免费音乐', 'https://freesound.org/', 0, 1640, 1640, '2022-07-17 14:03:21', '2022-07-17 14:03:21');
+INSERT INTO `fs_resource_navigate` VALUES (23, 'cchound', 'http://aid.nanshengbbs.top/default/resourceNavigatePicture-20220717140353800_cg08g8.png', '音频', '免费音乐聚合网站', 'https://cchound.com/', 0, 1640, 1640, '2022-07-17 14:03:55', '2022-07-17 14:03:55');
+INSERT INTO `fs_resource_navigate` VALUES (28, 'unDraw', 'http://aid.nanshengbbs.top/default/resourceNavigatePicture-20220717140653328_4e0ma1.jpg', '插画', '最棒最全的插画库', 'https://undraw.co/illustrations', 0, 1640, 1640, '2022-07-17 14:06:55', '2022-07-17 14:06:55');
 
 -- ----------------------------
 -- Table structure for fs_slideshow
@@ -325,11 +325,11 @@ CREATE TABLE `fs_slideshow`  (
 -- ----------------------------
 -- Records of fs_slideshow
 -- ----------------------------
-INSERT INTO `fs_slideshow` VALUES (1, '测试001', 'http://76.nanshengbbs.top/bbs_ssm/slider-20200706000714_1.png', NULL, NULL, 1, 0, 1640, 1640, '2023-02-01 15:54:28', '2023-02-01 15:54:30');
-INSERT INTO `fs_slideshow` VALUES (2, '测试002', 'http://76.nanshengbbs.top/bbs_ssm/slider-20200706001316_2.png', NULL, NULL, 1, 0, 1640, 1640, '2023-02-01 16:01:06', '2023-02-01 16:01:09');
-INSERT INTO `fs_slideshow` VALUES (3, '测试003', 'http://76.nanshengbbs.top/bbs_ssm/slider-20200706001324_3.png', NULL, NULL, 1, 0, 1640, 1640, '2023-02-01 16:01:06', '2023-02-01 16:01:09');
-INSERT INTO `fs_slideshow` VALUES (4, '测试004', 'http://76.nanshengbbs.top/bbs_ssm/slider-20200706001342_5.png', NULL, NULL, 1, 0, 1640, 1640, '2023-02-01 16:01:06', '2023-02-01 16:01:09');
-INSERT INTO `fs_slideshow` VALUES (5, '微服务全景图', 'http://76.nanshengbbs.top/bbs_ssm/slider-SpringCloudAlibaba.png', NULL, NULL, 1, 0, 1640, 1640, '2023-02-06 15:26:49', '2023-02-06 15:26:49');
+INSERT INTO `fs_slideshow` VALUES (1, '测试001', 'http://aid.nanshengbbs.top/default/slider-20200706000714_1.png', NULL, NULL, 1, 0, 1640, 1640, '2023-02-01 15:54:28', '2023-02-01 15:54:30');
+INSERT INTO `fs_slideshow` VALUES (2, '测试002', 'http://aid.nanshengbbs.top/default/slider-20200706001316_2.png', NULL, NULL, 1, 0, 1640, 1640, '2023-02-01 16:01:06', '2023-02-01 16:01:09');
+INSERT INTO `fs_slideshow` VALUES (3, '测试003', 'http://aid.nanshengbbs.top/default/slider-20200706001324_3.png', NULL, NULL, 1, 0, 1640, 1640, '2023-02-01 16:01:06', '2023-02-01 16:01:09');
+INSERT INTO `fs_slideshow` VALUES (4, '测试004', 'http://aid.nanshengbbs.top/default/slider-20200706001342_5.png', NULL, NULL, 1, 0, 1640, 1640, '2023-02-01 16:01:06', '2023-02-01 16:01:09');
+INSERT INTO `fs_slideshow` VALUES (5, '微服务全景图', 'http://aid.nanshengbbs.top/default/slider-SpringCloudAlibaba.png', NULL, NULL, 1, 0, 1640, 1640, '2023-02-06 15:26:49', '2023-02-06 15:26:49');
 
 -- ----------------------------
 -- Table structure for fs_user_level
