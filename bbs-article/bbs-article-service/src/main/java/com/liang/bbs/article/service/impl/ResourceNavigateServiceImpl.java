@@ -104,7 +104,7 @@ public class ResourceNavigateServiceImpl implements ResourceNavigateService {
     public String uploadResourceNavigateLogo(byte[] bytes, String sourceFileName) {
         try {
             // 文件上传（剪切）
-            return fileService.fileCutUpload(bytes, sourceFileName, ImageTypeEnum.resourceNavigatePicture);
+            return fileService.fileCutUpload(bytes, sourceFileName, ImageTypeEnum.resourceNavigatePicture.name());
         } catch (Exception e) {
             log.error("资源导航Logo上传异常！", e);
             throw BusinessException.build(ResponseCode.OPERATE_FAIL, "资源导航Logo上传异常!");

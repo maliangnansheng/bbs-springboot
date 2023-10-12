@@ -396,7 +396,7 @@ public class ArticleServiceImpl implements ArticleService {
     public Boolean create(byte[] bytes, String sourceFileName, ArticleDTO articleDTO, List<Integer> labelIds, UserSsoDTO currentUser) {
         try {
             // 文件上传（按比例压缩）
-            String picture = fileService.fileScaleUpload(bytes, sourceFileName, ImageTypeEnum.articleTitleMap);
+            String picture = fileService.fileScaleUpload(bytes, sourceFileName, ImageTypeEnum.articleTitleMap.name());
             articleDTO.setTitleMap(picture);
             create(articleDTO, labelIds, currentUser);
         } catch (Exception e) {
@@ -420,7 +420,7 @@ public class ArticleServiceImpl implements ArticleService {
     public Boolean update(byte[] bytes, String sourceFileName, ArticleDTO articleDTO, List<Integer> labelIds, UserSsoDTO currentUser) {
         try {
             // 文件上传（按比例压缩）
-            String picture = fileService.fileScaleUpload(bytes, sourceFileName, ImageTypeEnum.articleTitleMap);
+            String picture = fileService.fileScaleUpload(bytes, sourceFileName, ImageTypeEnum.articleTitleMap.name());
             articleDTO.setTitleMap(picture);
             update(articleDTO, labelIds, currentUser);
         } catch (Exception e) {
@@ -441,7 +441,7 @@ public class ArticleServiceImpl implements ArticleService {
     @Override
     public String uploadPicture(byte[] bytes, String sourceFileName) {
         // 文件上传（按比例压缩）
-        return fileService.fileScaleUpload(bytes, sourceFileName, ImageTypeEnum.articlePicture);
+        return fileService.fileScaleUpload(bytes, sourceFileName, ImageTypeEnum.articlePicture.name());
     }
 
     /**

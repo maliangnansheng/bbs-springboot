@@ -123,7 +123,7 @@ public class LabelServiceImpl implements LabelService {
     public String uploadLabelLogo(byte[] bytes, String sourceFileName) {
         try {
             // 文件上传（剪切）
-            return fileService.fileCutUpload(bytes, sourceFileName, ImageTypeEnum.labelPicture);
+            return fileService.fileCutUpload(bytes, sourceFileName, ImageTypeEnum.labelPicture.name());
         } catch (Exception e) {
             log.error("标签Logo上传异常！", e);
             throw BusinessException.build(ResponseCode.OPERATE_FAIL, "标签Logo上传异常!");
