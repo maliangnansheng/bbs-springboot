@@ -58,9 +58,9 @@
 
 `本地部署：`
 
-[【后端】安装部署教程](https://bbs.nanshengbbs.top/detail/44)
+**后端** 同学关注：[【后端】安装部署教程](https://bbs.nanshengbbs.top/detail/44)、[【前端】安装部署教程](https://bbs.nanshengbbs.top/detail/45)
 
-[【前端】安装部署教程](https://bbs.nanshengbbs.top/detail/45)
+**前端** 同学关注：[【纯前端方案】无需部署后端代码](https://bbs.nanshengbbs.top/detail/439)
 
 ## 官方地址
 
@@ -114,9 +114,13 @@
 
 ### 用户系统
 
-- **首页（`管理员视角`）**
+- **文章（`管理员视角`）**
 
   ![image](https://76.nanshengbbs.top/github/ns-bbs-home-admin.png)
+
+- **话题**
+
+  ![image](https://76.nanshengbbs.top/github/ns-bbs-topic.png)
 
 - **文章详情**
 
@@ -147,15 +151,19 @@
 
 - **仪表盘**
 
-  ![](https://76.nanshengbbs.top/github/ns-manage-dashboard1.png)
+  ![](https://76.nanshengbbs.top/github/ns-manage-dashboard2.png)
 
+- **权限管理**
+
+  ![](https://76.nanshengbbs.top/github/ns-manage-permissions.png)
+  
 - **角色管理**
 
-  ![](https://76.nanshengbbs.top/github/ns-manage-role2.png)
+  ![](https://76.nanshengbbs.top/github/ns-manage-role3.png)
 
 - **用户管理**
 
-  ![](https://76.nanshengbbs.top/github/ns-manage-user.png)
+  ![](https://76.nanshengbbs.top/github/ns-manage-user2.png)
 
 - **反馈管理**
 
