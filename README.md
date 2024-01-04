@@ -58,9 +58,9 @@
 
 `本地部署：`
 
-**后端** 同学关注：[【后端】安装部署教程](https://bbs.nanshengbbs.top/detail/44)、[【前端】安装部署教程](https://bbs.nanshengbbs.top/detail/45)
+**后端or全栈** 同学关注：[【后端】安装部署教程](https://bbs.nanshengbbs.top/detail/44)、[【前端】安装部署教程](https://bbs.nanshengbbs.top/detail/45)
 
-**前端** 同学关注：[【纯前端方案】无需部署后端代码](https://bbs.nanshengbbs.top/detail/439)
+**纯前端** 同学关注：[【纯前端方案】无需部署后端代码](https://bbs.nanshengbbs.top/detail/439)
 
 ## 官方地址
 
