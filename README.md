@@ -84,7 +84,7 @@
 
 - 管理系统-功能结构图
 
-  ![](https://76.nanshengbbs.top/github/ns-bbs-admin2.png)
+  ![](https://76.nanshengbbs.top/github/ns-bbs-manage.png)
 
 ## 项目结构
 
