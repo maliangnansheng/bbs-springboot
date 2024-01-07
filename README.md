@@ -46,9 +46,8 @@
 
 > **商用** 需要联系作者授权[**南生运营**](https://bbs.nanshengbbs.top/detail/171)(学习使用不需要授权)
 
-1. 在线联系作者：去 [南生闲聊](https://chat.nanshengbbs.top/)（`使用南生论坛注册的账号密码即可登录`） 聊天，问题反馈在“南生论坛”群聊或者加“马亮南生”私聊都行
+1. 加作者微信：maliangnansheng（[扫码添加](https://bbs.nanshengbbs.top/about)）
 2. 加作者QQ：924818949（[扫码添加](https://bbs.nanshengbbs.top/about)）
-3. 加作者微信：maliangnansheng（[扫码添加](https://bbs.nanshengbbs.top/about)）
 
 ## 使用指南and代码讲解and设计文档
 
