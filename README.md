@@ -38,7 +38,7 @@
 ## 技术栈
 
 - **后端：**
-  SpringBoot、Dubbo、Zookeeper、RocketMQ、Redis、MyBatis、MySQL、MongoDB、WebSocket、Shiro、七牛云（图片/视频全部存于此）、...
+  程序架构：[SpringBoot](https://spring.io/projects/spring-boot)、RPC：[Dubbo](https://cn.dubbo.apache.org/zh-cn/overview/what/)、注册中心：[Zookeeper](https://zookeeper.apache.org/)、消息队列：[RocketMQ](https://rocketmq.apache.org/zh/)、缓存：[Redis](https://redis.io/)、持久层框架：[MyBatis](https://mybatis.org/mybatis-3/zh_CN/index.html)、数据库：[MySQL](https://www.mysql.com/)、大数据存储：[MongoDB](https://www.mongodb.com/zh-cn)、实时交互：[WebSocket](https://websocket.org/)、权限管理：[Shiro](https://shiro.apache.org/)、对象存储：[七牛云](https://www.qiniu.com/)
 - **前端：**
   Vue、Axios、Vue Router、Ant Design of Vue、Webpack、Less、Vuex、ES6、Node.js、mavonEditor、ECharts、...
 
