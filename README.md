@@ -32,7 +32,7 @@
 
 - 南生论坛基于`SpringBoot+Vue`框架实现前后端分离，自适应手机端和电脑端，界面简洁美观，功能完善，性能高效。分为[用户系统](https://bbs.nanshengbbs.top)和[管理系统](https://manage.nanshengbbs.top)两部分
 - 大厂微服务架构设计；代码简洁、高效无冗余；注释详细易阅读
-- 该项目适合`初学/进阶`SpringBoot+Vue的童鞋学习。主要涉及技术包括`SpringBoot、Dubbo、RocketMQ、Redis、MyBatis、MySQL、MongoDB、WebSocket、Shiro、七牛云（图片/视频全部存于此）、Vue、Axios、Vue Router、Ant Design of Vue、Webpack、Less、Vuex、ES6、Node.js、mavonEditor、ECharts、…`
+- 该项目适合`初学/进阶`SpringBoot+Vue的童鞋学习
 - [南生论坛v3.0.0 于 v2.8.2的新特性简单罗列](https://bbs.nanshengbbs.top/detail/40)
 
 ## 技术栈
