@@ -23,7 +23,7 @@ import com.liang.bbs.user.facade.server.UserLevelService;
 import com.liang.manage.auth.facade.dto.user.UserDTO;
 import com.liang.manage.auth.facade.server.FileService;
 import com.liang.manage.auth.facade.server.UserService;
-import com.liang.manage.concern.facade.server.VisitService;
+import com.liang.manage.auth.facade.server.VisitService;
 import com.liang.nansheng.common.auth.UserSsoDTO;
 import com.liang.nansheng.common.enums.ImageTypeEnum;
 import com.liang.nansheng.common.enums.ResponseCode;
