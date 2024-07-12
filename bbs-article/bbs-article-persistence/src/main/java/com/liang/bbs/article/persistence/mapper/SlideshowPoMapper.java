@@ -9,91 +9,91 @@ import java.util.List;
 public interface SlideshowPoMapper {
     /**
      * countByExample
-     * 
+     *
      * @param example
-     * @return 
+     * @return
      */
     long countByExample(SlideshowPoExample example);
 
     /**
      * deleteByExample
-     * 
+     *
      * @param example
-     * @return 
+     * @return
      */
     int deleteByExample(SlideshowPoExample example);
 
     /**
      * deleteByPrimaryKey
-     * 
+     *
      * @param id
-     * @return 
+     * @return
      */
     int deleteByPrimaryKey(Integer id);
 
     /**
      * insert
-     * 
+     *
      * @param record
-     * @return 
+     * @return
      */
     int insert(SlideshowPo record);
 
     /**
      * insertSelective
-     * 
+     *
      * @param record
-     * @return 
+     * @return
      */
     int insertSelective(SlideshowPo record);
 
     /**
      * selectByExample
-     * 
+     *
      * @param example
-     * @return 
+     * @return
      */
     List<SlideshowPo> selectByExample(SlideshowPoExample example);
 
     /**
      * selectByPrimaryKey
-     * 
+     *
      * @param id
-     * @return 
+     * @return
      */
     SlideshowPo selectByPrimaryKey(Integer id);
 
     /**
      * updateByExampleSelective
-     * 
+     *
      * @param record
      * @param example
-     * @return 
+     * @return
      */
     int updateByExampleSelective(@Param("record") SlideshowPo record, @Param("example") SlideshowPoExample example);
 
     /**
      * updateByExample
-     * 
+     *
      * @param record
      * @param example
-     * @return 
+     * @return
      */
     int updateByExample(@Param("record") SlideshowPo record, @Param("example") SlideshowPoExample example);
 
     /**
      * updateByPrimaryKeySelective
-     * 
+     *
      * @param record
-     * @return 
+     * @return
      */
     int updateByPrimaryKeySelective(SlideshowPo record);
 
     /**
      * updateByPrimaryKey
-     * 
+     *
      * @param record
-     * @return 
+     * @return
      */
     int updateByPrimaryKey(SlideshowPo record);
 }

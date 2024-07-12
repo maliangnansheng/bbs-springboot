@@ -77,55 +77,55 @@
 
         <!-- table指定每个表的生成策略 -->
         <!-- 文章 -->
-<!--        <table tableName="fs_article" enableSelectByPrimaryKey="true" enableUpdateByPrimaryKey="true"-->
-<!--               enableDeleteByPrimaryKey="true" domainObjectName="ArticlePo">-->
-<!--            <generatedKey column="id" sqlStatement="JDBC" identity="true"/>-->
-<!--            <columnOverride column="state" javaType="java.lang.Integer"/>-->
-<!--            <columnOverride column="content" javaType="java.lang.String" jdbcType="VARCHAR"/>-->
-<!--            <columnOverride column="create_time" javaType="java.time.LocalDateTime"/>-->
-<!--            <columnOverride column="update_time" javaType="java.time.LocalDateTime"/>-->
-<!--        </table>-->
+        <!--        <table tableName="fs_article" enableSelectByPrimaryKey="true" enableUpdateByPrimaryKey="true"-->
+        <!--               enableDeleteByPrimaryKey="true" domainObjectName="ArticlePo">-->
+        <!--            <generatedKey column="id" sqlStatement="JDBC" identity="true"/>-->
+        <!--            <columnOverride column="state" javaType="java.lang.Integer"/>-->
+        <!--            <columnOverride column="content" javaType="java.lang.String" jdbcType="VARCHAR"/>-->
+        <!--            <columnOverride column="create_time" javaType="java.time.LocalDateTime"/>-->
+        <!--            <columnOverride column="update_time" javaType="java.time.LocalDateTime"/>-->
+        <!--        </table>-->
 
         <!-- 评论 -->
-<!--        <table tableName="fs_comment" enableSelectByPrimaryKey="true" enableUpdateByPrimaryKey="true"-->
-<!--               enableDeleteByPrimaryKey="true" domainObjectName="CommentPo">-->
-<!--            <generatedKey column="id" sqlStatement="JDBC" identity="true"/>-->
-<!--            <columnOverride column="content" javaType="java.lang.String" jdbcType="VARCHAR"/>-->
-<!--            <columnOverride column="create_time" javaType="java.time.LocalDateTime"/>-->
-<!--            <columnOverride column="update_time" javaType="java.time.LocalDateTime"/>-->
-<!--        </table>-->
+        <!--        <table tableName="fs_comment" enableSelectByPrimaryKey="true" enableUpdateByPrimaryKey="true"-->
+        <!--               enableDeleteByPrimaryKey="true" domainObjectName="CommentPo">-->
+        <!--            <generatedKey column="id" sqlStatement="JDBC" identity="true"/>-->
+        <!--            <columnOverride column="content" javaType="java.lang.String" jdbcType="VARCHAR"/>-->
+        <!--            <columnOverride column="create_time" javaType="java.time.LocalDateTime"/>-->
+        <!--            <columnOverride column="update_time" javaType="java.time.LocalDateTime"/>-->
+        <!--        </table>-->
 
-<!--        &lt;!&ndash; 文章标签关系表 &ndash;&gt;-->
-<!--        <table tableName="fs_article_label" enableSelectByPrimaryKey="true" enableUpdateByPrimaryKey="true"-->
-<!--               enableDeleteByPrimaryKey="true" domainObjectName="ArticleLabelPo">-->
-<!--            <generatedKey column="id" sqlStatement="JDBC" identity="true"/>-->
-<!--            <columnOverride column="create_time" javaType="java.time.LocalDateTime"/>-->
-<!--            <columnOverride column="update_time" javaType="java.time.LocalDateTime"/>-->
-<!--        </table>-->
+        <!--        &lt;!&ndash; 文章标签关系表 &ndash;&gt;-->
+        <!--        <table tableName="fs_article_label" enableSelectByPrimaryKey="true" enableUpdateByPrimaryKey="true"-->
+        <!--               enableDeleteByPrimaryKey="true" domainObjectName="ArticleLabelPo">-->
+        <!--            <generatedKey column="id" sqlStatement="JDBC" identity="true"/>-->
+        <!--            <columnOverride column="create_time" javaType="java.time.LocalDateTime"/>-->
+        <!--            <columnOverride column="update_time" javaType="java.time.LocalDateTime"/>-->
+        <!--        </table>-->
 
         <!-- 标签 -->
-<!--        <table tableName="fs_label" enableSelectByPrimaryKey="true" enableUpdateByPrimaryKey="true"-->
-<!--               enableDeleteByPrimaryKey="true" domainObjectName="LabelPo">-->
-<!--            <generatedKey column="id" sqlStatement="JDBC" identity="true"/>-->
-<!--            <columnOverride column="create_time" javaType="java.time.LocalDateTime"/>-->
-<!--            <columnOverride column="update_time" javaType="java.time.LocalDateTime"/>-->
-<!--        </table>-->
+        <!--        <table tableName="fs_label" enableSelectByPrimaryKey="true" enableUpdateByPrimaryKey="true"-->
+        <!--               enableDeleteByPrimaryKey="true" domainObjectName="LabelPo">-->
+        <!--            <generatedKey column="id" sqlStatement="JDBC" identity="true"/>-->
+        <!--            <columnOverride column="create_time" javaType="java.time.LocalDateTime"/>-->
+        <!--            <columnOverride column="update_time" javaType="java.time.LocalDateTime"/>-->
+        <!--        </table>-->
 
         <!-- 资源导航 -->
-<!--        <table tableName="fs_resource_navigate" enableSelectByPrimaryKey="true" enableUpdateByPrimaryKey="true"-->
-<!--               enableDeleteByPrimaryKey="true" domainObjectName="ResourceNavigatePo">-->
-<!--            <generatedKey column="id" sqlStatement="JDBC" identity="true"/>-->
-<!--            <columnOverride column="create_time" javaType="java.time.LocalDateTime"/>-->
-<!--            <columnOverride column="update_time" javaType="java.time.LocalDateTime"/>-->
-<!--        </table>-->
+        <!--        <table tableName="fs_resource_navigate" enableSelectByPrimaryKey="true" enableUpdateByPrimaryKey="true"-->
+        <!--               enableDeleteByPrimaryKey="true" domainObjectName="ResourceNavigatePo">-->
+        <!--            <generatedKey column="id" sqlStatement="JDBC" identity="true"/>-->
+        <!--            <columnOverride column="create_time" javaType="java.time.LocalDateTime"/>-->
+        <!--            <columnOverride column="update_time" javaType="java.time.LocalDateTime"/>-->
+        <!--        </table>-->
 
         <!-- 轮播图 -->
-<!--        <table tableName="fs_slideshow" enableSelectByPrimaryKey="true" enableUpdateByPrimaryKey="true"-->
-<!--               enableDeleteByPrimaryKey="true" domainObjectName="SlideshowPo">-->
-<!--            <generatedKey column="id" sqlStatement="JDBC" identity="true"/>-->
-<!--            <columnOverride column="create_time" javaType="java.time.LocalDateTime"/>-->
-<!--            <columnOverride column="update_time" javaType="java.time.LocalDateTime"/>-->
-<!--        </table>-->
+        <!--        <table tableName="fs_slideshow" enableSelectByPrimaryKey="true" enableUpdateByPrimaryKey="true"-->
+        <!--               enableDeleteByPrimaryKey="true" domainObjectName="SlideshowPo">-->
+        <!--            <generatedKey column="id" sqlStatement="JDBC" identity="true"/>-->
+        <!--            <columnOverride column="create_time" javaType="java.time.LocalDateTime"/>-->
+        <!--            <columnOverride column="update_time" javaType="java.time.LocalDateTime"/>-->
+        <!--        </table>-->
 
     </context>
-</generatorConfiguration>  
+</generatorConfiguration>

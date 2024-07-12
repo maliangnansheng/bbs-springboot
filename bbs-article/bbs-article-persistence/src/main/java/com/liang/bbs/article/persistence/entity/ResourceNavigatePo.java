@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 
 /**
  * 对应数据表为：fs_resource_navigate
- * 
+ *
  * @author maliangnansheng
  * @date 2022/07/16 23:33
  */

@@ -25,10 +25,6 @@
             <groupId>com.liang</groupId>
             <artifactId>bbs-common</artifactId>
         </dependency>
-        <dependency>
-            <groupId>com.liang</groupId>
-            <artifactId>bbs-user-facade</artifactId>
-        </dependency>
 
 
         <dependency>

@@ -9,91 +9,91 @@ import java.util.List;
 public interface ResourceNavigatePoMapper {
     /**
      * countByExample
-     * 
+     *
      * @param example
-     * @return 
+     * @return
      */
     long countByExample(ResourceNavigatePoExample example);
 
     /**
      * deleteByExample
-     * 
+     *
      * @param example
-     * @return 
+     * @return
      */
     int deleteByExample(ResourceNavigatePoExample example);
 
     /**
      * deleteByPrimaryKey
-     * 
+     *
      * @param id
-     * @return 
+     * @return
      */
     int deleteByPrimaryKey(Integer id);
 
     /**
      * insert
-     * 
+     *
      * @param record
-     * @return 
+     * @return
      */
     int insert(ResourceNavigatePo record);
 
     /**
      * insertSelective
-     * 
+     *
      * @param record
-     * @return 
+     * @return
      */
     int insertSelective(ResourceNavigatePo record);
 
     /**
      * selectByExample
-     * 
+     *
      * @param example
-     * @return 
+     * @return
      */
     List<ResourceNavigatePo> selectByExample(ResourceNavigatePoExample example);
 
     /**
      * selectByPrimaryKey
-     * 
+     *
      * @param id
-     * @return 
+     * @return
      */
     ResourceNavigatePo selectByPrimaryKey(Integer id);
 
     /**
      * updateByExampleSelective
-     * 
+     *
      * @param record
      * @param example
-     * @return 
+     * @return
      */
     int updateByExampleSelective(@Param("record") ResourceNavigatePo record, @Param("example") ResourceNavigatePoExample example);
 
     /**
      * updateByExample
-     * 
+     *
      * @param record
      * @param example
-     * @return 
+     * @return
      */
     int updateByExample(@Param("record") ResourceNavigatePo record, @Param("example") ResourceNavigatePoExample example);
 
     /**
      * updateByPrimaryKeySelective
-     * 
+     *
      * @param record
-     * @return 
+     * @return
      */
     int updateByPrimaryKeySelective(ResourceNavigatePo record);
 
     /**
      * updateByPrimaryKey
-     * 
+     *
      * @param record
-     * @return 
+     * @return
      */
     int updateByPrimaryKey(ResourceNavigatePo record);
 }

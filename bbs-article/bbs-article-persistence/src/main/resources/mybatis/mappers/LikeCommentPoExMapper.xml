@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liang.bbs.article.persistence.mapper.LikeCommentPoExMapper">
+    <resultMap id="BaseResultMap" type="com.liang.bbs.article.persistence.entity.LikeCommentPo">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="comment_id" jdbcType="INTEGER" property="commentId"/>
+        <result column="state" jdbcType="BIT" property="state"/>
+        <result column="like_user" jdbcType="BIGINT" property="likeUser"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        fs_comment_like
+        .
+        id
+        , fs_comment_like.comment_id, fs_comment_like.`state`, fs_comment_like.like_user, fs_comment_like.create_time, fs_comment_like.update_time
+    </sql>
+
+    <select id="selectAllCommentLike" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from fs_comment_like left join fs_comment on fs_comment_like.comment_id = fs_comment.id
+        where fs_comment_like.state = 1
+        and fs_comment.is_deleted = 0
+        and fs_comment.state = 1
+        and fs_comment_like.create_time between #{startTime} and #{endTime}
+    </select>
+
+</mapper>

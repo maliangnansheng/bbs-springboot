@@ -3,23 +3,13 @@ package com.liang.bbs.article.service.impl;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.liang.bbs.article.facade.dto.*;
-import com.liang.bbs.article.facade.server.ArticleLabelService;
-import com.liang.bbs.article.facade.server.ArticleService;
-import com.liang.bbs.article.facade.server.CommentService;
-import com.liang.bbs.article.facade.server.LabelService;
+import com.liang.bbs.article.facade.server.*;
 import com.liang.bbs.article.persistence.entity.ArticlePo;
 import com.liang.bbs.article.persistence.entity.ArticlePoExample;
 import com.liang.bbs.article.persistence.mapper.ArticlePoExMapper;
 import com.liang.bbs.article.persistence.mapper.ArticlePoMapper;
 import com.liang.bbs.article.service.mapstruct.ArticleMS;
 import com.liang.bbs.common.enums.ArticleStateEnum;
-import com.liang.bbs.user.facade.dto.FollowDTO;
-import com.liang.bbs.user.facade.dto.LikeDTO;
-import com.liang.bbs.user.facade.dto.LikeSearchDTO;
-import com.liang.bbs.user.facade.dto.UserLevelDTO;
-import com.liang.bbs.user.facade.server.FollowService;
-import com.liang.bbs.user.facade.server.LikeService;
-import com.liang.bbs.user.facade.server.UserLevelService;
 import com.liang.manage.auth.facade.dto.user.UserDTO;
 import com.liang.manage.auth.facade.server.FileService;
 import com.liang.manage.auth.facade.server.UserService;
@@ -72,16 +62,16 @@ public class ArticleServiceImpl implements ArticleService {
     @Reference
     private UserService userService;
 
-    @Reference
+    @Autowired
     private LikeService likeService;
 
     @Reference
     private VisitService visitService;
 
-    @Reference
+    @Autowired
     private FollowService followService;
 
-    @Reference
+    @Autowired
     private UserLevelService userLevelService;
 
     @Reference
@@ -554,12 +544,10 @@ public class ArticleServiceImpl implements ArticleService {
         articlePo.setUpdateUser(currentUser.getUserId());
         // 置顶
         if (top) {
-            Integer maxTop = this.getMaxTop();
-            if (maxTop != null) {
-                articlePo.setTop(maxTop + 1);
-                if (articlePoMapper.updateByPrimaryKey(articlePo) <= 0) {
-                    throw BusinessException.build(ResponseCode.OPERATE_FAIL, "文章置顶失败");
-                }
+            int maxTop = Objects.isNull(this.getMaxTop()) ? 0 : this.getMaxTop();
+            articlePo.setTop(maxTop + 1);
+            if (articlePoMapper.updateByPrimaryKey(articlePo) <= 0) {
+                throw BusinessException.build(ResponseCode.OPERATE_FAIL, "文章置顶失败");
             }
         } else {
             // 取消置顶

@@ -9,91 +9,91 @@ import java.util.List;
 public interface LabelPoMapper {
     /**
      * countByExample
-     * 
+     *
      * @param example
-     * @return 
+     * @return
      */
     long countByExample(LabelPoExample example);
 
     /**
      * deleteByExample
-     * 
+     *
      * @param example
-     * @return 
+     * @return
      */
     int deleteByExample(LabelPoExample example);
 
     /**
      * deleteByPrimaryKey
-     * 
+     *
      * @param id
-     * @return 
+     * @return
      */
     int deleteByPrimaryKey(Integer id);
 
     /**
      * insert
-     * 
+     *
      * @param record
-     * @return 
+     * @return
      */
     int insert(LabelPo record);
 
     /**
      * insertSelective
-     * 
+     *
      * @param record
-     * @return 
+     * @return
      */
     int insertSelective(LabelPo record);
 
     /**
      * selectByExample
-     * 
+     *
      * @param example
-     * @return 
+     * @return
      */
     List<LabelPo> selectByExample(LabelPoExample example);
 
     /**
      * selectByPrimaryKey
-     * 
+     *
      * @param id
-     * @return 
+     * @return
      */
     LabelPo selectByPrimaryKey(Integer id);
 
     /**
      * updateByExampleSelective
-     * 
+     *
      * @param record
      * @param example
-     * @return 
+     * @return
      */
     int updateByExampleSelective(@Param("record") LabelPo record, @Param("example") LabelPoExample example);
 
     /**
      * updateByExample
-     * 
+     *
      * @param record
      * @param example
-     * @return 
+     * @return
      */
     int updateByExample(@Param("record") LabelPo record, @Param("example") LabelPoExample example);
 
     /**
      * updateByPrimaryKeySelective
-     * 
+     *
      * @param record
-     * @return 
+     * @return
      */
     int updateByPrimaryKeySelective(LabelPo record);
 
     /**
      * updateByPrimaryKey
-     * 
+     *
      * @param record
-     * @return 
+     * @return
      */
     int updateByPrimaryKey(LabelPo record);
 }

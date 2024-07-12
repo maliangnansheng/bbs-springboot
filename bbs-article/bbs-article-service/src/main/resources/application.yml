@@ -1,9 +1,15 @@
 server:
-  port: 7011
+  port: 7010
+  servlet:
+    context-path: /api
 
 spring:
   application:
     name: ns-bbs-article
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 1000MB
   datasource:
     # 数据库访问配置
     url: jdbc:mysql://127.0.0.1:3306/ns_bbs?characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
@@ -83,8 +89,22 @@ dubbo:
 mybatis:
   mapper-locations: classpath*:mybatis/mappers/*.xml
 
-sso:
-  user:
-    login:
-      # SSO地址
-      address: http://sso.localhost.com
+# 自定义
+interceptor:
+  monitor:
+    #是否启用监控
+    status: true
+
+cookie:
+  # cookie写在对应的域名下
+  domain: localhost.com
+
+# swagger打开
+swagger:
+  show: true
+
+file:
+  source:
+    # 设定上传源文件允许的最大值（1024*1024*5=5M）
+    length: 5242880
+

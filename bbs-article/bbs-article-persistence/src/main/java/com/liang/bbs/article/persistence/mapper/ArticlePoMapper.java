@@ -9,91 +9,91 @@ import java.util.List;
 public interface ArticlePoMapper {
     /**
      * countByExample
-     * 
+     *
      * @param example
-     * @return 
+     * @return
      */
     long countByExample(ArticlePoExample example);
 
     /**
      * deleteByExample
-     * 
+     *
      * @param example
-     * @return 
+     * @return
      */
     int deleteByExample(ArticlePoExample example);
 
     /**
      * deleteByPrimaryKey
-     * 
+     *
      * @param id
-     * @return 
+     * @return
      */
     int deleteByPrimaryKey(Integer id);
 
     /**
      * insert
-     * 
+     *
      * @param record
-     * @return 
+     * @return
      */
     int insert(ArticlePo record);
 
     /**
      * insertSelective
-     * 
+     *
      * @param record
-     * @return 
+     * @return
      */
     int insertSelective(ArticlePo record);
 
     /**
      * selectByExample
-     * 
+     *
      * @param example
-     * @return 
+     * @return
      */
     List<ArticlePo> selectByExample(ArticlePoExample example);
 
     /**
      * selectByPrimaryKey
-     * 
+     *
      * @param id
-     * @return 
+     * @return
      */
     ArticlePo selectByPrimaryKey(Integer id);
 
     /**
      * updateByExampleSelective
-     * 
+     *
      * @param record
      * @param example
-     * @return 
+     * @return
      */
     int updateByExampleSelective(@Param("record") ArticlePo record, @Param("example") ArticlePoExample example);
 
     /**
      * updateByExample
-     * 
+     *
      * @param record
      * @param example
-     * @return 
+     * @return
      */
     int updateByExample(@Param("record") ArticlePo record, @Param("example") ArticlePoExample example);
 
     /**
      * updateByPrimaryKeySelective
-     * 
+     *
      * @param record
-     * @return 
+     * @return
      */
     int updateByPrimaryKeySelective(ArticlePo record);
 
     /**
      * updateByPrimaryKey
-     * 
+     *
      * @param record
-     * @return 
+     * @return
      */
     int updateByPrimaryKey(ArticlePo record);
 }

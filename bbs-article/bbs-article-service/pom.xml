@@ -23,10 +23,6 @@
             <groupId>com.liang</groupId>
             <artifactId>bbs-article-persistence</artifactId>
         </dependency>
-        <dependency>
-            <groupId>com.liang</groupId>
-            <artifactId>bbs-user-facade</artifactId>
-        </dependency>
 
 
         <dependency>
@@ -146,6 +142,17 @@
             <groupId>com.aliyun</groupId>
             <artifactId>aliyun-java-sdk-dysmsapi</artifactId>
         </dependency>
+
+        <!-- 生成API接口文档-start -->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.github.xiaoymin</groupId>
+            <artifactId>knife4j-spring-ui</artifactId>
+        </dependency>
+        <!-- 生成API接口文档-end -->
 
     </dependencies>
 

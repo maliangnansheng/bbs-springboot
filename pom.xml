@@ -15,9 +15,7 @@
     <version>${revision}</version>
 
     <modules>
-        <module>bbs-rest</module>
         <module>bbs-common</module>
-        <module>bbs-user</module>
         <module>bbs-article</module>
     </modules>
 
@@ -102,16 +100,6 @@
             <dependency>
                 <groupId>com.liang</groupId>
                 <artifactId>bbs-article-persistence</artifactId>
-                <version>${revision}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.liang</groupId>
-                <artifactId>bbs-user-facade</artifactId>
-                <version>${revision}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.liang</groupId>
-                <artifactId>bbs-user-persistence</artifactId>
                 <version>${revision}</version>
             </dependency>
 

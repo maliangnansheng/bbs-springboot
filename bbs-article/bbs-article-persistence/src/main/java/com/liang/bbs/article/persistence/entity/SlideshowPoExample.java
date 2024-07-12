@@ -13,8 +13,8 @@ public class SlideshowPoExample {
 
     /**
      * SlideshowPoExample
-     * 
-     * @return 
+     *
+     * @return
      */
     public SlideshowPoExample() {
         oredCriteria = new ArrayList<Criteria>();
@@ -22,9 +22,9 @@ public class SlideshowPoExample {
 
     /**
      * setOrderByClause
-     * 
+     *
      * @param orderByClause
-     * @return 
+     * @return
      */
     public void setOrderByClause(String orderByClause) {
         this.orderByClause = orderByClause;
@@ -32,8 +32,8 @@ public class SlideshowPoExample {
 
     /**
      * getOrderByClause
-     * 
-     * @return 
+     *
+     * @return
      */
     public String getOrderByClause() {
         return orderByClause;
@@ -41,9 +41,9 @@ public class SlideshowPoExample {
 
     /**
      * setDistinct
-     * 
+     *
      * @param distinct
-     * @return 
+     * @return
      */
     public void setDistinct(boolean distinct) {
         this.distinct = distinct;
@@ -51,8 +51,8 @@ public class SlideshowPoExample {
 
     /**
      * isDistinct
-     * 
-     * @return 
+     *
+     * @return
      */
     public boolean isDistinct() {
         return distinct;
@@ -60,8 +60,8 @@ public class SlideshowPoExample {
 
     /**
      * getOredCriteria
-     * 
-     * @return 
+     *
+     * @return
      */
     public List<Criteria> getOredCriteria() {
         return oredCriteria;
@@ -69,9 +69,9 @@ public class SlideshowPoExample {
 
     /**
      * or
-     * 
+     *
      * @param criteria
-     * @return 
+     * @return
      */
     public void or(Criteria criteria) {
         oredCriteria.add(criteria);
@@ -79,8 +79,8 @@ public class SlideshowPoExample {
 
     /**
      * or
-     * 
-     * @return 
+     *
+     * @return
      */
     public Criteria or() {
         Criteria criteria = createCriteriaInternal();
@@ -90,8 +90,8 @@ public class SlideshowPoExample {
 
     /**
      * createCriteria
-     * 
-     * @return 
+     *
+     * @return
      */
     public Criteria createCriteria() {
         Criteria criteria = createCriteriaInternal();
@@ -103,8 +103,8 @@ public class SlideshowPoExample {
 
     /**
      * createCriteriaInternal
-     * 
-     * @return 
+     *
+     * @return
      */
     protected Criteria createCriteriaInternal() {
         Criteria criteria = new Criteria();
@@ -113,8 +113,8 @@ public class SlideshowPoExample {
 
     /**
      * clear
-     * 
-     * @return 
+     *
+     * @return
      */
     public void clear() {
         oredCriteria.clear();

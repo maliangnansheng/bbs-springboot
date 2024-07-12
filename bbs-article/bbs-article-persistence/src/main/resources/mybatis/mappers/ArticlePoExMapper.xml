@@ -19,7 +19,7 @@
         from fs_article
         where is_deleted = 0
         <if test="title != null">
-          and title like concat(concat("%", #{title}), "%")
+            and title like concat(concat("%", #{title}), "%")
         </if>
         group by state
     </select>

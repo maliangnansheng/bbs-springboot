@@ -4,7 +4,10 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.liang.bbs.article.facade.dto.CommentDTO;
 import com.liang.bbs.article.facade.dto.CommentSearchDTO;
+import com.liang.bbs.article.facade.dto.UserLevelDTO;
 import com.liang.bbs.article.facade.server.CommentService;
+import com.liang.bbs.article.facade.server.LikeCommentService;
+import com.liang.bbs.article.facade.server.UserLevelService;
 import com.liang.bbs.article.persistence.entity.CommentPo;
 import com.liang.bbs.article.persistence.entity.CommentPoExample;
 import com.liang.bbs.article.persistence.mapper.CommentPoExMapper;
@@ -12,9 +15,6 @@ import com.liang.bbs.article.persistence.mapper.CommentPoMapper;
 import com.liang.bbs.article.service.mapstruct.CommentMS;
 import com.liang.bbs.article.service.utils.CommentTreeUtils;
 import com.liang.bbs.common.enums.SortRuleEnum;
-import com.liang.bbs.user.facade.dto.UserLevelDTO;
-import com.liang.bbs.user.facade.server.LikeCommentService;
-import com.liang.bbs.user.facade.server.UserLevelService;
 import com.liang.manage.auth.facade.dto.user.UserDTO;
 import com.liang.manage.auth.facade.server.UserService;
 import com.liang.nansheng.common.auth.UserSsoDTO;
@@ -54,10 +54,10 @@ public class CommentServiceImpl implements CommentService {
     @Reference
     private UserService userService;
 
-    @Reference
+    @Autowired
     private UserLevelService userLevelService;
 
-    @Reference
+    @Autowired
     private LikeCommentService likeCommentService;
 
     /**

@@ -3,7 +3,6 @@ package com.liang.bbs.article.facade.server;
 import com.github.pagehelper.PageInfo;
 import com.liang.bbs.article.facade.dto.*;
 import com.liang.bbs.common.enums.ArticleStateEnum;
-import com.liang.bbs.user.facade.dto.LikeSearchDTO;
 import com.liang.nansheng.common.auth.UserSsoDTO;
 
 import java.time.LocalDateTime;
@@ -83,7 +82,7 @@ public interface ArticleService {
      * 通过文章id集合获取文章信息
      *
      * @param ids
-     * @param isPv 是否增加文章浏览数量
+     * @param isPv        是否增加文章浏览数量
      * @param currentUser
      * @return
      */
@@ -192,7 +191,7 @@ public interface ArticleService {
      * 文章置顶/取消置顶
      *
      * @param id
-     * @param top 是否置顶（true：置顶，false：取消置顶）
+     * @param top         是否置顶（true：置顶，false：取消置顶）
      * @param currentUser
      * @return
      */

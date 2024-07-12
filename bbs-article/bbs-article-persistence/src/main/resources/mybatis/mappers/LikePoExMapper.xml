@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liang.bbs.article.persistence.mapper.LikePoExMapper">
+    <resultMap id="BaseResultMap" type="com.liang.bbs.article.persistence.entity.LikePo">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="article_id" jdbcType="INTEGER" property="articleId"/>
+        <result column="state" jdbcType="BIT" property="state"/>
+        <result column="like_user" jdbcType="BIGINT" property="likeUser"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        fs_like
+        .
+        id
+        , fs_like.article_id, fs_like.`state`, fs_like.like_user, fs_like.create_time, fs_like.update_time
+    </sql>
+
+    <select id="selectArticleByUserId" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from fs_like left join fs_article on fs_like.article_id = fs_article.id
+        where fs_like.state = 1
+        and fs_like.like_user = #{likeUser}
+        and fs_article.state = 1
+        order by fs_like.id desc
+    </select>
+
+    <select id="selectAllArticle" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from fs_like left join fs_article on fs_like.article_id = fs_article.id
+        where fs_like.state = 1
+        and fs_article.state = 1
+        and fs_like.create_time between #{startTime} and #{endTime}
+    </select>
+
+</mapper>

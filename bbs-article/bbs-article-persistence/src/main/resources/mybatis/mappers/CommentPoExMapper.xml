@@ -14,7 +14,10 @@
     </resultMap>
 
     <sql id="Base_Column_List">
-        fs_comment.id, fs_comment.pre_id, fs_comment.content, fs_comment.article_id, fs_comment.`state`, fs_comment.is_deleted,
+        fs_comment
+        .
+        id
+        , fs_comment.pre_id, fs_comment.content, fs_comment.article_id, fs_comment.`state`, fs_comment.is_deleted,
         fs_comment.comment_user, fs_comment.create_time, fs_comment.update_time
     </sql>
 
@@ -24,12 +27,12 @@
         from fs_comment left join fs_article on fs_comment.article_id = fs_article.id
         where fs_comment.is_deleted = 0
         and fs_comment.state = 1
-<!--        <if test="content != null">-->
-<!--            and fs_comment.content like '%' + #{content} + '%'-->
-<!--        </if>-->
-<!--        <if test="commentUser != null">-->
-<!--            and fs_comment.comment_user = #{commentUser}-->
-<!--        </if>-->
+        <!--        <if test="content != null">-->
+        <!--            and fs_comment.content like '%' + #{content} + '%'-->
+        <!--        </if>-->
+        <!--        <if test="commentUser != null">-->
+        <!--            and fs_comment.comment_user = #{commentUser}-->
+        <!--        </if>-->
         and fs_article.state = 1
         order by fs_comment.id desc
     </select>

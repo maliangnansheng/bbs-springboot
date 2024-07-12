@@ -27,10 +27,10 @@
 
 ![](https://76.nanshengbbs.top/github/ns-jiagou.png)
 
-
 ## 关于项目
 
-- 南生论坛基于`SpringBoot+Vue`框架实现前后端分离，自适应手机端和电脑端，界面简洁美观，功能完善，性能高效。分为[用户系统](https://bbs.nanshengbbs.top)和[管理系统](https://manage.nanshengbbs.top)两部分
+- 南生论坛基于`SpringBoot+Vue`框架实现前后端分离，自适应手机端和电脑端，界面简洁美观，功能完善，性能高效。分为[用户系统](https://bbs.nanshengbbs.top)
+  和[管理系统](https://manage.nanshengbbs.top)两部分
 - 大厂微服务架构设计；代码简洁、高效无冗余；注释详细易阅读
 - 该项目适合`初学/进阶`SpringBoot+Vue的童鞋学习
 - [南生论坛v3.0.0 于 v2.8.2的新特性简单罗列](https://bbs.nanshengbbs.top/detail/40)
@@ -38,7 +38,12 @@
 ## 技术栈
 
 - **后端：**
-  程序架构：[SpringBoot](https://spring.io/projects/spring-boot)、RPC：[Dubbo](https://cn.dubbo.apache.org/zh-cn/overview/what/)、注册中心：[Zookeeper](https://zookeeper.apache.org/)、消息队列：[RocketMQ](https://rocketmq.apache.org/zh/)、缓存：[Redis](https://redis.io/)、持久层框架：[MyBatis](https://mybatis.org/mybatis-3/zh_CN/index.html)、数据库：[MySQL](https://www.mysql.com/)、大数据存储：[MongoDB](https://www.mongodb.com/zh-cn)、实时交互：[WebSocket](https://websocket.org/)、权限管理：[Shiro](https://shiro.apache.org/)、对象存储：[七牛云](https://www.qiniu.com/)
+  程序架构：[SpringBoot](https://spring.io/projects/spring-boot)
+  、RPC：[Dubbo](https://cn.dubbo.apache.org/zh-cn/overview/what/)、注册中心：[Zookeeper](https://zookeeper.apache.org/)
+  、消息队列：[RocketMQ](https://rocketmq.apache.org/zh/)、缓存：[Redis](https://redis.io/)
+  、持久层框架：[MyBatis](https://mybatis.org/mybatis-3/zh_CN/index.html)、数据库：[MySQL](https://www.mysql.com/)
+  、大数据存储：[MongoDB](https://www.mongodb.com/zh-cn)、实时交互：[WebSocket](https://websocket.org/)
+  、权限管理：[Shiro](https://shiro.apache.org/)、对象存储：[七牛云](https://www.qiniu.com/)
 - **前端：**
   Vue、Axios、Vue Router、Ant Design of Vue、Webpack、Less、Vuex、ES6、Node.js、mavonEditor、ECharts、...
 
@@ -51,7 +56,9 @@
 
 ## 使用指南and代码讲解and设计文档
 
-[01 文档地址](https://doc.nanshengbbs.top)、[02 南生论坛使用指南](https://www.bilibili.com/video/BV1he4y1C7rk?share_source=copy_web&vd_source=1f88041e3a02d90ecf98d311908d3d8b)、 [03 南生论坛代码讲解](https://www.bilibili.com/video/BV1pK411C7T4/?vd_source=d0a5d07985a7fbbfb889c874632343c6)
+[01 文档地址](https://doc.nanshengbbs.top)
+、[02 南生论坛使用指南](https://www.bilibili.com/video/BV1he4y1C7rk?share_source=copy_web&vd_source=1f88041e3a02d90ecf98d311908d3d8b)
+、 [03 南生论坛代码讲解](https://www.bilibili.com/video/BV1pK411C7T4/?vd_source=d0a5d07985a7fbbfb889c874632343c6)
 
 [04 如何获取南生论坛设计文档？](https://bbs.nanshengbbs.top/detail/76)、 [05 南生论坛日常迭代（开源计划）](https://bbs.nanshengbbs.top/detail/122)
 
@@ -73,7 +80,7 @@
 
 用户系统：[https://bbs.nanshengbbs.top](https://bbs.nanshengbbs.top)
 
-管理系统：[https://manage.nanshengbbs.top](https://manage.nanshengbbs.top) 
+管理系统：[https://manage.nanshengbbs.top](https://manage.nanshengbbs.top)
 
 ## 功能结构
 
@@ -147,7 +154,6 @@
 
   ![](https://76.nanshengbbs.top/github/ns-bbs-personalinfo.png)
 
-
 ### 管理系统
 
 - **仪表盘**
@@ -157,7 +163,7 @@
 - **权限管理**
 
   ![](https://76.nanshengbbs.top/github/ns-manage-permissions.png)
-  
+
 - **角色管理**
 
   ![](https://76.nanshengbbs.top/github/ns-manage-role3.png)

@@ -1,252 +1,260 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.liang.bbs.article.persistence.mapper.ArticleLabelPoMapper">
-  <resultMap id="BaseResultMap" type="com.liang.bbs.article.persistence.entity.ArticleLabelPo">
-    <id column="id" jdbcType="INTEGER" property="id" />
-    <result column="article_id" jdbcType="INTEGER" property="articleId" />
-    <result column="label_id" jdbcType="INTEGER" property="labelId" />
-    <result column="is_deleted" jdbcType="BIT" property="isDeleted" />
-    <result column="create_user" jdbcType="BIGINT" property="createUser" />
-    <result column="update_user" jdbcType="BIGINT" property="updateUser" />
-    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
-    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
-  </resultMap>
-  <sql id="Example_Where_Clause">
-    <where>
-      <foreach collection="oredCriteria" item="criteria" separator="or">
-        <if test="criteria.valid">
-          <trim prefix="(" prefixOverrides="and" suffix=")">
-            <foreach collection="criteria.criteria" item="criterion">
-              <choose>
-                <when test="criterion.noValue">
-                  and ${criterion.condition}
-                </when>
-                <when test="criterion.singleValue">
-                  and ${criterion.condition} #{criterion.value}
-                </when>
-                <when test="criterion.betweenValue">
-                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
-                </when>
-                <when test="criterion.listValue">
-                  and ${criterion.condition}
-                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
-                    #{listItem}
-                  </foreach>
-                </when>
-              </choose>
+    <resultMap id="BaseResultMap" type="com.liang.bbs.article.persistence.entity.ArticleLabelPo">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="article_id" jdbcType="INTEGER" property="articleId"/>
+        <result column="label_id" jdbcType="INTEGER" property="labelId"/>
+        <result column="is_deleted" jdbcType="BIT" property="isDeleted"/>
+        <result column="create_user" jdbcType="BIGINT" property="createUser"/>
+        <result column="update_user" jdbcType="BIGINT" property="updateUser"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+    </resultMap>
+    <sql id="Example_Where_Clause">
+        <where>
+            <foreach collection="oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="("
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
             </foreach>
-          </trim>
-        </if>
-      </foreach>
-    </where>
-  </sql>
-  <sql id="Update_By_Example_Where_Clause">
-    <where>
-      <foreach collection="example.oredCriteria" item="criteria" separator="or">
-        <if test="criteria.valid">
-          <trim prefix="(" prefixOverrides="and" suffix=")">
-            <foreach collection="criteria.criteria" item="criterion">
-              <choose>
-                <when test="criterion.noValue">
-                  and ${criterion.condition}
-                </when>
-                <when test="criterion.singleValue">
-                  and ${criterion.condition} #{criterion.value}
-                </when>
-                <when test="criterion.betweenValue">
-                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
-                </when>
-                <when test="criterion.listValue">
-                  and ${criterion.condition}
-                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
-                    #{listItem}
-                  </foreach>
-                </when>
-              </choose>
+        </where>
+    </sql>
+    <sql id="Update_By_Example_Where_Clause">
+        <where>
+            <foreach collection="example.oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="("
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
             </foreach>
-          </trim>
+        </where>
+    </sql>
+    <sql id="Base_Column_List">
+        id
+        , article_id, label_id, is_deleted, create_user, update_user, create_time, update_time
+    </sql>
+    <select id="selectByExample" parameterType="com.liang.bbs.article.persistence.entity.ArticleLabelPoExample"
+            resultMap="BaseResultMap">
+        select
+        <if test="distinct">
+            distinct
         </if>
-      </foreach>
-    </where>
-  </sql>
-  <sql id="Base_Column_List">
-    id, article_id, label_id, is_deleted, create_user, update_user, create_time, update_time
-  </sql>
-  <select id="selectByExample" parameterType="com.liang.bbs.article.persistence.entity.ArticleLabelPoExample" resultMap="BaseResultMap">
-    select
-    <if test="distinct">
-      distinct
-    </if>
-    <include refid="Base_Column_List" />
-    from fs_article_label
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-    <if test="orderByClause != null">
-      order by ${orderByClause}
-    </if>
-  </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from fs_article_label
-    where id = #{id,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from fs_article_label
-    where id = #{id,jdbcType=INTEGER}
-  </delete>
-  <delete id="deleteByExample" parameterType="com.liang.bbs.article.persistence.entity.ArticleLabelPoExample">
-    delete from fs_article_label
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-  </delete>
-  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.liang.bbs.article.persistence.entity.ArticleLabelPo" useGeneratedKeys="true">
-    insert into fs_article_label (article_id, label_id, is_deleted, 
-      create_user, update_user, create_time, 
-      update_time)
-    values (#{articleId,jdbcType=INTEGER}, #{labelId,jdbcType=INTEGER}, #{isDeleted,jdbcType=BIT}, 
-      #{createUser,jdbcType=BIGINT}, #{updateUser,jdbcType=BIGINT}, #{createTime,jdbcType=TIMESTAMP}, 
-      #{updateTime,jdbcType=TIMESTAMP})
-  </insert>
-  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.liang.bbs.article.persistence.entity.ArticleLabelPo" useGeneratedKeys="true">
-    insert into fs_article_label
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="articleId != null">
-        article_id,
-      </if>
-      <if test="labelId != null">
-        label_id,
-      </if>
-      <if test="isDeleted != null">
-        is_deleted,
-      </if>
-      <if test="createUser != null">
-        create_user,
-      </if>
-      <if test="updateUser != null">
-        update_user,
-      </if>
-      <if test="createTime != null">
-        create_time,
-      </if>
-      <if test="updateTime != null">
-        update_time,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="articleId != null">
-        #{articleId,jdbcType=INTEGER},
-      </if>
-      <if test="labelId != null">
-        #{labelId,jdbcType=INTEGER},
-      </if>
-      <if test="isDeleted != null">
-        #{isDeleted,jdbcType=BIT},
-      </if>
-      <if test="createUser != null">
-        #{createUser,jdbcType=BIGINT},
-      </if>
-      <if test="updateUser != null">
-        #{updateUser,jdbcType=BIGINT},
-      </if>
-      <if test="createTime != null">
-        #{createTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="updateTime != null">
-        #{updateTime,jdbcType=TIMESTAMP},
-      </if>
-    </trim>
-  </insert>
-  <select id="countByExample" parameterType="com.liang.bbs.article.persistence.entity.ArticleLabelPoExample" resultType="java.lang.Long">
-    select count(*) from fs_article_label
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-  </select>
-  <update id="updateByExampleSelective" parameterType="map">
-    update fs_article_label
-    <set>
-      <if test="record.id != null">
-        id = #{record.id,jdbcType=INTEGER},
-      </if>
-      <if test="record.articleId != null">
+        <include refid="Base_Column_List"/>
+        from fs_article_label
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+        <if test="orderByClause != null">
+            order by ${orderByClause}
+        </if>
+    </select>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from fs_article_label
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete
+        from fs_article_label
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
+    <delete id="deleteByExample" parameterType="com.liang.bbs.article.persistence.entity.ArticleLabelPoExample">
+        delete from fs_article_label
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </delete>
+    <insert id="insert" keyColumn="id" keyProperty="id"
+            parameterType="com.liang.bbs.article.persistence.entity.ArticleLabelPo" useGeneratedKeys="true">
+        insert into fs_article_label (article_id, label_id, is_deleted,
+                                      create_user, update_user, create_time,
+                                      update_time)
+        values (#{articleId,jdbcType=INTEGER}, #{labelId,jdbcType=INTEGER}, #{isDeleted,jdbcType=BIT},
+                #{createUser,jdbcType=BIGINT}, #{updateUser,jdbcType=BIGINT}, #{createTime,jdbcType=TIMESTAMP},
+                #{updateTime,jdbcType=TIMESTAMP})
+    </insert>
+    <insert id="insertSelective" keyColumn="id" keyProperty="id"
+            parameterType="com.liang.bbs.article.persistence.entity.ArticleLabelPo" useGeneratedKeys="true">
+        insert into fs_article_label
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="articleId != null">
+                article_id,
+            </if>
+            <if test="labelId != null">
+                label_id,
+            </if>
+            <if test="isDeleted != null">
+                is_deleted,
+            </if>
+            <if test="createUser != null">
+                create_user,
+            </if>
+            <if test="updateUser != null">
+                update_user,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="updateTime != null">
+                update_time,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="articleId != null">
+                #{articleId,jdbcType=INTEGER},
+            </if>
+            <if test="labelId != null">
+                #{labelId,jdbcType=INTEGER},
+            </if>
+            <if test="isDeleted != null">
+                #{isDeleted,jdbcType=BIT},
+            </if>
+            <if test="createUser != null">
+                #{createUser,jdbcType=BIGINT},
+            </if>
+            <if test="updateUser != null">
+                #{updateUser,jdbcType=BIGINT},
+            </if>
+            <if test="createTime != null">
+                #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateTime != null">
+                #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+    <select id="countByExample" parameterType="com.liang.bbs.article.persistence.entity.ArticleLabelPoExample"
+            resultType="java.lang.Long">
+        select count(*) from fs_article_label
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </select>
+    <update id="updateByExampleSelective" parameterType="map">
+        update fs_article_label
+        <set>
+            <if test="record.id != null">
+                id = #{record.id,jdbcType=INTEGER},
+            </if>
+            <if test="record.articleId != null">
+                article_id = #{record.articleId,jdbcType=INTEGER},
+            </if>
+            <if test="record.labelId != null">
+                label_id = #{record.labelId,jdbcType=INTEGER},
+            </if>
+            <if test="record.isDeleted != null">
+                is_deleted = #{record.isDeleted,jdbcType=BIT},
+            </if>
+            <if test="record.createUser != null">
+                create_user = #{record.createUser,jdbcType=BIGINT},
+            </if>
+            <if test="record.updateUser != null">
+                update_user = #{record.updateUser,jdbcType=BIGINT},
+            </if>
+            <if test="record.createTime != null">
+                create_time = #{record.createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="record.updateTime != null">
+                update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="updateByExample" parameterType="map">
+        update fs_article_label
+        set id = #{record.id,jdbcType=INTEGER},
         article_id = #{record.articleId,jdbcType=INTEGER},
-      </if>
-      <if test="record.labelId != null">
         label_id = #{record.labelId,jdbcType=INTEGER},
-      </if>
-      <if test="record.isDeleted != null">
         is_deleted = #{record.isDeleted,jdbcType=BIT},
-      </if>
-      <if test="record.createUser != null">
         create_user = #{record.createUser,jdbcType=BIGINT},
-      </if>
-      <if test="record.updateUser != null">
         update_user = #{record.updateUser,jdbcType=BIGINT},
-      </if>
-      <if test="record.createTime != null">
         create_time = #{record.createTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="record.updateTime != null">
-        update_time = #{record.updateTime,jdbcType=TIMESTAMP},
-      </if>
-    </set>
-    <if test="_parameter != null">
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
-  <update id="updateByExample" parameterType="map">
-    update fs_article_label
-    set id = #{record.id,jdbcType=INTEGER},
-      article_id = #{record.articleId,jdbcType=INTEGER},
-      label_id = #{record.labelId,jdbcType=INTEGER},
-      is_deleted = #{record.isDeleted,jdbcType=BIT},
-      create_user = #{record.createUser,jdbcType=BIGINT},
-      update_user = #{record.updateUser,jdbcType=BIGINT},
-      create_time = #{record.createTime,jdbcType=TIMESTAMP},
-      update_time = #{record.updateTime,jdbcType=TIMESTAMP}
-    <if test="_parameter != null">
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.liang.bbs.article.persistence.entity.ArticleLabelPo">
-    update fs_article_label
-    <set>
-      <if test="articleId != null">
-        article_id = #{articleId,jdbcType=INTEGER},
-      </if>
-      <if test="labelId != null">
-        label_id = #{labelId,jdbcType=INTEGER},
-      </if>
-      <if test="isDeleted != null">
-        is_deleted = #{isDeleted,jdbcType=BIT},
-      </if>
-      <if test="createUser != null">
-        create_user = #{createUser,jdbcType=BIGINT},
-      </if>
-      <if test="updateUser != null">
-        update_user = #{updateUser,jdbcType=BIGINT},
-      </if>
-      <if test="createTime != null">
-        create_time = #{createTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="updateTime != null">
-        update_time = #{updateTime,jdbcType=TIMESTAMP},
-      </if>
-    </set>
-    where id = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.liang.bbs.article.persistence.entity.ArticleLabelPo">
-    update fs_article_label
-    set article_id = #{articleId,jdbcType=INTEGER},
-      label_id = #{labelId,jdbcType=INTEGER},
-      is_deleted = #{isDeleted,jdbcType=BIT},
-      create_user = #{createUser,jdbcType=BIGINT},
-      update_user = #{updateUser,jdbcType=BIGINT},
-      create_time = #{createTime,jdbcType=TIMESTAMP},
-      update_time = #{updateTime,jdbcType=TIMESTAMP}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
+        update_time = #{record.updateTime,jdbcType=TIMESTAMP}
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="updateByPrimaryKeySelective" parameterType="com.liang.bbs.article.persistence.entity.ArticleLabelPo">
+        update fs_article_label
+        <set>
+            <if test="articleId != null">
+                article_id = #{articleId,jdbcType=INTEGER},
+            </if>
+            <if test="labelId != null">
+                label_id = #{labelId,jdbcType=INTEGER},
+            </if>
+            <if test="isDeleted != null">
+                is_deleted = #{isDeleted,jdbcType=BIT},
+            </if>
+            <if test="createUser != null">
+                create_user = #{createUser,jdbcType=BIGINT},
+            </if>
+            <if test="updateUser != null">
+                update_user = #{updateUser,jdbcType=BIGINT},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.liang.bbs.article.persistence.entity.ArticleLabelPo">
+        update fs_article_label
+        set article_id  = #{articleId,jdbcType=INTEGER},
+            label_id    = #{labelId,jdbcType=INTEGER},
+            is_deleted  = #{isDeleted,jdbcType=BIT},
+            create_user = #{createUser,jdbcType=BIGINT},
+            update_user = #{updateUser,jdbcType=BIGINT},
+            create_time = #{createTime,jdbcType=TIMESTAMP},
+            update_time = #{updateTime,jdbcType=TIMESTAMP}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
 </mapper>
