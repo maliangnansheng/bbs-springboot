@@ -4,6 +4,7 @@ import com.liang.bbs.rest.config.login.NoNeedLogin;
 import com.liang.bbs.rest.config.swagger.ApiVersion;
 import com.liang.bbs.rest.config.swagger.ApiVersionConstant;
 import com.liang.bbs.rest.utils.HttpRequestUtils;
+import com.liang.bbs.user.facade.server.UserLevelService;
 import com.liang.manage.auth.facade.dto.user.UserDTO;
 import com.liang.manage.auth.facade.dto.user.UserLoginDTO;
 import com.liang.manage.auth.facade.dto.user.UserTokenDTO;
@@ -39,6 +40,9 @@ public class LoginController {
     @Reference
     private UserService userService;
 
+    @Reference
+    private UserLevelService userLevelService;
+
     @Value("${cookie.domain}")
     private String domain;
 
@@ -50,6 +54,8 @@ public class LoginController {
         UserTokenDTO userTokenDTO = userService.register(userDTO);
         // 增加cookie
         addCookie(userTokenDTO.getToken(), response);
+        // 创建用户等级信息
+        userLevelService.create(userTokenDTO.getUserId());
         return ResponseResult.success(userTokenDTO);
     }
 
