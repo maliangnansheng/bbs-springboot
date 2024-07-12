@@ -35,7 +35,7 @@ import javax.validation.Valid;
 @RestController
 @RequestMapping("/bbs/sso/")
 @Api(tags = "用户统一登录接口")
-@CrossOrigin(origins = "${crossOrigin.address}", allowCredentials = "true", allowedHeaders = "*", exposedHeaders = "*")
+@CrossOrigin(origins = "*")
 public class LoginController {
     @Reference
     private UserService userService;
