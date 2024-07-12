@@ -69,7 +69,6 @@
         <maven-compiler-plugin.version>3.5.1</maven-compiler-plugin.version>
         <maven-flatten.version>1.1.0</maven-flatten.version>
         <maven-surefire-plugin.version>2.5</maven-surefire-plugin.version>
-        <rocketmq-spring-boot-starter.version>2.2.1</rocketmq-spring-boot-starter.version>
 
         <!-- 指定时间格式 -->
         <maven.build.timestamp.format>yyyyMMddHHmmss</maven.build.timestamp.format>
@@ -200,13 +199,6 @@
                 <groupId>org.apache.curator</groupId>
                 <artifactId>curator-recipes</artifactId>
                 <version>${curator.version}</version>
-            </dependency>
-
-            <!-- 中间件rocketmq -->
-            <dependency>
-                <groupId>org.apache.rocketmq</groupId>
-                <artifactId>rocketmq-spring-boot-starter</artifactId>
-                <version>${rocketmq-spring-boot-starter.version}</version>
             </dependency>
 
             <!-- 介于关系数据库和非关系数据库之间的数据库mongodb -->

@@ -80,17 +80,6 @@ dubbo:
 mybatis:
   mapper-locations: classpath*:mybatis/mappers/*.xml
 
-# 一般情况下 默认的配置就行（可以自动识别），只对topic区分就行
-rocketmq:
-  name-server: 139.9.78.65:9876
-  producer:
-    group: bbs-user-service
-  consumer:
-    group: manage-auth-service
-  # 自定义
-  user:
-    topic: topic-queue-user
-
 # 自定义
 sso:
   user:
