@@ -27,7 +27,7 @@
         <revision>3.0.0-SNAPSHOT</revision>
 
         <!-- 南生系列版本号 -->
-        <nansheng-common.version>3.3.4</nansheng-common.version>
+        <nansheng-common.version>3.3.4-one</nansheng-common.version>
 
         <!-- 三方jar包版本依赖 -->
         <swagger2.version>3.0.0</swagger2.version>

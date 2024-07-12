@@ -1,8 +1,8 @@
 package com.liang.bbs.rest.interceptor;
 
 import com.liang.bbs.rest.utils.IpUtil;
-import com.liang.manage.concern.facade.dto.visit.VisitDTO;
-import com.liang.manage.concern.facade.server.VisitService;
+import com.liang.manage.auth.facade.dto.visit.VisitDTO;
+import com.liang.manage.auth.facade.server.VisitService;
 import com.liang.nansheng.common.enums.ProjectEnum;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.dubbo.config.annotation.Reference;
