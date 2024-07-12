@@ -79,10 +79,3 @@ dubbo:
 
 mybatis:
   mapper-locations: classpath*:mybatis/mappers/*.xml
-
-# 自定义
-sso:
-  user:
-    login:
-      # SSO地址
-      address: http://sso.localhost.com

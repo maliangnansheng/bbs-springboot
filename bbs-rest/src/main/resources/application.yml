@@ -50,10 +50,6 @@ cookie:
   # cookie写在对应的域名下
   domain: localhost.com
 
-# 跨域配置，sso登录地址
-crossOrigin:
-  address: http://sso.localhost.com
-
 # swagger打开
 swagger:
   show: true

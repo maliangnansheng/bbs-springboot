@@ -554,12 +554,10 @@ public class ArticleServiceImpl implements ArticleService {
         articlePo.setUpdateUser(currentUser.getUserId());
         // 置顶
         if (top) {
-            Integer maxTop = this.getMaxTop();
-            if (maxTop != null) {
-                articlePo.setTop(maxTop + 1);
-                if (articlePoMapper.updateByPrimaryKey(articlePo) <= 0) {
-                    throw BusinessException.build(ResponseCode.OPERATE_FAIL, "文章置顶失败");
-                }
+            int maxTop = Objects.isNull(this.getMaxTop()) ? 0 : this.getMaxTop();
+            articlePo.setTop(maxTop + 1);
+            if (articlePoMapper.updateByPrimaryKey(articlePo) <= 0) {
+                throw BusinessException.build(ResponseCode.OPERATE_FAIL, "文章置顶失败");
             }
         } else {
             // 取消置顶
