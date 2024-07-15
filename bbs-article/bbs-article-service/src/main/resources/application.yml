@@ -95,10 +95,6 @@ interceptor:
     #是否启用监控
     status: true
 
-cookie:
-  # cookie写在对应的域名下
-  domain: localhost.com
-
 # swagger打开
 swagger:
   show: true
