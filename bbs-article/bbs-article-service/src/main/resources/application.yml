@@ -55,8 +55,8 @@ spring:
           slow-sql-millis: 2000
   redis:
     host: 127.0.0.1
-    port: 6379
-    password: 12345678
+    port: 6222
+    password: 5LiA5Liq5Y2B5YiG5aSN5p2C55qE5a+G56CB
     # 单位 毫秒
     timeout: 60000
     lettuce:
