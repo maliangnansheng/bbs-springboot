@@ -1,6 +1,6 @@
 package com.liang.bbs.rest.interceptor;
 
-import com.liang.manage.auth.facade.server.NotifyService;
+import com.liang.manage.concern.facade.server.NotifyService;
 import com.liang.nansheng.common.auth.UserContextUtils;
 import com.liang.nansheng.common.auth.UserSsoDTO;
 import com.liang.nansheng.common.constant.HeaderConstants;

@@ -23,7 +23,6 @@ import com.liang.bbs.user.facade.server.UserLevelService;
 import com.liang.manage.auth.facade.dto.user.UserDTO;
 import com.liang.manage.auth.facade.server.FileService;
 import com.liang.manage.auth.facade.server.UserService;
-import com.liang.manage.auth.facade.server.VisitService;
 import com.liang.nansheng.common.auth.UserSsoDTO;
 import com.liang.nansheng.common.enums.ImageTypeEnum;
 import com.liang.nansheng.common.enums.ResponseCode;
@@ -74,9 +73,6 @@ public class ArticleServiceImpl implements ArticleService {
 
     @Reference
     private LikeService likeService;
-
-    @Reference
-    private VisitService visitService;
 
     @Reference
     private FollowService followService;
@@ -454,7 +450,7 @@ public class ArticleServiceImpl implements ArticleService {
         TotalDTO totalDTO = new TotalDTO();
         totalDTO.setArticleCount(getTotal());
         totalDTO.setCommentCount(commentService.getTotal());
-        totalDTO.setVisitCount(visitService.getTotal());
+        totalDTO.setVisitCount(0L);
         return totalDTO;
     }
 

@@ -48,9 +48,10 @@ spring:
           log-slow-sql: true
           slow-sql-millis: 2000
   redis:
-    host: 139.9.78.65
-    port: 6222
-    password: 5LiA5Liq5Y2B5YiG5aSN5p2C55qE5a+G56CB
+    host: 127.0.0.1
+    port: 6379
+    # （需要改成你自己的）
+    password: 777888
     # 单位 毫秒
     timeout: 60000
     lettuce:
@@ -66,7 +67,7 @@ dubbo:
   application:
     name: ns-bbs-article
   registry:
-    address: zookeeper://139.9.78.65:2181
+    address: zookeeper://127.0.0.1:2181
     timeout: 60000
   protocol:
     name: dubbo

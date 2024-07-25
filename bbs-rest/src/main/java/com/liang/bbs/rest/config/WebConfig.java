@@ -41,9 +41,6 @@ public class WebConfig implements WebMvcConfigurer {
     private UserPictureInterceptor userPictureInterceptor;
 
     @Autowired
-    private VisitInterceptor visitInterceptor;
-
-    @Autowired
     private NotifyInterceptor notifyInterceptor;
 
     @Override
@@ -65,11 +62,6 @@ public class WebConfig implements WebMvcConfigurer {
 
         // 用户头像拦截器
         registry.addInterceptor(userPictureInterceptor)
-                .addPathPatterns("/**")
-                .excludePathPatterns(NOT_LOGIN_URLS);
-
-        // 访问记录拦截器
-        registry.addInterceptor(visitInterceptor)
                 .addPathPatterns("/**")
                 .excludePathPatterns(NOT_LOGIN_URLS);
 
