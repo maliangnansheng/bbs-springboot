@@ -84,12 +84,11 @@
 
 - 用户系统-功能结构图
 
-  ![](https://76.nanshengbbs.top/github/ns-bbs-user1003.png)
-
+  ![](https://76.nanshengbbs.top/github/ns-bbs241014.png)
 
 - 管理系统-功能结构图
 
-  ![](https://76.nanshengbbs.top/github/ns-bbs-manage.png)
+  ![](https://76.nanshengbbs.top/github/ns-manage241014.png)
 
 ## 项目结构
 
