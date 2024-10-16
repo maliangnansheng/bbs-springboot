@@ -82,12 +82,12 @@
 
 ![](https://76.nanshengbbs.top/logo/zmxt.png)
 
-下载地址：[https://www.123684.com/s/DHYKTd-3QH63](https://www.123684.com/s/DHYKTd-3QH63)
+下载地址：[https://76.nanshengbbs.top/app/ns-bbs.msi](https://76.nanshengbbs.top/app/ns-bbs.msi)
 
 ### Mac
 > 作者没有苹果电脑，同学们自行下载安装体验
 
-下载地址：[https://www.123684.com/s/DHYKTd-HQH63](https://www.123684.com/s/DHYKTd-HQH63)
+下载地址：[https://76.nanshengbbs.top/app/ns-bbs.dmg](https://76.nanshengbbs.top/app/ns-bbs.dmg)
 
 
 ## 加入南生论坛交流圈🥇
