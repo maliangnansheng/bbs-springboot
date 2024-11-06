@@ -90,11 +90,6 @@
 下载地址：[https://76.nanshengbbs.top/app/ns-bbs.dmg](https://76.nanshengbbs.top/app/ns-bbs.dmg)
 
 
-## 加入南生论坛交流圈🥇
-> 如果你想拥有一个涵盖主流Java技术栈➕Vue技术栈的完整项目经验，提高自己独立开发一个项目的能力的话，欢迎加入南生论坛交流圈
-
-<img src="https://76.nanshengbbs.top/ruanzhu/zhishixingqiu.png" width=40% />
-
 ## 功能结构
 
 - 用户系统-功能结构图
