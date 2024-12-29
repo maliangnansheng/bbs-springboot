@@ -38,9 +38,9 @@
 ## 技术栈
 
 - **后端：**
-  程序架构：[SpringBoot](https://spring.io/projects/spring-boot)、RPC：[Dubbo](https://cn.dubbo.apache.org/zh-cn/overview/what/)、注册中心：[Zookeeper](https://zookeeper.apache.org/)、消息队列：[RocketMQ](https://rocketmq.apache.org/zh/)、缓存：[Redis](https://redis.io/)、持久层框架：[MyBatis](https://mybatis.org/mybatis-3/zh_CN/index.html)、数据库：[MySQL](https://www.mysql.com/)、大数据存储：[MongoDB](https://www.mongodb.com/zh-cn)、实时交互：[WebSocket](https://websocket.org/)、权限管理：[Shiro](https://shiro.apache.org/)、对象存储：[七牛云](https://www.qiniu.com/)
+  程序架构：[SpringBoot](https://spring.io/projects/spring-boot)、RPC：[Dubbo](https://cn.dubbo.apache.org/zh-cn/overview/what/)、注册中心：[Zookeeper](https://zookeeper.apache.org/)、消息队列：[RocketMQ](https://rocketmq.apache.org/zh/)、缓存：[Redis](https://redis.io/)、持久层框架：[MyBatis](https://mybatis.org/mybatis-3/zh_CN/index.html)、数据库：[MySQL](https://www.mysql.com/)、大数据存储：[MongoDB](https://www.mongodb.com/zh-cn)、实时交互：[WebSocket](https://websocket.org/)、权限管理：[Shiro](https://shiro.apache.org/)、对象存储：[七牛云](https://www.qiniu.com/) 等
 - **前端：**
-  Vue、Axios、Vue Router、Ant Design of Vue、Webpack、Less、Vuex、ES6、Node.js、mavonEditor、ECharts、...
+  前端框架：[Vue](https://vuejs.org/)、HTTP客户端：[Axios](https://axios-http.com/)、路由管理：[Vue Router](https://router.vuejs.org/)、UI组件库：[Ant Design of Vue](https://www.antdv.com/docs/vue/introduce-cn/)、打包工具：[Webpack](https://webpack.js.org/)、CSS预处理器：[Less](http://lesscss.org/)、状态管理：[Vuex](https://vuex.vuejs.org/)、JavaScript版本：[ES6](https://es6.ruanyifeng.com/)、服务端语言：[Node.js](https://nodejs.org/)、Markdown编辑器：[mavonEditor](https://github.com/hinesboy/mavonEditor)、数据可视化：[ECharts](https://echarts.apache.org/) 等
 
 ## 联系作者
 
