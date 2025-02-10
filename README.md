@@ -135,7 +135,7 @@
 
 - **话题**
 
-  ![image](https://76.nanshengbbs.top/github/ns-bbs-topic.png)
+  ![image](https://76.nanshengbbs.top/github/ns-bbs-topic3.png)
 
 - **文章详情**
 
@@ -159,7 +159,11 @@
 
 - **个人资料**
 
-  ![](https://76.nanshengbbs.top/github/ns-bbs-personalinfo.png)
+  ![](https://76.nanshengbbs.top/github/ns-bbs-personalinfo2.png)
+
+- **切换主题**
+
+  ![](https://76.nanshengbbs.top/github/ns-bbs-theme.png)
 
 
 ### 管理系统
