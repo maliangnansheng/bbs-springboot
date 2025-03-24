@@ -24,13 +24,8 @@
         from fs_comment left join fs_article on fs_comment.article_id = fs_article.id
         where fs_comment.is_deleted = 0
         and fs_comment.state = 1
-<!--        <if test="content != null">-->
-<!--            and fs_comment.content like '%' + #{content} + '%'-->
-<!--        </if>-->
-<!--        <if test="commentUser != null">-->
-<!--            and fs_comment.comment_user = #{commentUser}-->
-<!--        </if>-->
         and fs_article.state = 1
+        and fs_article.is_deleted = 0
         order by fs_comment.id desc
     </select>
 
