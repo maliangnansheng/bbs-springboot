@@ -33,7 +33,7 @@
 
 ## 项目架构
 
-![](https://76.nanshengbbs.top/github/ns-jiagou.png)
+![](https://76.nanshengbbs.top/github/ns-jiagou2.png)
 
 ## 关于项目
 
