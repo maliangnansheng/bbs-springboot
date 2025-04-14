@@ -57,7 +57,7 @@
 
 ## 联系作者
 
-> **商用** 需要联系作者[**授权**](https://bbs.nanshengbbs.top/detail/171)(学习使用不需要授权)
+> **商用** 需要联系作者[**授权**](https://bbs.nanshengbbs.top/detail/600)(学习使用不需要授权)
 
 1. 加作者微信：maliangnansheng（[扫码添加](https://bbs.nanshengbbs.top/about)）
 2. 加作者QQ：924818949（[扫码添加](https://bbs.nanshengbbs.top/about)）
