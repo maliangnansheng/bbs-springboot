@@ -2,7 +2,7 @@
 
 # Nan's BBS 南生论坛（SpringBoot+Vue）
 
-[![](https://img.shields.io/badge/Author-马亮南生-orange.svg)](https://bbs.nanshengbbs.top/user/1640)
+[![](https://img.shields.io/badge/Author-马亮南生-orange.svg)](https://bbs.nansin.top/user/1640)
 [![](https://img.shields.io/badge/version-3.0.0-brightgreen.svg)](https://github.com/maliangnansheng/bbs-springboot)
 [![GitHub stars](https://img.shields.io/github/stars/maliangnansheng/bbs-springboot.svg?style=social&label=Stars)](https://github.com/maliangnansheng/bbs-springboot)
 [![GitHub forks](https://img.shields.io/github/forks/maliangnansheng/bbs-springboot.svg?style=social&label=Fork)](https://github.com/maliangnansheng/bbs-springboot)
@@ -11,9 +11,9 @@
 >
 > 如果觉得不错麻烦帮忙点一次`Star⭐️`
 >
-> [**未经授权**](https://bbs.nanshengbbs.top/detail/171#_62)的情况下严禁公司使用或者商用(个人学习使用不限制)
+> [**未经授权**](https://bbs.nansin.top/detail/171#_62)的情况下严禁公司使用或者商用(个人学习使用不限制)
 >
-> [加载太慢or图片加载不出来 **点我**](https://bbs.nanshengbbs.top/detail/172)
+> [加载太慢or图片加载不出来 **点我**](https://bbs.nansin.top/detail/172)
 
 ## 仓库说明
 
@@ -25,15 +25,15 @@
 
 ## 项目架构
 
-![](https://76.nanshengbbs.top/github/ns-jiagou.png)
+![](https://76.nansin.top/github/ns-jiagou.png)
 
 ## 关于项目
 
-- 南生论坛基于`SpringBoot+Vue`框架实现前后端分离，自适应手机端和电脑端，界面简洁美观，功能完善，性能高效。分为[用户系统](https://bbs.nanshengbbs.top)
-  和[管理系统](https://manage.nanshengbbs.top)两部分
+- 南生论坛基于`SpringBoot+Vue`框架实现前后端分离，自适应手机端和电脑端，界面简洁美观，功能完善，性能高效。分为[用户系统](https://bbs.nansin.top)
+  和[管理系统](https://manage.nansin.top)两部分
 - 大厂微服务架构设计；代码简洁、高效无冗余；注释详细易阅读
 - 该项目适合`初学/进阶`SpringBoot+Vue的童鞋学习
-- [南生论坛v3.0.0 于 v2.8.2的新特性简单罗列](https://bbs.nanshengbbs.top/detail/40)
+- [南生论坛v3.0.0 于 v2.8.2的新特性简单罗列](https://bbs.nansin.top/detail/40)
 
 ## 技术栈
 
@@ -49,26 +49,26 @@
 
 ## 联系作者
 
-> **商用** 需要联系作者授权[**南生运营**](https://bbs.nanshengbbs.top/detail/171)(学习使用不需要授权)
+> **商用** 需要联系作者授权[**南生运营**](https://bbs.nansin.top/detail/171)(学习使用不需要授权)
 
-1. 加作者微信：maliangnansheng（[扫码添加](https://bbs.nanshengbbs.top/about)）
-2. 加作者QQ：924818949（[扫码添加](https://bbs.nanshengbbs.top/about)）
+1. 加作者微信：maliangnansheng（[扫码添加](https://bbs.nansin.top/about)）
+2. 加作者QQ：924818949（[扫码添加](https://bbs.nansin.top/about)）
 
 ## 使用指南and代码讲解and设计文档
 
-[01 文档地址](https://doc.nanshengbbs.top)
+[01 文档地址](https://doc.nansin.top)
 、[02 南生论坛使用指南](https://www.bilibili.com/video/BV1he4y1C7rk?share_source=copy_web&vd_source=1f88041e3a02d90ecf98d311908d3d8b)
 、 [03 南生论坛代码讲解](https://www.bilibili.com/video/BV1pK411C7T4/?vd_source=d0a5d07985a7fbbfb889c874632343c6)
 
-[04 如何获取南生论坛设计文档？](https://bbs.nanshengbbs.top/detail/76)、 [05 南生论坛日常迭代（开源计划）](https://bbs.nanshengbbs.top/detail/122)
+[04 如何获取南生论坛设计文档？](https://bbs.nansin.top/detail/76)、 [05 南生论坛日常迭代（开源计划）](https://bbs.nansin.top/detail/122)
 
 ## 项目部署教程
 
 `本地部署：`
 
-**后端or全栈** 同学关注：[【后端】安装部署教程](https://bbs.nanshengbbs.top/detail/44)、[【前端】安装部署教程](https://bbs.nanshengbbs.top/detail/45)
+**后端or全栈** 同学关注：[【后端】安装部署教程](https://bbs.nansin.top/detail/44)、[【前端】安装部署教程](https://bbs.nansin.top/detail/45)
 
-**纯前端** 同学关注：[【纯前端方案】无需部署后端代码](https://bbs.nanshengbbs.top/detail/439)
+**纯前端** 同学关注：[【纯前端方案】无需部署后端代码](https://bbs.nansin.top/detail/439)
 
 ## 官方地址
 
@@ -78,30 +78,30 @@
 >
 > **管理员账号**：`测试管理员/123456`-你们可以使用我看到管理员的界面，但是没有实际的操作权限。普通用户拥有的权限我也有！
 
-用户系统：[https://bbs.nanshengbbs.top](https://bbs.nanshengbbs.top)
+用户系统：[https://bbs.nansin.top](https://bbs.nansin.top)
 
-管理系统：[https://manage.nanshengbbs.top](https://manage.nanshengbbs.top)
+管理系统：[https://manage.nansin.top](https://manage.nansin.top)
 
 ## 功能结构
 
 - 用户系统-功能结构图
 
-  ![](https://76.nanshengbbs.top/github/ns-bbs-user1003.png)
+  ![](https://76.nansin.top/github/ns-bbs-user1003.png)
 
 
 - 管理系统-功能结构图
 
-  ![](https://76.nanshengbbs.top/github/ns-bbs-manage.png)
+  ![](https://76.nansin.top/github/ns-bbs-manage.png)
 
 ## 项目结构
 
 ### 后端项目结构（SpringBoot）
 
-![](https://76.nanshengbbs.top/github/idea002.png)
+![](https://76.nansin.top/github/idea002.png)
 
 ### 前端项目结构（Vue）
 
-![](https://76.nanshengbbs.top/github/idea012.png)
+![](https://76.nansin.top/github/idea012.png)
 
 ## 项目源码
 
@@ -114,7 +114,7 @@
 
 ## 静态展示
 
-> 这里只浅展示部分效果，完整体验去：[https://bbs.nanshengbbs.top](https://bbs.nanshengbbs.top)
+> 这里只浅展示部分效果，完整体验去：[https://bbs.nansin.top](https://bbs.nansin.top)
 >
 > **普通账号**：`椿/123456`；也可自己注册
 >
@@ -124,58 +124,58 @@
 
 - **文章（`管理员视角`）**
 
-  ![image](https://76.nanshengbbs.top/github/ns-bbs-home-admin.png)
+  ![image](https://76.nansin.top/github/ns-bbs-home-admin.png)
 
 - **话题**
 
-  ![image](https://76.nanshengbbs.top/github/ns-bbs-topic.png)
+  ![image](https://76.nansin.top/github/ns-bbs-topic.png)
 
 - **文章详情**
 
-  ![image](https://76.nanshengbbs.top/github/ns-bbs-article.png)
+  ![image](https://76.nansin.top/github/ns-bbs-article.png)
 
 - **积分系统**
 
-  ![](https://76.nanshengbbs.top/github/points_system.png)
+  ![](https://76.nansin.top/github/points_system.png)
 
 - **私信**
 
-  ![image](https://76.nanshengbbs.top/github/bbs_chat.png)
+  ![image](https://76.nansin.top/github/bbs_chat.png)
 
 - **标签（`管理员视角`）**
 
-  ![](https://76.nanshengbbs.top/github/ns-bbs-label2.png)
+  ![](https://76.nansin.top/github/ns-bbs-label2.png)
 
 - **个人主页**
 
-  ![image](https://76.nanshengbbs.top/github/ns-bbs-homepage.png)
+  ![image](https://76.nansin.top/github/ns-bbs-homepage.png)
 
 - **个人资料**
 
-  ![](https://76.nanshengbbs.top/github/ns-bbs-personalinfo.png)
+  ![](https://76.nansin.top/github/ns-bbs-personalinfo.png)
 
 ### 管理系统
 
 - **仪表盘**
 
-  ![](https://76.nanshengbbs.top/github/ns-manage-dashboard2.png)
+  ![](https://76.nansin.top/github/ns-manage-dashboard2.png)
 
 - **权限管理**
 
-  ![](https://76.nanshengbbs.top/github/ns-manage-permissions.png)
+  ![](https://76.nansin.top/github/ns-manage-permissions.png)
 
 - **角色管理**
 
-  ![](https://76.nanshengbbs.top/github/ns-manage-role3.png)
+  ![](https://76.nansin.top/github/ns-manage-role3.png)
 
 - **用户管理**
 
-  ![](https://76.nanshengbbs.top/github/ns-manage-user2.png)
+  ![](https://76.nansin.top/github/ns-manage-user2.png)
 
 - **反馈管理**
 
-  ![](https://76.nanshengbbs.top/github/ns-manage-feedback.png)
+  ![](https://76.nansin.top/github/ns-manage-feedback.png)
 
 - **通知管理**
 
-  ![](https://76.nanshengbbs.top/github/ns-manage-notify.png)
+  ![](https://76.nansin.top/github/ns-manage-notify.png)
