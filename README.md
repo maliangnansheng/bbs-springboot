@@ -1,17 +1,17 @@
-> 需要学习SSM框架的童鞋去：[我的另一个基于【SSM】的论坛项目](https://github.com/maliangnansheng/bbs-ssm)、 SpringCloud版本去：[SpringCloud版本](https://bbs.nanshengbbs.top/detail/453)
+> 需要学习SSM框架的童鞋去：[我的另一个基于【SSM】的论坛项目](https://github.com/maliangnansheng/bbs-ssm)、 SpringCloud版本去：[SpringCloud版本](https://bbs.nansin.top/detail/453)
 
 # Nan's BBS 南生论坛（SpringBoot+Vue）
 
-[![](https://img.shields.io/badge/Author-马亮南生-orange.svg)](https://bbs.nanshengbbs.top/user/1640)
+[![](https://img.shields.io/badge/Author-马亮南生-orange.svg)](https://bbs.nansin.top/user/1640)
 [![](https://img.shields.io/badge/version-3.0.0-brightgreen.svg)](https://github.com/maliangnansheng/bbs-springboot)
 [![GitHub stars](https://img.shields.io/github/stars/maliangnansheng/bbs-springboot.svg?style=social&label=Stars)](https://github.com/maliangnansheng/bbs-springboot)
 [![GitHub forks](https://img.shields.io/github/forks/maliangnansheng/bbs-springboot.svg?style=social&label=Fork)](https://github.com/maliangnansheng/bbs-springboot)
 
 > 本项目完全开源！如果觉得不错麻烦帮忙点一次`Star⭐️`
 >
-> [**未经授权**](https://bbs.nanshengbbs.top/detail/600)的情况下严禁公司使用或者商用(个人学习使用不限制) 
+> [**未经授权**](https://bbs.nansin.top/detail/600)的情况下严禁公司使用或者商用(个人学习使用不限制) 
 >
-> [加载太慢or图片加载不出来 **点我**](https://bbs.nanshengbbs.top/detail/172)
+> [加载太慢or图片加载不出来 **点我**](https://bbs.nansin.top/detail/172)
 
 ## 仓库说明
 
@@ -23,22 +23,22 @@
 
 ## 部署效果
 
-开源版演示地址：[https://open.nanshengbbs.top](https://open.nanshengbbs.top)（管理员：`椿/123456`-你们可以使用我进行一些管理员相关的操作）
+开源版演示地址：[https://open.nansin.top](https://open.nansin.top)（管理员：`椿/123456`-你们可以使用我进行一些管理员相关的操作）
 
-商业版演示地址：[https://bbs.nanshengbbs.top](https://bbs.nanshengbbs.top)（普通用户：`椿/123456`；管理员：`测试管理员/123456`-能看到管理员界面，但没有实权）
+商业版演示地址：[https://bbs.nansin.top](https://bbs.nansin.top)（普通用户：`椿/123456`；管理员：`测试管理员/123456`-能看到管理员界面，但没有实权）
 
-开源版部署教程：[【后端】安装部署教程](https://bbs.nanshengbbs.top/detail/44)、[【前端】安装部署教程](https://bbs.nanshengbbs.top/detail/45)
+开源版部署教程：[【后端】安装部署教程](https://bbs.nansin.top/detail/44)、[【前端】安装部署教程](https://bbs.nansin.top/detail/45)
 
-相关文档：[01 南生论坛使用指南](https://www.bilibili.com/video/BV1he4y1C7rk?share_source=copy_web&vd_source=1f88041e3a02d90ecf98d311908d3d8b)、 [02 南生论坛代码讲解](https://www.bilibili.com/video/BV1pK411C7T4/?vd_source=d0a5d07985a7fbbfb889c874632343c6)、 [03 如何获取南生论坛设计文档？](https://bbs.nanshengbbs.top/detail/76)、 [04 南生论坛日常迭代（开源计划）](https://bbs.nanshengbbs.top/detail/122)、 [05 10分钟搞懂南生论坛](https://bbs.nanshengbbs.top/detail/369)、 [06 不同角色不同视图](https://bbs.nanshengbbs.top/detail/350)、 [07 南生运营功能介绍](https://bbs.nanshengbbs.top/detail/521)
+相关文档：[01 南生论坛使用指南](https://www.bilibili.com/video/BV1he4y1C7rk?share_source=copy_web&vd_source=1f88041e3a02d90ecf98d311908d3d8b)、 [02 南生论坛代码讲解](https://www.bilibili.com/video/BV1pK411C7T4/?vd_source=d0a5d07985a7fbbfb889c874632343c6)、 [03 如何获取南生论坛设计文档？](https://bbs.nansin.top/detail/76)、 [04 南生论坛日常迭代（开源计划）](https://bbs.nansin.top/detail/122)、 [05 10分钟搞懂南生论坛](https://bbs.nansin.top/detail/369)、 [06 不同角色不同视图](https://bbs.nansin.top/detail/350)、 [07 南生运营功能介绍](https://bbs.nansin.top/detail/521)
 
 ## 项目架构
 
-![](https://76.nanshengbbs.top/github/ns-jiagou2.png)
+![](https://76.nansin.top/github/ns-jiagou2.png)
 
 ## 关于项目
 
-- 南生论坛基于`SpringBoot+Vue`框架实现（商业版也提供[SpringCloud版本](https://bbs.nanshengbbs.top/detail/453)）
-- 分为[用户系统（南生论坛）](https://bbs.nanshengbbs.top)和[管理系统（南生运营）](https://manage.nanshengbbs.top)两部分
+- 南生论坛基于`SpringBoot+Vue`框架实现（商业版也提供[SpringCloud版本](https://bbs.nansin.top/detail/453)）
+- 分为[用户系统（南生论坛）](https://bbs.nansin.top)和[管理系统（南生运营）](https://manage.nansin.top)两部分
 - 大厂微服务架构，仿掘金风格，前后端分离，多端适配，界面优雅，功能全面，性能高效
 
 ## 技术栈
@@ -57,110 +57,110 @@
 
 ## 联系作者
 
-> **商用** 需要联系作者[**授权**](https://bbs.nanshengbbs.top/detail/600)(学习使用不需要授权)
+> **商用** 需要联系作者[**授权**](https://bbs.nansin.top/detail/600)(学习使用不需要授权)
 
-1. 加作者微信：maliangnansheng（[扫码添加](https://bbs.nanshengbbs.top/about)）
-2. 加作者QQ：924818949（[扫码添加](https://bbs.nanshengbbs.top/about)）
+1. 加作者微信：maliangnansheng（[扫码添加](https://bbs.nansin.top/about)）
+2. 加作者QQ：924818949（[扫码添加](https://bbs.nansin.top/about)）
 
 ## 功能结构
 
 - 用户系统-功能结构图
 
-  ![](https://76.nanshengbbs.top/github/ns-bbs241014.png)
+  ![](https://76.nansin.top/github/ns-bbs241014.png)
 
 - 管理系统-功能结构图
 
-  ![](https://76.nanshengbbs.top/github/ns-manage241014.png)
+  ![](https://76.nansin.top/github/ns-manage241014.png)
 
 ## 项目结构
 
 ### 后端项目结构（SpringBoot）
 
-![](https://76.nanshengbbs.top/github/idea003.png)
+![](https://76.nansin.top/github/idea003.png)
 
 ### 前端项目结构（Vue）
 
-![](https://76.nanshengbbs.top/github/idea013.png)
+![](https://76.nansin.top/github/idea013.png)
 
 ## 静态展示
 
-> 这里只浅展示部分效果，完整体验去官网：[https://bbs.nanshengbbs.top](https://bbs.nanshengbbs.top)
+> 这里只浅展示部分效果，完整体验去官网：[https://bbs.nansin.top](https://bbs.nansin.top)
 
 ### 用户系统
 
 - **文章（`管理员视角`）**
 
-  ![image](https://76.nanshengbbs.top/github/ns-bbs-home-admin.png)
+  ![image](https://76.nansin.top/github/ns-bbs-home-admin.png)
 
 - **话题**
 
-  ![image](https://76.nanshengbbs.top/github/ns-bbs-topic3.png)
+  ![image](https://76.nansin.top/github/ns-bbs-topic3.png)
 
 - **文章详情**
 
-  ![image](https://76.nanshengbbs.top/github/ns-bbs-article.png)
+  ![image](https://76.nansin.top/github/ns-bbs-article.png)
 
 - **积分系统**
 
-  ![](https://76.nanshengbbs.top/github/points_system.png)
+  ![](https://76.nansin.top/github/points_system.png)
 
 - **私信**
 
-  ![image](https://76.nanshengbbs.top/github/bbs_chat.png)
+  ![image](https://76.nansin.top/github/bbs_chat.png)
 
 - **标签（`管理员视角`）**
 
-  ![](https://76.nanshengbbs.top/github/ns-bbs-label2.png)
+  ![](https://76.nansin.top/github/ns-bbs-label2.png)
 
 - **个人主页**
 
-  ![image](https://76.nanshengbbs.top/github/ns-bbs-homepage.png)
+  ![image](https://76.nansin.top/github/ns-bbs-homepage.png)
 
 - **个人资料**
 
-  ![](https://76.nanshengbbs.top/github/ns-bbs-personalinfo2.png)
+  ![](https://76.nansin.top/github/ns-bbs-personalinfo2.png)
 
 - **切换主题**
 
-  ![](https://76.nanshengbbs.top/github/ns-bbs-theme.png)
+  ![](https://76.nansin.top/github/ns-bbs-theme.png)
 
 
 ### 管理系统
 
 - **仪表盘**
 
-  ![](https://76.nanshengbbs.top/github/ns-manage-dashboard2.png)
+  ![](https://76.nansin.top/github/ns-manage-dashboard2.png)
 
 - **权限管理**
 
-  ![](https://76.nanshengbbs.top/github/ns-manage-permissions.png)
+  ![](https://76.nansin.top/github/ns-manage-permissions.png)
   
 - **角色管理**
 
-  ![](https://76.nanshengbbs.top/github/ns-manage-role3.png)
+  ![](https://76.nansin.top/github/ns-manage-role3.png)
 
 - **用户管理**
 
-  ![](https://76.nanshengbbs.top/github/ns-manage-user2.png)
+  ![](https://76.nansin.top/github/ns-manage-user2.png)
 
 - **反馈管理**
 
-  ![](https://76.nanshengbbs.top/github/ns-manage-feedback.png)
+  ![](https://76.nansin.top/github/ns-manage-feedback.png)
 
 - **通知管理**
 
-  ![](https://76.nanshengbbs.top/github/ns-manage-notify.png)
+  ![](https://76.nansin.top/github/ns-manage-notify.png)
 
 ## 桌面应用
 
 ### Windows
 > Windows桌面应用效果图
 
-![](https://76.nanshengbbs.top/logo/zmxt.png)
+![](https://76.nansin.top/logo/zmxt.png)
 
-下载地址：[https://76.nanshengbbs.top/app/ns-bbs.msi](https://76.nanshengbbs.top/app/ns-bbs.msi)
+下载地址：[https://76.nansin.top/app/ns-bbs.msi](https://76.nansin.top/app/ns-bbs.msi)
 
 ### Mac
 > 作者没有苹果电脑，同学们自行下载安装体验
 
-下载地址：[https://76.nanshengbbs.top/app/ns-bbs.dmg](https://76.nanshengbbs.top/app/ns-bbs.dmg)
+下载地址：[https://76.nansin.top/app/ns-bbs.dmg](https://76.nansin.top/app/ns-bbs.dmg)
