@@ -13,6 +13,6 @@
 
 一目了然，同学们自己研究~
 
-[南生论坛日常迭代（开源计划）](https://bbs.nanshengbbs.top/detail/122)
+[南生论坛日常迭代（开源计划）](https://bbs.nansin.top/detail/122)
 
-![image.png](https://76.nanshengbbs.top/articlePicture/articlePicture-20240204222222116_image.png)
+![image.png](https://76.nansin.top/articlePicture/articlePicture-20240204222222116_image.png)
