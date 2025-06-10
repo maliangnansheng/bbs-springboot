@@ -23,9 +23,9 @@
 
 ## 部署效果
 
-开源版演示地址：[https://open.nansin.top](https://open.nansin.top)（管理员：`椿/123456`-你们可以使用我进行一些管理员相关的操作）
+开源版演示地址：[https://open.nansin.top](https://open.nansin.top)（普通用户：`自己注册就行`；管理员：`椿/123456`）
 
-商业版演示地址：[https://bbs.nansin.top](https://bbs.nansin.top)（普通用户：`椿/123456`；管理员：`测试管理员/123456`-能看到管理员界面，但没有实权）
+商业版演示地址：[https://bbs.nansin.top](https://bbs.nansin.top)（普通用户：`椿/123456`；管理员：`测试管理员/123456`）
 
 开源版部署教程：[【后端】安装部署教程](https://bbs.nansin.top/detail/44)、[【前端】安装部署教程](https://bbs.nansin.top/detail/45)
 
