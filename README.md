@@ -88,13 +88,21 @@
 
 ### 用户系统
 
-- **文章（`管理员视角`）**
+- **论坛管理（`管理员权限`）**
 
-  ![image](https://76.nansin.top/github/ns-bbs-home-admin.png)
+  ![image](https://76.nansin.top/github/bbs-manage.png)
+  
+- **文章**
+
+  ![image](https://76.nansin.top/github/bbs-article.png)
+
+- **问答**
+
+  ![image](https://76.nansin.top/github/bbs-issue.png)
 
 - **话题**
 
-  ![image](https://76.nansin.top/github/ns-bbs-topic3.png)
+  ![image](https://76.nansin.top/github/bbs-topic.png)
 
 - **文章详情**
 
@@ -107,10 +115,6 @@
 - **私信**
 
   ![image](https://76.nansin.top/github/bbs_chat.png)
-
-- **标签（`管理员视角`）**
-
-  ![](https://76.nansin.top/github/ns-bbs-label2.png)
 
 - **个人主页**
 
