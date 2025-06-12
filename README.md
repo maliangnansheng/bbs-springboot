@@ -66,11 +66,11 @@
 
 - 用户系统-功能结构图
 
-  ![](https://76.nansin.top/github/ns-bbs241014.png)
+  ![](https://76.nansin.top/github/ns-bbs250612.png)
 
 - 管理系统-功能结构图
 
-  ![](https://76.nansin.top/github/ns-manage241014.png)
+  ![](https://76.nansin.top/github/ns-manage250612.png)
 
 ## 项目结构
 
