@@ -29,7 +29,7 @@
 
 开源版部署教程：[【后端】安装部署教程](https://bbs.nansin.top/detail/44)、[【前端】安装部署教程](https://bbs.nansin.top/detail/45)
 
-相关文档：[01 南生论坛使用指南](https://www.bilibili.com/video/BV1he4y1C7rk?share_source=copy_web&vd_source=1f88041e3a02d90ecf98d311908d3d8b)、 [02 南生论坛代码讲解](https://www.bilibili.com/video/BV1pK411C7T4/?vd_source=d0a5d07985a7fbbfb889c874632343c6)、 [03 如何获取南生论坛设计文档？](https://bbs.nansin.top/detail/76)、 [04 南生论坛日常迭代（开源计划）](https://bbs.nansin.top/detail/122)、 [05 10分钟搞懂南生论坛](https://bbs.nansin.top/detail/369)、 [06 不同角色不同视图](https://bbs.nansin.top/detail/350)、 [07 南生运营功能介绍](https://bbs.nansin.top/detail/521)
+相关文档：[01 南生论坛使用指南](https://www.bilibili.com/video/BV1he4y1C7rk?share_source=copy_web&vd_source=1f88041e3a02d90ecf98d311908d3d8b)、 [02 南生论坛代码讲解](https://www.bilibili.com/video/BV1pK411C7T4/?vd_source=d0a5d07985a7fbbfb889c874632343c6)、 [03 如何获取南生论坛设计文档？](https://bbs.nansin.top/detail/76)、 [04 南生论坛日常迭代（开源计划）](https://bbs.nansin.top/detail/122)、 [05 10分钟搞懂南生论坛](https://bbs.nansin.top/detail/369)、 [06 如何进行南生论坛管理维护？](https://bbs.nansin.top/detail/679)、 [07 南生运营功能介绍](https://bbs.nansin.top/detail/521)
 
 ## 项目架构
 
