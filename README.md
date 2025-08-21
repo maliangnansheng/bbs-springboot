@@ -29,7 +29,9 @@
 
 开源版部署教程：[【后端】安装部署教程](https://bbs.nansin.top/detail/44)、[【前端】安装部署教程](https://bbs.nansin.top/detail/45)
 
-相关文档：[01 南生论坛使用指南](https://www.bilibili.com/video/BV1he4y1C7rk?share_source=copy_web&vd_source=1f88041e3a02d90ecf98d311908d3d8b)、 [02 南生论坛代码讲解](https://www.bilibili.com/video/BV1pK411C7T4/?vd_source=d0a5d07985a7fbbfb889c874632343c6)、 [03 如何获取南生论坛设计文档？](https://bbs.nansin.top/detail/76)、 [04 南生论坛日常迭代（开源计划）](https://bbs.nansin.top/detail/122)、 [05 10分钟搞懂南生论坛](https://bbs.nansin.top/detail/369)、 [06 如何进行南生论坛管理维护？](https://bbs.nansin.top/detail/679)、 [07 南生运营功能介绍](https://bbs.nansin.top/detail/521)
+视频教程：[https://www.bilibili.com/video/BV19cYXzMETV](https://www.bilibili.com/video/BV19cYXzMETV)
+
+文档教程：[01 南生运营（南生系列基础系统）的设计理念](https://bbs.nansin.top/detail/171)、 [02 10分钟搞懂南生论坛](https://bbs.nansin.top/detail/369)、 [03 如何进行南生论坛管理维护？](https://bbs.nansin.top/detail/679)、 [04 南生运营功能介绍](https://bbs.nansin.top/detail/521)、 [05 如何获取南生论坛设计文档？](https://bbs.nansin.top/detail/76)、 [06 南生论坛日常迭代（开源计划）](https://bbs.nansin.top/detail/122)、 
 
 ## 项目架构
 
@@ -54,6 +56,11 @@
 - 现有的开源社区功能过于简单，无法满足企业的大部分需求。
 - 现有的开源社区界面风格老式，没有跟上时代发展的审美，且定制能力差。
 - 现有的开源社区缺乏用户/角色/权限统一管理的功能，用户系统各成一套，二开成本过高。
+
+## 视频教程
+[https://www.bilibili.com/video/BV19cYXzMETV](https://www.bilibili.com/video/BV19cYXzMETV)
+
+![](https://github.com/user-attachments/assets/1a61031f-7829-4291-b910-6a7b6d525f3c)
 
 ## 联系作者
 
