@@ -60,7 +60,7 @@
 ## 视频教程
 [https://www.bilibili.com/video/BV1ThYQzfEvR](https://www.bilibili.com/video/BV1ThYQzfEvR)
 
-![](https://76.nansin.top/github/bilibili.png)
+![](https://76.nansin.top/github/bilibili002.png)
 
 ## 联系作者
 
