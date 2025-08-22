@@ -29,7 +29,7 @@
 
 开源版部署教程：[【后端】安装部署教程](https://bbs.nansin.top/detail/44)、[【前端】安装部署教程](https://bbs.nansin.top/detail/45)
 
-视频教程：[https://www.bilibili.com/video/BV19cYXzMETV](https://www.bilibili.com/video/BV19cYXzMETV)
+视频教程：[https://www.bilibili.com/video/BV1ThYQzfEvR](https://www.bilibili.com/video/BV1ThYQzfEvR)
 
 文档教程：[01 南生运营（南生系列基础系统）的设计理念](https://bbs.nansin.top/detail/171)、 [02 10分钟搞懂南生论坛](https://bbs.nansin.top/detail/369)、 [03 如何进行南生论坛管理维护？](https://bbs.nansin.top/detail/679)、 [04 南生运营功能介绍](https://bbs.nansin.top/detail/521)、 [05 如何获取南生论坛设计文档？](https://bbs.nansin.top/detail/76)、 [06 南生论坛日常迭代（开源计划）](https://bbs.nansin.top/detail/122)
 
@@ -58,7 +58,7 @@
 - 现有的开源社区缺乏用户/角色/权限统一管理的功能，用户系统各成一套，二开成本过高。
 
 ## 视频教程
-[https://www.bilibili.com/video/BV19cYXzMETV](https://www.bilibili.com/video/BV19cYXzMETV)
+[https://www.bilibili.com/video/BV1ThYQzfEvR](https://www.bilibili.com/video/BV1ThYQzfEvR)
 
 ![](https://76.nansin.top/github/bilibili.png)
 
