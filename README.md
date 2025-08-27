@@ -8,9 +8,9 @@
 [![GitHub forks](https://img.shields.io/github/forks/maliangnansheng/bbs-springboot.svg?style=social&label=Fork)](https://github.com/maliangnansheng/bbs-springboot)
 
 > [!TIP]
-> 本项目基于 AGPL 3.0 协议开源，使用此项目时请遵守开源协议，个人学习使用不限制（公司使用或者商用需要 [**获取授权**](https://bbs.nansin.top/detail/600)）
-> 
-> 本项目完全开源！如果觉得不错麻烦帮忙点一次`Star⭐️`
+> 本项目基于 AGPL 3.0 协议完全开源，使用此项目时请遵守开源协议，如果觉得不错麻烦帮忙点一次`Star⭐️`
+>
+> 个人学习使用不限制（公司使用或者商用需要 [**获取授权**](https://bbs.nansin.top/detail/600)）
 > 
 > 加载太慢or图片加载不出来 [**点我**](https://bbs.nansin.top/detail/172)
 
