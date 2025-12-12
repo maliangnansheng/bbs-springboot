@@ -75,7 +75,7 @@
 
 - 用户系统-功能结构图
 
-  ![](https://76.nansin.top/github/ns-bbs250612.png)
+  ![](https://76.nansin.top/github/ns-bbs251212.png)
 
 - 管理系统-功能结构图
 
