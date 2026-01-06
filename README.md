@@ -73,13 +73,13 @@
 
 ## 功能结构
 
-- 用户系统-功能结构图
+- 南生论坛-功能结构图
 
-  ![](https://76.nansin.top/github/ns-bbs251212.png)
+  ![](https://76.nansin.top/github/ns-bbs260106.png)
 
-- 管理系统-功能结构图
+- 南生运营（权限管理）-功能结构图
 
-  ![](https://76.nansin.top/github/ns-manage250612.png)
+  ![](https://76.nansin.top/github/ns-manage260106.png)
 
 ## 项目结构
 
