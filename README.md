@@ -75,7 +75,7 @@
 
 - 南生论坛-功能结构图
 
-  ![](https://76.nansin.top/github/ns-bbs260106.png)
+  ![](https://76.nansin.top/github/ns-bbs260203.png)
 
 - 南生运营（权限管理）-功能结构图
 
