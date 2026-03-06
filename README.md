@@ -1,4 +1,4 @@
-> 需要学习SSM框架的童鞋去：[我的另一个基于【SSM】的论坛项目](https://github.com/maliangnansheng/bbs-ssm)、 SpringCloud版本去：[SpringCloud版本](https://bbs.nansin.top/detail/453)
+> 其它技术方案：[有哪些技术方案可供选择？](https://bbs.nansin.top/detail/641)
 
 # Nan's BBS 南生论坛（SpringBoot+Vue）
 
@@ -17,7 +17,10 @@
 ## 仓库说明
 
 > [!NOTE]
-> 本仓库`bbs-springboot`是【南生论坛3.0.0】前后端分离项目的**后端项目**。
+> 本仓库`bbs-springboot`是【南生论坛3.0.0】前后端分离项目的**后端项目**
+> 1. master 分支：维护基于 Spring Boot 3.x 系列的最新代码（目前和 LTS-SpringBoot3 分支一致）
+> 2. LTS-SpringBoot3 分支：维护基于 Spring Boot 3.x 系列（LTS长期支持版）的最新代码
+> 3. LTS-SpringBoot2 分支：维护基于 Spring Boot 2.x 系列（LTS长期支持版）的最新代码
 >
 > 对应的 **前端项目（Vue2版本）** 仓库移步至：[bbs-vue-ui](https://github.com/maliangnansheng/bbs-vue-ui)
 >
