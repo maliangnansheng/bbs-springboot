@@ -6,7 +6,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.7.18</version>
+        <version>3.5.11</version>
     </parent>
 
     <groupId>com.liang</groupId>
@@ -30,39 +30,37 @@
         <nansheng-common.version>3.3.4-one</nansheng-common.version>
 
         <!-- 三方jar包版本依赖 -->
-        <swagger2.version>3.0.0</swagger2.version>
-        <knife4j.version>3.0.2</knife4j.version>
-        <pagehelper-spring-boot-starter.version>1.3.0</pagehelper-spring-boot-starter.version>
-        <mysql-connector-java.version>8.0.19</mysql-connector-java.version>
-        <druid-spring-boot-starter.version>1.1.21</druid-spring-boot-starter.version>
-        <mybatis-generator-maven-plugin.version>1.3.7</mybatis-generator-maven-plugin.version>
+        <knife4j-openapi3-jakarta-spring-boot-starter.version>4.5.0</knife4j-openapi3-jakarta-spring-boot-starter.version>
+        <pagehelper-spring-boot-starter.version>2.1.0</pagehelper-spring-boot-starter.version>
+        <mysql-connector-j.version>9.6.0</mysql-connector-j.version>
+        <druid-spring-boot-starter.version>1.2.24</druid-spring-boot-starter.version>
+        <mybatis-generator-maven-plugin.version>1.4.2</mybatis-generator-maven-plugin.version>
         <mybatis-generator-plugin.version>1.3.10</mybatis-generator-plugin.version>
-        <dubbo-spring-boot-starter.version>2.7.23</dubbo-spring-boot-starter.version>
-        <zookeeper.version>3.4.14</zookeeper.version>
-        <curator.version>4.2.0</curator.version>
-        <mybatis-spring-boot-starter.version>2.1.1</mybatis-spring-boot-starter.version>
-        <mybatis.version>3.5.4</mybatis.version>
-        <lombok.version>1.18.12</lombok.version>
+        <dubbo-spring-boot-starter.version>3.3.2</dubbo-spring-boot-starter.version>
+        <dubbo-dependencies-zookeeper-curator5.version>3.3.2</dubbo-dependencies-zookeeper-curator5.version>
+        <mybatis-spring-boot-starter.version>3.0.4</mybatis-spring-boot-starter.version>
+        <mybatis.version>3.5.19</mybatis.version>
+        <lombok.version>1.18.36</lombok.version>
         <fastjson.version>1.2.71</fastjson.version>
-        <commons-lang3.version>3.12.0</commons-lang3.version>
-        <mapstruct.version>1.3.1.Final</mapstruct.version>
+        <commons-lang3.version>3.17.0</commons-lang3.version>
+        <mapstruct.version>1.6.3</mapstruct.version>
         <google-guava.version>27.1-jre</google-guava.version>
         <commons-pool2.version>2.11.1</commons-pool2.version>
         <commons.collections4.version>4.4</commons.collections4.version>
-        <redisson.version>3.19.3</redisson.version>
+        <redisson.version>3.42.0</redisson.version>
         <spring-boot-starter-data-redis.version>2.7.18</spring-boot-starter-data-redis.version>
         <springloaded.version>1.2.6.RELEASE</springloaded.version>
-        <apache-httpclient.version>4.5.13</apache-httpclient.version>
+        <apache-httpclient5.version>5.4.2</apache-httpclient5.version>
         <maven-assembly-plugin.version>3.3.0</maven-assembly-plugin.version>
-        <spring-boot-starter-data-mongodb.version>2.6.7</spring-boot-starter-data-mongodb.version>
+        <spring-boot-starter-data-mongodb.version>3.5.11</spring-boot-starter-data-mongodb.version>
         <validation-api.version>2.0.1.Final</validation-api.version>
         <java-jwt.version>3.15.0</java-jwt.version>
         <shiro-spring.version>1.7.1</shiro-spring.version>
-        <transmittable-thread-local.version>2.11.4</transmittable-thread-local.version>
+        <transmittable-thread-local.version>2.14.5</transmittable-thread-local.version>
         <hutool-all.version>5.6.3</hutool-all.version>
         <thumbnailator.version>0.4.14</thumbnailator.version>
         <qiniu-java-sdk.version>7.6.0</qiniu-java-sdk.version>
-        <spring-boot-starter-mail.version>2.5.0</spring-boot-starter-mail.version>
+        <spring-boot-starter-mail.version>3.5.11</spring-boot-starter-mail.version>
         <aliyun-java-sdk-core.version>4.5.20</aliyun-java-sdk-core.version>
         <aliyun-java-sdk-dysmsapi.version>2.1.0</aliyun-java-sdk-dysmsapi.version>
         <maven-compiler-plugin.version>3.5.1</maven-compiler-plugin.version>
@@ -126,9 +124,9 @@
                 <version>${spring-boot-starter-data-redis.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.apache.httpcomponents</groupId>
-                <artifactId>httpclient</artifactId>
-                <version>${apache-httpclient.version}</version>
+                <groupId>org.apache.httpcomponents.client5</groupId>
+                <artifactId>httpclient5</artifactId>
+                <version>${apache-httpclient5.version}</version>
             </dependency>
 
             <!-- pagehelper分页 -->
@@ -146,21 +144,16 @@
 
             <!-- 生成API接口文档 -->
             <dependency>
-                <groupId>io.springfox</groupId>
-                <artifactId>springfox-swagger2</artifactId>
-                <version>${swagger2.version}</version>
-            </dependency>
-            <dependency>
                 <groupId>com.github.xiaoymin</groupId>
-                <artifactId>knife4j-spring-ui</artifactId>
-                <version>${knife4j.version}</version>
+                <artifactId>knife4j-openapi3-jakarta-spring-boot-starter</artifactId>
+                <version>${knife4j-openapi3-jakarta-spring-boot-starter.version}</version>
             </dependency>
 
             <!-- mysql、druid、mybatis -->
             <dependency>
-                <groupId>mysql</groupId>
-                <artifactId>mysql-connector-java</artifactId>
-                <version>${mysql-connector-java.version}</version>
+                <groupId>com.mysql</groupId>
+                <artifactId>mysql-connector-j</artifactId>
+                <version>${mysql-connector-j.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.alibaba</groupId>
@@ -190,14 +183,10 @@
                 <version>${dubbo-spring-boot-starter.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.apache.zookeeper</groupId>
-                <artifactId>zookeeper</artifactId>
-                <version>${zookeeper.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.curator</groupId>
-                <artifactId>curator-recipes</artifactId>
-                <version>${curator.version}</version>
+                <groupId>org.apache.dubbo</groupId>
+                <artifactId>dubbo-dependencies-zookeeper-curator5</artifactId>
+                <version>${dubbo-dependencies-zookeeper-curator5.version}</version>
+                <type>pom</type>
             </dependency>
 
             <!-- 介于关系数据库和非关系数据库之间的数据库mongodb -->
@@ -232,7 +221,7 @@
             </dependency>
             <dependency>
                 <groupId>org.mapstruct</groupId>
-                <artifactId>mapstruct-jdk8</artifactId>
+                <artifactId>mapstruct</artifactId>
                 <version>${mapstruct.version}</version>
             </dependency>
             <dependency>
@@ -361,9 +350,9 @@
                             <version>${mybatis-generator-plugin.version}</version>
                         </dependency>
                         <dependency>
-                            <groupId>mysql</groupId>
-                            <artifactId>mysql-connector-java</artifactId>
-                            <version>${mysql-connector-java.version}</version>
+                            <groupId>com.mysql</groupId>
+                            <artifactId>mysql-connector-j</artifactId>
+                            <version>${mysql-connector-j.version}</version>
                         </dependency>
                     </dependencies>
                 </plugin>

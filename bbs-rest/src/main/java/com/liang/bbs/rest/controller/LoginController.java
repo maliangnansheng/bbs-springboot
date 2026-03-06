@@ -14,18 +14,17 @@ import com.liang.nansheng.common.constant.TimeoutConstants;
 import com.liang.nansheng.common.enums.ResponseCode;
 import com.liang.nansheng.common.web.basic.ResponseResult;
 import com.liang.nansheng.common.web.exception.BusinessException;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.dubbo.config.annotation.DubboReference;
-import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseCookie;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 /**
@@ -35,7 +34,7 @@ import javax.validation.Valid;
 @Slf4j
 @RestController
 @RequestMapping("/bbs/sso/")
-@Api(tags = "用户统一登录接口")
+@Tag(name = "用户统一登录接口")
 @CrossOrigin(origins = "*")
 public class LoginController {
     @DubboReference
@@ -49,7 +48,7 @@ public class LoginController {
 
     @NoNeedLogin
     @PostMapping("register")
-    @ApiOperation(value = "用户注册")
+    @Operation(summary = "用户注册")
     @ApiVersion(group = ApiVersionConstant.V_300)
     public ResponseResult<UserTokenDTO> register(@Valid @RequestBody UserDTO userDTO, HttpServletResponse response) {
         UserTokenDTO userTokenDTO = userService.register(userDTO);
@@ -62,7 +61,7 @@ public class LoginController {
 
     @NoNeedLogin
     @PostMapping("login")
-    @ApiOperation(value = "用户登录")
+    @Operation(summary = "用户登录")
     @ApiVersion(group = ApiVersionConstant.V_300)
     public ResponseResult<UserTokenDTO> login(@RequestBody UserLoginDTO userLoginDTO, HttpServletResponse response) {
         UserTokenDTO userTokenDTO = userService.login(userLoginDTO);
@@ -73,7 +72,7 @@ public class LoginController {
 
     @NoNeedLogin
     @GetMapping("logout")
-    @ApiOperation(value = "用户登出")
+    @Operation(summary = "用户登出")
     @ApiVersion(group = ApiVersionConstant.V_300)
     public ResponseResult<Boolean> logout(HttpServletRequest request, HttpServletResponse response) {
         try {

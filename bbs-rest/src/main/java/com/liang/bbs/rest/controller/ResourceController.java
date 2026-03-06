@@ -14,11 +14,10 @@ import com.liang.nansheng.common.enums.ResponseCode;
 import com.liang.nansheng.common.utils.CommonUtils;
 import com.liang.nansheng.common.web.basic.ResponseResult;
 import com.liang.nansheng.common.web.exception.BusinessException;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.dubbo.config.annotation.DubboReference;
-import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -33,7 +32,7 @@ import java.util.List;
 @Slf4j
 @RestController
 @RequestMapping("/bbs/resource/")
-@Api(tags = "资源导航接口")
+@Tag(name = "资源导航接口")
 public class ResourceController {
     @DubboReference
     private ResourceNavigateService resourceNavigateService;
@@ -42,7 +41,7 @@ public class ResourceController {
     private FileLengthUtils fileLengthUtils;
 
     @PostMapping("create")
-    @ApiOperation(value = "新增资源导航")
+    @Operation(summary = "新增资源导航")
     @ApiVersion(group = ApiVersionConstant.V_300)
     public ResponseResult<Boolean> create(@RequestBody ResourceNavigateDTO resourceNavigateDTO) {
         UserSsoDTO currentUser = UserContextUtils.currentUser();
@@ -50,7 +49,7 @@ public class ResourceController {
     }
 
     @PostMapping("/uploadResourceLogo")
-    @ApiOperation(value = "上传资源导航logo")
+    @Operation(summary = "上传资源导航logo")
     @ApiVersion(group = ApiVersionConstant.V_300)
     public ResponseResult<String> uploadResourceLogo(@RequestParam(value = "logo", required = false) MultipartFile logo) throws IOException {
         if (fileLengthUtils.isFileNotTooBig(logo.getBytes())) {
@@ -62,7 +61,7 @@ public class ResourceController {
     }
 
     @PostMapping("update")
-    @ApiOperation(value = "更新资源导航")
+    @Operation(summary = "更新资源导航")
     @ApiVersion(group = ApiVersionConstant.V_300)
     public ResponseResult<Boolean> update(@RequestBody ResourceNavigateDTO resourceNavigateDTO) {
         UserSsoDTO currentUser = UserContextUtils.currentUser();
@@ -71,7 +70,7 @@ public class ResourceController {
 
     @NoNeedLogin
     @GetMapping("getList")
-    @ApiOperation(value = "获取资源导航")
+    @Operation(summary = "获取资源导航")
     @ApiVersion(group = ApiVersionConstant.V_300)
     public ResponseResult<PageInfo<ResourceNavigateDTO>> getList(ResourceNavigateSearchDTO resourceNavigateSearchDTO) {
         return ResponseResult.success(resourceNavigateService.getList(resourceNavigateSearchDTO));
@@ -79,14 +78,14 @@ public class ResourceController {
 
     @NoNeedLogin
     @GetMapping("getCategorys")
-    @ApiOperation(value = "获取资源导航所有类别")
+    @Operation(summary = "获取资源导航所有类别")
     @ApiVersion(group = ApiVersionConstant.V_300)
     public ResponseResult<List<String>> getCategorys() {
         return ResponseResult.success(resourceNavigateService.getCategorys());
     }
 
     @PostMapping("delete/{id}")
-    @ApiOperation(value = "删除资源导航")
+    @Operation(summary = "删除资源导航")
     @ApiVersion(group = ApiVersionConstant.V_300)
     public ResponseResult<Boolean> delete(@PathVariable Integer id) {
         return ResponseResult.success(resourceNavigateService.delete(id));

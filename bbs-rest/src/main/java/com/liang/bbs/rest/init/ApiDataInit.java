@@ -3,7 +3,7 @@ package com.liang.bbs.rest.init;
 import com.liang.bbs.common.constant.RedisConstants;
 import com.liang.nansheng.common.constant.PathConstants;
 import com.liang.nansheng.common.enums.ProjectEnum;
-import io.swagger.annotations.ApiOperation;
+import io.swagger.v3.oas.annotations.Operation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +18,9 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
 import java.lang.reflect.Method;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -40,6 +42,8 @@ public class ApiDataInit implements ApplicationContextAware {
      */
     public static Map<String, String> apiDescMap = new HashMap<>();
 
+    private final List<String> removeMethods = Arrays.asList("openapiJson", "openapiYaml", "redirectToUi");
+
     @Override
     public void setApplicationContext(ApplicationContext ctx) throws BeansException {
         Map<String, Object> beanMap = ctx.getBeansWithAnnotation(Controller.class);
@@ -58,10 +62,10 @@ public class ApiDataInit implements ApplicationContextAware {
                 Method[] methods = clz.getMethods();
                 for (Method method : methods) {
                     // 初始化
-                    ApiOperation apiOperation = AnnotationUtils.findAnnotation(method, ApiOperation.class);
-                    if (apiOperation != null) {
+                    Operation apiOperation = AnnotationUtils.findAnnotation(method, Operation.class);
+                    if (apiOperation != null && !removeMethods.contains(method.getName())) {
                         // 权限说明
-                        String desc = apiOperation.value();
+                        String desc = apiOperation.summary();
                         // 权限代码
                         String uri = getApiUri(clz, method);
                         apiDescMap.put(uri, desc);

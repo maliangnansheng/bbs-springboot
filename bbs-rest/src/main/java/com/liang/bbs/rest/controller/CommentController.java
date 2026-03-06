@@ -10,11 +10,10 @@ import com.liang.bbs.rest.config.swagger.ApiVersionConstant;
 import com.liang.nansheng.common.auth.UserContextUtils;
 import com.liang.nansheng.common.auth.UserSsoDTO;
 import com.liang.nansheng.common.web.basic.ResponseResult;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.dubbo.config.annotation.DubboReference;
-import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -26,14 +25,14 @@ import java.util.List;
 @Slf4j
 @RestController
 @RequestMapping("/bbs/comment/")
-@Api(tags = "评论接口")
+@Tag(name = "评论接口")
 public class CommentController {
     @DubboReference
     private CommentService commentService;
 
     @NoNeedLogin
     @GetMapping("getCommentByArticleId")
-    @ApiOperation(value = "获取文章的评论信息")
+    @Operation(summary = "获取文章的评论信息")
     @ApiVersion(group = ApiVersionConstant.V_300)
     public ResponseResult<List<CommentDTO>> getCommentByArticleId(CommentSearchDTO commentSearchDTO) {
         UserSsoDTO currentUser = UserContextUtils.currentUser();
@@ -42,14 +41,14 @@ public class CommentController {
 
     @NoNeedLogin
     @GetMapping("getLatestComment")
-    @ApiOperation(value = "获取最新评论信息")
+    @Operation(summary = "获取最新评论信息")
     @ApiVersion(group = ApiVersionConstant.V_300)
     public ResponseResult<PageInfo<CommentDTO>> getLatestComment(CommentSearchDTO commentSearchDTO) {
         return ResponseResult.success(commentService.getLatestComment(commentSearchDTO));
     }
 
     @PostMapping("create")
-    @ApiOperation(value = "创建评论")
+    @Operation(summary = "创建评论")
     @ApiVersion(group = ApiVersionConstant.V_300)
     public ResponseResult<Boolean> create(@RequestBody CommentDTO commentDTO) {
         UserSsoDTO currentUser = UserContextUtils.currentUser();
@@ -57,7 +56,7 @@ public class CommentController {
     }
 
     @PostMapping("delete/{commentId}")
-    @ApiOperation(value = "删除评论")
+    @Operation(summary = "删除评论")
     @ApiVersion(group = ApiVersionConstant.V_300)
     public ResponseResult<Boolean> delete(@PathVariable Integer commentId) {
         return ResponseResult.success(commentService.delete(commentId));

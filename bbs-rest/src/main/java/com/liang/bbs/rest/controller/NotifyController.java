@@ -9,11 +9,10 @@ import com.liang.manage.auth.facade.server.NotifyService;
 import com.liang.nansheng.common.auth.UserContextUtils;
 import com.liang.nansheng.common.auth.UserSsoDTO;
 import com.liang.nansheng.common.web.basic.ResponseResult;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.dubbo.config.annotation.DubboReference;
-import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -25,7 +24,7 @@ import java.util.List;
 @Slf4j
 @RestController
 @RequestMapping("/bbs/notify/")
-@Api(tags = "通知消息接口")
+@Tag(name = "通知消息接口")
 public class NotifyController {
     @DubboReference
     private NotifyService notifyService;
@@ -37,7 +36,7 @@ public class NotifyController {
      * @return
      */
     @PostMapping("haveRead")
-    @ApiOperation(value = "全部已读")
+    @Operation(summary = "全部已读")
     @ApiVersion(group = ApiVersionConstant.V_300)
     public ResponseResult<Boolean> haveRead(Integer type) {
         UserSsoDTO currentUser = UserContextUtils.currentUser();
@@ -45,7 +44,7 @@ public class NotifyController {
     }
 
     @PostMapping("markRead")
-    @ApiOperation(value = "标记已读")
+    @Operation(summary = "标记已读")
     @ApiVersion(group = ApiVersionConstant.V_300)
     public ResponseResult<Boolean> markRead(@RequestBody List<Integer> notifyIds) {
         UserSsoDTO currentUser = UserContextUtils.currentUser();
@@ -53,7 +52,7 @@ public class NotifyController {
     }
 
     @GetMapping("getList")
-    @ApiOperation(value = "分页获取通知信息")
+    @Operation(summary = "分页获取通知信息")
     @ApiVersion(group = ApiVersionConstant.V_300)
     public ResponseResult<PageInfo<NotifyOutDTO>> getList(NotifySearchDTO notifySearchDTO) {
         UserSsoDTO currentUser = UserContextUtils.currentUser();

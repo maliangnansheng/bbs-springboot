@@ -14,11 +14,10 @@ import com.liang.nansheng.common.enums.ResponseCode;
 import com.liang.nansheng.common.utils.CommonUtils;
 import com.liang.nansheng.common.web.basic.ResponseResult;
 import com.liang.nansheng.common.web.exception.BusinessException;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.dubbo.config.annotation.DubboReference;
-import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -32,7 +31,7 @@ import java.io.IOException;
 @Slf4j
 @RestController
 @RequestMapping("/bbs/label/")
-@Api(tags = "标签接口")
+@Tag(name = "标签接口")
 public class LabelController {
     @DubboReference
     private LabelService labelService;
@@ -41,7 +40,7 @@ public class LabelController {
     private FileLengthUtils fileLengthUtils;
 
     @PostMapping("create")
-    @ApiOperation(value = "新增标签")
+    @Operation(summary = "新增标签")
     @ApiVersion(group = ApiVersionConstant.V_300)
     public ResponseResult<Boolean> create(@RequestBody LabelDTO labelDTO) {
         UserSsoDTO currentUser = UserContextUtils.currentUser();
@@ -49,7 +48,7 @@ public class LabelController {
     }
 
     @PostMapping("/uploadLabelLogo")
-    @ApiOperation(value = "上传标签logo")
+    @Operation(summary = "上传标签logo")
     @ApiVersion(group = ApiVersionConstant.V_300)
     public ResponseResult<String> uploadLabelLogo(@RequestParam(value = "logo", required = false) MultipartFile logo) throws IOException {
         if (fileLengthUtils.isFileNotTooBig(logo.getBytes())) {
@@ -61,7 +60,7 @@ public class LabelController {
     }
 
     @PostMapping("update")
-    @ApiOperation(value = "更新标签")
+    @Operation(summary = "更新标签")
     @ApiVersion(group = ApiVersionConstant.V_300)
     public ResponseResult<Boolean> update(@RequestBody LabelDTO labelDTO) {
         UserSsoDTO currentUser = UserContextUtils.currentUser();
@@ -70,14 +69,14 @@ public class LabelController {
 
     @NoNeedLogin
     @GetMapping("getList")
-    @ApiOperation(value = "获取标签")
+    @Operation(summary = "获取标签")
     @ApiVersion(group = ApiVersionConstant.V_300)
     public ResponseResult<PageInfo<LabelDTO>> getList(LabelSearchDTO labelSearchDTO) {
         return ResponseResult.success(labelService.getList(labelSearchDTO));
     }
 
     @PostMapping("delete/{id}")
-    @ApiOperation(value = "删除标签")
+    @Operation(summary = "删除标签")
     @ApiVersion(group = ApiVersionConstant.V_300)
     public ResponseResult<Boolean> delete(@PathVariable Integer id) {
         return ResponseResult.success(labelService.delete(id));

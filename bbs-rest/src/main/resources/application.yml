@@ -14,18 +14,18 @@ spring:
     pathmatch:
       # 解决Spring Boot 2.6.x高版本 和 Swagger 3.0.0 整合异常的问题
       matching-strategy: ant_path_matcher
-
-  redis:
-    host: 139.9.78.65
-    port: 6222
-    password: 5LiA5Liq5Y2B5YiG5aSN5p2C55qE5a+G56CB
-    # 单位 毫秒
-    timeout: 60000
-    lettuce:
-      pool:
-        max-active: 10
-        max-idle: 10
-        min-idle: 1
+  data:
+    redis:
+      host: 139.9.78.65
+      port: 6222
+      password: 5LiA5Liq5Y2B5YiG5aSN5p2C55qE5a+G56CB
+      # 单位 毫秒
+      timeout: 60000
+      lettuce:
+        pool:
+          max-active: 10
+          max-idle: 10
+          min-idle: 1
 
 dubbo:
   application:

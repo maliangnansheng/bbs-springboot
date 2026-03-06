@@ -1,7 +1,7 @@
 package com.liang.bbs.user.service.config;
 
-import com.alibaba.druid.support.http.StatViewServlet;
-import com.alibaba.druid.support.http.WebStatFilter;
+import com.alibaba.druid.support.jakarta.StatViewServlet;
+import com.alibaba.druid.support.jakarta.WebStatFilter;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
@@ -22,11 +22,11 @@ public class DruidConfig {
      * @return
      */
     @Bean
-    public ServletRegistrationBean registrationBean() {
-        ServletRegistrationBean bean = new ServletRegistrationBean(new StatViewServlet(), "/druid/*");
+    public ServletRegistrationBean<StatViewServlet> registrationBean() {
+        ServletRegistrationBean<StatViewServlet> bean = new ServletRegistrationBean<>(new StatViewServlet(), "/druid/*");
         /** 初始化参数配置，initParams**/
         //白名单
-        bean.addInitParameter("allow", "127.0.0.1,47.119.192.69,139.9.78.65");
+        bean.addInitParameter("allow", "127.0.0.1,47.119.192.69,120.48.100.28");
         //IP黑名单 (存在共同时，deny优先于allow) : 如果满足deny的话提示:Sorry, you are not permitted to view this page.
         bean.addInitParameter("deny", "192.168.1.73");
         //登录查看信息的账号密码.
@@ -43,8 +43,8 @@ public class DruidConfig {
      * @return
      */
     @Bean
-    public FilterRegistrationBean druidStatFilter() {
-        FilterRegistrationBean bean = new FilterRegistrationBean(new WebStatFilter());
+    public FilterRegistrationBean<WebStatFilter> druidStatFilter() {
+        FilterRegistrationBean<WebStatFilter> bean = new FilterRegistrationBean<>(new WebStatFilter());
         //添加过滤规则.
         bean.addUrlPatterns("/*");
         //添加不需要忽略的格式信息.

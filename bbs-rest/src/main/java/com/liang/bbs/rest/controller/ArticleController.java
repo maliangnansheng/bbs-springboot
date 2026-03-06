@@ -17,12 +17,11 @@ import com.liang.nansheng.common.enums.RoleGradeEnum;
 import com.liang.nansheng.common.utils.CommonUtils;
 import com.liang.nansheng.common.web.basic.ResponseResult;
 import com.liang.nansheng.common.web.exception.BusinessException;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.dubbo.config.annotation.DubboReference;
-import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -39,7 +38,7 @@ import java.util.stream.Collectors;
 @Slf4j
 @RestController
 @RequestMapping("/bbs/article/")
-@Api(tags = "文章接口")
+@Tag(name = "文章接口")
 public class ArticleController {
     @DubboReference
     private ArticleService articleService;
@@ -49,7 +48,7 @@ public class ArticleController {
 
     @NoNeedLogin
     @GetMapping("getList")
-    @ApiOperation(value = "获取文章")
+    @Operation(summary = "获取文章")
     @ApiVersion(group = ApiVersionConstant.V_300)
     public ResponseResult<PageInfo<ArticleDTO>> getList(ArticleSearchDTO articleSearchDTO) {
         UserSsoDTO currentUser = UserContextUtils.currentUser();
@@ -58,7 +57,7 @@ public class ArticleController {
 
     @NoNeedLogin
     @GetMapping("getPersonalArticles")
-    @ApiOperation(value = "获取个人发布的文章（null=所有）")
+    @Operation(summary = "获取个人发布的文章（null=所有）")
     @ApiVersion(group = ApiVersionConstant.V_300)
     public ResponseResult<PageInfo<ArticleDTO>> getPersonalArticles(ArticleSearchDTO articleSearchDTO, @RequestParam(required = false) ArticleStateEnum articleStateEnum) {
         UserSsoDTO currentUser = UserContextUtils.currentUser();
@@ -69,7 +68,7 @@ public class ArticleController {
     }
 
     @GetMapping("getPendingReviewArticles")
-    @ApiOperation(value = "获取待审核的文章")
+    @Operation(summary = "获取待审核的文章")
     @ApiVersion(group = ApiVersionConstant.V_300)
     public ResponseResult<PageInfo<ArticleDTO>> getPendingReviewArticles(ArticleSearchDTO articleSearchDTO) {
         UserSsoDTO currentUser = UserContextUtils.currentUser();
@@ -77,7 +76,7 @@ public class ArticleController {
     }
 
     @GetMapping("getDisabledArticles")
-    @ApiOperation(value = "获取禁用的文章")
+    @Operation(summary = "获取禁用的文章")
     @ApiVersion(group = ApiVersionConstant.V_300)
     public ResponseResult<PageInfo<ArticleDTO>> getDisabledArticles(ArticleSearchDTO articleSearchDTO) {
         UserSsoDTO currentUser = UserContextUtils.currentUser();
@@ -85,7 +84,7 @@ public class ArticleController {
     }
 
     @PostMapping("/updateState")
-    @ApiOperation(value = "修改文章审批状态")
+    @Operation(summary = "修改文章审批状态")
     @ApiVersion(group = ApiVersionConstant.V_300)
     public ResponseResult<Boolean> updateState(@RequestBody ArticleDTO articleDTO) {
         UserSsoDTO currentUser = UserContextUtils.currentUser();
@@ -94,7 +93,7 @@ public class ArticleController {
 
     @NoNeedLogin
     @GetMapping("getLikesArticle")
-    @ApiOperation(value = "获取点赞过的文章")
+    @Operation(summary = "获取点赞过的文章")
     @ApiVersion(group = ApiVersionConstant.V_300)
     public ResponseResult<PageInfo<ArticleDTO>> getLikesArticle(LikeSearchDTO likeSearchDTO) {
         UserSsoDTO currentUser = UserContextUtils.currentUser();
@@ -103,7 +102,7 @@ public class ArticleController {
 
     @NoNeedLogin
     @GetMapping("getArticleCommentVisitTotal")
-    @ApiOperation(value = "获取文章评论访问总数")
+    @Operation(summary = "获取文章评论访问总数")
     @ApiVersion(group = ApiVersionConstant.V_300)
     public ResponseResult<TotalDTO> getArticleCommentVisitTotal() {
         return ResponseResult.success(articleService.getArticleCommentVisitTotal());
@@ -111,7 +110,7 @@ public class ArticleController {
 
     @NoNeedLogin
     @GetMapping("getById")
-    @ApiOperation(value = "获取文章详情")
+    @Operation(summary = "获取文章详情")
     @ApiVersion(group = ApiVersionConstant.V_300)
     public ResponseResult<ArticleDTO> getById(@RequestParam Integer id, @RequestParam(required = false) Boolean isPv) {
         UserSsoDTO currentUser = UserContextUtils.currentUser();
@@ -138,7 +137,7 @@ public class ArticleController {
     }
 
     @PostMapping("/create")
-    @ApiOperation(value = "写文章")
+    @Operation(summary = "写文章")
     @ApiVersion(group = ApiVersionConstant.V_300)
     public ResponseResult<Boolean> create(@RequestParam(value = "file", required = false) MultipartFile picture,
                                           ArticleDTO articleDTO, @RequestParam List<Integer> labelIds) throws IOException {
@@ -157,7 +156,7 @@ public class ArticleController {
     }
 
     @PostMapping("/update")
-    @ApiOperation(value = "更新文章")
+    @Operation(summary = "更新文章")
     @ApiVersion(group = ApiVersionConstant.V_300)
     public ResponseResult<Boolean> update(@RequestParam(value = "file", required = false) MultipartFile picture,
                                           ArticleDTO articleDTO, @RequestParam List<Integer> labelIds) throws IOException {
@@ -182,7 +181,7 @@ public class ArticleController {
      * @return
      */
     @PostMapping("/uploadPicture")
-    @ApiOperation(value = "上传图片（一张）")
+    @Operation(summary = "上传图片（一张）")
     @ApiVersion(group = ApiVersionConstant.V_300)
     public ResponseResult<String> uploadPicture(@RequestParam(value = "picture") MultipartFile picture) throws IOException {
         if (fileLengthUtils.isFileNotTooBig(picture.getBytes())) {
@@ -195,7 +194,7 @@ public class ArticleController {
 
     @NoNeedLogin
     @GetMapping("getCountById")
-    @ApiOperation(value = "获取文章一些统计数据")
+    @Operation(summary = "获取文章一些统计数据")
     @ApiVersion(group = ApiVersionConstant.V_300)
     public ResponseResult<ArticleCountDTO> getCountById(@RequestParam Integer id) {
         UserSsoDTO currentUser = UserContextUtils.currentUser();
@@ -203,7 +202,7 @@ public class ArticleController {
     }
 
     @GetMapping("articleTop")
-    @ApiOperation(value = "文章置顶/取消置顶")
+    @Operation(summary = "文章置顶/取消置顶")
     @ApiVersion(group = ApiVersionConstant.V_300)
     public ResponseResult<Boolean> articleTop(@RequestParam Integer id, @RequestParam Boolean top) {
         UserSsoDTO currentUser = UserContextUtils.currentUser();
@@ -211,7 +210,7 @@ public class ArticleController {
     }
 
     @PostMapping("delete/{id}")
-    @ApiOperation(value = "文章删除")
+    @Operation(summary = "文章删除")
     @ApiVersion(group = ApiVersionConstant.V_300)
     public ResponseResult<Boolean> delete(@PathVariable Integer id) {
         UserSsoDTO currentUser = UserContextUtils.currentUser();
@@ -219,7 +218,7 @@ public class ArticleController {
     }
 
     @GetMapping("getArticleCheckCount")
-    @ApiOperation(value = "文章审核数据量")
+    @Operation(summary = "文章审核数据量")
     @ApiVersion(group = ApiVersionConstant.V_300)
     public ResponseResult<ArticleCheckCountDTO> getArticleCheckCount(@RequestParam(required = false) String title) {
         return ResponseResult.success(articleService.getArticleCheckCount(title));

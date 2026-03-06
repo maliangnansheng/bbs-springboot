@@ -23,11 +23,10 @@ import com.liang.nansheng.common.enums.ResponseCode;
 import com.liang.nansheng.common.utils.CommonUtils;
 import com.liang.nansheng.common.web.basic.ResponseResult;
 import com.liang.nansheng.common.web.exception.BusinessException;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.dubbo.config.annotation.DubboReference;
-import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -41,7 +40,7 @@ import java.io.IOException;
 @Slf4j
 @RestController
 @RequestMapping("/bbs/user/")
-@Api(tags = "用户接口")
+@Tag(name = "用户接口")
 public class UserController {
     @DubboReference
     private UserLevelService userLevelService;
@@ -65,7 +64,7 @@ public class UserController {
     private FileLengthUtils fileLengthUtils;
 
     @GetMapping("getCurrentUserRights")
-    @ApiOperation(value = "获取当前用户权限")
+    @Operation(summary = "获取当前用户权限")
     @ApiVersion(group = ApiVersionConstant.V_300)
     public ResponseResult<UserRightsDTO> getCurrentUserRights() {
         UserSsoDTO currentUser = UserContextUtils.currentUser();
@@ -74,7 +73,7 @@ public class UserController {
 
     @NoNeedLogin
     @GetMapping("getFollowUsers")
-    @ApiOperation(value = "获取关注的用户信息")
+    @Operation(summary = "获取关注的用户信息")
     @ApiVersion(group = ApiVersionConstant.V_300)
     public ResponseResult<PageInfo<FollowDTO>> getFollowUsers(FollowSearchDTO followSearchDTO) {
         UserSsoDTO currentUser = UserContextUtils.currentUser();
@@ -82,7 +81,7 @@ public class UserController {
     }
 
     @GetMapping("updateFollowState")
-    @ApiOperation(value = "更新关注状态")
+    @Operation(summary = "更新关注状态")
     @ApiVersion(group = ApiVersionConstant.V_300)
     public ResponseResult<Boolean> updateFollowState(@RequestParam Long toUser) {
         UserSsoDTO currentUser = UserContextUtils.currentUser();
@@ -90,7 +89,7 @@ public class UserController {
     }
 
     @GetMapping("updateLikeState")
-    @ApiOperation(value = "更新点赞状态")
+    @Operation(summary = "更新点赞状态")
     @ApiVersion(group = ApiVersionConstant.V_300)
     public ResponseResult<Boolean> updateLikeState(@RequestParam Integer articleId) {
         UserSsoDTO currentUser = UserContextUtils.currentUser();
@@ -98,7 +97,7 @@ public class UserController {
     }
 
     @GetMapping("updateLikeCommentState")
-    @ApiOperation(value = "更新评论点赞状态")
+    @Operation(summary = "更新评论点赞状态")
     @ApiVersion(group = ApiVersionConstant.V_300)
     public ResponseResult<Boolean> updateLikeCommentState(@RequestParam Integer commentId) {
         UserSsoDTO currentUser = UserContextUtils.currentUser();
@@ -107,7 +106,7 @@ public class UserController {
 
     @NoNeedLogin
     @GetMapping("getHotAuthorsList")
-    @ApiOperation(value = "获取热门作者列表")
+    @Operation(summary = "获取热门作者列表")
     @ApiVersion(group = ApiVersionConstant.V_300)
     public ResponseResult<PageInfo<UserForumDTO>> getHotAuthorsList(UserSearchDTO userSearchDTO) {
         UserSsoDTO currentUser = UserContextUtils.currentUser();
@@ -116,7 +115,7 @@ public class UserController {
 
     @NoNeedLogin
     @GetMapping("getUserInfo")
-    @ApiOperation(value = "获取用户信息")
+    @Operation(summary = "获取用户信息")
     @ApiVersion(group = ApiVersionConstant.V_300)
     public ResponseResult<UserForumDTO> getUserInfo(@RequestParam Long userId) {
         UserSsoDTO currentUser = UserContextUtils.currentUser();
@@ -125,14 +124,14 @@ public class UserController {
 
     @NoNeedLogin
     @GetMapping("getFollowCount")
-    @ApiOperation(value = "获取关注/粉丝数量")
+    @Operation(summary = "获取关注/粉丝数量")
     @ApiVersion(group = ApiVersionConstant.V_300)
     public ResponseResult<FollowCountDTO> getFollowCount(@RequestParam Long userId) {
         return ResponseResult.success(followService.getFollowCount(userId));
     }
 
     @PostMapping("uploadUserPicture")
-    @ApiOperation(value = "上传用户头像（更新）")
+    @Operation(summary = "上传用户头像（更新）")
     @ApiVersion(group = ApiVersionConstant.V_300)
     public ResponseResult<Boolean> uploadUserPicture(@RequestParam("picture") MultipartFile picture) throws IOException {
         if (fileLengthUtils.isFileNotTooBig(picture.getBytes())) {
@@ -145,7 +144,7 @@ public class UserController {
     }
 
     @PostMapping("updateUserBasicInfo")
-    @ApiOperation(value = "更新用户基本信息")
+    @Operation(summary = "更新用户基本信息")
     @ApiVersion(group = ApiVersionConstant.V_300)
     public ResponseResult<Boolean> updateUserBasicInfo(@RequestBody UserDTO userDTO) {
         UserSsoDTO currentUser = UserContextUtils.currentUser();
@@ -154,7 +153,7 @@ public class UserController {
 
     @NoNeedLogin
     @GetMapping("sendEmailVerifyCode")
-    @ApiOperation(value = "发送邮件验证码")
+    @Operation(summary = "发送邮件验证码")
     @ApiVersion(group = ApiVersionConstant.V_300)
     public ResponseResult<Boolean> sendEmailVerifyCode(@RequestParam String email) {
         UserSsoDTO currentUser = new UserSsoDTO();
@@ -169,7 +168,7 @@ public class UserController {
 
     @NoNeedLogin
     @GetMapping("sendSmsVerifyCode")
-    @ApiOperation(value = "发送短信验证码")
+    @Operation(summary = "发送短信验证码")
     @ApiVersion(group = ApiVersionConstant.V_300)
     public ResponseResult<Boolean> sendSmsVerifyCode(@RequestParam String phone) {
         UserSsoDTO currentUser = new UserSsoDTO();
@@ -183,7 +182,7 @@ public class UserController {
     }
 
     @PostMapping("bindEmail")
-    @ApiOperation(value = "绑定邮箱")
+    @Operation(summary = "绑定邮箱")
     @ApiVersion(group = ApiVersionConstant.V_300)
     public ResponseResult<Boolean> bindEmail(@RequestBody UserEmailDTO userEmailDTO) {
         UserSsoDTO currentUser = UserContextUtils.currentUser();
@@ -191,7 +190,7 @@ public class UserController {
     }
 
     @PostMapping("bindPhone")
-    @ApiOperation(value = "绑定手机")
+    @Operation(summary = "绑定手机")
     @ApiVersion(group = ApiVersionConstant.V_300)
     public ResponseResult<Boolean> bindPhone(@RequestBody UserEmailDTO userEmailDTO) {
         UserSsoDTO currentUser = UserContextUtils.currentUser();
@@ -199,7 +198,7 @@ public class UserController {
     }
 
     @PostMapping("untieEmail")
-    @ApiOperation(value = "解绑邮箱")
+    @Operation(summary = "解绑邮箱")
     @ApiVersion(group = ApiVersionConstant.V_300)
     public ResponseResult<Boolean> untieEmail() {
         UserSsoDTO currentUser = UserContextUtils.currentUser();
@@ -207,7 +206,7 @@ public class UserController {
     }
 
     @PostMapping("untiePhone")
-    @ApiOperation(value = "解绑手机")
+    @Operation(summary = "解绑手机")
     @ApiVersion(group = ApiVersionConstant.V_300)
     public ResponseResult<Boolean> untiePhone() {
         UserSsoDTO currentUser = UserContextUtils.currentUser();
@@ -215,7 +214,7 @@ public class UserController {
     }
 
     @PostMapping("updatePassword")
-    @ApiOperation(value = "更新密码")
+    @Operation(summary = "更新密码")
     @ApiVersion(group = ApiVersionConstant.V_300)
     public ResponseResult<Boolean> updatePassword(@RequestBody UserPasswordDTO passwordDTO) {
         UserSsoDTO currentUser = UserContextUtils.currentUser();
@@ -223,14 +222,14 @@ public class UserController {
     }
 
     @GetMapping("isValidEmail")
-    @ApiOperation(value = "邮箱判重")
+    @Operation(summary = "邮箱判重")
     @ApiVersion(group = ApiVersionConstant.V_300)
     public ResponseResult<Boolean> isValidEmail(@RequestParam String email) {
         return ResponseResult.success(userService.isValidEmail(email));
     }
 
     @GetMapping("isValidPhone")
-    @ApiOperation(value = "手机判重")
+    @Operation(summary = "手机判重")
     @ApiVersion(group = ApiVersionConstant.V_300)
     public ResponseResult<Boolean> isValidPhone(@RequestParam String phone) {
         return ResponseResult.success(userService.isValidPhone(phone));
@@ -238,7 +237,7 @@ public class UserController {
 
     @NoNeedLogin
     @GetMapping("isValidUser")
-    @ApiOperation(value = "用户判重")
+    @Operation(summary = "用户判重")
     @ApiVersion(group = ApiVersionConstant.V_300)
     public ResponseResult<Boolean> isValidUser(@RequestParam String username) {
         UserSsoDTO currentUser = UserContextUtils.currentUser();
@@ -247,7 +246,7 @@ public class UserController {
 
     @NoNeedLogin
     @PostMapping("isPhoneExist/{phone}")
-    @ApiOperation(value = "判断手机是否已经绑定")
+    @Operation(summary = "判断手机是否已经绑定")
     @ApiVersion(group = ApiVersionConstant.V_300)
     public ResponseResult<Boolean> isPhoneExist(@PathVariable String phone) {
         return ResponseResult.success(userService.isPhoneExist(phone));
@@ -255,7 +254,7 @@ public class UserController {
 
     @NoNeedLogin
     @PostMapping("isEmailExist/{email}")
-    @ApiOperation(value = "判断email是否已经绑定")
+    @Operation(summary = "判断email是否已经绑定")
     @ApiVersion(group = ApiVersionConstant.V_300)
     public ResponseResult<Boolean> isEmailExist(@PathVariable String email) {
         return ResponseResult.success(userService.isEmailExist(email));
@@ -263,7 +262,7 @@ public class UserController {
 
     @NoNeedLogin
     @PostMapping("phoneResetPassword")
-    @ApiOperation(value = "手机重置密码")
+    @Operation(summary = "手机重置密码")
     @ApiVersion(group = ApiVersionConstant.V_300)
     public ResponseResult<Boolean> phoneResetPassword(@RequestBody UserEmailDTO userEmailDTO) {
         return ResponseResult.success(userService.phoneResetPassword(userEmailDTO));
@@ -271,7 +270,7 @@ public class UserController {
 
     @NoNeedLogin
     @PostMapping("emailResetPassword")
-    @ApiOperation(value = "邮箱重置密码")
+    @Operation(summary = "邮箱重置密码")
     @ApiVersion(group = ApiVersionConstant.V_300)
     public ResponseResult<Boolean> emailResetPassword(@RequestBody UserEmailDTO userEmailDTO) {
         return ResponseResult.success(userService.emailResetPassword(userEmailDTO));
@@ -279,7 +278,7 @@ public class UserController {
 
     @NoNeedLogin
     @GetMapping("getUserOperateCount")
-    @ApiOperation(value = "获取用户操作数量（文章、关注、点赞等）")
+    @Operation(summary = "获取用户操作数量（文章、关注、点赞等）")
     @ApiVersion(group = ApiVersionConstant.V_300)
     public ResponseResult<UserOperateCountDTO> getUserOperateCount(@RequestParam Long userId,
                                                                    @RequestParam(required = false) ArticleStateEnum articleStateEnum) {

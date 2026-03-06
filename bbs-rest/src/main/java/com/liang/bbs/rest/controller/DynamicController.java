@@ -7,11 +7,10 @@ import com.liang.bbs.rest.config.swagger.ApiVersionConstant;
 import com.liang.bbs.user.facade.dto.DynamicDTO;
 import com.liang.bbs.user.facade.server.DynamicService;
 import com.liang.nansheng.common.web.basic.ResponseResult;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.dubbo.config.annotation.DubboReference;
-import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -24,14 +23,14 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 @RestController
 @RequestMapping("/bbs/dynamic/")
-@Api(tags = "动态接口")
+@Tag(name = "动态接口")
 public class DynamicController {
     @DubboReference
     private DynamicService dynamicService;
 
     @NoNeedLogin
     @GetMapping("getList")
-    @ApiOperation(value = "获取动态")
+    @Operation(summary = "获取动态")
     @ApiVersion(group = ApiVersionConstant.V_300)
     public ResponseResult<PageInfo<DynamicDTO>> getList(@RequestParam Long userId, @RequestParam Integer currentPage, @RequestParam Integer pageSize) {
         return ResponseResult.success(dynamicService.getByUserId(userId, currentPage, pageSize));
