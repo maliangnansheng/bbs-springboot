@@ -5,13 +5,13 @@
  Source Server Type    : MySQL
  Source Server Version : 80029
  Source Host           : 127.0.0.1:3306
- Source Schema         : ns_bbs
+ Source Schema         : open_bbs
 
  Target Server Type    : MySQL
  Target Server Version : 80029
  File Encoding         : 65001
 
- Date: 06/11/2024 22:27:46
+ Date: 06/03/2026 12:50:54
 */
 
 SET NAMES utf8mb4;

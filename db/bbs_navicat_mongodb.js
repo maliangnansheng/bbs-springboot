@@ -5,13 +5,13 @@
  Source Server Type    : MongoDB
  Source Server Version : 50009
  Source Host           : localhost:27017
- Source Schema         : ns_bbs
+ Source Schema         : open_bbs
 
  Target Server Type    : MongoDB
  Target Server Version : 50009
  File Encoding         : 65001
 
- Date: 11/10/2023 22:01:40
+ Date: 06/03/2026 12:52:03
 */
 
 

@@ -6,7 +6,7 @@ spring:
     name: ns-bbs-article
   datasource:
     # 数据库访问配置
-    url: jdbc:mysql://127.0.0.1:3306/ns_bbs?characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://127.0.0.1:3306/open_bbs?characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
     # mysql用户名（需要改成你自己的）
@@ -60,7 +60,7 @@ spring:
         min-idle: 1
   data:
     mongodb:
-      uri: mongodb://127.0.0.1:27017/ns_bbs
+      uri: mongodb://127.0.0.1:27017/open_bbs
 
 dubbo:
   application:

@@ -51,7 +51,7 @@
         </commentGenerator>
         <!-- 自定义注解-end -->
         <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
-                        connectionURL="jdbc:mysql://localhost:3306/ns_bbs?characterEncoding=UTF-8&amp;useSSL=false&amp;serverTimezone=Asia/Shanghai"
+                        connectionURL="jdbc:mysql://localhost:3306/open_bbs?characterEncoding=UTF-8&amp;useSSL=false&amp;serverTimezone=Asia/Shanghai"
                         userId="root"
                         password="777888">
         </jdbcConnection>
@@ -117,4 +117,4 @@
 <!--        </table>-->
 
     </context>
-</generatorConfiguration>  
+</generatorConfiguration>
