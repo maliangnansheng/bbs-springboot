@@ -8,6 +8,7 @@ import com.liang.nansheng.common.auth.UserSsoDTO;
 import com.liang.nansheng.common.constant.AuthSystemConstants;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.dubbo.config.annotation.DubboReference;
 import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.stereotype.Component;
@@ -30,7 +31,7 @@ import java.util.Objects;
 @Slf4j
 @Component
 public class LoginInterceptor implements HandlerInterceptor {
-    @Reference
+    @DubboReference
     private UserService userService;
 
     @Override

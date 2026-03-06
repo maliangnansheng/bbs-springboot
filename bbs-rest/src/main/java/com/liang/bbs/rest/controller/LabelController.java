@@ -17,6 +17,7 @@ import com.liang.nansheng.common.web.exception.BusinessException;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.dubbo.config.annotation.DubboReference;
 import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -33,7 +34,7 @@ import java.io.IOException;
 @RequestMapping("/bbs/label/")
 @Api(tags = "标签接口")
 public class LabelController {
-    @Reference
+    @DubboReference
     private LabelService labelService;
 
     @Autowired

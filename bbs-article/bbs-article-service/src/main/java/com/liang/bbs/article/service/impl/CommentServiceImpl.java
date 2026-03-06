@@ -22,6 +22,7 @@ import com.liang.nansheng.common.enums.ResponseCode;
 import com.liang.nansheng.common.web.exception.BusinessException;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
+import org.apache.dubbo.config.annotation.DubboReference;
 import org.apache.dubbo.config.annotation.Reference;
 import org.apache.dubbo.config.annotation.Service;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,13 +52,13 @@ public class CommentServiceImpl implements CommentService {
     @Autowired
     private CommentService commentService;
 
-    @Reference
+    @DubboReference
     private UserService userService;
 
-    @Reference
+    @DubboReference
     private UserLevelService userLevelService;
 
-    @Reference
+    @DubboReference
     private LikeCommentService likeCommentService;
 
     /**

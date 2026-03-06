@@ -6,6 +6,7 @@ import com.liang.nansheng.common.auth.UserContextUtils;
 import com.liang.nansheng.common.auth.UserSsoDTO;
 import com.liang.nansheng.common.constant.HeaderConstants;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.dubbo.config.annotation.DubboReference;
 import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -22,7 +23,7 @@ import javax.servlet.http.HttpServletResponse;
 @Slf4j
 @Component
 public class UserPictureInterceptor implements HandlerInterceptor {
-    @Reference
+    @DubboReference
     UserService userService;
 
     @Override

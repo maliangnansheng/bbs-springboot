@@ -5,6 +5,7 @@ import com.liang.manage.auth.facade.dto.visit.VisitDTO;
 import com.liang.manage.auth.facade.server.VisitService;
 import com.liang.nansheng.common.enums.ProjectEnum;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.dubbo.config.annotation.DubboReference;
 import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -21,7 +22,7 @@ import javax.servlet.http.HttpServletResponse;
 @Slf4j
 @Component
 public class VisitInterceptor implements HandlerInterceptor {
-    @Reference
+    @DubboReference
     VisitService visitService;
 
     @Override

@@ -10,6 +10,11 @@ spring:
     multipart:
       max-file-size: 100MB
       max-request-size: 1000MB
+  mvc:
+    pathmatch:
+      # 解决Spring Boot 2.6.x高版本 和 Swagger 3.0.0 整合异常的问题
+      matching-strategy: ant_path_matcher
+
   redis:
     host: 139.9.78.65
     port: 6222

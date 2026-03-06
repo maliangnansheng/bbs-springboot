@@ -4,6 +4,9 @@ server:
 spring:
   application:
     name: ns-bbs-user
+  main:
+    # 允许类之间的循环引用（springboot2.6版本默认不支持循环依赖了）
+    allow-circular-references: true
   datasource:
     # 数据库访问配置
     url: jdbc:mysql://127.0.0.1:3306/open_bbs?characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai

@@ -18,6 +18,7 @@ import com.liang.nansheng.common.enums.ResponseCode;
 import com.liang.nansheng.common.web.exception.BusinessException;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
+import org.apache.dubbo.config.annotation.DubboReference;
 import org.apache.dubbo.config.annotation.Reference;
 import org.apache.dubbo.config.annotation.Service;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,7 +42,7 @@ public class LikeServiceImpl implements LikeService {
     @Autowired
     private LikePoExMapper likePoExMapper;
 
-    @Reference
+    @DubboReference
     private ArticleService articleService;
 
     /**

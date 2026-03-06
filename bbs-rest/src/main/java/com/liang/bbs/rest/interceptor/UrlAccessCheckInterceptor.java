@@ -7,6 +7,7 @@ import com.liang.nansheng.common.auth.UserSsoDTO;
 import com.liang.nansheng.common.enums.ResponseCode;
 import com.liang.nansheng.common.web.exception.BusinessException;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.dubbo.config.annotation.DubboReference;
 import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -24,7 +25,7 @@ import javax.servlet.http.HttpServletResponse;
 @Slf4j
 @Component
 public class UrlAccessCheckInterceptor implements HandlerInterceptor {
-    @Reference
+    @DubboReference
     UrlAccessRightService urlAccessRightService;
 
     @Override

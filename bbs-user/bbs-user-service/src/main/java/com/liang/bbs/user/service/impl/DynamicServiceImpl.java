@@ -26,6 +26,7 @@ import com.liang.nansheng.common.utils.CommonUtils;
 import com.liang.nansheng.common.web.exception.BusinessException;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
+import org.apache.dubbo.config.annotation.DubboReference;
 import org.apache.dubbo.config.annotation.Reference;
 import org.apache.dubbo.config.annotation.Service;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,13 +48,13 @@ public class DynamicServiceImpl implements DynamicService {
     @Autowired
     private DynamicPoMapper dynamicPoMapper;
 
-    @Reference
+    @DubboReference
     private ArticleService articleService;
 
-    @Reference
+    @DubboReference
     private CommentService commentService;
 
-    @Reference
+    @DubboReference
     private UserService userService;
 
     @Autowired

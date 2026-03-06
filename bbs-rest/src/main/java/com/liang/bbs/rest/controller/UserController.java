@@ -26,6 +26,7 @@ import com.liang.nansheng.common.web.exception.BusinessException;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.dubbo.config.annotation.DubboReference;
 import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -42,22 +43,22 @@ import java.io.IOException;
 @RequestMapping("/bbs/user/")
 @Api(tags = "用户接口")
 public class UserController {
-    @Reference
+    @DubboReference
     private UserLevelService userLevelService;
 
-    @Reference
+    @DubboReference
     private FollowService followService;
 
-    @Reference
+    @DubboReference
     private LikeService likeService;
 
-    @Reference
+    @DubboReference
     private LikeCommentService likeCommentService;
 
-    @Reference
+    @DubboReference
     private UserService userService;
 
-    @Reference
+    @DubboReference
     private ArticleService articleService;
 
     @Autowired

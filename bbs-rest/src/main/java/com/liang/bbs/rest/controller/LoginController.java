@@ -17,6 +17,7 @@ import com.liang.nansheng.common.web.exception.BusinessException;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.dubbo.config.annotation.DubboReference;
 import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseCookie;
@@ -37,10 +38,10 @@ import javax.validation.Valid;
 @Api(tags = "用户统一登录接口")
 @CrossOrigin(origins = "*")
 public class LoginController {
-    @Reference
+    @DubboReference
     private UserService userService;
 
-    @Reference
+    @DubboReference
     private UserLevelService userLevelService;
 
     @Value("${cookie.domain}")

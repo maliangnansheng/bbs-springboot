@@ -9,6 +9,7 @@ import com.liang.nansheng.common.web.basic.ResponseResult;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.dubbo.config.annotation.DubboReference;
 import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,7 +26,7 @@ import java.util.List;
 @RequestMapping("/bbs/carousel/")
 @Api(tags = "轮播图接口")
 public class SlideshowController {
-    @Reference
+    @DubboReference
     private SlideshowService slideshowService;
 
     @NoNeedLogin

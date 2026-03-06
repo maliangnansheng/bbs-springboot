@@ -21,6 +21,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
+import org.apache.dubbo.config.annotation.DubboReference;
 import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -40,7 +41,7 @@ import java.util.stream.Collectors;
 @RequestMapping("/bbs/article/")
 @Api(tags = "文章接口")
 public class ArticleController {
-    @Reference
+    @DubboReference
     private ArticleService articleService;
 
     @Autowired

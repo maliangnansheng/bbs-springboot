@@ -17,6 +17,7 @@ import com.liang.nansheng.common.enums.ResponseCode;
 import com.liang.nansheng.common.web.exception.BusinessException;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.dubbo.config.annotation.DubboReference;
 import org.apache.dubbo.config.annotation.Reference;
 import org.apache.dubbo.config.annotation.Service;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,7 +40,7 @@ public class LabelServiceImpl implements LabelService {
     @Autowired
     private ArticleLabelService articleLabelService;
 
-    @Reference
+    @DubboReference
     private FileService fileService;
 
     /**
