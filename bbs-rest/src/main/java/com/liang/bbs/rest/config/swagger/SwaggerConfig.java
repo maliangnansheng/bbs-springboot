@@ -22,7 +22,7 @@ public class SwaggerConfig {
     public OpenAPI openAPI() {
         return new OpenAPI()
                 .info(new Info()
-                        .title("南生论坛 Restful API 文档")
+                        .title("南生论坛（开源版/个人版） Restful API 文档")
                         .version(ApiVersionConstant.V_LATEST)
                         .description("南生论坛，是南生系列元老级系统，也是梦开始的地方！")
                         .contact(new Contact().name("马亮南生")

@@ -25,8 +25,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseCookie;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
-
 /**
  * @author maliangnansheng
  * @date 2021/4/25 15:16
@@ -50,7 +48,7 @@ public class LoginController {
     @PostMapping("register")
     @Operation(summary = "用户注册")
     @ApiVersion(group = ApiVersionConstant.V_300)
-    public ResponseResult<UserTokenDTO> register(@Valid @RequestBody UserDTO userDTO, HttpServletResponse response) {
+    public ResponseResult<UserTokenDTO> register(@RequestBody UserDTO userDTO, HttpServletResponse response) {
         UserTokenDTO userTokenDTO = userService.register(userDTO);
         // 增加cookie
         addCookie(userTokenDTO.getToken(), response);

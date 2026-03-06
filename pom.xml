@@ -27,10 +27,11 @@
         <revision>3.0.0-SNAPSHOT</revision>
 
         <!-- 南生系列版本号 -->
-        <nansheng-common.version>3.3.4-one</nansheng-common.version>
+        <nansheng-common.version>3.5.11-open-1.1.0</nansheng-common.version>
 
         <!-- 三方jar包版本依赖 -->
         <knife4j-openapi3-jakarta-spring-boot-starter.version>4.5.0</knife4j-openapi3-jakarta-spring-boot-starter.version>
+        <springdoc-openapi-starter-webmvc-ui.version>2.8.0</springdoc-openapi-starter-webmvc-ui.version>
         <pagehelper-spring-boot-starter.version>2.1.0</pagehelper-spring-boot-starter.version>
         <mysql-connector-j.version>9.6.0</mysql-connector-j.version>
         <druid-spring-boot-starter.version>1.2.24</druid-spring-boot-starter.version>
@@ -48,14 +49,13 @@
         <commons-pool2.version>2.11.1</commons-pool2.version>
         <commons.collections4.version>4.4</commons.collections4.version>
         <redisson.version>3.42.0</redisson.version>
-        <spring-boot-starter-data-redis.version>2.7.18</spring-boot-starter-data-redis.version>
+        <spring-boot-starter-data-redis.version>3.5.11</spring-boot-starter-data-redis.version>
         <springloaded.version>1.2.6.RELEASE</springloaded.version>
         <apache-httpclient5.version>5.4.2</apache-httpclient5.version>
         <maven-assembly-plugin.version>3.3.0</maven-assembly-plugin.version>
         <spring-boot-starter-data-mongodb.version>3.5.11</spring-boot-starter-data-mongodb.version>
-        <validation-api.version>2.0.1.Final</validation-api.version>
         <java-jwt.version>3.15.0</java-jwt.version>
-        <shiro-spring.version>1.7.1</shiro-spring.version>
+        <shiro-spring.version>3.0.0-alpha-1</shiro-spring.version>
         <transmittable-thread-local.version>2.14.5</transmittable-thread-local.version>
         <hutool-all.version>5.6.3</hutool-all.version>
         <thumbnailator.version>0.4.14</thumbnailator.version>
@@ -148,6 +148,13 @@
                 <artifactId>knife4j-openapi3-jakarta-spring-boot-starter</artifactId>
                 <version>${knife4j-openapi3-jakarta-spring-boot-starter.version}</version>
             </dependency>
+            <!-- 强制指定 springdoc-openapi 版本，覆盖 Knife4j 内置的旧版本 -->
+            <dependency>
+                <groupId>org.springdoc</groupId>
+                <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+                <version>${springdoc-openapi-starter-webmvc-ui.version}</version>
+            </dependency>
+            <!-- 生成API接口文档-end -->
 
             <!-- mysql、druid、mybatis -->
             <dependency>
@@ -233,11 +240,6 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-assembly-plugin</artifactId>
                 <version>${maven-assembly-plugin.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>javax.validation</groupId>
-                <artifactId>validation-api</artifactId>
-                <version>${validation-api.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.auth0</groupId>
