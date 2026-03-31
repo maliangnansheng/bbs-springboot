@@ -40,7 +40,7 @@
 
 ## 项目架构
 
-![](https://76.nansin.top/github/ns-jiagou2.png)
+![](https://76.nansin.top/github/ns-jiagou2026.png)
 
 ## 关于项目
 
