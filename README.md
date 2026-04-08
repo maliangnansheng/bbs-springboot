@@ -47,10 +47,7 @@
 
 ## 技术栈
 
-- **后端：**
-  程序架构：[SpringBoot](https://spring.io/projects/spring-boot)、RPC：[Dubbo](https://cn.dubbo.apache.org/zh-cn/overview/what/)、注册中心：[Zookeeper](https://zookeeper.apache.org/)、消息队列：[RocketMQ](https://rocketmq.apache.org/zh/)、缓存：[Redis](https://redis.io/)、持久层框架：[MyBatis](https://mybatis.org/mybatis-3/zh_CN/index.html)、数据库：[MySQL](https://www.mysql.com/)、大数据存储：[MongoDB](https://www.mongodb.com/zh-cn)、实时交互：[WebSocket](https://websocket.org/)、权限管理：[Shiro](https://shiro.apache.org/)、对象存储：[七牛云](https://www.qiniu.com/) 等
-- **前端：**
-  前端框架：[Vue](https://vuejs.org/)、HTTP客户端：[Axios](https://axios-http.com/)、路由管理：[Vue Router](https://router.vuejs.org/)、UI组件库：[Ant Design of Vue](https://www.antdv.com/docs/vue/introduce-cn/)、打包工具：[Webpack](https://webpack.js.org/)、CSS预处理器：[Less](http://lesscss.org/)、状态管理：[Vuex](https://vuex.vuejs.org/)、JavaScript版本：[ES6](https://es6.ruanyifeng.com/)、服务端语言：[Node.js](https://nodejs.org/)、Markdown编辑器：[mavonEditor](https://github.com/hinesboy/mavonEditor)、富文本编辑器：[wangEditor](https://github.com/wangeditor-team/wangeditor)、数据可视化：[ECharts](https://echarts.apache.org/) 等
+[前后端技术栈选择](https://bbs.nansin.top/detail/641)
 
 ## 为什么做这个项目？
 - 企业一般都需要一个内部社区供开发者学习、分享、交流（本项目参考了稀土掘金、哔哩哔哩等部分功能）。
