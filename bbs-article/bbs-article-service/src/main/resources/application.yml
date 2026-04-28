@@ -104,3 +104,7 @@ file:
     # 设定上传源文件允许的最大值（1024*1024*5=5M）
     length: 5242880
 
+cookie:
+  # cookie写在对应的域名下
+  domain: nansin.top
+

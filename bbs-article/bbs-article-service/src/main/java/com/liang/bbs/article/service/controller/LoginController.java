@@ -39,6 +39,9 @@ public class LoginController {
     @Reference
     private UserService userService;
 
+    @Value("${cookie.domain}")
+    private String domain;
+
     @NoNeedLogin
     @PostMapping("register")
     @ApiOperation(value = "用户注册")
@@ -88,12 +91,10 @@ public class LoginController {
      * @param response
      */
     private void addCookie(String token, HttpServletRequest request, HttpServletResponse response) {
-        String host = request.getHeader("Host");
-        host = host.substring(0, host.indexOf(":"));
         // 设置Cookie, 业务方可自行设置Cookie的name值
         ResponseCookie cookie = ResponseCookie.from(AuthSystemConstants.NS_ACCOUNT_SSO_COOKIE, token)
                 .maxAge(TimeoutConstants.NS_SSO_TIMEOUT)
-                .domain(host)
+                .domain(domain)
                 .path("/")
                 .httpOnly(true)
 //                .secure(true)
@@ -108,12 +109,10 @@ public class LoginController {
      * @param response
      */
     private void clearCookie(HttpServletRequest request, HttpServletResponse response) {
-        String host = request.getHeader("Host");
-        host = host.substring(0, host.indexOf(":"));
         // 设置Cookie, 业务方可自行设置Cookie的name值
         ResponseCookie cookie = ResponseCookie.from(AuthSystemConstants.NS_ACCOUNT_SSO_COOKIE, "")
                 .maxAge(0)
-                .domain(host)
+                .domain(domain)
                 .path("/")
                 .httpOnly(true)
 //                .secure(true)
