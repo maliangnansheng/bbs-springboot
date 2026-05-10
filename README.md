@@ -34,16 +34,16 @@
 
 视频教程：[https://www.bilibili.com/video/BV1ThYQzfEvR](https://www.bilibili.com/video/BV1ThYQzfEvR)
 
-文档教程：[01 南生运营（南生系列基础系统）的设计理念](https://bbs.nansin.top/detail/171)、 [02 10分钟搞懂南生论坛](https://bbs.nansin.top/detail/369)、 [03 如何进行南生论坛管理维护？](https://bbs.nansin.top/detail/679)、 [04 南生运营功能介绍](https://bbs.nansin.top/detail/521)、 [05 如何获取南生论坛设计文档？](https://bbs.nansin.top/detail/76)、 [06 南生论坛日常迭代（开源计划）](https://bbs.nansin.top/detail/122)
+文档教程：[01 南生运营（南生系列基础系统）的设计理念](https://bbs.nansin.top/detail/171)、 [02 10分钟搞懂南生论坛](https://bbs.nansin.top/detail/369)、 [03 如何进行南生论坛管理维护？](https://bbs.nansin.top/detail/679)、 [04 南生运营功能介绍](https://bbs.nansin.top/detail/521)、 [05 如何获取南生论坛设计文档？](https://bbs.nansin.top/detail/76)、 [06 南生论坛更新日志（开源计划）](https://bbs.nansin.top/detail/122)
 
 ## 项目架构
 
-![](https://76.nansin.top/github/ns-jiagou2026.png)
+![](https://76.nansin.top/github/ns-jiagou2.png)
 
 ## 关于项目
 
 - 多种技术方案可供选择：[「SpringBoot2 / SpringBoot3 / Spring Cloud Alibaba」与「Vue2 + Antd / Vue3 + Element Plus」](https://bbs.nansin.top/detail/641)
-- 分为[用户系统（南生论坛）](https://bbs.nansin.top)和[管理系统（南生运营）](https://manage.nansin.top)两部分
+- 分为 [南生论坛](https://bbs.nansin.top) 和 [南生运营（权限管理）](https://manage.nansin.top) 两部分
 - 大厂微服务架构，仿掘金风格，前后端分离，多端适配，界面优雅，功能全面，性能高效
 
 ## 技术栈
@@ -91,7 +91,7 @@
 
 ## 静态展示
 
-> 这里只浅展示部分效果，完整体验去官网：[https://bbs.nansin.top](https://bbs.nansin.top)
+> 这里只浅展示部分效果，完整体验去 **商业版演示系统**：[https://bbs-corp.nansin.top/](https://bbs-corp.nansin.top/)
 
 ### 用户系统
 
