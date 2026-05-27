@@ -68,6 +68,8 @@ spring:
 dubbo:
   application:
     name: ns-bbs-article
+    # 关闭序列化安全检查（可选值：STRICT / WARN / DISABLE）
+    serialize-check-status: DISABLE
   registry:
     address: zookeeper://139.9.78.65:2181
     timeout: 60000
