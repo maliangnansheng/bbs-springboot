@@ -95,83 +95,78 @@
 
 ### 用户系统
 
-- **论坛管理（`管理员权限`）**
+- **论坛管理**
 
-  ![image](https://76.nansin.top/github/bbs-manage.png)
+  ![image](https://76.nansin.top/github/bbs/bbs-manage.png)
   
 - **文章**
 
-  ![image](https://76.nansin.top/github/bbs-article.png)
+  ![image](https://76.nansin.top/github/bbs/bbs-article.png)
 
 - **问答**
 
-  ![image](https://76.nansin.top/github/bbs-issue.png)
+  ![image](https://76.nansin.top/github/bbs/bbs-issue.png)
 
 - **话题**
 
-  ![image](https://76.nansin.top/github/bbs-topic.png)
-
-- **文章详情**
-
-  ![image](https://76.nansin.top/github/ns-bbs-article.png)
+  ![image](https://76.nansin.top/github/bbs/bbs-topic.png)
 
 - **积分系统**
 
-  ![](https://76.nansin.top/github/points_system.png)
+  ![](https://76.nansin.top/github/bbs/points_system.png)
 
-- **私信**
+- **消息通知**
 
-  ![image](https://76.nansin.top/github/bbs_chat.png)
+  ![image](https://76.nansin.top/github/bbs/message_notification.png)
+
+- **创作中心**
+
+  ![image](https://76.nansin.top/github/bbs/creative_center.png)
 
 - **个人主页**
 
-  ![image](https://76.nansin.top/github/ns-bbs-homepage.png)
-
-- **个人资料**
-
-  ![](https://76.nansin.top/github/ns-bbs-personalinfo2.png)
+  ![image](https://76.nansin.top/github/bbs/ns-bbs-homepage.png)
 
 - **切换主题**
 
-  ![](https://76.nansin.top/github/ns-bbs-theme.png)
+  ![](https://76.nansin.top/github/bbs/ns-bbs-theme.png)
+
+  完整体验去 **商业版演示系统**：[https://bbs-corp.nansin.top/](https://bbs-corp.nansin.top/)
 
 
 ### 管理系统
 
 - **仪表盘**
 
-  ![](https://76.nansin.top/github/ns-manage-dashboard2.png)
+  ![](https://76.nansin.top/github/manage/dashboard.png)
 
-- **权限管理**
+- **组织架构**
 
-  ![](https://76.nansin.top/github/ns-manage-permissions.png)
+  ![](https://76.nansin.top/github/manage/organizational_structure.png)
   
+- **系统管理**
+
+  ![](https://76.nansin.top/github/manage/system_management.png)
+
 - **角色管理**
 
-  ![](https://76.nansin.top/github/ns-manage-role3.png)
+  ![](https://76.nansin.top/github/manage/role_management.png)
+
+- **菜单配置**
+
+  ![](https://76.nansin.top/github/manage/menu_configuration.png)
 
 - **用户管理**
 
-  ![](https://76.nansin.top/github/ns-manage-user2.png)
+  ![](https://76.nansin.top/github/manage/user_management.png)
 
-- **反馈管理**
+- **访问记录**
 
-  ![](https://76.nansin.top/github/ns-manage-feedback.png)
+  ![](https://76.nansin.top/github/manage/access_log.png)
 
-- **通知管理**
-
-  ![](https://76.nansin.top/github/ns-manage-notify.png)
+  完整体验去 **商业版演示系统**：[https://bbs-corp.nansin.top/](https://bbs-corp.nansin.top/)
+  
 
 ## 桌面应用
 
-### Windows
-> Windows桌面应用效果图
-
 ![](https://76.nansin.top/logo/zmxt.png)
-
-下载地址：[https://76.nansin.top/app/ns-bbs.msi](https://76.nansin.top/app/ns-bbs.msi)
-
-### Mac
-> 作者没有苹果电脑，同学们自行下载安装体验
-
-下载地址：[https://76.nansin.top/app/ns-bbs.dmg](https://76.nansin.top/app/ns-bbs.dmg)
