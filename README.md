@@ -36,16 +36,6 @@
 
 文档教程：[01 南生运营（南生系列基础系统）的设计理念](https://bbs.nansin.top/detail/171)、 [02 10分钟搞懂南生论坛](https://bbs.nansin.top/detail/369)、 [03 如何进行南生论坛管理维护？](https://bbs.nansin.top/detail/679)、 [04 南生运营功能介绍](https://bbs.nansin.top/detail/521)、 [05 如何获取南生论坛设计文档？](https://bbs.nansin.top/detail/76)、 [06 南生论坛更新日志（开源计划）](https://bbs.nansin.top/detail/122)
 
-## Star History
-
-<a href="https://www.star-history.com/?repos=maliangnansheng%2Fbbs-springboot&type=date&legend=top-left">
- <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=maliangnansheng/bbs-springboot&type=date&theme=dark&legend=top-left" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=maliangnansheng/bbs-springboot&type=date&legend=top-left" />
-   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=maliangnansheng/bbs-springboot&type=date&legend=top-left" />
- </picture>
-</a>
-
 ## 项目架构
 
 ![](https://76.nansin.top/github/ns-jiagou2.png)
