@@ -63,14 +63,8 @@ public class LoginInterceptor implements HandlerInterceptor {
 
         // 获取用户信息失败，跳转登录页面
         if (currentUser == null) {
-            // 获取当前页面地址
-            String referer = request.getHeader("referer");
-            if (referer.contains("?")) {
-                referer = referer.substring(0, referer.indexOf("?"));
-            }
-            String redirect = userService.innerLoginUrl(referer);
-            log.info("登录跳转[{}]", redirect);
-            HttpRequestUtils.redirect(request, response, redirect);
+            HttpRequestUtils.redirect(request, response, "登录跳转地址");
+            log.info("还未登陆，请先登录!");
             return false;
         }
         return true;
