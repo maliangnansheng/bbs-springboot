@@ -3,6 +3,7 @@ package com.liang.bbs.rest.controller;
 import com.liang.bbs.rest.config.login.NoNeedLogin;
 import com.liang.bbs.rest.config.swagger.ApiVersion;
 import com.liang.bbs.rest.config.swagger.ApiVersionConstant;
+import com.liang.bbs.rest.utils.HostUtils;
 import com.liang.bbs.rest.utils.HttpRequestUtils;
 import com.liang.bbs.user.facade.server.UserLevelService;
 import com.liang.manage.auth.facade.dto.user.UserDTO;
@@ -18,8 +19,6 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.dubbo.config.annotation.DubboReference;
-import org.apache.dubbo.config.annotation.Reference;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseCookie;
 import org.springframework.web.bind.annotation.*;
 
@@ -44,17 +43,14 @@ public class LoginController {
     @DubboReference
     private UserLevelService userLevelService;
 
-    @Value("${cookie.domain}")
-    private String domain;
-
     @NoNeedLogin
     @PostMapping("register")
     @ApiOperation(value = "用户注册")
     @ApiVersion(group = ApiVersionConstant.V_300)
-    public ResponseResult<UserTokenDTO> register(@Valid @RequestBody UserDTO userDTO, HttpServletResponse response) {
+    public ResponseResult<UserTokenDTO> register(@Valid @RequestBody UserDTO userDTO, HttpServletRequest request, HttpServletResponse response) {
         UserTokenDTO userTokenDTO = userService.register(userDTO);
         // 增加cookie
-        addCookie(userTokenDTO.getToken(), response);
+        addCookie(userTokenDTO.getToken(), request, response);
         // 创建用户等级信息
         userLevelService.create(userTokenDTO.getUserId());
         return ResponseResult.success(userTokenDTO);
@@ -64,10 +60,10 @@ public class LoginController {
     @PostMapping("login")
     @ApiOperation(value = "用户登录")
     @ApiVersion(group = ApiVersionConstant.V_300)
-    public ResponseResult<UserTokenDTO> login(@RequestBody UserLoginDTO userLoginDTO, HttpServletResponse response) {
+    public ResponseResult<UserTokenDTO> login(@RequestBody UserLoginDTO userLoginDTO, HttpServletRequest request, HttpServletResponse response) {
         UserTokenDTO userTokenDTO = userService.login(userLoginDTO);
         // 增加cookie
-        addCookie(userTokenDTO.getToken(), response);
+        addCookie(userTokenDTO.getToken(), request, response);
         return ResponseResult.success(userTokenDTO);
     }
 
@@ -83,7 +79,7 @@ public class LoginController {
                 userService.logout(ssoAccount.getValue());
             }
             // 删除cookie
-            clearCookie(response);
+            clearCookie(request, response);
         } catch (Exception e) {
             throw BusinessException.build(ResponseCode.OPERATE_FAIL, "退出登录失败!");
         }
@@ -97,15 +93,13 @@ public class LoginController {
      * @param token
      * @param response
      */
-    private void addCookie(String token, HttpServletResponse response) {
+    private void addCookie(String token, HttpServletRequest request, HttpServletResponse response) {
         // 设置Cookie, 业务方可自行设置Cookie的name值
         ResponseCookie cookie = ResponseCookie.from(AuthSystemConstants.NS_ACCOUNT_SSO_COOKIE, token)
                 .maxAge(TimeoutConstants.NS_SSO_TIMEOUT)
-                .domain(domain)
+                .domain(HostUtils.getPureHost(request))
                 .path("/")
                 .httpOnly(true)
-//                .secure(true)
-//                .sameSite("None")
                 .build();
         response.addHeader("Set-Cookie", cookie.toString());
     }
@@ -115,15 +109,13 @@ public class LoginController {
      *
      * @param response
      */
-    private void clearCookie(HttpServletResponse response) {
+    private void clearCookie(HttpServletRequest request, HttpServletResponse response) {
         // 设置Cookie, 业务方可自行设置Cookie的name值
         ResponseCookie cookie = ResponseCookie.from(AuthSystemConstants.NS_ACCOUNT_SSO_COOKIE, "")
                 .maxAge(0)
-                .domain(domain)
+                .domain(HostUtils.getPureHost(request))
                 .path("/")
                 .httpOnly(true)
-//                .secure(true)
-//                .sameSite("None")
                 .build();
         response.addHeader("Set-Cookie", cookie.toString());
     }
