@@ -32,6 +32,11 @@ dubbo:
     name: ns-bbs-rest
     # 关闭序列化安全检查（可选值：STRICT / WARN / DISABLE）
     serialize-check-status: DISABLE
+    # 强制使用接口级注册，禁用应用级服务发现
+    register-mode: interface
+    parameters:
+      # 强制接口级，跳过服务发现
+      migration.step: FORCE_INTERFACE
   registry:
     address: zookeeper://47.109.0.224:2181
     timeout: 60000
