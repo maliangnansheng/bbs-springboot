@@ -93,6 +93,11 @@
 
 > 这里只浅展示部分效果，完整体验去 **商业版演示系统**：[https://bbs-corp.nansin.top/](https://bbs-corp.nansin.top/)
 
+### 小程序
+
+<img width="258" height="258" alt="小程序8cm" src="https://github.com/user-attachments/assets/2f989ef2-141e-4d71-90f6-edaafae367d0" />
+
+
 ### 用户系统
 
 - **论坛管理**
