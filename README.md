@@ -101,9 +101,11 @@
 
 [下载南生论坛Android版](https://gitee.com/maliangnansheng/bbs-springboot/releases/download/v3.0.0-android/NanSing-Forum-3.0.0.apk)
 
-### 桌面应用-Windows
+### 桌面应用
 
-[下载南生论坛桌面应用 - Windows](https://gitee.com/maliangnansheng/bbs-springboot/releases/download/v3.0.0/NanSing-Forum-3.0.0.exe)
+[下载南生论坛桌面应用 - Windows版](https://gitee.com/maliangnansheng/bbs-springboot/releases/download/v3.0.0/NanSing-Forum-3.0.0.exe)
+
+[下载南生论坛桌面应用 - macOS版](https://gitee.com/maliangnansheng/bbs-springboot/releases/download/v3.0.0-mac/NanSing-Forum-3.0.0-arm64.dmg)
 
 <img width="1920" height="1032" alt="desktop" src="https://76.nansin.top/github/apps/desktop.png" />
 
