@@ -95,14 +95,17 @@
 
 ### 小程序
 
-<img width="258" height="258" alt="小程序8cm" src="https://github.com/user-attachments/assets/2f989ef2-141e-4d71-90f6-edaafae367d0" />
+<img width="258" height="258" alt="小程序8cm" src="https://76.nansin.top/github/apps/WeChat8cm.jpg" />
 
-### 桌面应用
+### Android版
+
+[下载南生论坛Android版](https://gitee.com/maliangnansheng/bbs-springboot/releases/download/v3.0.0-android/NanSing-Forum-3.0.0.apk)
+
+### 桌面应用-Windows
 
 [下载南生论坛桌面应用 - Windows](https://gitee.com/maliangnansheng/bbs-springboot/releases/download/v3.0.0/NanSing-Forum-3.0.0.exe)
 
-<img width="1920" height="1032" alt="desktop" src="https://github.com/user-attachments/assets/cc9b6dbc-ef70-4fc7-9012-578776c059bb" />
-
+<img width="1920" height="1032" alt="desktop" src="https://76.nansin.top/github/apps/desktop.png" />
 
 ### 用户系统
 
