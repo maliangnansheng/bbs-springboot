@@ -93,21 +93,11 @@
 
 > 这里只浅展示部分效果，完整体验去 **商业版演示系统**：[https://bbs-corp.nansin.top/](https://bbs-corp.nansin.top/)
 
-### 小程序
+### 微信小程序 | Windows版 | macOS版 | Android版
 
-<img width="258" height="258" alt="小程序8cm" src="https://76.nansin.top/github/apps/WeChat8cm.jpg" />
+[去下载Windows版 | macOS版 | Android版](https://www.nansin.top)
 
-### Android版
-
-[下载南生论坛Android版](https://gitee.com/maliangnansheng/bbs-springboot/releases/download/v3.0.0-android/NanSing-Forum-3.0.0.apk)
-
-### 桌面应用
-
-[下载南生论坛桌面应用 - Windows版](https://gitee.com/maliangnansheng/bbs-springboot/releases/download/v3.0.0/NanSing-Forum-3.0.0.exe)
-
-[下载南生论坛桌面应用 - macOS版](https://gitee.com/maliangnansheng/bbs-springboot/releases/download/v3.0.0-mac/NanSing-Forum-3.0.0-arm64.dmg)
-
-<img width="1920" height="1032" alt="desktop" src="https://76.nansin.top/github/apps/desktop.png" />
+![image](https://76.nansin.top/github/apps/nansing-www-wechat.png)
 
 ### 用户系统
 
