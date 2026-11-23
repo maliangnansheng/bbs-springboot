@@ -11,7 +11,7 @@
 > 本项目基于 AGPL 3.0 协议完全开源，使用此项目时请遵守开源协议，如果觉得不错麻烦帮忙点一次`Star⭐️`
 >
 > 个人学习使用不限制（公司使用或者商用需要 [**获取授权**](https://bbs.nansin.top/detail/600)）
-> 
+>
 > 加载太慢or图片加载不出来 [**点我**](https://bbs.nansin.top/detail/172)
 
 ## 仓库说明
@@ -22,7 +22,7 @@
 > 2. LTS-SpringBoot3 分支：维护基于 Spring Boot 3.x 系列（LTS长期支持版）的最新代码
 > 3. LTS-SpringBoot2 分支：维护基于 Spring Boot 2.x 系列（LTS长期支持版）的最新代码
 >
-> 对应的 **前端项目（Vue2 + Antd版本）** 仓库移步至：[bbs-vue-ui](https://github.com/maliangnansheng/bbs-vue-ui)
+> 对应的前端项目仓库移步至：[bbs-vue-ui](https://github.com/maliangnansheng/bbs-vue-ui)、[bbs-vue3-ui](https://github.com/maliangnansheng/bbs-vue3-ui)
 
 ## 部署效果
 
@@ -51,6 +51,7 @@
 [前后端技术栈选择](https://bbs.nansin.top/detail/641)
 
 ## 为什么做这个项目？
+
 - 企业一般都需要一个内部社区供开发者学习、分享、交流（本项目参考了稀土掘金、哔哩哔哩等部分功能）。
 - 市面上已有的开源社区大部分都是PHP语言的，Java开源的很少，SpringBoot/SpringCloud框架开发的几乎没有。大多数互联网公司内部开发语言都是Java，很多都是SpringBoot/SpringCloud开发框架，对于PHP开源的社区，无法很好的接入公司内部系统。
 - 现有的开源社区功能过于简单，无法满足企业的大部分需求。
@@ -58,6 +59,7 @@
 - 现有的开源社区缺乏用户/角色/权限统一管理的功能，用户系统各成一套，二开成本过高。
 
 ## 视频教程
+
 [https://www.bilibili.com/video/BV1ThYQzfEvR](https://www.bilibili.com/video/BV1ThYQzfEvR)
 
 ![](https://76.nansin.top/github/bilibili002.png)
@@ -103,19 +105,19 @@
 
 - **论坛管理**
 
-  ![image](https://76.nansin.top/github/bbs/bbs-manage.png)
-  
+  ![](https://76.nansin.top/github/bbs/bbs-manage.png)
+
 - **文章**
 
-  ![image](https://76.nansin.top/github/bbs/bbs-article.png)
+  ![](https://76.nansin.top/github/bbs/bbs-article.png)
 
 - **问答**
 
-  ![image](https://76.nansin.top/github/bbs/bbs-issue.png)
+  ![](https://76.nansin.top/github/bbs/bbs-issue.png)
 
 - **话题**
 
-  ![image](https://76.nansin.top/github/bbs/bbs-topic.png)
+  ![](https://76.nansin.top/github/bbs/bbs-topic.png)
 
 - **积分系统**
 
@@ -123,22 +125,21 @@
 
 - **消息通知**
 
-  ![image](https://76.nansin.top/github/bbs/message_notification.png)
+  ![](https://76.nansin.top/github/bbs/message_notification.png)
 
 - **创作中心**
 
-  ![image](https://76.nansin.top/github/bbs/creative_center.png)
+  ![](https://76.nansin.top/github/bbs/creative_center.png)
 
 - **个人主页**
 
-  ![image](https://76.nansin.top/github/bbs/ns-bbs-homepage.png)
+  ![](https://76.nansin.top/github/bbs/ns-bbs-homepage.png)
 
 - **切换主题**
 
   ![](https://76.nansin.top/github/bbs/ns-bbs-theme.png)
 
   完整体验去 **商业版演示系统**：[https://bbs-corp.nansin.top/](https://bbs-corp.nansin.top/)
-
 
 ### 管理系统
 
@@ -149,7 +150,7 @@
 - **组织架构**
 
   ![](https://76.nansin.top/github/manage/organizational_structure.png)
-  
+
 - **系统管理**
 
   ![](https://76.nansin.top/github/manage/system_management.png)
@@ -171,4 +172,3 @@
   ![](https://76.nansin.top/github/manage/access_log.png)
 
   完整体验去 **商业版演示系统**：[https://bbs-corp.nansin.top/](https://bbs-corp.nansin.top/)
-  
